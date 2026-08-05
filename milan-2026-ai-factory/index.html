@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Factory That Never Sleeps — ServerlessDays Milan 2026</title>
+  <meta name="description" content="Building an Autonomous Dev Pipeline with Serverless Agents — Martin Mueller, ServerlessDays Milan 2026">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#38bdf8', dark: '#0ea5e9' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-slate-100 antialiased">
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Title -->
+      <section>
+        <div class="flex flex-col items-center justify-center gap-6 text-center">
+          <p class="text-brand text-sm font-semibold uppercase tracking-[0.3em]">ServerlessDays Milan 2026 · 13 Oct</p>
+          <h1 class="text-4xl font-bold leading-tight max-w-4xl">The AI Factory That Never Sleeps</h1>
+          <p class="text-xl text-slate-300 max-w-3xl">Building an Autonomous Dev Pipeline with Serverless Agents</p>
+          <div class="mt-8 flex flex-col gap-1 text-slate-400">
+            <p class="text-lg text-slate-200">Martin Mueller</p>
+            <p>AWS Community Builder · martinmueller.dev</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Hook -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
+        <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
+        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li class="fragment">GitHub issue arrives at 2am</li>
+          <li class="fragment">Agent plans, codes, opens PR — no human in the loop</li>
+          <li class="fragment">Runs on serverless: spin up, work, scale to zero</li>
+          <li class="fragment fade-up text-brand">What could go wrong? (spoiler: a lot)</li>
+        </ul>
+      </section>
+
+      <!-- 3. AI Factory overview -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
+          <h3 class="text-3xl font-bold mb-8">The AI Factory</h3>
+          <div class="grid grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-brand font-semibold mb-2">Core pipeline</p>
+              <p class="text-slate-300">Issue → plan → code → test → PR</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-brand font-semibold mb-2">Side tasks</p>
+              <p class="text-slate-300">Email, calendar, contacts, heartbeats</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-brand font-semibold mb-2">Production</p>
+              <p class="text-slate-300">Months live · dozens of issues processed</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-brand font-semibold mb-2">Stack</p>
+              <p class="text-slate-300">OpenClaw + AWS serverless</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
+          <div class="flex flex-wrap items-center justify-center gap-3 text-lg">
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">GitHub webhook</span>
+            <span class="text-brand">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Plan agent</span>
+            <span class="text-brand">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Code agent</span>
+            <span class="text-brand">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">PR</span>
+          </div>
+          <p class="fragment mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
+        </section>
+      </section>
+
+      <!-- 4. Architecture -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
+          <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless</h3>
+          <img src="assets/architecture.svg" alt="Architecture diagram" class="mx-auto max-h-80 w-full object-contain">
+          <p class="mt-4 text-slate-400 text-sm">API Gateway → EventBridge → Lambda → Step Functions</p>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Key components</h3>
+          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment"><span class="text-brand font-mono">API Gateway</span> — webhook ingress (GitHub, Telegram)</li>
+            <li class="fragment"><span class="text-brand font-mono">EventBridge</span> — event routing &amp; scheduling</li>
+            <li class="fragment"><span class="text-brand font-mono">Lambda</span> — agent compute per turn</li>
+            <li class="fragment"><span class="text-brand font-mono">Step Functions</span> — workflows &gt;15 min</li>
+            <li class="fragment"><span class="text-brand font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Multi-agent coordination</h3>
+          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment">Reasoning models for planning</li>
+            <li class="fragment">Specialized agents for coding &amp; review</li>
+            <li class="fragment">Each agent = ephemeral function invocation</li>
+            <li class="fragment">Shared state via DynamoDB + embeddings</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- 5. Why serverless -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
+        <h3 class="text-3xl font-bold mb-8">Bursty by nature</h3>
+        <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+          <div class="fragment">
+            <p class="text-brand font-semibold text-xl mb-2">Agent workloads</p>
+            <p class="text-slate-300">Issue in → 3 min intense work → idle</p>
+          </div>
+          <div class="fragment">
+            <p class="text-brand font-semibold text-xl mb-2">VPS alternative</p>
+            <p class="text-slate-300">€10/mo fixed, 95% idle</p>
+          </div>
+          <div class="fragment">
+            <p class="text-brand font-semibold text-xl mb-2">Serverless win</p>
+            <p class="text-slate-300">Pay per invocation · scale to zero</p>
+          </div>
+          <div class="fragment">
+            <p class="text-brand font-semibold text-xl mb-2">Caveat</p>
+            <p class="text-slate-300">LLM tokens dwarf infra either way</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. War stories -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
+          <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
+          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+            <li class="fragment">Cold start vs. context loading — real latency bottleneck</li>
+            <li class="fragment">Stateful memory on stateless infra</li>
+            <li class="fragment">Multi-agent coordination across invocations</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
+          <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops</li>
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Runaway token spend</li>
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Hallucinated git commands</li>
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups</li>
+          </ul>
+          <p class="fragment mt-8 text-slate-400">TODO: anonymized incident examples</p>
+        </section>
+      </section>
+
+      <!-- 7. Economics -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Economics</h2>
+        <h3 class="text-3xl font-bold mb-8">Real numbers</h3>
+        <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-brand">~€2–4</p>
+            <p class="mt-2 text-slate-400">AWS infra / month</p>
+          </div>
+          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-amber-400">~95%</p>
+            <p class="mt-2 text-slate-400">LLM token costs</p>
+          </div>
+        </div>
+        <p class="fragment mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
+      </section>
+
+      <!-- 8. Live demo -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
+        <h3 class="text-3xl font-bold mb-6">Issue → merged PR in &lt;5 min</h3>
+        <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
+          <li class="fragment">1. Create GitHub issue</li>
+          <li class="fragment">2. Webhook triggers agent pipeline</li>
+          <li class="fragment">3. Agent plans + implements</li>
+          <li class="fragment">4. PR opened — trace in CloudWatch</li>
+        </ol>
+        <p class="fragment mt-8 text-slate-500">Fallback: assets/demo-fallback.png</p>
+      </section>
+
+      <!-- 9. Takeaways -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
+        <h3 class="text-3xl font-bold mb-8">When to build an AI Factory</h3>
+        <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-lg">
+          <div class="fragment">
+            <p class="text-green-400 font-semibold mb-2">✓ Do</p>
+            <ul class="space-y-2 text-slate-300">
+              <li>Bursty, async workloads</li>
+              <li>Issue-driven automation</li>
+              <li>Burst economics over idle servers</li>
+            </ul>
+          </div>
+          <div class="fragment">
+            <p class="text-red-400 font-semibold mb-2">✗ Don't</p>
+            <ul class="space-y-2 text-slate-300">
+              <li>Persistent WebSockets</li>
+              <li>Long-lived browser sessions</li>
+              <li>Real-time sub-second latency</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Q&A + bio -->
+      <section>
+        <div class="flex flex-col items-center gap-6 text-center">
+          <h2 class="text-4xl font-bold">Questions?</h2>
+          <div class="mt-4 space-y-2 text-slate-300">
+            <p class="text-xl text-slate-100">Martin Mueller</p>
+            <p>martinmueller.dev</p>
+            <p>github.com/mmuller88 · linkedin.com/in/martinmueller88</p>
+          </div>
+          <p class="mt-8 text-brand text-sm uppercase tracking-widest">ServerlessDays Milan 2026</p>
+        </div>
+        <aside class="notes">
+          40 min total: ~35 min content + ~5 min Q&A buffer.
+          Hold social announcement until organizer lineup reveal.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      width: 1280,
+      height: 720,
+      margin: 0.08,
+      transition: 'slide',
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
