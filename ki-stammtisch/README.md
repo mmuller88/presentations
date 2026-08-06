@@ -27,6 +27,6 @@ python3 -m http.server 8080
 
 ## Abstract
 
-Code schreiben mit KI kappt super. Bei mir liegt der Mehrwert aber nicht nur dort — beruflich und privat: E-Mails, Rechnungen, Blogposts, CFP-Abstracts, Kalender, Morgen-Briefings, Einladungen, Alltags-Recherche — alles per Telegram oder Slack.
+Code schreiben mit KI klappt super. Bei mir liegt der Mehrwert aber nicht nur dort — beruflich und privat: E-Mails, Rechnungen, Blogposts, CFP-Abstracts, Kalender, Morgen-Briefings, Einladungen, Alltags-Recherche — alles per Telegram oder Slack.
 
 Drei Ansätze im Vergleich: **OpenClaw** (self-hosted), **Hermes** (Nous Research), **Langdock** (hosted, DSGVO).
