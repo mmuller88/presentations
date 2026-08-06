@@ -7,6 +7,7 @@ Standalone HTML slide decks for conference talks.
 | Event | Path | URL |
 |-------|------|-----|
 | ServerlessDays Milan 2026 | [`milan-2026-ai-factory/`](milan-2026-ai-factory/) | https://mmuller88.github.io/presentations/milan-2026-ai-factory/ |
+| KI Stammtisch | [`ki-stammtisch/`](ki-stammtisch/) | https://mmuller88.github.io/presentations/ki-stammtisch/ |
 
 ## Conventions
 
