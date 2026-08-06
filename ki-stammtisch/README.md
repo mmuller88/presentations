@@ -14,24 +14,26 @@
 
 Base: `https://mmuller88.github.io/presentations/ki-stammtisch/#/`
 
-| Slide | URL |
-|-------|-----|
-| Titel | [#/titel](https://mmuller88.github.io/presentations/ki-stammtisch/#/titel) |
-| Intro | [#/intro](https://mmuller88.github.io/presentations/ki-stammtisch/#/intro) |
-| Hook | [#/hook](https://mmuller88.github.io/presentations/ki-stammtisch/#/hook) |
-| Workflows | [#/workflows](https://mmuller88.github.io/presentations/ki-stammtisch/#/workflows) |
-| Reihenfolge | [#/reihenfolge](https://mmuller88.github.io/presentations/ki-stammtisch/#/reihenfolge) |
-| Flow | [#/flow](https://mmuller88.github.io/presentations/ki-stammtisch/#/flow) |
-| OpenClaw | [#/openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/openclaw) |
-| Warum OpenClaw | [#/openclaw-warum](https://mmuller88.github.io/presentations/ki-stammtisch/#/openclaw-warum) |
-| Vergleich | [#/vergleich](https://mmuller88.github.io/presentations/ki-stammtisch/#/vergleich) |
-| Tools | [#/tools](https://mmuller88.github.io/presentations/ki-stammtisch/#/tools) |
-| Achsen | [#/achsen](https://mmuller88.github.io/presentations/ki-stammtisch/#/achsen) |
-| Pannen | [#/pannen](https://mmuller88.github.io/presentations/ki-stammtisch/#/pannen) |
-| Was funktioniert | [#/funktioniert](https://mmuller88.github.io/presentations/ki-stammtisch/#/funktioniert) |
-| Self-hosting | [#/self-hosting](https://mmuller88.github.io/presentations/ki-stammtisch/#/self-hosting) |
-| Fazit | [#/fazit](https://mmuller88.github.io/presentations/ki-stammtisch/#/fazit) |
-| Fragen | [#/fragen](https://mmuller88.github.io/presentations/ki-stammtisch/#/fragen) |
+| # | Slide | URL |
+|---|-------|-----|
+| 1 | Titel | [#/1-titel](https://mmuller88.github.io/presentations/ki-stammtisch/#/1-titel) |
+| 2 | Intro | [#/2-intro](https://mmuller88.github.io/presentations/ki-stammtisch/#/2-intro) |
+| 3 | Hook | [#/3-hook](https://mmuller88.github.io/presentations/ki-stammtisch/#/3-hook) |
+| 4 | Workflows | [#/4-workflows](https://mmuller88.github.io/presentations/ki-stammtisch/#/4-workflows) |
+| 5 | Reihenfolge | [#/5-reihenfolge](https://mmuller88.github.io/presentations/ki-stammtisch/#/5-reihenfolge) |
+| 6 | Flow | [#/6-flow](https://mmuller88.github.io/presentations/ki-stammtisch/#/6-flow) |
+| 7 | OpenClaw | [#/7-openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/7-openclaw) |
+| 8 | Warum OpenClaw | [#/8-openclaw-warum](https://mmuller88.github.io/presentations/ki-stammtisch/#/8-openclaw-warum) |
+| 9 | Vergleich | [#/9-vergleich](https://mmuller88.github.io/presentations/ki-stammtisch/#/9-vergleich) |
+| 10 | Tools | [#/10-tools](https://mmuller88.github.io/presentations/ki-stammtisch/#/10-tools) |
+| 11 | Achsen | [#/11-achsen](https://mmuller88.github.io/presentations/ki-stammtisch/#/11-achsen) |
+| 12 | Pannen | [#/12-pannen](https://mmuller88.github.io/presentations/ki-stammtisch/#/12-pannen) |
+| 13 | Was funktioniert | [#/13-funktioniert](https://mmuller88.github.io/presentations/ki-stammtisch/#/13-funktioniert) |
+| 14 | Self-hosting | [#/14-self-hosting](https://mmuller88.github.io/presentations/ki-stammtisch/#/14-self-hosting) |
+| 15 | Fazit | [#/15-fazit](https://mmuller88.github.io/presentations/ki-stammtisch/#/15-fazit) |
+| 16 | Fragen | [#/16-fragen](https://mmuller88.github.io/presentations/ki-stammtisch/#/16-fragen) |
+
+Numeric shortcut (0-indexed): `#/0` … `#/15`
 
 ## Local preview
 
