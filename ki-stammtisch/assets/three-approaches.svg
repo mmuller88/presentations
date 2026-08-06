@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" role="img" aria-label="Drei KI-Assistenten-Ansätze im Vergleich">
+  <defs>
+    <style>
+      .col { fill: #1e293b; stroke: #475569; stroke-width: 2; }
+      .hdr { fill: #a78bfa; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .cell { fill: #e2e8f0; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; }
+      .label { fill: #94a3b8; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; }
+      .title { fill: #c4b5fd; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
+    </style>
+  </defs>
+
+  <text x="450" y="24" text-anchor="middle" class="title">DREI ANSÄTZE  TRADE-OFFS (PLACEHOLDER)</text>
+
+  <!-- Headers -->
+  <rect x="20" y="44" width="140" height="36" class="col"/>
+  <rect x="180" y="44" width="220" height="36" class="col"/>
+  <rect x="420" y="44" width="220" height="36" class="col"/>
+  <rect x="660" y="44" width="220" height="36" class="col"/>
+
+  <text x="90" y="67" text-anchor="middle" class="hdr">Kriterium</text>
+  <text x="290" y="67" text-anchor="middle" class="hdr">OpenClaw</text>
+  <text x="530" y="67" text-anchor="middle" class="hdr">Hermes</text>
+  <text x="770" y="67" text-anchor="middle" class="hdr">Langdock</text>
+
+  <!-- Row 1 -->
+  <rect x="20" y="88" width="140" height="48" class="col"/>
+  <rect x="180" y="88" width="220" height="48" class="col"/>
+  <rect x="420" y="88" width="220" height="48" class="col"/>
+  <rect x="660" y="88" width="220" height="48" class="col"/>
+  <text x="90" y="117" text-anchor="middle" class="label">Hosting</text>
+  <text x="290" y="117" text-anchor="middle" class="cell">Self-hosted VPS</text>
+  <text x="530" y="117" text-anchor="middle" class="cell">Self-hosted</text>
+  <text x="770" y="117" text-anchor="middle" class="cell">Hosted (DSGVO)</text>
+
+  <!-- Row 2 -->
+  <rect x="20" y="144" width="140" height="48" class="col"/>
+  <rect x="180" y="144" width="220" height="48" class="col"/>
+  <rect x="420" y="144" width="220" height="48" class="col"/>
+  <rect x="660" y="144" width="220" height="48" class="col"/>
+  <text x="90" y="173" text-anchor="middle" class="label">Stärke</text>
+  <text x="290" y="168" text-anchor="middle" class="cell">Agent tut Dinge</text>
+  <text x="290" y="184" text-anchor="middle" class="cell">Mail, Kalender, Messenger</text>
+  <text x="530" y="168" text-anchor="middle" class="cell">Lern-Loop</text>
+  <text x="530" y="184" text-anchor="middle" class="cell">persönlicher Assistent</text>
+  <text x="770" y="168" text-anchor="middle" class="cell">Enterprise-Plattform</text>
+  <text x="770" y="184" text-anchor="middle" class="cell">Browser, Compliance</text>
+
+  <!-- Row 3 -->
+  <rect x="20" y="200" width="140" height="48" class="col"/>
+  <rect x="180" y="200" width="220" height="48" class="col"/>
+  <rect x="420" y="200" width="220" height="48" class="col"/>
+  <rect x="660" y="200" width="220" height="48" class="col"/>
+  <text x="90" y="229" text-anchor="middle" class="label">Trade-off</text>
+  <text x="290" y="224" text-anchor="middle" class="cell">Setup + Betrieb</text>
+  <text x="290" y="240" text-anchor="middle" class="cell">vs. volle Kontrolle</text>
+  <text x="530" y="224" text-anchor="middle" class="cell">Experimentell</text>
+  <text x="530" y="240" text-anchor="middle" class="cell">weniger Integrationen</text>
+  <text x="770" y="224" text-anchor="middle" class="cell">Convenience</text>
+  <text x="770" y="240" text-anchor="middle" class="cell">weniger Agent-Autonomie</text>
+
+  <text x="450" y="300" text-anchor="middle" class="label">TODO Phase 2: echte Screenshots + persönliche Erfahrungen</text>
+</svg>

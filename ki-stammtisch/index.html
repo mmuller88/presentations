@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Assistenten im Beruf und Alltag — KI Stammtisch</title>
+  <meta name="description" content="Was wirklich Zeit spart — Martin Mueller, KI Stammtisch">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#a78bfa', dark: '#8b5cf6' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-slate-100 antialiased">
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Titel -->
+      <section>
+        <div class="flex flex-col items-center justify-center gap-6 text-center">
+          <p class="text-brand text-sm font-semibold uppercase tracking-[0.3em]">KI Stammtisch</p>
+          <h1 class="text-4xl font-bold leading-tight max-w-4xl">KI-Assistenten im Beruf und Alltag</h1>
+          <p class="text-xl text-slate-300 max-w-3xl">Was wirklich Zeit spart</p>
+          <div class="mt-8 flex flex-col gap-1 text-slate-400">
+            <p class="text-lg text-slate-200">Martin Mueller</p>
+            <p>martinmueller.dev · AWS Community Builder</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Hook -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Einstieg</h2>
+        <h3 class="text-3xl font-bold mb-8">Code schreiben mit KI? Klappt super.</h3>
+        <p class="text-2xl text-slate-300 mb-8">Aber bei mir liegt der Mehrwert woanders.</p>
+        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li class="fragment">Beruflich <em>und</em> privat</li>
+          <li class="fragment">Nicht Chat-Fenster — sondern Agent, der Dinge <strong>erledigt</strong></li>
+          <li class="fragment text-brand">Alles per Telegram oder Slack</li>
+        </ul>
+        <aside class="notes">
+          Kein Live-Coding. Fokus: echte Workflows, ehrliche Fehler, wann Self-hosting lohnt.
+          Zielgruppe: neugierig, kein Dev-Background nötig.
+        </aside>
+      </section>
+
+      <!-- 3. Workflows -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Alltag</h2>
+          <h3 class="text-3xl font-bold mb-8">Was ich wirklich delegiere</h3>
+          <div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto text-left text-lg">
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">E-Mails (Steuerberater, Kita, …)</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">Rechnungen vorbereiten</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">Blogposts aus Sprachnachrichten</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">CFP-Abstracts</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">Kalender &amp; Termine</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">Morgen-Briefings</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">Geburtstagseinladungen</div>
+            <div class="fragment rounded-xl bg-surface-light p-4 border border-slate-700">Alltags-Recherche</div>
+          </div>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Freelancer bis Familie</h3>
+          <div class="flex flex-wrap items-center justify-center gap-3 text-lg">
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Sprachnachricht</span>
+            <span class="text-brand">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Agent versteht Kontext</span>
+            <span class="text-brand">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Entwurf / Aktion</span>
+            <span class="text-brand">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Du gibst frei</span>
+          </div>
+          <p class="fragment mt-10 text-slate-400">TODO: 2–3 echte Beispiele mit Screenshots</p>
+        </section>
+      </section>
+
+      <!-- 4. OpenClaw -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Mein Setup</h2>
+          <h3 class="text-3xl font-bold mb-6">OpenClaw — seit Monaten im Einsatz</h3>
+          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment">Self-hosted auf einem VPS</li>
+            <li class="fragment">Persistenter Agent mit Gedächtnis</li>
+            <li class="fragment">An Mail, Kalender, Kontakte, Messenger angebunden</li>
+            <li class="fragment">Telegram als Haupt-Interface</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Warum OpenClaw bei mir gewinnt</h3>
+          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment"><span class="text-brand">Agent der Dinge tut</span> — nicht nur antwortet</li>
+            <li class="fragment">Erinnert sich an Kontext über Wochen</li>
+            <li class="fragment">Volle Kontrolle über Daten &amp; Integrationen</li>
+            <li class="fragment">Open Source — du besitzt deinen Assistenten</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- 5. Drei Ansätze -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Vergleich</h2>
+          <h3 class="text-3xl font-bold mb-6">Drei Ansätze, drei Trade-offs</h3>
+          <img src="assets/three-approaches.svg" alt="Vergleich OpenClaw, Hermes, Langdock" class="mx-auto max-h-72 w-full object-contain">
+        </section>
+        <section>
+          <div class="grid grid-cols-3 gap-4 max-w-5xl mx-auto text-left text-base">
+            <div class="fragment rounded-xl bg-surface-light p-5 border border-violet-700/50">
+              <p class="text-brand font-bold text-lg mb-2">OpenClaw</p>
+              <p class="text-slate-300">Self-hosted VPS · Agent mit Gedächtnis · Mail, Kalender, Messenger</p>
+              <p class="mt-3 text-slate-500 text-sm">Kontrolle ↑ · Setup-Aufwand ↑</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-5 border border-slate-600">
+              <p class="text-brand font-bold text-lg mb-2">Hermes</p>
+              <p class="text-slate-300">Nous Research · self-hosted · Lern-Loop · persönlicher Assistent</p>
+              <p class="mt-3 text-slate-500 text-sm">Experimentell · weniger Integrationen</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-5 border border-slate-600">
+              <p class="text-brand font-bold text-lg mb-2">Langdock</p>
+              <p class="text-slate-300">Hosted · DSGVO-orientiert · Enterprise · Browser-Plattform</p>
+              <p class="mt-3 text-slate-500 text-sm">Convenience ↑ · weniger Autonomie</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-8">Die Achsen</h3>
+          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment"><span class="text-brand">Kontrolle</span> vs. Convenience</li>
+            <li class="fragment"><span class="text-brand">Kosten</span> vs. Setup-Aufwand</li>
+            <li class="fragment"><span class="text-brand">„Agent der Dinge tut“</span> vs. „sichere KI-Plattform im Browser“</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- 6. War stories -->
+      <section>
+        <section>
+          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Ehrlich</h2>
+          <h3 class="text-3xl font-bold mb-8">Was schiefging</h3>
+          <ul class="space-y-4 text-left text-xl max-w-3xl mx-auto">
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-5 py-4 text-slate-200">
+              Mail zu früh raus — Agent hatte „Entwurf“ als „senden“ verstanden
+            </li>
+            <li class="fragment rounded-lg bg-amber-950/40 border border-amber-800/50 px-5 py-4 text-slate-200">
+              Zu viel Autonomie ohne Freigabe-Schritt
+            </li>
+            <li class="fragment rounded-lg bg-surface-light border border-slate-600 px-5 py-4 text-slate-300">
+              TODO: weitere echte Anekdoten
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-8">Was funktioniert</h3>
+          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment">Sprachnachricht → strukturierter Entwurf</li>
+            <li class="fragment">Morgen-Briefing: Mail + Kalender + Wetter</li>
+            <li class="fragment">Recherche mit Quellen, nicht nur Antwort</li>
+            <li class="fragment">Freigabe-Workflow vor allem, was rausgeht</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- 7. Self-hosting -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Entscheidung</h2>
+        <h3 class="text-3xl font-bold mb-8">Wann lohnt sich Self-hosting?</h3>
+        <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto text-left text-lg">
+          <div class="fragment">
+            <p class="text-green-400 font-semibold mb-3">✓ Lohnt sich</p>
+            <ul class="space-y-2 text-slate-300">
+              <li>Du willst Mail &amp; Kalender anbinden</li>
+              <li>Daten bleiben bei dir</li>
+              <li>Agent soll proaktiv handeln</li>
+              <li>Du nutzt es täglich</li>
+            </ul>
+          </div>
+          <div class="fragment">
+            <p class="text-amber-400 font-semibold mb-3">→ Eher hosted</p>
+            <ul class="space-y-2 text-slate-300">
+              <li>Nur gelegentliche Fragen</li>
+              <li>Team / Compliance wichtiger</li>
+              <li>Kein Setup-Zeitbudget</li>
+              <li>Browser reicht</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Takeaways -->
+      <section>
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Fazit</h2>
+        <h3 class="text-3xl font-bold mb-8">Mein Takeaway</h3>
+        <ul class="space-y-5 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li class="fragment">KI jenseits von ChatGPT ist Alltag — nicht nur Coding</li>
+          <li class="fragment">Messenger als Interface schlägt Browser-Tab</li>
+          <li class="fragment">Gedächtnis + Integrationen = der eigentliche Mehrwert</li>
+          <li class="fragment text-brand">Start klein. Freigabe vor Senden. Dann erweitern.</li>
+        </ul>
+      </section>
+
+      <!-- 9. Q&A -->
+      <section>
+        <div class="flex flex-col items-center gap-6 text-center">
+          <h2 class="text-4xl font-bold">Fragen?</h2>
+          <div class="mt-4 space-y-2 text-slate-300">
+            <p class="text-xl text-slate-100">Martin Mueller</p>
+            <p>martinmueller.dev</p>
+            <p>github.com/openclaw/openclaw</p>
+          </div>
+          <p class="mt-8 text-brand text-sm uppercase tracking-widest">KI Stammtisch</p>
+        </div>
+        <aside class="notes">
+          ~30–45 Min + Q&A. Zeit für Diskussion: Welches Setup nutzt ihr? Was blockiert euch?
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      width: 1280,
+      height: 720,
+      margin: 0.08,
+      transition: 'slide',
+      plugins: []
+    });
+  </script>
+</body>
+</html>
