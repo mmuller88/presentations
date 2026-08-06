@@ -10,6 +10,28 @@
 - **Live:** https://mmuller88.github.io/presentations/ki-stammtisch/
 - **Direct:** https://mmuller88.github.io/presentations/ki-stammtisch/index.html
 
+## Slide anchors
+
+Base: `https://mmuller88.github.io/presentations/ki-stammtisch/#/`
+
+| Slide | URL |
+|-------|-----|
+| Titel | [#/titel](https://mmuller88.github.io/presentations/ki-stammtisch/#/titel) |
+| Hook | [#/hook](https://mmuller88.github.io/presentations/ki-stammtisch/#/hook) |
+| Workflows | [#/workflows](https://mmuller88.github.io/presentations/ki-stammtisch/#/workflows) |
+| Reihenfolge | [#/reihenfolge](https://mmuller88.github.io/presentations/ki-stammtisch/#/reihenfolge) |
+| Flow | [#/flow](https://mmuller88.github.io/presentations/ki-stammtisch/#/flow) |
+| OpenClaw | [#/openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/openclaw) |
+| Warum OpenClaw | [#/openclaw-warum](https://mmuller88.github.io/presentations/ki-stammtisch/#/openclaw-warum) |
+| Vergleich | [#/vergleich](https://mmuller88.github.io/presentations/ki-stammtisch/#/vergleich) |
+| Tools | [#/tools](https://mmuller88.github.io/presentations/ki-stammtisch/#/tools) |
+| Achsen | [#/achsen](https://mmuller88.github.io/presentations/ki-stammtisch/#/achsen) |
+| Pannen | [#/pannen](https://mmuller88.github.io/presentations/ki-stammtisch/#/pannen) |
+| Was funktioniert | [#/funktioniert](https://mmuller88.github.io/presentations/ki-stammtisch/#/funktioniert) |
+| Self-hosting | [#/self-hosting](https://mmuller88.github.io/presentations/ki-stammtisch/#/self-hosting) |
+| Fazit | [#/fazit](https://mmuller88.github.io/presentations/ki-stammtisch/#/fazit) |
+| Fragen | [#/fragen](https://mmuller88.github.io/presentations/ki-stammtisch/#/fragen) |
+
 ## Local preview
 
 ```bash

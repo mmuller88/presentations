@@ -52,7 +52,7 @@
     <div class="slides">
 
       <!-- 1. Titel -->
-      <section>
+      <section data-id="titel">
         <div class="flex flex-col items-center justify-center gap-4 md:gap-6 text-center px-2">
           <p class="text-brand text-xs md:text-sm font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em]">KI Stammtisch</p>
           <h1 class="text-2xl md:text-4xl font-bold leading-tight max-w-4xl">KI-Assistenten im Beruf und Alltag</h1>
@@ -65,7 +65,7 @@
       </section>
 
       <!-- 2. Hook -->
-      <section>
+      <section data-id="hook">
         <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-4">Einstieg</h2>
         <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-8">Code schreiben mit KI? Klappt super.</h3>
         <p class="text-lg md:text-2xl text-slate-300 mb-4 md:mb-8">Aber bei mir liegt der Mehrwert woanders.</p>
@@ -82,7 +82,7 @@
 
       <!-- 3. Workflows -->
       
-        <section>
+        <section data-id="workflows">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Alltag</h2>
           <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-8">Was ich wirklich delegiere</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 max-w-4xl mx-auto text-left text-sm md:text-lg">
@@ -96,7 +96,25 @@
             <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Alltags-Recherche</div>
           </div>
         </section>
-        <section>
+        <section data-id="reihenfolge">
+          <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-4">Chronologie</h2>
+          <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">Womit ich angefangen habe</h3>
+          <p class="text-sm md:text-base text-slate-400 mb-4">Aus <a href="https://martinmueller.dev/openclaw-de" class="text-brand underline">OpenClaw-Blogpost</a> (Apr) + <a href="https://martinmueller.dev/openclaw-three-months-later-de" class="text-brand underline">3-Monate-Update</a> (Jul)</p>
+          <ol class="space-y-2 md:space-y-3 text-left text-sm md:text-lg text-slate-300 max-w-3xl mx-auto list-decimal list-inside">
+            <li><span class="text-brand font-semibold">GitHub Issues</span> — Ping, Plan, PR (Woche 1)</li>
+            <li><span class="text-brand font-semibold">E-Mail</span> — Kita, Steuerberater, Sportgruppe</li>
+            <li><span class="text-brand font-semibold">Morgen-Briefing</span> — Cron 7:00, Mail + Kalender</li>
+            <li><span class="text-brand font-semibold">Kalender</span> — Konferenz-PDF → Events</li>
+            <li><span class="text-brand font-semibold">Kontakte + Recherche</span> — „Wer ist die Sportgruppe?“</li>
+            <li><span class="text-brand font-semibold">Dokumente</span> — Geburtstagseinladung, Formulare</li>
+            <li class="text-slate-400">── danach (Monat 2–3) ──</li>
+            <li><span class="text-brand font-semibold">Rechnungen</span> — höchster ROI</li>
+            <li><span class="text-brand font-semibold">Blogposts</span> — Sprachnachricht → Entwurf</li>
+            <li><span class="text-brand font-semibold">CFP-Abstracts</span> — Talk-Entwürfe aus Memory</li>
+            <li><span class="text-brand font-semibold">Telegram-Topics</span> — ein Chat, viele Projekte</li>
+          </ol>
+        </section>
+        <section data-id="flow">
           <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-6">Freelancer bis Familie</h3>
           <div class="flex flex-col md:flex-row flex-wrap items-stretch md:items-center justify-center gap-2 md:gap-3 text-sm md:text-lg">
             <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Sprachnachricht</span>
@@ -113,7 +131,7 @@
 
       <!-- 4. OpenClaw -->
       
-        <section>
+        <section data-id="openclaw">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Mein Setup</h2>
           <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">OpenClaw — seit Monaten im Einsatz</h3>
           <ul class="space-y-3 md:space-y-4 text-left text-base md:text-xl text-slate-300 max-w-2xl mx-auto">
@@ -123,7 +141,7 @@
             <li>Telegram als Haupt-Interface</li>
           </ul>
         </section>
-        <section>
+        <section data-id="openclaw-warum">
           <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-6">Warum OpenClaw bei mir gewinnt</h3>
           <ul class="space-y-2 md:space-y-3 text-left text-sm md:text-lg text-slate-300 max-w-2xl mx-auto">
             <li><span class="text-brand">Agent der Dinge tut</span> — nicht nur antwortet</li>
@@ -136,13 +154,13 @@
 
       <!-- 5. Drei Ansätze -->
       
-        <section>
+        <section data-id="vergleich">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Vergleich</h2>
           <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">Drei Ansätze, drei Trade-offs</h3>
           <img src="assets/three-approaches.svg" alt="Vergleich OpenClaw, Hermes, Langdock" class="mx-auto max-h-48 md:max-h-72 w-full object-contain hidden md:block">
           <p class="md:hidden text-sm text-slate-400 mt-2">Details auf der nächsten Folie ↓</p>
         </section>
-        <section>
+        <section data-id="tools">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto text-left text-sm md:text-base">
             <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-violet-700/50">
               <p class="text-brand font-bold text-base md:text-lg mb-2">OpenClaw</p>
@@ -161,7 +179,7 @@
             </div>
           </div>
         </section>
-        <section>
+        <section data-id="achsen">
           <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-8">Die Achsen</h3>
           <ul class="space-y-3 md:space-y-4 text-left text-base md:text-xl text-slate-300 max-w-2xl mx-auto">
             <li><span class="text-brand">Kontrolle</span> vs. Convenience</li>
@@ -173,7 +191,7 @@
 
       <!-- 6. War stories -->
       
-        <section>
+        <section data-id="pannen">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Ehrlich</h2>
           <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-8">Was schiefging</h3>
           <ul class="space-y-3 md:space-y-4 text-left text-base md:text-xl max-w-3xl mx-auto">
@@ -188,7 +206,7 @@
             </li>
           </ul>
         </section>
-        <section>
+        <section data-id="funktioniert">
           <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-8">Was funktioniert</h3>
           <ul class="space-y-3 md:space-y-4 text-left text-base md:text-xl text-slate-300 max-w-2xl mx-auto">
             <li>Sprachnachricht → strukturierter Entwurf</li>
@@ -200,7 +218,7 @@
       
 
       <!-- 7. Self-hosting -->
-      <section>
+      <section data-id="self-hosting">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Entscheidung</h2>
         <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-8">Wann lohnt sich Self-hosting?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-4xl mx-auto text-left text-sm md:text-lg">
@@ -226,7 +244,7 @@
       </section>
 
       <!-- 8. Takeaways -->
-      <section>
+      <section data-id="fazit">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Fazit</h2>
         <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-8">Mein Takeaway</h3>
         <ul class="space-y-3 md:space-y-5 text-left text-base md:text-xl text-slate-300 max-w-3xl mx-auto">
@@ -238,7 +256,7 @@
       </section>
 
       <!-- 9. Q&A -->
-      <section>
+      <section data-id="fragen">
         <div class="flex flex-col items-center gap-4 md:gap-6 text-center px-2">
           <h2 class="text-3xl md:text-4xl font-bold">Fragen?</h2>
           <div class="mt-2 md:mt-4 space-y-2 text-sm md:text-base text-slate-300">
