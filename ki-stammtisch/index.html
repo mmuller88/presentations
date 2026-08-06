@@ -133,7 +133,10 @@
       
         <section data-id="openclaw">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Mein Setup</h2>
-          <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">OpenClaw — seit Monaten im Einsatz</h3>
+          <div class="flex items-center justify-center gap-3 mb-4 md:mb-6">
+            <img src="assets/icons/openclaw.svg" alt="OpenClaw Logo" class="h-12 w-12 md:h-14 md:w-14 object-contain" loading="lazy">
+            <h3 class="text-xl md:text-3xl font-bold">OpenClaw — seit Monaten im Einsatz</h3>
+          </div>
           <ul class="space-y-3 md:space-y-4 text-left text-base md:text-xl text-slate-300 max-w-2xl mx-auto">
             <li>Self-hosted auf einem VPS</li>
             <li>Persistenter Agent mit Gedächtnis</li>
@@ -157,23 +160,46 @@
         <section data-id="vergleich">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Vergleich</h2>
           <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">Drei Ansätze, drei Trade-offs</h3>
-          <img src="assets/three-approaches.svg" alt="Vergleich OpenClaw, Hermes, Langdock" class="mx-auto max-h-48 md:max-h-72 w-full object-contain hidden md:block">
+          <div class="flex items-center justify-center gap-6 md:gap-10 mb-4 md:mb-6">
+            <div class="flex flex-col items-center gap-2">
+              <img src="assets/icons/openclaw.svg" alt="OpenClaw" class="h-12 w-12 md:h-16 md:w-16 object-contain" loading="lazy">
+              <span class="text-xs md:text-sm text-slate-400">OpenClaw</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <img src="assets/icons/hermes.png" alt="Hermes" class="h-12 w-12 md:h-16 md:w-16 object-contain rounded-xl bg-white/95 p-1" loading="lazy">
+              <span class="text-xs md:text-sm text-slate-400">Hermes</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <img src="assets/icons/langdock.png" alt="Langdock" class="h-12 w-12 md:h-16 md:w-16 object-contain" loading="lazy">
+              <span class="text-xs md:text-sm text-slate-400">Langdock</span>
+            </div>
+          </div>
+          <img src="assets/three-approaches.svg" alt="Vergleich OpenClaw, Hermes, Langdock" class="mx-auto max-h-40 md:max-h-56 w-full object-contain hidden md:block">
           <p class="md:hidden text-sm text-slate-400 mt-2">Details auf der nächsten Folie ↓</p>
         </section>
         <section data-id="tools">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto text-left text-sm md:text-base">
             <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-violet-700/50">
-              <p class="text-brand font-bold text-base md:text-lg mb-2">OpenClaw</p>
+              <div class="flex items-center gap-3 mb-3">
+                <img src="assets/icons/openclaw.svg" alt="" class="h-10 w-10 object-contain shrink-0" loading="lazy">
+                <p class="text-brand font-bold text-base md:text-lg">OpenClaw</p>
+              </div>
               <p class="text-slate-300">Self-hosted VPS · Agent mit Gedächtnis · Mail, Kalender, Messenger</p>
               <p class="mt-3 text-slate-500 text-sm">Kontrolle ↑ · Setup-Aufwand ↑</p>
             </div>
             <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-slate-600">
-              <p class="text-brand font-bold text-base md:text-lg mb-2">Hermes</p>
+              <div class="flex items-center gap-3 mb-3">
+                <img src="assets/icons/hermes.png" alt="" class="h-10 w-10 object-contain shrink-0 rounded-lg bg-white/95 p-0.5" loading="lazy">
+                <p class="text-brand font-bold text-base md:text-lg">Hermes</p>
+              </div>
               <p class="text-slate-300">Nous Research · self-hosted · Lern-Loop · persönlicher Assistent</p>
               <p class="mt-3 text-slate-500 text-sm">Experimentell · weniger Integrationen</p>
             </div>
             <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-slate-600">
-              <p class="text-brand font-bold text-base md:text-lg mb-2">Langdock</p>
+              <div class="flex items-center gap-3 mb-3">
+                <img src="assets/icons/langdock.png" alt="" class="h-10 w-10 object-contain shrink-0" loading="lazy">
+                <p class="text-brand font-bold text-base md:text-lg">Langdock</p>
+              </div>
               <p class="text-slate-300">Hosted · DSGVO-orientiert · Enterprise · Browser-Plattform</p>
               <p class="mt-3 text-slate-500 text-sm">Convenience ↑ · weniger Autonomie</p>
             </div>

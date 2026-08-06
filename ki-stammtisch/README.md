@@ -52,3 +52,11 @@ python3 -m http.server 8080
 Code schreiben mit KI klappt super. Bei mir liegt der Mehrwert aber nicht nur dort — beruflich und privat: E-Mails, Rechnungen, Blogposts, CFP-Abstracts, Kalender, Morgen-Briefings, Einladungen, Alltags-Recherche — alles per Telegram oder Slack.
 
 Drei Ansätze im Vergleich: **OpenClaw** (self-hosted), **Hermes** (Nous Research), **Langdock** (hosted, DSGVO).
+
+## Brand icons
+
+Official assets in `assets/icons/`:
+
+- OpenClaw — `openclaw/openclaw` `ui/public/favicon.svg`
+- Hermes — `NousResearch/hermes-agent` `apps/desktop/public/hermes.png`
+- Langdock — Langdock website brand mark (`Logo_Trumpf`)
