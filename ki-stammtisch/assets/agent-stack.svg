@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-label="Agent-Stack: OpenClaw und Hermes im Verhältnis zu LLM, Harness und Tools">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-label="Agent-Stack">
   <defs>
     <style>
       .title { fill: #c4b5fd; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; }
@@ -18,19 +18,15 @@
     </marker>
   </defs>
 
-  <text x="460" y="24" text-anchor="middle" class="title">VOM LLM ZUM AGENTEN  WER MACHT WAS?</text>
+  <text x="460" y="24" text-anchor="middle" class="title">VOM LLM ZUM AGENTEN</text>
 
-  <!-- User -->
   <rect x="340" y="40" width="240" height="44" rx="10" class="layer"/>
-  <text x="460" y="67" text-anchor="middle" class="hdr">Du · Telegram / Slack / Browser</text>
-
+  <text x="460" y="67" text-anchor="middle" class="hdr">Du - Telegram / Slack / Browser</text>
   <path d="M460 84 L460 98" class="arrow"/>
 
-  <!-- Harness layer - highlighted -->
   <rect x="120" y="100" width="680" height="92" rx="12" class="layer-hl"/>
   <text x="460" y="122" text-anchor="middle" class="hdr">Agent Harness / Runtime</text>
-  <text x="460" y="140" text-anchor="middle" class="sub">Gedächtnis · Tool-Calling · Cron · Channels · Skills · Freigaben</text>
-
+  <text x="460" y="140" text-anchor="middle" class="sub">Gedaechtnis, Tool-Calling, Cron, Channels, Skills</text>
   <rect x="170" y="152" width="130" height="28" rx="14" class="pill"/>
   <text x="235" y="171" text-anchor="middle" class="pill-t">OpenClaw</text>
   <rect x="320" y="152" width="110" height="28" rx="14" class="pill"/>
@@ -39,28 +35,22 @@
   <text x="505" y="171" text-anchor="middle" class="pill-t">Langdock</text>
   <rect x="580" y="152" width="170" height="28" rx="14" class="pill"/>
   <text x="665" y="171" text-anchor="middle" class="pill-t">Cursor / Claude Code</text>
-
   <path d="M460 192 L460 206" class="arrow"/>
 
-  <!-- LLM layer -->
   <rect x="200" y="208" width="520" height="72" rx="12" class="layer"/>
-  <text x="460" y="232" text-anchor="middle" class="hdr">LLM · Reasoning Engine</text>
-  <text x="460" y="252" text-anchor="middle" class="sub">Claude · GPT · Gemini · Llama  versteht, plant, ruft Tools auf</text>
-  <text x="460" y="270" text-anchor="middle" class="item">` fertiger Assistent  nur das Gehirn</text>
-
+  <text x="460" y="232" text-anchor="middle" class="hdr">LLM - Reasoning Engine</text>
+  <text x="460" y="252" text-anchor="middle" class="sub">Claude, GPT, Gemini, Llama</text>
+  <text x="460" y="270" text-anchor="middle" class="item">Nicht der Assistent - nur das Gehirn</text>
   <path d="M460 280 L460 294" class="arrow"/>
 
-  <!-- Tools layer -->
   <rect x="120" y="296" width="680" height="72" rx="12" class="layer"/>
-  <text x="460" y="320" text-anchor="middle" class="hdr">Tools &amp; Integrationen</text>
-  <text x="460" y="340" text-anchor="middle" class="item">E-Mail · Kalender · GitHub · MCP · Browser · Dateien · APIs</text>
+  <text x="460" y="320" text-anchor="middle" class="hdr">Tools und Integrationen</text>
+  <text x="460" y="340" text-anchor="middle" class="item">E-Mail, Kalender, GitHub, MCP, Browser, APIs</text>
   <text x="460" y="358" text-anchor="middle" class="sub">Harness verbindet LLM mit der echten Welt</text>
 
-  <!-- Chat-only contrast box -->
   <rect x="24" y="100" width="76" height="268" rx="10" class="chat"/>
-  <text x="62" y="128" text-anchor="middle" class="sub" transform="rotate(-90 62 128)">nur Chat UI</text>
   <text x="62" y="220" text-anchor="middle" class="item" transform="rotate(-90 62 220)">ChatGPT</text>
-  <text x="62" y="320" text-anchor="middle" class="note" transform="rotate(-90 62 320)">LLM ohne Harness</text>
+  <text x="62" y="320" text-anchor="middle" class="note" transform="rotate(-90 62 320)">nur LLM</text>
 
-  <text x="460" y="404" text-anchor="middle" class="note">OpenClaw &amp; Hermes = Harness-Schicht · du wählst LLM + Tools · Agent handelt proaktiv</text>
+  <text x="460" y="404" text-anchor="middle" class="note">OpenClaw und Hermes = Harness-Schicht ueber dem LLM</text>
 </svg>
