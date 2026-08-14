@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-label="OpenClaw Architektur">
+  <defs>
+    <style>
+      .title { fill: #c4b5fd; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; }
+      .box { fill: #1e293b; stroke: #475569; stroke-width: 2; }
+      .box-hl { fill: #1e293b; stroke: #a78bfa; stroke-width: 2.5; }
+      .hdr { fill: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+      .sub { fill: #94a3b8; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; }
+      .item { fill: #cbd5e1; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#ah); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#64748b"/></marker>
+  </defs>
+
+  <text x="480" y="22" text-anchor="middle" class="title">OPENCLAW IN PRODUKTION</text>
+
+  <rect x="30" y="42" width="200" height="70" rx="10" class="box"/>
+  <text x="130" y="68" text-anchor="middle" class="hdr">Hostinger VPS</text>
+  <text x="130" y="88" text-anchor="middle" class="sub">Docker Container</text>
+  <text x="130" y="104" text-anchor="middle" class="item">24/7, EU</text>
+
+  <path d="M230 77 L270 77" class="arrow"/>
+
+  <rect x="270" y="42" width="220" height="70" rx="10" class="box-hl"/>
+  <text x="380" y="68" text-anchor="middle" class="hdr">OpenClaw Gateway</text>
+  <text x="380" y="88" text-anchor="middle" class="sub">Sessions, Cron, Skills, Hooks</text>
+  <text x="380" y="104" text-anchor="middle" class="item">Herzstueck</text>
+
+  <path d="M490 77 L530 77" class="arrow"/>
+
+  <rect x="530" y="42" width="200" height="70" rx="10" class="box"/>
+  <text x="630" y="68" text-anchor="middle" class="hdr">Model Router</text>
+  <text x="630" y="88" text-anchor="middle" class="sub">Cursor CLI Provider</text>
+  <text x="630" y="104" text-anchor="middle" class="item">Composer, Opus, GPT...</text>
+
+  <path d="M730 77 L770 77" class="arrow"/>
+
+  <rect x="770" y="42" width="160" height="70" rx="10" class="box"/>
+  <text x="850" y="68" text-anchor="middle" class="hdr">Tools</text>
+  <text x="850" y="88" text-anchor="middle" class="sub">Mail, Kalender, gh</text>
+  <text x="850" y="104" text-anchor="middle" class="item">MCP, Cursor Agent</text>
+
+  <path d="M380 112 L380 140" class="arrow"/>
+
+  <rect x="120" y="140" width="520" height="88" rx="12" class="box-hl"/>
+  <text x="380" y="166" text-anchor="middle" class="hdr">Kanaele</text>
+  <text x="200" y="192" text-anchor="middle" class="item">Telegram Forum + Topics</text>
+  <text x="380" y="192" text-anchor="middle" class="item">Slack #ai-neo (Cofounder)</text>
+  <text x="560" y="192" text-anchor="middle" class="item">Mirror TG &lt;-&gt; Slack</text>
+  <text x="380" y="214" text-anchor="middle" class="sub">Ein Agent, viele Projekte - Kontext pro Topic</text>
+
+  <path d="M380 228 L380 256" class="arrow"/>
+
+  <rect x="80" y="256" width="800" height="120" rx="12" class="box"/>
+  <text x="480" y="282" text-anchor="middle" class="hdr">Workspace + Gedaechtnis</text>
+  <text x="180" y="308" text-anchor="middle" class="item">MEMORY.md</text>
+  <text x="330" y="308" text-anchor="middle" class="item">TOOLS.md</text>
+  <text x="480" y="308" text-anchor="middle" class="item">Skills</text>
+  <text x="630" y="308" text-anchor="middle" class="item">Heartbeat / Cron</text>
+  <text x="780" y="308" text-anchor="middle" class="item">Git Repos</text>
+  <text x="480" y="334" text-anchor="middle" class="sub">Persistiert auf dem VPS - Agent erinnert sich ueber Wochen</text>
+  <text x="480" y="356" text-anchor="middle" class="sub">Du: Handy -&gt; Telegram -&gt; Gateway -&gt; Agent -&gt; Aktion</text>
+</svg>

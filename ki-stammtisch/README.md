@@ -22,7 +22,10 @@ Base: `https://mmuller88.github.io/presentations/ki-stammtisch/#/`
 | 3 | Hook | [#/3-hook](https://mmuller88.github.io/presentations/ki-stammtisch/#/3-hook) |
 | 4 | Workflows | [#/4-workflows](https://mmuller88.github.io/presentations/ki-stammtisch/#/4-workflows) |
 | 5 | Flow | [#/6-flow](https://mmuller88.github.io/presentations/ki-stammtisch/#/6-flow) |
-| 6 | OpenClaw | [#/7-openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/7-openclaw) |
+| 6 | OpenClaw Architektur | [#/7-openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/7-openclaw) |
+| 6b | Infrastruktur | [#/7c-infra](https://mmuller88.github.io/presentations/ki-stammtisch/#/7c-infra) |
+| 6c | Modelle | [#/7d-models](https://mmuller88.github.io/presentations/ki-stammtisch/#/7d-models) |
+| 6d | Kanäle | [#/7e-channels](https://mmuller88.github.io/presentations/ki-stammtisch/#/7e-channels) |
 | 7 | Warum OpenClaw | [#/8-openclaw-warum](https://mmuller88.github.io/presentations/ki-stammtisch/#/8-openclaw-warum) |
 | 7b | Agent-Stack | [#/8b-agent-stack](https://mmuller88.github.io/presentations/ki-stammtisch/#/8b-agent-stack) |
 | 8 | Vergleich | [#/9-vergleich](https://mmuller88.github.io/presentations/ki-stammtisch/#/9-vergleich) |
@@ -34,7 +37,7 @@ Base: `https://mmuller88.github.io/presentations/ki-stammtisch/#/`
 | 14 | Fazit | [#/15-fazit](https://mmuller88.github.io/presentations/ki-stammtisch/#/15-fazit) |
 | 15 | Fragen | [#/16-fragen](https://mmuller88.github.io/presentations/ki-stammtisch/#/16-fragen) |
 
-Numeric shortcut (0-indexed): `#/0` … `#/14`
+Numeric shortcut (0-indexed): `#/0` … `#/18`
 
 ## Local preview
 
