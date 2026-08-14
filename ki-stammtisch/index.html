@@ -61,16 +61,6 @@
             <p class="text-base md:text-lg text-slate-200">Martin Mueller</p>
             <p>martinmueller.dev · AWS Community Builder</p>
           </div>
-          <div class="mt-3 md:mt-5 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4 max-w-4xl">
-            <div class="flex items-center gap-2 md:gap-3 rounded-xl bg-white px-3 py-2 md:px-4 md:py-2.5 border border-slate-600">
-              <img src="assets/air-canada-logo.svg" alt="Air Canada Logo" class="h-5 md:h-7 w-auto object-contain" loading="lazy">
-              <span class="text-xs md:text-sm text-slate-900 font-medium text-left">KI-Chatbot Kundenservice<br><span class="text-slate-600 font-normal">bis Juli 2026</span></span>
-            </div>
-            <div class="flex items-center gap-2 md:gap-3 rounded-xl bg-white px-3 py-2 md:px-4 md:py-2.5 border border-slate-600">
-              <img src="assets/hdi-logo.svg" alt="HDI Logo" class="h-5 md:h-7 w-auto object-contain" loading="lazy">
-              <span class="text-xs md:text-sm text-slate-900 font-medium text-left">Cyber-Security-Versicherung<br><span class="text-slate-600 font-normal">Cyquins @ HDI</span></span>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -110,8 +100,6 @@
           <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-slate-700">
             <p class="text-brand font-semibold mb-3">Was ich mache</p>
             <ul class="space-y-2 text-slate-300">
-              <li><strong>Air Canada</strong> — KI-Chatbot Kundenservice (bis Juli 2026)</li>
-              <li><strong>HDI</strong> — Cyber-Security-Versicherung Cyquins</li>
               <li>Freelancer · Softwareentwickler &amp; KI-Agent-Builder</li>
               <li>OpenClaw seit Monaten im Alltag — Mail, Kalender, Rechnungen, Blog</li>
               <li>Security Engineering @ Prowler</li>
@@ -138,7 +126,6 @@
           </div>
         </div>
         <aside class="notes">
-          Air Canada + HDI wurden auf Slide 1b schon gezeigt — hier nur kurz in der Liste wiederholen.
           Kurz vorstellen, dann direkt in den Hook. Nicht zu technisch — Zielgruppe ist neugierig, kein Dev-Background nötig.
         </aside>
       </section>
@@ -163,35 +150,38 @@
       
         <section data-id="4-workflows">
           <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Alltag</h2>
-          <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-8">Was ich wirklich delegiere</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 max-w-4xl mx-auto text-left text-sm md:text-lg">
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">E-Mails (Steuerberater, Kita, …)</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Rechnungen vorbereiten</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Blogposts aus Sprachnachrichten</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">CFP-Abstracts</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Kalender &amp; Termine</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Morgen-Briefings</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Geburtstagseinladungen</div>
-            <div class="rounded-xl bg-surface-light p-3 md:p-4 border border-slate-700">Alltags-Recherche</div>
+          <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-5">Was ich delegiere — und womit ich angefangen habe</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto text-left">
+            <div>
+              <p class="text-brand text-xs uppercase tracking-wide mb-2 md:mb-3">Heute</p>
+              <div class="grid grid-cols-2 gap-2 text-sm md:text-base">
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">E-Mails</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">Rechnungen</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">Blogposts</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">CFP-Abstracts</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">Kalender</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">Morgen-Briefing</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">Einladungen</div>
+                <div class="rounded-xl bg-surface-light p-2 md:p-3 border border-slate-700">Recherche</div>
+              </div>
+            </div>
+            <div>
+              <p class="text-brand text-xs uppercase tracking-wide mb-2 md:mb-3">Chronologie</p>
+              <ol class="space-y-1.5 md:space-y-2 text-sm md:text-base text-slate-300 list-decimal list-inside">
+                <li><span class="text-brand font-semibold">GitHub Issues</span> → Plan → PR</li>
+                <li><span class="text-brand font-semibold">E-Mail</span> — Kita, Steuerberater</li>
+                <li><span class="text-brand font-semibold">Morgen-Briefing</span> — Cron 7:00</li>
+                <li><span class="text-brand font-semibold">Kalender</span> — PDF → Events</li>
+                <li><span class="text-brand font-semibold">Rechnungen</span> — höchster ROI</li>
+                <li><span class="text-brand font-semibold">Blog + CFP</span> — aus Memory</li>
+                <li><span class="text-brand font-semibold">Telegram-Topics</span> — ein Chat, viele Projekte</li>
+              </ol>
+              <p class="mt-2 text-xs md:text-sm text-slate-500">Aus <a href="https://martinmueller.dev/openclaw-de" class="text-brand underline">Blogpost</a> + <a href="https://martinmueller.dev/openclaw-three-months-later-de" class="text-brand underline">3-Monate-Update</a></p>
+            </div>
           </div>
-        </section>
-        <section data-id="5-reihenfolge">
-          <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-4">Chronologie</h2>
-          <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">Womit ich angefangen habe</h3>
-          <p class="text-sm md:text-base text-slate-400 mb-4">Aus <a href="https://martinmueller.dev/openclaw-de" class="text-brand underline">OpenClaw-Blogpost</a> (Apr) + <a href="https://martinmueller.dev/openclaw-three-months-later-de" class="text-brand underline">3-Monate-Update</a> (Jul)</p>
-          <ol class="space-y-2 md:space-y-3 text-left text-sm md:text-lg text-slate-300 max-w-3xl mx-auto list-decimal list-inside">
-            <li><span class="text-brand font-semibold">GitHub Issues</span> — Ping, Plan, PR (Woche 1)</li>
-            <li><span class="text-brand font-semibold">E-Mail</span> — Kita, Steuerberater, Sportgruppe</li>
-            <li><span class="text-brand font-semibold">Morgen-Briefing</span> — Cron 7:00, Mail + Kalender</li>
-            <li><span class="text-brand font-semibold">Kalender</span> — Konferenz-PDF → Events</li>
-            <li><span class="text-brand font-semibold">Kontakte + Recherche</span> — „Wer ist die Sportgruppe?“</li>
-            <li><span class="text-brand font-semibold">Dokumente</span> — Geburtstagseinladung, Formulare</li>
-            <li class="text-slate-400">── danach (Monat 2–3) ──</li>
-            <li><span class="text-brand font-semibold">Rechnungen</span> — höchster ROI</li>
-            <li><span class="text-brand font-semibold">Blogposts</span> — Sprachnachricht → Entwurf</li>
-            <li><span class="text-brand font-semibold">CFP-Abstracts</span> — Talk-Entwürfe aus Memory</li>
-            <li><span class="text-brand font-semibold">Telegram-Topics</span> — ein Chat, viele Projekte</li>
-          </ol>
+          <aside class="notes">
+            Links: was läuft heute. Rechts: wie ich rangekommen bin — nicht alles auf einmal, sondern Schritt für Schritt.
+          </aside>
         </section>
         <section data-id="6-flow">
           <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-6">Freelancer bis Familie</h3>
@@ -231,6 +221,16 @@
             <li>Volle Kontrolle über Daten &amp; Integrationen</li>
             <li>Open Source — du besitzt deinen Assistenten</li>
           </ul>
+        </section>
+        <section data-id="8b-agent-stack">
+          <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-4">Einordnung</h2>
+          <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-5">Wo sitzen OpenClaw &amp; Hermes?</h3>
+          <p class="text-sm md:text-base text-slate-400 mb-3 md:mb-4 max-w-3xl mx-auto">LLM = Gehirn · Harness = Agent-Runtime · Tools = echte Welt</p>
+          <img src="assets/agent-stack.svg" alt="Agent-Stack: Harness-Schicht mit OpenClaw und Hermes über LLM und Tools" class="mx-auto w-full max-h-52 md:max-h-72 object-contain">
+          <p class="mt-3 text-xs md:text-sm text-slate-500 max-w-3xl mx-auto">ChatGPT allein = LLM + Chat-UI. OpenClaw/Hermes = Harness mit Gedächtnis, Cron, Messenger, Freigaben.</p>
+          <aside class="notes">
+            Wichtig: LLM allein reicht nicht. Harness verbindet Modell mit Mail, Kalender, GitHub. OpenClaw und Hermes sind in derselben Schicht — unterschiedliche Trade-offs.
+          </aside>
         </section>
       
 

@@ -21,20 +21,20 @@ Base: `https://mmuller88.github.io/presentations/ki-stammtisch/#/`
 | 2 | Intro | [#/2-intro](https://mmuller88.github.io/presentations/ki-stammtisch/#/2-intro) |
 | 3 | Hook | [#/3-hook](https://mmuller88.github.io/presentations/ki-stammtisch/#/3-hook) |
 | 4 | Workflows | [#/4-workflows](https://mmuller88.github.io/presentations/ki-stammtisch/#/4-workflows) |
-| 5 | Reihenfolge | [#/5-reihenfolge](https://mmuller88.github.io/presentations/ki-stammtisch/#/5-reihenfolge) |
-| 6 | Flow | [#/6-flow](https://mmuller88.github.io/presentations/ki-stammtisch/#/6-flow) |
-| 7 | OpenClaw | [#/7-openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/7-openclaw) |
-| 8 | Warum OpenClaw | [#/8-openclaw-warum](https://mmuller88.github.io/presentations/ki-stammtisch/#/8-openclaw-warum) |
-| 9 | Vergleich | [#/9-vergleich](https://mmuller88.github.io/presentations/ki-stammtisch/#/9-vergleich) |
-| 10 | Tools | [#/10-tools](https://mmuller88.github.io/presentations/ki-stammtisch/#/10-tools) |
-| 11 | Achsen | [#/11-achsen](https://mmuller88.github.io/presentations/ki-stammtisch/#/11-achsen) |
-| 12 | Pannen | [#/12-pannen](https://mmuller88.github.io/presentations/ki-stammtisch/#/12-pannen) |
-| 13 | Was funktioniert | [#/13-funktioniert](https://mmuller88.github.io/presentations/ki-stammtisch/#/13-funktioniert) |
-| 14 | Self-hosting | [#/14-self-hosting](https://mmuller88.github.io/presentations/ki-stammtisch/#/14-self-hosting) |
-| 15 | Fazit | [#/15-fazit](https://mmuller88.github.io/presentations/ki-stammtisch/#/15-fazit) |
-| 16 | Fragen | [#/16-fragen](https://mmuller88.github.io/presentations/ki-stammtisch/#/16-fragen) |
+| 5 | Flow | [#/6-flow](https://mmuller88.github.io/presentations/ki-stammtisch/#/6-flow) |
+| 6 | OpenClaw | [#/7-openclaw](https://mmuller88.github.io/presentations/ki-stammtisch/#/7-openclaw) |
+| 7 | Warum OpenClaw | [#/8-openclaw-warum](https://mmuller88.github.io/presentations/ki-stammtisch/#/8-openclaw-warum) |
+| 7b | Agent-Stack | [#/8b-agent-stack](https://mmuller88.github.io/presentations/ki-stammtisch/#/8b-agent-stack) |
+| 8 | Vergleich | [#/9-vergleich](https://mmuller88.github.io/presentations/ki-stammtisch/#/9-vergleich) |
+| 9 | Tools | [#/10-tools](https://mmuller88.github.io/presentations/ki-stammtisch/#/10-tools) |
+| 10 | Achsen | [#/11-achsen](https://mmuller88.github.io/presentations/ki-stammtisch/#/11-achsen) |
+| 11 | Pannen | [#/12-pannen](https://mmuller88.github.io/presentations/ki-stammtisch/#/12-pannen) |
+| 12 | Was funktioniert | [#/13-funktioniert](https://mmuller88.github.io/presentations/ki-stammtisch/#/13-funktioniert) |
+| 13 | Self-hosting | [#/14-self-hosting](https://mmuller88.github.io/presentations/ki-stammtisch/#/14-self-hosting) |
+| 14 | Fazit | [#/15-fazit](https://mmuller88.github.io/presentations/ki-stammtisch/#/15-fazit) |
+| 15 | Fragen | [#/16-fragen](https://mmuller88.github.io/presentations/ki-stammtisch/#/16-fragen) |
 
-Numeric shortcut (0-indexed): `#/0` … `#/15`
+Numeric shortcut (0-indexed): `#/0` … `#/14`
 
 ## Local preview
 
