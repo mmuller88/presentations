@@ -17,6 +17,7 @@ Base: `https://mmuller88.github.io/presentations/ki-stammtisch/#/`
 | # | Slide | URL |
 |---|-------|-----|
 | 1 | Titel | [#/1-titel](https://mmuller88.github.io/presentations/ki-stammtisch/#/1-titel) |
+| 1b | Beruflich | [#/1b-beruf](https://mmuller88.github.io/presentations/ki-stammtisch/#/1b-beruf) |
 | 2 | Intro | [#/2-intro](https://mmuller88.github.io/presentations/ki-stammtisch/#/2-intro) |
 | 3 | Hook | [#/3-hook](https://mmuller88.github.io/presentations/ki-stammtisch/#/3-hook) |
 | 4 | Workflows | [#/4-workflows](https://mmuller88.github.io/presentations/ki-stammtisch/#/4-workflows) |
