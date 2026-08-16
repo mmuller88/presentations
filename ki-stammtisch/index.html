@@ -33,6 +33,15 @@
       max-height: 80vh;
       width: 100%;
     }
+    .email-mock {
+      border-radius: 0.75rem;
+      background: #1e293b;
+      border: 1px solid #475569;
+      padding: 0.75rem 1rem;
+    }
+    @media (min-width: 768px) {
+      .email-mock { padding: 1rem 1.25rem; }
+    }
     @media (max-width: 768px) {
       .reveal .slides section {
         padding: 0.75rem 1rem 1.25rem;
@@ -193,17 +202,88 @@
           </aside>
         </section>
         <section data-id="6-flow">
-          <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-6">Freelancer bis Familie</h3>
+          <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3">E-Mail</h2>
+          <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-6">Sprachnachricht → professionelle Mail</h3>
           <div class="flex flex-col md:flex-row flex-wrap items-stretch md:items-center justify-center gap-2 md:gap-3 text-sm md:text-lg">
-            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Sprachnachricht</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Sprachnachricht / Telegram</span>
             <span class="text-brand flow-arrow hidden md:inline">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Agent versteht Kontext</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Kontext + Thread</span>
             <span class="text-brand flow-arrow hidden md:inline">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Entwurf / Aktion</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Entwurf</span>
             <span class="text-brand flow-arrow hidden md:inline">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 md:px-4 border border-slate-600">Du gibst frei</span>
+            <span class="rounded-lg bg-violet-900/40 px-3 py-2 md:px-4 border border-violet-600">Freigabe → Senden</span>
           </div>
-          <p class="mt-6 md:mt-10 text-sm md:text-base text-slate-400">TODO: 2–3 echte Beispiele mit Screenshots</p>
+          <p class="mt-5 text-sm md:text-base text-slate-400">5 echte Beispiele — Familie bis Behörde</p>
+          <aside class="notes">
+            Kurz Pipeline erklären, dann die nächsten Slides als Story. Betonen: Freigabe vor Senden ist Hard Rule seit Zahnarzt-Panne.
+          </aside>
+        </section>
+        <section data-id="6a-schwimm">
+          <h2 class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Beispiel 1 · Familie</h2>
+          <h3 class="text-lg md:text-xl font-bold mb-3">Schwimmkurse — zwei Kinder, ein Anruf</h3>
+          <div class="email-mock max-w-3xl mx-auto text-left text-xs md:text-sm">
+            <p class="text-slate-500 mb-1">An: kontakt@schwimmen-grabow.de</p>
+            <p class="text-slate-200 font-semibold mb-3">Anmeldung Schwimmkurse für zwei Kinder – nächstmögliche Termine</p>
+            <p class="text-slate-300 leading-relaxed">Sehr geehrte Damen und Herren,<br><br>
+            Rebecca Müller, geb. 16.03.2020 → <span class="text-brand">Seepferdchen-Kurs</span><br>
+            Ravi Müller, geb. 18.10.2022 → Eltern-Kind oder Vorkurs?<br><br>
+            Falls möglich: <span class="text-brand">denselben oder aufeinanderfolgenden Kurszeiträumen</span> — Termine, Gebühren, Anmeldung?</p>
+          </div>
+          <p class="mt-3 text-xs md:text-sm text-slate-500 text-center">Telegram: „Schwimmkurs für beide Kids in Grabow“ → strukturierte Anfrage</p>
+        </section>
+        <section data-id="6b-kita">
+          <h2 class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Beispiel 2 · Kita</h2>
+          <h3 class="text-lg md:text-xl font-bold mb-3">Rebecca — zwei Kitas, ein Problem</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-5xl mx-auto text-left">
+            <div class="email-mock text-xs md:text-sm">
+              <p class="text-slate-500">An: kita.parkviertel@ludwigslust.de</p>
+              <p class="text-slate-200 font-semibold mt-1 mb-2">Eingewöhnung bis September?</p>
+              <p class="text-slate-300">Frau Kaiser — Platz ab September, aber kann Rebecca <span class="text-brand">bis dahin zur Eingewöhnung</span> kommen?</p>
+            </div>
+            <div class="email-mock text-xs md:text-sm">
+              <p class="text-slate-500">An: kita-st.helena@pfarrei-edith-stein.de</p>
+              <p class="text-slate-200 font-semibold mt-1 mb-2">Mitteilung — Kindergartenplatz gefunden</p>
+              <p class="text-slate-300">Frau Banczyk — Platz ab September gefunden. <span class="text-brand">Danke für Unterstützung</span>, wir ziehen uns zurück.</p>
+            </div>
+          </div>
+        </section>
+        <section data-id="6c-zwergensport">
+          <h2 class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Beispiel 3 · Alltag</h2>
+          <h3 class="text-lg md:text-xl font-bold mb-3">Zwergensport — Kontakt aus iCloud</h3>
+          <div class="email-mock max-w-3xl mx-auto text-left text-xs md:text-sm">
+            <p class="text-slate-500">An: Constanze.Nick@zebef.de</p>
+            <p class="text-slate-200 font-semibold mb-3">Absage Zwergensport heute</p>
+            <p class="text-slate-300 leading-relaxed">Liebe Frau Nick,<br><br>
+            wir können heute leider nicht zum Zwergensport kommen — noch in Athen, zeitlich nicht zurück.<br>
+            <span class="text-brand">Nächste Woche wieder dabei!</span></p>
+          </div>
+          <p class="mt-3 text-xs md:text-sm text-slate-500 text-center">„Sag der Sportgruppenleiterin wir kommen heute nicht“ → Kontakt + höfliche Absage</p>
+        </section>
+        <section data-id="6d-imsys">
+          <h2 class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Beispiel 4 · Behörde</h2>
+          <h3 class="text-lg md:text-xl font-bold mb-3">iMSys Stadtwerke — Thread über Monate</h3>
+          <div class="email-mock max-w-3xl mx-auto text-left text-xs md:text-sm">
+            <p class="text-slate-500">An: netzbetrieb@stw-ludwigslust-grabow.de</p>
+            <p class="text-slate-200 font-semibold mb-3">Antrag iMSys – Schweriner Str. 6</p>
+            <p class="text-slate-300 leading-relaxed">Vorzeitige Ausstattung mit iMSys · Kundennummer 4033441 · PV 6,4 kWp geplant · TAB Nord?<br>
+            Bitte: Kosten, technische Anforderungen, Einbautermin.</p>
+          </div>
+          <ul class="mt-3 max-w-3xl mx-auto text-xs md:text-sm text-slate-400 space-y-1 text-left">
+            <li>→ <span class="text-brand">15+ Mails</span> im Thread: Portal-Token, Auftrag, Fernwärme, Nachfass</li>
+            <li>Agent kennt Verlauf — kein „was war nochmal der Stand?“</li>
+          </ul>
+        </section>
+        <section data-id="6e-steuerberater">
+          <h2 class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Beispiel 5 · Freelance</h2>
+          <h3 class="text-lg md:text-xl font-bold mb-3">Steuerberater — Kanzlei aus Kontakten</h3>
+          <div class="email-mock max-w-3xl mx-auto text-left text-xs md:text-sm">
+            <p class="text-slate-500">An: Kanzlei (aus iCloud CardDAV)</p>
+            <p class="text-slate-200 font-semibold mb-3">Terminumbuchung Steuerberatung</p>
+            <p class="text-slate-300 leading-relaxed">Sehr geehrte Damen und Herren,<br><br>
+            ich muss unseren Termin umbuchen. Bitte schlagen Sie einen <span class="text-brand">alternativen Termin</span> in den nächsten zwei Wochen vor.<br>
+            Mit freundlichen Grüßen — HTML-Signatur mit office@martinmueller.dev</p>
+          </div>
+          <p class="mt-3 text-xs md:text-sm text-slate-500 text-center">„Schreib meinem Steuerberater, ich muss umbuchen“ — <a href="https://martinmueller.dev/openclaw-de" class="text-brand underline">Blog</a></p>
         </section>
       
 
