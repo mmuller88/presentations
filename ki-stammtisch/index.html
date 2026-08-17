@@ -82,6 +82,26 @@
         </div>
       </section>
 
+      <!-- Agenda -->
+      <section id="1a-agenda" data-id="1a-agenda">
+        <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-4">Agenda</h2>
+        <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">~30–45 Min + Diskussion</h3>
+        <ol class="space-y-2 md:space-y-3 text-left text-sm md:text-lg text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
+          <li>Hook — Mehrwert jenseits von ChatGPT</li>
+          <li>Echte Workflows: E-Mail, Rechnungen, Briefing</li>
+          <li><span class="text-brand">OpenClaw</span> in Produktion (VPS, Modelle, Kanäle)</li>
+          <li>Security — Spektrum, OAuth, Human-in-the-Loop</li>
+          <li>OpenClaw vs. Hermes vs. Langdock</li>
+          <li>Was schiefging &amp; was funktioniert</li>
+          <li>Self-hosting vs. hosted</li>
+          <li><span class="text-brand">How to start</span> — technisch vs. nicht-technisch</li>
+          <li>Fazit &amp; Fragen</li>
+        </ol>
+        <aside class="notes">
+          Kurz Agenda durchgehen. Kein Verkaufspitch — aber am Ende Consulting erwähnen wenn Leute hängen bleiben.
+        </aside>
+      </section>
+
       <!-- 1b. Beruflicher Hintergrund -->
       <section id="1b-beruf" data-id="1b-beruf">
         <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-4">Beruflich</h2>
@@ -553,6 +573,58 @@
         </div>
       </section>
 
+      <!-- How to start -->
+      <section id="14a-how-to-start" data-id="14a-how-to-start">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Einstieg</h2>
+        <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">How to start</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto text-left text-sm md:text-base">
+          <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-violet-700/50">
+            <p class="text-brand font-semibold mb-3">Technisch (Dev, DevOps, Security)</p>
+            <ul class="space-y-2 text-slate-300">
+              <li><span class="text-brand">OpenClaw</span> oder <span class="text-brand">Hermes</span> auf VPS / Docker</li>
+              <li>Start klein: Telegram + 1 Integration (Mail oder Kalender)</li>
+              <li>OAuth2 wo möglich — GitHub, Google, AWS SSO</li>
+              <li>Secrets in Env, Gateway nicht öffentlich</li>
+              <li>Freigabe vor allem was rausgeht — dann erweitern</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-slate-700">
+            <p class="text-brand font-semibold mb-3">Nicht-technisch / wenig Zeit</p>
+            <ul class="space-y-2 text-slate-300">
+              <li><span class="text-brand">Langdock</span> oder ChatGPT — sofort, im Browser</li>
+              <li>Oder: OpenClaw mit Hilfe — Setup einmal, dann Telegram</li>
+              <li>Erster Use Case: Morgen-Briefing oder E-Mail-Entwürfe</li>
+              <li>Kein VPS-Stress — jemand richtet es sicher ein</li>
+              <li>ROI: Zeit pro Woche &gt; Setup-Aufwand</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          Zwei Pfade klar trennen. Technische: DIY mit Security-Bewusstsein. Rest: hosted oder begleitetes Setup.
+        </aside>
+      </section>
+
+      <section id="14b-consulting" data-id="14b-consulting">
+        <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3">Freiberuflich</h2>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Setup-Hilfe — OpenClaw &amp; Hermes</h3>
+        <div class="max-w-3xl mx-auto text-left text-sm md:text-lg text-slate-300 space-y-4">
+          <p>Ich helfe als <span class="text-brand">Freiberufler</span> beim sicheren Einrichten und Warten von <strong>OpenClaw</strong> und <strong>Hermes</strong> — Integrationen, Security, Kanäle, Cron, Updates.</p>
+          <ul class="space-y-2">
+            <li>Kein Vendor-Lock-in-Pitch — dein Agent, dein VPS, deine Daten</li>
+            <li>Security-first: OAuth, Secrets, Human-in-the-Loop, Blast Radius</li>
+            <li class="text-brand">Tolles ROI — Stunden pro Woche zurück, ohne eigene Ops-Nacht</li>
+          </ul>
+          <p class="text-slate-400 text-sm md:text-base">
+            <a href="mailto:office@martinmueller.dev" class="text-brand underline">office@martinmueller.dev</a>
+            · <a href="https://calendly.com/martinmueller_dev" class="text-brand underline">calendly.com/martinmueller_dev</a>
+            · <a href="https://martinmueller.dev" class="text-brand underline">martinmueller.dev</a>
+          </p>
+        </div>
+        <aside class="notes">
+          Kurz anbieten, nicht drängen. Wer Interesse hat — Mail oder Calendly. Security-Setup ist mein Differentiator.
+        </aside>
+      </section>
+
       <!-- 8. Takeaways -->
       <section id="15-fazit" data-id="15-fazit">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Fazit</h2>
@@ -571,8 +643,9 @@
           <h2 class="text-3xl md:text-4xl font-bold">Fragen?</h2>
           <div class="mt-2 md:mt-4 space-y-2 text-sm md:text-base text-slate-300">
             <p class="text-lg md:text-xl text-slate-100">Martin Mueller</p>
-            <p>martinmueller.dev</p>
-            <p>github.com/openclaw/openclaw</p>
+            <p><a href="https://martinmueller.dev" class="text-brand underline">martinmueller.dev</a></p>
+            <p><a href="https://github.com/openclaw/openclaw" class="text-brand underline">github.com/openclaw/openclaw</a></p>
+            <p class="text-slate-400">Setup-Hilfe: <a href="mailto:office@martinmueller.dev" class="text-brand underline">office@martinmueller.dev</a></p>
           </div>
           <p class="mt-8 text-brand text-sm uppercase tracking-widest">KI Stammtisch</p>
         </div>
