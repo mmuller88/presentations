@@ -7,7 +7,7 @@ Kurzes Intro-Deck für AI Builder Meetups: Community, Speaker, WhatsApp, Sponsor
 ## URLs
 
 - **Live:** https://mmuller88.github.io/presentations/ai-builder-intro/
-- **Slides:** [#/1-titel](https://mmuller88.github.io/presentations/ai-builder-intro/#/1-titel) · [#/1c-stammtisch](https://mmuller88.github.io/presentations/ai-builder-intro/#/1c-stammtisch) · [#/1d-speakers-community](https://mmuller88.github.io/presentations/ai-builder-intro/#/1d-speakers-community)
+- **Slides:** [#/1-titel](https://mmuller88.github.io/presentations/ai-builder-intro/#/1-titel) · [#/1b-hosts](https://mmuller88.github.io/presentations/ai-builder-intro/#/1b-hosts) · [#/1c-stammtisch](https://mmuller88.github.io/presentations/ai-builder-intro/#/1c-stammtisch) · [#/1d-speakers-community](https://mmuller88.github.io/presentations/ai-builder-intro/#/1d-speakers-community)
 
 ## Ablauf Meetup
 
@@ -16,7 +16,9 @@ Kurzes Intro-Deck für AI Builder Meetups: Community, Speaker, WhatsApp, Sponsor
 
 ## Assets
 
-- `assets/title.jpg` — Meetup-Titelgrafik (Dropbox `/Meetups/AiBuilderLulu/AiBuilders_title_pic.jpg`)
+- `assets/title.jpg` — Meetup-Titelgrafik (Dropbox `/Meetups/AiBuilderLulu/`)
+- `assets/martin-mueller.jpg` — Host-Foto
+- `assets/alexander-ertner.jpg` — Host-Foto (Nordkurier)
 
 ## Local preview
 
