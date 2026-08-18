@@ -63,12 +63,22 @@
       object-fit: cover;
     }
     .reveal .slides section .qr-code {
-      width: 6.5rem;
-      height: 6.5rem;
+      width: 10rem;
+      height: 10rem;
+      min-width: 120px;
+      min-height: 120px;
       background: #fff;
-      padding: 0.4rem;
+      padding: 0.5rem;
       border-radius: 0.5rem;
-      border: 1px solid #475569;
+      border: 2px solid #a78bfa;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+      display: block;
+    }
+    .reveal .slides section .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
     }
     .reveal .card-grid {
       display: grid;
@@ -90,8 +100,10 @@
         height: 8rem;
       }
       .reveal .slides section .qr-code {
-        width: 7.5rem;
-        height: 7.5rem;
+        width: 12rem;
+        height: 12rem;
+        min-width: 160px;
+        min-height: 160px;
       }
       .reveal .slides section .title-hero {
         max-height: 62vh;
@@ -113,8 +125,10 @@
         max-width: 100%;
       }
       .reveal .slides section .qr-code {
-        width: 5rem;
-        height: 5rem;
+        width: 7.5rem;
+        height: 7.5rem;
+        min-width: 100px;
+        min-height: 100px;
       }
       .reveal .slides section .host-avatar {
         width: 5rem;
@@ -136,11 +150,11 @@
             loading="eager"
           >
           <p class="text-slate-400">Meetup #2 · Mi 19.08. · DeveLUP · hybrid</p>
-          <div class="flex flex-col items-center gap-2">
+          <div class="qr-wrap mt-2">
             <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="block">
-              <img src="assets/qr-meetup.png" alt="QR: Meetup-Gruppe beitreten" class="qr-code" loading="lazy">
+              <img src="assets/qr-meetup.png?v=2" alt="QR-Code: Meetup-Gruppe beitreten" class="qr-code" width="370" height="370">
             </a>
-            <p class="text-slate-400">Scan → <span class="text-brand font-medium">Meetup-Gruppe</span> beitreten</p>
+            <p class="text-slate-300 text-lg">📱 Scan → <span class="text-brand font-semibold">Meetup-Gruppe</span> beitreten</p>
           </div>
         </div>
         <aside class="notes">
@@ -238,13 +252,13 @@
             </div>
             <div>
               <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">💬 Community</p>
-              <div class="flex gap-4 items-start mb-4">
+              <div class="flex gap-5 items-center mb-4 flex-wrap">
                 <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="shrink-0">
-                  <img src="assets/qr-whatsapp.png" alt="QR: WhatsApp KI-Stammtisch" class="qr-code" loading="lazy">
+                  <img src="assets/qr-whatsapp.png?v=2" alt="QR-Code: WhatsApp KI-Stammtisch" class="qr-code" width="370" height="370">
                 </a>
                 <div class="text-slate-300">
-                  <p class="text-brand font-semibold text-lg mb-1">WhatsApp KI-Stammtisch</p>
-                  <p class="text-slate-400">Scan zum Beitreten</p>
+                  <p class="text-brand font-semibold text-xl mb-1">WhatsApp KI-Stammtisch</p>
+                  <p class="text-slate-400 text-lg">📱 Scan zum Beitreten</p>
                 </div>
               </div>
               <ul class="space-y-2 text-slate-300">
