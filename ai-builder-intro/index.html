@@ -35,10 +35,22 @@
       height: 5.5rem;
       object-fit: cover;
     }
+    .reveal .slides section .qr-code {
+      width: 5.5rem;
+      height: 5.5rem;
+      background: #fff;
+      padding: 0.35rem;
+      border-radius: 0.5rem;
+      border: 1px solid #475569;
+    }
     @media (min-width: 768px) {
       .reveal .slides section .host-avatar {
         width: 7rem;
         height: 7rem;
+      }
+      .reveal .slides section .qr-code {
+        width: 6.5rem;
+        height: 6.5rem;
       }
     }
     @media (max-width: 768px) {
@@ -54,7 +66,11 @@
       .reveal h3 { font-size: 1.2rem !important; margin-bottom: 0.75rem !important; }
       .reveal p, .reveal li { font-size: 0.95rem !important; line-height: 1.45; }
       .reveal .slides section .title-hero {
-        max-height: 58vh;
+        max-height: 52vh;
+      }
+      .reveal .slides section .qr-code {
+        width: 4.5rem;
+        height: 4.5rem;
       }
     }
   </style>
@@ -72,6 +88,12 @@
             loading="eager"
           >
           <p class="text-sm md:text-base text-slate-400">Meetup #2 · Mi 19.08. · DeveLUP · hybrid</p>
+          <div class="flex flex-col items-center gap-1.5 mt-1">
+            <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="block">
+              <img src="assets/qr-meetup.png" alt="QR: Meetup-Gruppe beitreten" class="qr-code" loading="lazy">
+            </a>
+            <p class="text-xs text-slate-400">Scan → <span class="text-brand">Meetup-Gruppe</span> beitreten</p>
+          </div>
         </div>
         <aside class="notes">
           Meetup-Titelgrafik. Kurz Intro-Deck — dann ki-stammtisch Talk-Deck.
@@ -164,8 +186,17 @@
           </div>
           <div>
             <p class="text-brand text-xs uppercase tracking-wide mb-2">💬 Community</p>
+            <div class="flex gap-3 items-start mb-3">
+              <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="shrink-0">
+                <img src="assets/qr-whatsapp.png" alt="QR: WhatsApp KI-Stammtisch" class="qr-code" loading="lazy">
+              </a>
+              <div class="text-xs md:text-sm text-slate-300">
+                <p class="text-brand font-medium mb-1">WhatsApp KI-Stammtisch</p>
+                <p class="text-slate-400">Scan zum Beitreten</p>
+              </div>
+            </div>
             <ul class="space-y-2 text-slate-300">
-              <li><span class="text-brand">WhatsApp-Gruppe</span> — <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="text-brand underline">KI-Stammtisch beitreten</a> · auch QR am Eingang</li>
+              <li><span class="text-brand">WhatsApp</span> — <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="text-brand underline">Link</a></li>
               <li><span class="text-brand">Meetup</span> — <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="text-brand underline">ai-builder-in-lulu-und-umgebung</a></li>
               <li><span class="text-brand">Speaker?</span> — meldet euch bei Martin (LinkedIn)</li>
               <li><span class="text-brand">Sponsoring?</span> — Pizza, Drinks, Tech-Partner · Martin oder Alexander Ertner</li>

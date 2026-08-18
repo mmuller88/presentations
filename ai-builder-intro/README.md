@@ -18,7 +18,8 @@ Kurzes Intro-Deck für AI Builder Meetups: Community, Speaker, WhatsApp, Sponsor
 
 - `assets/title.jpg` — Meetup-Titelgrafik (Dropbox `/Meetups/AiBuilderLulu/`)
 - `assets/martin-mueller.jpg` — Host-Foto (Dropbox `/Pictures/avatar.jpeg`)
-- `assets/alexander-ertner.jpg` — Host-Foto (Nordkurier)
+- `assets/qr-meetup.png` — QR → Meetup-Gruppe
+- `assets/qr-whatsapp.png` — QR → WhatsApp KI-Stammtisch
 
 ## Local preview
 
