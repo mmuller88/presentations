@@ -74,11 +74,17 @@
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
       display: block;
     }
-    .reveal .slides section .qr-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+    .reveal .slides section .qr-code-host {
+      width: 5.5rem;
+      height: 5.5rem;
+      min-width: 88px;
+      min-height: 88px;
+      background: #fff;
+      padding: 0.35rem;
+      border-radius: 0.5rem;
+      border: 2px solid #a78bfa;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+      display: block;
     }
     .reveal .card-grid {
       display: grid;
@@ -105,8 +111,11 @@
         min-width: 160px;
         min-height: 160px;
       }
-      .reveal .slides section .title-hero {
-        max-height: 62vh;
+      .reveal .slides section .qr-code-host {
+        width: 6.5rem;
+        height: 6.5rem;
+        min-width: 104px;
+        min-height: 104px;
       }
     }
     @media (max-width: 768px) {
@@ -167,9 +176,9 @@
           <h2 class="text-brand font-semibold uppercase tracking-widest">Hosts</h2>
           <h3 class="font-bold">Eure Ansprechpartner heute</h3>
           <div class="card-grid">
-            <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-5 items-start">
+            <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-4 items-center">
               <img src="assets/martin-mueller.jpg" alt="Martin Müller" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
-              <div>
+              <div class="flex-1 min-w-0">
                 <p class="text-slate-100 font-semibold text-xl">Martin Müller</p>
                 <p class="text-brand text-sm uppercase tracking-wide mt-1 mb-2">Freelancer · KI &amp; Cloud</p>
                 <ul class="space-y-1.5 text-slate-300">
@@ -177,11 +186,18 @@
                   <li>AWS Community Builder · martinmueller.dev</li>
                   <li>Host · Talk heute: KI-Assistenten im Alltag</li>
                 </ul>
+                <p class="mt-2">
+                  <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline text-base">linkedin.com/in/martinmueller88</a>
+                </p>
               </div>
+              <a href="https://www.linkedin.com/in/martinmueller88" class="shrink-0 text-center">
+                <img src="assets/qr-linkedin-martin.png?v=1" alt="QR-Code: Martin Müller auf LinkedIn" class="qr-code-host" width="370" height="370">
+                <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
+              </a>
             </div>
-            <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-5 items-start">
+            <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-4 items-center">
               <img src="assets/alexander-ertner.jpg" alt="Alexander Ertner" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
-              <div>
+              <div class="flex-1 min-w-0">
                 <p class="text-slate-100 font-semibold text-xl">Alexander Ertner</p>
                 <p class="text-brand text-sm uppercase tracking-wide mt-1 mb-2">Landkreis Ludwigslust-Parchim</p>
                 <ul class="space-y-1.5 text-slate-300">
@@ -189,7 +205,14 @@
                   <li>Für Unternehmen, Vereine &amp; Verwaltung</li>
                   <li>Ko-Host · Ansprechpartner Meetup &amp; Community</li>
                 </ul>
+                <p class="mt-2">
+                  <a href="https://www.linkedin.com/in/alexander-ertner-37a29559" class="text-brand underline text-base">linkedin.com/in/alexander-ertner-37a29559</a>
+                </p>
               </div>
+              <a href="https://www.linkedin.com/in/alexander-ertner-37a29559" class="shrink-0 text-center">
+                <img src="assets/qr-linkedin-alexander.png?v=1" alt="QR-Code: Alexander Ertner auf LinkedIn" class="qr-code-host" width="370" height="370">
+                <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
+              </a>
             </div>
           </div>
           <div class="mt-5 rounded-xl bg-surface-light/80 border border-slate-600 p-4 text-center text-slate-300">
@@ -264,7 +287,7 @@
               <ul class="space-y-2 text-slate-300">
                 <li><span class="text-brand">WhatsApp</span> — <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="text-brand underline">Link</a></li>
                 <li><span class="text-brand">Meetup</span> — <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="text-brand underline">ai-builder-in-lulu-und-umgebung</a></li>
-                <li><span class="text-brand">Speaker?</span> — meldet euch bei Martin (LinkedIn)</li>
+                <li><span class="text-brand">Speaker?</span> — <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">Martin auf LinkedIn</a></li>
                 <li><span class="text-brand">Sponsoring?</span> — Pizza, Drinks, Tech-Partner · Martin oder Alexander Ertner</li>
               </ul>
             </div>
