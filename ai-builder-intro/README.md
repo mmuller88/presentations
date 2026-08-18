@@ -14,6 +14,10 @@ Kurzes Intro-Deck für AI Builder Meetups: Community, Speaker, WhatsApp, Sponsor
 1. **Dieses Deck** — ~5 Min Community-Intro
 2. **ki-stammtisch** — Martin Talk + Alex Talk
 
+## Assets
+
+- `assets/title.jpg` — Meetup-Titelgrafik (Dropbox `/Meetups/AiBuilderLulu/AiBuilders_title_pic.jpg`)
+
 ## Local preview
 
 ```bash

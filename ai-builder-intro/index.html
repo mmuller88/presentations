@@ -25,6 +25,11 @@
       box-sizing: border-box;
       padding: 0.5rem 1rem;
     }
+    .reveal .slides section .title-hero {
+      max-height: 78vh;
+      width: auto;
+      max-width: 100%;
+    }
     @media (max-width: 768px) {
       .reveal .slides section {
         padding: 0.75rem 1rem 1.25rem;
@@ -37,6 +42,9 @@
       .reveal h2 { font-size: 0.7rem !important; }
       .reveal h3 { font-size: 1.2rem !important; margin-bottom: 0.75rem !important; }
       .reveal p, .reveal li { font-size: 0.95rem !important; line-height: 1.45; }
+      .reveal .slides section .title-hero {
+        max-height: 58vh;
+      }
     }
   </style>
 </head>
@@ -45,17 +53,17 @@
     <div class="slides">
 
       <section id="1-titel" data-id="1-titel">
-        <div class="flex flex-col items-center justify-center gap-4 md:gap-6 text-center px-2">
-          <p class="text-brand text-xs md:text-sm font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em]">AI Builder Meetup</p>
-          <h1 class="text-2xl md:text-4xl font-bold leading-tight max-w-4xl">AI Builder in Lulu</h1>
-          <p class="text-base md:text-xl text-slate-300 max-w-3xl">Unser KI-Stammtisch — wer wir sind &amp; wie ihr mitmacht</p>
-          <div class="mt-4 md:mt-8 flex flex-col gap-1 text-sm md:text-base text-slate-400">
-            <p class="text-base md:text-lg text-slate-200">Martin Mueller &amp; Alexander Ertner</p>
-            <p>DeveLUP · Ludwigslust</p>
-          </div>
+        <div class="flex flex-col items-center justify-center gap-3 md:gap-4 text-center px-2">
+          <img
+            src="assets/title.jpg"
+            alt="AI Builder in Ludwigslust — KI-Stammtisch"
+            class="title-hero rounded-xl md:rounded-2xl border border-slate-700 shadow-2xl"
+            loading="eager"
+          >
+          <p class="text-sm md:text-base text-slate-400">Meetup #2 · Mi 19.08. · DeveLUP · hybrid</p>
         </div>
         <aside class="notes">
-          Kurz Intro-Deck vor dem Talk — Community, Speaker heute, WhatsApp, Sponsoring. Dann Haupttalk ki-stammtisch Deck.
+          Meetup-Titelgrafik. Kurz Intro-Deck — dann ki-stammtisch Talk-Deck.
         </aside>
       </section>
 
