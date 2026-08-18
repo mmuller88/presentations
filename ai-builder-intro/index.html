@@ -30,6 +30,17 @@
       width: auto;
       max-width: 100%;
     }
+    .reveal .slides section .host-avatar {
+      width: 5.5rem;
+      height: 5.5rem;
+      object-fit: cover;
+    }
+    @media (min-width: 768px) {
+      .reveal .slides section .host-avatar {
+        width: 7rem;
+        height: 7rem;
+      }
+    }
     @media (max-width: 768px) {
       .reveal .slides section {
         padding: 0.75rem 1rem 1.25rem;
@@ -67,6 +78,44 @@
         </aside>
       </section>
 
+      <section id="1b-hosts" data-id="1b-hosts">
+        <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3">Hosts</h2>
+        <h3 class="text-lg md:text-2xl font-bold mb-4 md:mb-5">Eure Ansprechpartner heute</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto text-left text-sm md:text-base">
+          <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-slate-700 flex gap-4 items-start">
+            <img src="assets/martin-mueller.jpg" alt="Martin Müller" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
+            <div>
+              <p class="text-slate-100 font-semibold text-base md:text-lg">Martin Müller</p>
+              <p class="text-brand text-xs uppercase tracking-wide mt-1 mb-2">Freelancer · KI &amp; Cloud</p>
+              <ul class="space-y-1 text-slate-300 text-xs md:text-sm">
+                <li>Softwareentwickler &amp; KI-Agent-Builder</li>
+                <li>AWS Community Builder · martinmueller.dev</li>
+                <li>Host · Talk heute: KI-Assistenten im Alltag</li>
+              </ul>
+            </div>
+          </div>
+          <div class="rounded-xl bg-surface-light p-4 md:p-5 border border-slate-700 flex gap-4 items-start">
+            <img src="assets/alexander-ertner.jpg" alt="Alexander Ertner" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
+            <div>
+              <p class="text-slate-100 font-semibold text-base md:text-lg">Alexander Ertner</p>
+              <p class="text-brand text-xs uppercase tracking-wide mt-1 mb-2">Landkreis Ludwigslust-Parchim</p>
+              <ul class="space-y-1 text-slate-300 text-xs md:text-sm">
+                <li>Digitalisierungslotse · KI &amp; Digitalisierung praxisnah</li>
+                <li>Für Unternehmen, Vereine &amp; Verwaltung</li>
+                <li>Ko-Host · Ansprechpartner Meetup &amp; Community</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 md:mt-5 max-w-5xl mx-auto rounded-xl bg-surface-light/80 border border-slate-600 p-3 md:p-4 text-center text-sm md:text-base text-slate-300">
+          <p class="text-brand font-semibold mb-1">Danke an DeveLUP Zukunftszentrum</p>
+          <p>Für die Location heute — EU-gefördert, kostenfreie Räumlichkeiten · Garnisonsstraße 7</p>
+        </div>
+        <aside class="notes">
+          Kurz vorstellen: Martin Freelancer/Builder, Alex Digitalisierungslotse Landkreis. DeveLUP Dank aussprechen — Location-Sponsor, nicht nur Raumvermieter.
+        </aside>
+      </section>
+
       <section id="1c-stammtisch" data-id="1c-stammtisch">
         <h2 class="text-brand text-xs md:text-sm font-semibold uppercase tracking-widest mb-3">Community</h2>
         <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-4">AI Builder in Lulu — unser KI-Stammtisch</h3>
@@ -78,13 +127,12 @@
               <li>Regelmäßige <span class="text-brand">AI Builder Meetups</span> (#2 heute)</li>
               <li>Talks, Diskussion, Networking — hybrid</li>
               <li>KI, Automatisierung, Agents im Alltag</li>
-              <li>Location: <span class="text-brand">DeveLUP</span> Zukunftszentrum (EU-gefördert, kostenfrei)</li>
+              <li>Location: <span class="text-brand">DeveLUP</span> — Danke für die Unterstützung!</li>
             </ul>
           </div>
           <div class="rounded-xl bg-surface-light p-4 border border-slate-700">
-            <p class="text-brand font-semibold mb-2">Hosts &amp; heute Abend</p>
+            <p class="text-brand font-semibold mb-2">Heute Abend</p>
             <ul class="space-y-1.5 text-slate-300">
-              <li>Martin Müller &amp; Alexander Ertner (Landkreis LUP)</li>
               <li>📍 Garnisonsstraße 7 · ab 18:00 · hybrid</li>
               <li>19:30 Pizza 🍕 &amp; Drinks 🍻</li>
               <li><a href="https://meetu.ps/e/QcTJn/zGg6L/i" class="text-brand underline">meetu.ps/e/QcTJn</a></li>
