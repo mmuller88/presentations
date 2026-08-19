@@ -7,7 +7,7 @@ Kurzes Intro-Deck für AI Builder Meetups: Community, Speaker, WhatsApp, Sponsor
 ## URLs
 
 - **Live:** https://mmuller88.github.io/presentations/ai-builder-intro/
-- **Slides:** [#/1-titel](https://mmuller88.github.io/presentations/ai-builder-intro/#/1-titel) · [#/1b-hosts](https://mmuller88.github.io/presentations/ai-builder-intro/#/1b-hosts) · [#/1c-stammtisch](https://mmuller88.github.io/presentations/ai-builder-intro/#/1c-stammtisch) · [#/1d-speakers-community](https://mmuller88.github.io/presentations/ai-builder-intro/#/1d-speakers-community)
+- **Slides:** [#/1-titel](https://mmuller88.github.io/presentations/ai-builder-intro/#/1-titel) · [#/1b-hosts](https://mmuller88.github.io/presentations/ai-builder-intro/#/1b-hosts) · [#/1c-stammtisch](https://mmuller88.github.io/presentations/ai-builder-intro/#/1c-stammtisch) · [#/1d-speakers](https://mmuller88.github.io/presentations/ai-builder-intro/#/1d-speakers) · [#/1e-community](https://mmuller88.github.io/presentations/ai-builder-intro/#/1e-community)
 
 ## Ablauf Meetup
 
