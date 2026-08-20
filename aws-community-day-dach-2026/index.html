@@ -5,43 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serverless AI Factory — AWS Community Day DACH 2026</title>
   <meta name="description" content="An Autonomous Dev Pipeline on AWS — Martin Mueller, AWS Community Day DACH 2026, Berlin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: { sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
           colors: {
-            aws: { DEFAULT: '#FF9900', dark: '#EC7211' },
-            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+            brand: { DEFAULT: '#FF9900', dark: '#EC7211' },
+            squid: { DEFAULT: '#232F3E', muted: '#545B64', light: '#879596' }
           }
         }
       }
     }
   </script>
   <style>
-    .reveal .slides section .{
+    :root {
+      --acd-bg: #ffffff;
+      --acd-text: #232f3e;
+      --acd-heading: #16191f;
+      --acd-brand: #ff9900;
+      --acd-border: #d5dbdb;
+      --acd-card: #f7f8f8;
+    }
+    html, body, .reveal, .reveal .slides section {
+      font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+      background: var(--acd-bg);
+      color: var(--acd-text);
+    }
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 1.25rem 2.5rem 2.75rem;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      text-align: left;
+    }
+    .reveal .slides section.center-slide { text-align: center; }
+    .reveal h1, .reveal h3, .reveal h4 { color: var(--acd-heading) !important; font-weight: 600; }
+    .reveal h2, .text-aws, .text-brand { color: var(--acd-brand) !important; }
+    .reveal h2 {
+      font-size: 0.82rem !important;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .reveal h3 { font-size: 1.75rem !important; line-height: 1.25 !important; margin-bottom: 1rem !important; }
+    .reveal p, .reveal li { font-size: 1rem !important; }
+    .reveal .progress span { background: var(--acd-brand); }
+    .reveal .slide-number { color: var(--acd-brand); background: transparent; font-size: 0.75rem; }
+    .bg-surface-light { background: var(--acd-card) !important; }
+    .border-slate-600, .border-slate-700 { border-color: var(--acd-border) !important; }
+    .text-slate-100, .text-slate-200 { color: var(--acd-heading) !important; }
+    .text-slate-300 { color: var(--acd-text) !important; }
+    .text-slate-400, .text-slate-500 { color: var(--acd-muted, #545b64) !important; }
+    .slide-footer {
+      position: absolute;
+      left: 2.5rem;
+      right: 2.5rem;
+      bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--acd-border);
+      padding-top: 0.55rem;
+      font-size: 0.68rem;
+      color: #879596;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .slide-footer img { height: 1.35rem; width: auto; }
+    .reveal .slides section .fragment {
       opacity: 1 !important;
       visibility: visible !important;
       transform: none !important;
     }
   </style>
 </head>
-<body class="bg-surface text-slate-100 antialiased">
+<body class="bg-white text-squid antialiased font-sans">
   <div class="reveal">
     <div class="slides">
 
-      <section id="title">
-        <div class="flex flex-col items-center justify-center gap-6 text-center">
-          <p class="text-aws text-sm font-semibold uppercase tracking-[0.3em]">AWS Community Day DACH 2026 · 15 Sep · Kosmos Berlin</p>
-          <h1 class="text-3xl font-bold leading-tight max-w-5xl">Serverless AI Factory: An Autonomous Dev Pipeline on AWS</h1>
-          <p class="text-xl text-slate-300 max-w-3xl mt-4">GitHub issue → plan → code → PR · fully autonomous · scale-to-zero</p>
-          <div class="mt-8 flex flex-col gap-1 text-slate-400">
-            <p class="text-lg text-slate-200">Martin Mueller</p>
+      <section id="title" class="center-slide">
+        <div class="flex flex-col items-center justify-center gap-5 text-center">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH" class="h-14 w-auto mb-2">
+          <p class="text-brand text-sm font-semibold uppercase tracking-[0.22em]">15 September 2026 · Kosmos Berlin · Germany</p>
+          <h1 class="text-3xl font-semibold leading-tight max-w-5xl text-slate-100">Serverless AI Factory:<br>An Autonomous Dev Pipeline on AWS</h1>
+          <p class="text-lg text-slate-300 max-w-3xl">GitHub issue → plan → code → PR · fully autonomous · scale-to-zero</p>
+          <div class="mt-6 flex flex-col gap-1 text-slate-400">
+            <p class="text-lg font-medium text-slate-200">Martin Mueller</p>
             <p>AWS Community Builder · martinmueller.dev</p>
           </div>
-          <p class="mt-4 text-sm text-slate-500">aws-community-day.de</p>
+          <a href="https://www.aws-community-day.de/agenda" class="text-sm text-brand hover:underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">
           Waitlist backup deck — Serverless AI Factory (Sessionize 10798).
@@ -54,39 +114,51 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
-          <liWhat is the Serverless AI Factory?</li>
-          <liAutonomous dev pipeline flow</li>
-          <liAWS architecture — EventBridge, Lambda, Step Functions</li>
-          <liMulti-agent memory on stateless infra</li>
-          <liWhy serverless for bursty agent workloads</li>
-          <liWar stories &amp; failure modes</li>
-          <liEconomics — infra vs LLM tokens</li>
-          <liLive demo — issue to merged PR</li>
+          <li>What is the Serverless AI Factory?</li>
+          <li>Autonomous dev pipeline flow</li>
+          <li>AWS architecture — EventBridge, Lambda, Step Functions</li>
+          <li>Multi-agent memory on stateless infra</li>
+          <li>Why serverless for bursty agent workloads</li>
+          <li>War stories &amp; failure modes</li>
+          <li>Economics — infra vs LLM tokens</li>
+          <li>Live demo — issue to merged PR</li>
         </ol>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
       <section id="what-is">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Serverless AI Factory</h2>
         <h3 class="text-3xl font-bold mb-8">Not a chatbot. A dev pipeline.</h3>
         <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-          <liWatches <span class="text-aws font-semibold">GitHub issues</span> — not Telegram, not email</li>
-          <liPlans the work, writes code, opens <span class="text-aws font-semibold">pull requests</span></li>
-          <liRuns on <span class="text-aws font-semibold">scale-to-zero AWS</span> — agents on demand</li>
-          <liProduction for months · dozens of issues processed autonomously</li>
+          <li>Watches <span class="text-aws font-semibold">GitHub issues</span> — not Telegram, not email</li>
+          <li>Plans the work, writes code, opens <span class="text-aws font-semibold">pull requests</span></li>
+          <li>Runs on <span class="text-aws font-semibold">scale-to-zero AWS</span> — agents on demand</li>
+          <li>Production for months · dozens of issues processed autonomously</li>
         </ul>
         <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">Different talk: OpenClaw VPS → serverless migration (personal agent, heartbeats, Telegram).</p>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
       <section id="hook">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
         <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
         <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-          <liGitHub issue arrives at 2am</li>
-          <liAgent plans, codes, opens PR — no human in the loop</li>
-          <liRuns on serverless: spin up, work, scale to zero</li>
+          <li>GitHub issue arrives at 2am</li>
+          <li>Agent plans, codes, opens PR — no human in the loop</li>
+          <li>Runs on serverless: spin up, work, scale to zero</li>
           <li class="text-aws">What could go wrong? (spoiler: a lot)</li>
         </ul>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
       <section id="overview">
         <section>
@@ -110,7 +182,11 @@
               <p class="text-slate-300">Lambda · DynamoDB · vector store · CDK</p>
             </div>
           </div>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
           <div class="flex flex-wrap items-center justify-center gap-2 text-base md:text-lg">
@@ -125,7 +201,11 @@
             <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
           </div>
           <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
       </section>
 
       <section id="architecture">
@@ -134,76 +214,108 @@
           <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless</h3>
           <img src="assets/architecture.svg" alt="Architecture diagram" class="mx-auto max-h-80 w-full object-contain">
           <p class="mt-4 text-slate-400 text-sm">API Gateway → EventBridge → Lambda → Step Functions</p>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Key components</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li<span class="text-aws font-mono">API Gateway</span> — GitHub issue webhook ingress</li>
-            <li<span class="text-aws font-mono">EventBridge</span> — event routing &amp; scheduling</li>
-            <li<span class="text-aws font-mono">Lambda</span> — agent compute per turn</li>
-            <li<span class="text-aws font-mono">Step Functions</span> — workflows &gt;15 min</li>
-            <li<span class="text-aws font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
+            <li><span class="text-aws font-mono">API Gateway</span> — GitHub issue webhook ingress</li>
+            <li><span class="text-aws font-mono">EventBridge</span> — event routing &amp; scheduling</li>
+            <li><span class="text-aws font-mono">Lambda</span> — agent compute per turn</li>
+            <li><span class="text-aws font-mono">Step Functions</span> — workflows &gt;15 min</li>
+            <li><span class="text-aws font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
           </ul>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
         <section id="agents">
           <h3 class="text-2xl font-bold mb-6">Dev pipeline agents</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li<span class="text-aws font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
-            <li<span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
-            <li<span class="text-aws font-semibold">Review agent</span> — sanity check before PR</li>
-            <liEach agent = ephemeral Lambda invocation · scale to zero when idle</li>
+            <li><span class="text-aws font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
+            <li><span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
+            <li><span class="text-aws font-semibold">Review agent</span> — sanity check before PR</li>
+            <li>Each agent = ephemeral Lambda invocation · scale to zero when idle</li>
           </ul>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
         <section id="memory">
           <h3 class="text-2xl font-bold mb-6">Memory on stateless infra</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li<span class="text-aws font-mono">DynamoDB</span> — run state, handoffs between agents</li>
-            <li<span class="text-aws font-mono">Vector store</span> — repo context, prior fixes, embeddings</li>
-            <liCold start vs. <span class="text-aws">context loading</span> — the real latency trade-off</li>
-            <liStep Functions when agent workflows exceed Lambda 15 min limit</li>
+            <li><span class="text-aws font-mono">DynamoDB</span> — run state, handoffs between agents</li>
+            <li><span class="text-aws font-mono">Vector store</span> — repo context, prior fixes, embeddings</li>
+            <li>Cold start vs. <span class="text-aws">context loading</span> — the real latency trade-off</li>
+            <li>Step Functions when agent workflows exceed Lambda 15 min limit</li>
           </ul>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
       </section>
 
       <section id="why-serverless">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
         <h3 class="text-3xl font-bold mb-8">Bursty by nature</h3>
         <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-          <div            <p class="text-aws font-semibold text-xl mb-2">Agent workloads</p>
+          <div>
+            <p class="text-aws font-semibold text-xl mb-2">Agent workloads</p>
             <p class="text-slate-300">Issue in → 3 min intense work → idle</p>
           </div>
-          <div            <p class="text-aws font-semibold text-xl mb-2">VPS alternative</p>
+          <div>
+            <p class="text-aws font-semibold text-xl mb-2">VPS alternative</p>
             <p class="text-slate-300">€10/mo fixed, 95% idle</p>
           </div>
-          <div            <p class="text-aws font-semibold text-xl mb-2">Serverless win</p>
+          <div>
+            <p class="text-aws font-semibold text-xl mb-2">Serverless win</p>
             <p class="text-slate-300">Pay per invocation · scale to zero</p>
           </div>
-          <div            <p class="text-aws font-semibold text-xl mb-2">Caveat</p>
+          <div>
+            <p class="text-aws font-semibold text-xl mb-2">Caveat</p>
             <p class="text-slate-300">LLM tokens dwarf infra either way</p>
           </div>
         </div>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
       <section id="war-stories">
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
           <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
           <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-            <liCold start vs. context loading — real latency bottleneck</li>
-            <liStateful memory on stateless infra</li>
-            <liMulti-agent coordination across invocations</li>
+            <li>Cold start vs. context loading — real latency bottleneck</li>
+            <li>Stateful memory on stateless infra</li>
+            <li>Multi-agent coordination across invocations</li>
           </ul>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
           <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops</li>
-            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Runaway token spend</li>
-            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Hallucinated git commands</li>
-            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups</li>
+            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Circular agent loops</li>
+            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Runaway token spend</li>
+            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Hallucinated git commands</li>
+            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Debugging across CloudWatch log groups</li>
           </ul>
           <p class="mt-8 text-slate-400">TODO: anonymized incident examples</p>
-        </section>
+        
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
       </section>
 
       <section id="economics">
@@ -220,32 +332,42 @@
           </div>
         </div>
         <p class="mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
       <section id="live-demo">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
         <h3 class="text-3xl font-bold mb-6">Issue → merged PR in &lt;5 min</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
-          <li1. Create GitHub issue</li>
-          <li2. Webhook triggers agent pipeline</li>
-          <li3. Agent plans + implements</li>
-          <li4. PR opened — trace in CloudWatch</li>
+          <li>1. Create GitHub issue</li>
+          <li>2. Webhook triggers agent pipeline</li>
+          <li>3. Agent plans + implements</li>
+          <li>4. PR opened — trace in CloudWatch</li>
         </ol>
         <p class="mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
       <section id="takeaways">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
         <h3 class="text-3xl font-bold mb-8">When to build a Serverless AI Factory</h3>
         <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-lg">
-          <div            <p class="text-green-400 font-semibold mb-2">✓ Do</p>
+          <div>
+            <p class="text-green-400 font-semibold mb-2">✓ Do</p>
             <ul class="space-y-2 text-slate-300">
               <li>Bursty, async workloads</li>
               <li>Issue-driven automation</li>
               <li>Burst economics over idle servers</li>
             </ul>
           </div>
-          <div            <p class="text-red-400 font-semibold mb-2">✗ Don't</p>
+          <div>
+            <p class="text-red-400 font-semibold mb-2">✗ Don't</p>
             <ul class="space-y-2 text-slate-300">
               <li>Persistent WebSockets</li>
               <li>Long-lived browser sessions</li>
@@ -253,23 +375,32 @@
             </ul>
           </div>
         </div>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
-      <section id="qa">
+      <section id="qa" class="center-slide">
         <div class="flex flex-col items-center gap-6 text-center">
-          <h2 class="text-4xl font-bold">Questions?</h2>
-          <div class="mt-4 space-y-2 text-slate-300">
-            <p class="text-xl text-slate-100">Martin Mueller</p>
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH" class="h-10 w-auto">
+          <h2 class="text-4xl font-semibold">Questions?</h2>
+          <div class="mt-2 space-y-2 text-slate-300">
+            <p class="text-xl font-medium text-slate-200">Martin Mueller</p>
             <p>martinmueller.dev</p>
             <p>github.com/mmuller88 · linkedin.com/in/martinmueller88</p>
           </div>
-          <p class="mt-8 text-aws text-sm uppercase tracking-widest">AWS Community Day DACH 2026 · Berlin</p>
+          <a href="https://www.aws-community-day.de/agenda" class="mt-4 text-sm text-brand hover:underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">
           30 min talk + 5–10 min Q&A buffer.
           Slides public per CFP — yes.
         </aside>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
 
     </div>
   </div>
@@ -282,7 +413,7 @@
       slideNumber: 'c/t',
       width: 1280,
       height: 720,
-      margin: 0.08,
+      margin: 0.06,
       transition: 'none',
       backgroundTransition: 'none',
       plugins: [ RevealNotes ]
