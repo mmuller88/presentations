@@ -232,7 +232,7 @@
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH" class="title-logo">
           <p class="text-brand text-sm font-semibold uppercase tracking-[0.22em]">15 September 2026 · Kosmos Berlin · Germany</p>
           <h1 class="font-semibold leading-tight text-slate-100">Serverless AI Factory:<br>An Autonomous Dev Pipeline on AWS</h1>
-          <p class="text-slate-300">GitHub issue → plan → code → PR · fully autonomous · scale-to-zero</p>
+          <p class="text-slate-300">GitHub issue → plan → code → PR · human in the loop · scale-to-zero</p>
           <a href="https://www.aws-community-day.de/agenda" class="text-sm text-brand underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">
@@ -252,7 +252,7 @@
               <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI on AWS</p>
               <ul class="space-y-2 text-slate-300">
                 <li>AWS Community Builder · production agent systems on scale-to-zero AWS</li>
-                <li>Autonomous dev pipeline: GitHub issue → plan → code → pull request</li>
+                <li>Agent dev pipeline with human gates: issue → plan → code → PR → you merge</li>
                 <li>EventBridge · Lambda · Step Functions · DynamoDB · vector memory</li>
               </ul>
               <p class="mt-3">
@@ -297,13 +297,14 @@
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
           <li>Speaker intro</li>
           <li>What is the Serverless AI Factory?</li>
-          <li>Autonomous dev pipeline flow</li>
+          <li>Human in the loop — not full autonomy</li>
+          <li>Agent dev pipeline flow</li>
           <li>AWS architecture — EventBridge, Lambda, Step Functions</li>
           <li>Multi-agent memory on stateless infra</li>
           <li>Why serverless for bursty agent workloads</li>
           <li>War stories &amp; failure modes</li>
           <li>Economics — infra vs LLM tokens</li>
-          <li>Live demo — issue to merged PR</li>
+          <li>Live demo — issue to PR · you merge</li>
         </ol>
       
         <div class="slide-footer">
@@ -318,9 +319,26 @@
           <li>Watches <span class="text-aws font-semibold">GitHub issues</span> — not Telegram, not email</li>
           <li>Plans the work, writes code, opens <span class="text-aws font-semibold">pull requests</span></li>
           <li>Runs on <span class="text-aws font-semibold">scale-to-zero AWS</span> — agents on demand</li>
-          <li>Production for months · dozens of issues processed autonomously</li>
+          <li>Production for months · agents draft work overnight — humans ship it</li>
+          <li class="text-aws font-semibold">Human in the loop: review PR, approve merge, set spend limits</li>
         </ul>
         <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">Different talk: OpenClaw VPS → serverless migration (personal agent, heartbeats, Telegram).</p>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
+
+      <section id="hitl">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Design principle</h2>
+        <h3 class="text-3xl font-bold mb-8">Human in the loop — always</h3>
+        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li><span class="text-aws font-semibold">Agents execute</span> — plan, code, test, open PR</li>
+          <li><span class="text-aws font-semibold">Humans decide</span> — review diff, approve merge, kill runaway jobs</li>
+          <li>Full autonomy sounds cool · production needs guardrails</li>
+          <li>Air Canada &amp; HDI: AI assists · people stay accountable</li>
+        </ul>
+        <p class="mt-8 text-slate-400 text-lg max-w-2xl mx-auto">Autonomous pipeline ≠ autonomous production. The factory runs 24/7 — you still own the merge button.</p>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -332,9 +350,9 @@
         <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
         <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
           <li>GitHub issue arrives at 2am</li>
-          <li>Agent plans, codes, opens PR — no human in the loop</li>
+          <li>Agent plans, codes, opens PR — you review over coffee</li>
           <li>Runs on serverless: spin up, work, scale to zero</li>
-          <li class="text-aws">What could go wrong? (spoiler: a lot)</li>
+          <li class="text-aws">What could go wrong without guardrails? (spoiler: a lot)</li>
         </ul>
       
         <div class="slide-footer">
@@ -345,7 +363,7 @@
       <section id="overview">
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
-          <h3 class="text-3xl font-bold mb-8">Autonomous dev pipeline</h3>
+          <h3 class="text-3xl font-bold mb-8">Agent pipeline · human gates</h3>
           <div class="card-grid text-left">
             <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Trigger</p>
@@ -381,6 +399,8 @@
             <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Test / review</span>
             <span class="text-aws">→</span>
             <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
+            <span class="text-aws">→</span>
+            <span class="rounded-lg bg-brand/20 px-3 py-2 border border-brand text-aws font-semibold">Human review &amp; merge</span>
           </div>
           <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
         
@@ -420,7 +440,8 @@
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
             <li><span class="text-aws font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
             <li><span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
-            <li><span class="text-aws font-semibold">Review agent</span> — sanity check before PR</li>
+            <li><span class="text-aws font-semibold">Review agent</span> — automated sanity check before PR</li>
+            <li><span class="text-aws font-semibold">Human gate</span> — diff review, merge approval, token/spend caps</li>
             <li>Each agent = ephemeral Lambda invocation · scale to zero when idle</li>
           </ul>
         
@@ -488,7 +509,7 @@
           <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
           <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
             <li class="failure-item rounded-lg border px-4 py-3">Circular agent loops</li>
-            <li class="failure-item rounded-lg border px-4 py-3">Runaway token spend</li>
+            <li class="failure-item rounded-lg border px-4 py-3">Runaway token spend — fix: human approval + hard limits</li>
             <li class="failure-item rounded-lg border px-4 py-3">Hallucinated git commands</li>
             <li class="failure-item rounded-lg border px-4 py-3">Debugging across CloudWatch log groups</li>
           </ul>
@@ -522,12 +543,13 @@
 
       <section id="live-demo">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
-        <h3 class="text-3xl font-bold mb-6">Issue → merged PR in &lt;5 min</h3>
+        <h3 class="text-3xl font-bold mb-6">Issue → PR in minutes · merge when you&apos;re ready</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
           <li>1. Create GitHub issue</li>
           <li>2. Webhook triggers agent pipeline</li>
           <li>3. Agent plans + implements</li>
           <li>4. PR opened — trace in CloudWatch</li>
+          <li>5. <span class="text-aws font-semibold">You review the diff and merge</span> — human in the loop</li>
         </ol>
         <p class="mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
       
@@ -544,16 +566,17 @@
             <p class="takeaway-do font-semibold mb-2">✓ Do</p>
             <ul class="space-y-2 text-slate-300">
               <li>Bursty, async workloads</li>
-              <li>Issue-driven automation</li>
+              <li>Issue-driven automation with human merge gates</li>
               <li>Burst economics over idle servers</li>
+              <li>Human in the loop — review, approve, kill runs</li>
             </ul>
           </div>
           <div>
             <p class="takeaway-dont font-semibold mb-2">✗ Don't</p>
             <ul class="space-y-2 text-slate-300">
-              <li>Persistent WebSockets</li>
-              <li>Long-lived browser sessions</li>
-              <li>Real-time sub-second latency</li>
+              <li>Auto-merge without human review</li>
+              <li>“Fully autonomous” with no spend guardrails</li>
+              <li>Persistent WebSockets / sub-second latency</li>
             </ul>
           </div>
         </div>
