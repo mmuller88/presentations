@@ -20,7 +20,7 @@ ESC talk accepted for **AWS Community Day NL** (23 Sep Utrecht) → see `aws-com
 
 https://mmuller88.github.io/presentations/aws-community-day-dach-2026/
 
-Key slides: `#/title` · `#/agenda` · `#/architecture` · `#/live-demo` · `#/qa`
+Key slides: `#/title` · `#/what-is` · `#/overview` · `#/architecture` · `#/agents` · `#/memory` · `#/live-demo`
 
 ## TODO before slot opens
 

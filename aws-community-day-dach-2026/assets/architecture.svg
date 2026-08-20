@@ -1,80 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="AI Factory serverless architecture">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" role="img" aria-label="Serverless AI Factory — autonomous dev pipeline architecture">
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#38bdf8"/>
+      <path d="M0,0 L8,4 L0,8 Z" fill="#FF9900"/>
     </marker>
     <style>
       .box { fill: #1e293b; stroke: #475569; stroke-width: 2; rx: 8; }
       .label { fill: #e2e8f0; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 600; }
       .sublabel { fill: #94a3b8; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; }
-      .arrow { stroke: #38bdf8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
-      .title { fill: #38bdf8; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; }
+      .arrow { stroke: #FF9900; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .title { fill: #FF9900; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
     </style>
   </defs>
 
-  <text x="480" y="28" text-anchor="middle" class="title">AI FACTORY  SERVERLESS ARCHITECTURE (PLACEHOLDER)</text>
+  <text x="480" y="28" text-anchor="middle" class="title">AUTONOMOUS DEV PIPELINE · SCALE-TO-ZERO AWS</text>
 
-  <!-- Sources -->
-  <rect x="20" y="60" width="120" height="56" class="box"/>
-  <text x="80" y="88" text-anchor="middle" class="label">GitHub</text>
-  <text x="80" y="104" text-anchor="middle" class="sublabel">webhooks</text>
+  <rect x="30" y="120" width="130" height="64" class="box"/>
+  <text x="85" y="148" text-anchor="middle" class="label">GitHub</text>
+  <text x="85" y="166" text-anchor="middle" class="sublabel">issue webhook</text>
 
-  <rect x="20" y="140" width="120" height="56" class="box"/>
-  <text x="80" y="168" text-anchor="middle" class="label">Telegram</text>
-  <text x="80" y="184" text-anchor="middle" class="sublabel">messages</text>
+  <rect x="210" y="120" width="130" height="64" class="box"/>
+  <text x="275" y="148" text-anchor="middle" class="label">API Gateway</text>
+  <text x="275" y="166" text-anchor="middle" class="sublabel">ingress</text>
 
-  <rect x="20" y="220" width="120" height="56" class="box"/>
-  <text x="80" y="248" text-anchor="middle" class="label">Scheduler</text>
-  <text x="80" y="264" text-anchor="middle" class="sublabel">cron / heartbeat</text>
+  <rect x="390" y="120" width="130" height="64" class="box"/>
+  <text x="445" y="148" text-anchor="middle" class="label">EventBridge</text>
+  <text x="445" y="166" text-anchor="middle" class="sublabel">orchestration</text>
 
-  <!-- Ingress -->
-  <rect x="200" y="130" width="130" height="70" class="box"/>
-  <text x="265" y="160" text-anchor="middle" class="label">API Gateway</text>
-  <text x="265" y="178" text-anchor="middle" class="sublabel">ingress</text>
+  <rect x="560" y="56" width="130" height="52" class="box"/>
+  <text x="625" y="82" text-anchor="middle" class="label">Lambda</text>
+  <text x="625" y="98" text-anchor="middle" class="sublabel">plan agent</text>
 
-  <!-- Event bus -->
-  <rect x="380" y="130" width="130" height="70" class="box"/>
-  <text x="445" y="160" text-anchor="middle" class="label">EventBridge</text>
-  <text x="445" y="178" text-anchor="middle" class="sublabel">routing</text>
+  <rect x="560" y="120" width="130" height="52" class="box"/>
+  <text x="625" y="146" text-anchor="middle" class="label">Lambda</text>
+  <text x="625" y="162" text-anchor="middle" class="sublabel">code agent</text>
 
-  <!-- Compute -->
-  <rect x="560" y="80" width="130" height="56" class="box"/>
-  <text x="625" y="108" text-anchor="middle" class="label">Lambda</text>
-  <text x="625" y="124" text-anchor="middle" class="sublabel">plan agent</text>
+  <rect x="560" y="196" width="130" height="52" class="box"/>
+  <text x="625" y="220" text-anchor="middle" class="label">Step Functions</text>
+  <text x="625" y="236" text-anchor="middle" class="sublabel">&gt;15 min workflows</text>
 
-  <rect x="560" y="160" width="130" height="56" class="box"/>
-  <text x="625" y="188" text-anchor="middle" class="label">Lambda</text>
-  <text x="625" y="204" text-anchor="middle" class="sublabel">code agent</text>
+  <rect x="760" y="72" width="130" height="52" class="box"/>
+  <text x="835" y="100" text-anchor="middle" class="label">DynamoDB</text>
+  <text x="835" y="116" text-anchor="middle" class="sublabel">run state</text>
 
-  <rect x="560" y="240" width="130" height="56" class="box"/>
-  <text x="625" y="268" text-anchor="middle" class="label">Step Functions</text>
-  <text x="625" y="284" text-anchor="middle" class="sublabel">&gt;15 min runs</text>
+  <rect x="760" y="148" width="130" height="52" class="box"/>
+  <text x="835" y="174" text-anchor="middle" class="label">Vector store</text>
+  <text x="835" y="190" text-anchor="middle" class="sublabel">agent memory</text>
 
-  <!-- Storage -->
-  <rect x="760" y="100" width="130" height="56" class="box"/>
-  <text x="825" y="128" text-anchor="middle" class="label">DynamoDB</text>
-  <text x="825" y="144" text-anchor="middle" class="sublabel">session state</text>
+  <rect x="760" y="224" width="130" height="52" class="box"/>
+  <text x="835" y="250" text-anchor="middle" class="label">GitHub PR</text>
+  <text x="835" y="266" text-anchor="middle" class="sublabel">output</text>
 
-  <rect x="760" y="180" width="130" height="56" class="box"/>
-  <text x="825" y="208" text-anchor="middle" class="label">Vector DB</text>
-  <text x="825" y="224" text-anchor="middle" class="sublabel">long-term memory</text>
+  <path d="M160 152 L210 152" class="arrow"/>
+  <path d="M340 152 L390 152" class="arrow"/>
+  <path d="M520 140 L560 82" class="arrow"/>
+  <path d="M520 152 L560 146" class="arrow"/>
+  <path d="M520 164 L560 220" class="arrow"/>
+  <path d="M690 82 L760 96" class="arrow"/>
+  <path d="M690 146 L760 174" class="arrow"/>
+  <path d="M690 220 L760 250" class="arrow"/>
 
-  <!-- Output -->
-  <rect x="760" y="280" width="130" height="56" class="box"/>
-  <text x="825" y="308" text-anchor="middle" class="label">GitHub PR</text>
-  <text x="825" y="324" text-anchor="middle" class="sublabel">output</text>
-
-  <!-- Arrows -->
-  <path d="M140 88 L200 155" class="arrow"/>
-  <path d="M140 168 L200 165" class="arrow"/>
-  <path d="M140 248 L200 175" class="arrow"/>
-  <path d="M330 165 L380 165" class="arrow"/>
-  <path d="M510 155 L560 108" class="arrow"/>
-  <path d="M510 165 L560 188" class="arrow"/>
-  <path d="M510 175 L560 268" class="arrow"/>
-  <path d="M690 108 L760 128" class="arrow"/>
-  <path d="M690 188 L760 208" class="arrow"/>
-  <path d="M690 268 L760 308" class="arrow"/>
-
-  <text x="480" y="400" text-anchor="middle" class="sublabel">TODO Phase 2: refine diagram with real service names &amp; data flows</text>
+  <text x="480" y="340" text-anchor="middle" class="sublabel">Agents spin up on demand · scale to zero when idle</text>
 </svg>

@@ -28,8 +28,8 @@
       <section id="title">
         <div class="flex flex-col items-center justify-center gap-6 text-center">
           <p class="text-aws text-sm font-semibold uppercase tracking-[0.3em]">AWS Community Day DACH 2026 · 15 Sep · Kosmos Berlin</p>
-          <h1 class="text-4xl font-bold leading-tight max-w-4xl">Serverless AI Factory</h1>
-          <p class="text-xl text-slate-300 max-w-3xl">An Autonomous Dev Pipeline on AWS</p>
+          <h1 class="text-3xl font-bold leading-tight max-w-5xl">Serverless AI Factory: An Autonomous Dev Pipeline on AWS</h1>
+          <p class="text-xl text-slate-300 max-w-3xl mt-4">GitHub issue → plan → code → PR · fully autonomous · scale-to-zero</p>
           <div class="mt-8 flex flex-col gap-1 text-slate-400">
             <p class="text-lg text-slate-200">Martin Mueller</p>
             <p>AWS Community Builder · martinmueller.dev</p>
@@ -47,15 +47,27 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
-          <li class="fragment">Hook — pipeline that never sleeps</li>
-          <li class="fragment">AI Factory overview &amp; flow</li>
-          <li class="fragment">Serverless architecture</li>
-          <li class="fragment">Why serverless for agents</li>
+          <li class="fragment">What is the Serverless AI Factory?</li>
+          <li class="fragment">Autonomous dev pipeline flow</li>
+          <li class="fragment">AWS architecture — EventBridge, Lambda, Step Functions</li>
+          <li class="fragment">Multi-agent memory on stateless infra</li>
+          <li class="fragment">Why serverless for bursty agent workloads</li>
           <li class="fragment">War stories &amp; failure modes</li>
-          <li class="fragment">Economics — real numbers</li>
-          <li class="fragment">Live demo</li>
-          <li class="fragment">Takeaways</li>
+          <li class="fragment">Economics — infra vs LLM tokens</li>
+          <li class="fragment">Live demo — issue to merged PR</li>
         </ol>
+      </section>
+
+      <section id="what-is">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Serverless AI Factory</h2>
+        <h3 class="text-3xl font-bold mb-8">Not a chatbot. A dev pipeline.</h3>
+        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li class="fragment">Watches <span class="text-aws font-semibold">GitHub issues</span> — not Telegram, not email</li>
+          <li class="fragment">Plans the work, writes code, opens <span class="text-aws font-semibold">pull requests</span></li>
+          <li class="fragment">Runs on <span class="text-aws font-semibold">scale-to-zero AWS</span> — agents on demand</li>
+          <li class="fragment">Production for months · dozens of issues processed autonomously</li>
+        </ul>
+        <p class="fragment mt-8 text-slate-500 text-base max-w-2xl mx-auto">Different talk: OpenClaw VPS → serverless migration (personal agent, heartbeats, Telegram).</p>
       </section>
 
       <section id="hook">
@@ -72,36 +84,38 @@
       <section id="overview">
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
-          <h3 class="text-3xl font-bold mb-8">The AI Factory</h3>
+          <h3 class="text-3xl font-bold mb-8">Autonomous dev pipeline</h3>
           <div class="grid grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
             <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Core pipeline</p>
-              <p class="text-slate-300">Issue → plan → code → test → PR</p>
+              <p class="text-aws font-semibold mb-2">Trigger</p>
+              <p class="text-slate-300">GitHub issue webhook → API Gateway</p>
             </div>
             <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Side tasks</p>
-              <p class="text-slate-300">Email, calendar, contacts, heartbeats</p>
+              <p class="text-aws font-semibold mb-2">Agents</p>
+              <p class="text-slate-300">Plan → implement → test → open PR</p>
             </div>
             <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Production</p>
-              <p class="text-slate-300">Months live · dozens of issues processed</p>
+              <p class="text-aws font-semibold mb-2">Orchestration</p>
+              <p class="text-slate-300">EventBridge routing · Step Functions &gt;15 min</p>
             </div>
             <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Stack</p>
-              <p class="text-slate-300">OpenClaw + AWS serverless</p>
+              <p class="text-aws font-semibold mb-2">AWS stack</p>
+              <p class="text-slate-300">Lambda · DynamoDB · vector store · CDK</p>
             </div>
           </div>
         </section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
-          <div class="flex flex-wrap items-center justify-center gap-3 text-lg">
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">GitHub webhook</span>
+          <div class="flex flex-wrap items-center justify-center gap-2 text-base md:text-lg">
+            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">GitHub issue</span>
             <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Plan agent</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Plan agent</span>
             <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Code agent</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Code agent</span>
             <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">PR</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Test / review</span>
+            <span class="text-aws">→</span>
+            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
           </div>
           <p class="fragment mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
         </section>
@@ -117,20 +131,29 @@
         <section>
           <h3 class="text-2xl font-bold mb-6">Key components</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="fragment"><span class="text-aws font-mono">API Gateway</span> — webhook ingress (GitHub, Telegram)</li>
+            <li class="fragment"><span class="text-aws font-mono">API Gateway</span> — GitHub issue webhook ingress</li>
             <li class="fragment"><span class="text-aws font-mono">EventBridge</span> — event routing &amp; scheduling</li>
             <li class="fragment"><span class="text-aws font-mono">Lambda</span> — agent compute per turn</li>
             <li class="fragment"><span class="text-aws font-mono">Step Functions</span> — workflows &gt;15 min</li>
             <li class="fragment"><span class="text-aws font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
           </ul>
         </section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Multi-agent coordination</h3>
+        <section id="agents">
+          <h3 class="text-2xl font-bold mb-6">Dev pipeline agents</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="fragment">Reasoning models for planning</li>
-            <li class="fragment">Specialized agents for coding &amp; review</li>
-            <li class="fragment">Each agent = ephemeral function invocation</li>
-            <li class="fragment">Shared state via DynamoDB + embeddings</li>
+            <li class="fragment"><span class="text-aws font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
+            <li class="fragment"><span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
+            <li class="fragment"><span class="text-aws font-semibold">Review agent</span> — sanity check before PR</li>
+            <li class="fragment">Each agent = ephemeral Lambda invocation · scale to zero when idle</li>
+          </ul>
+        </section>
+        <section id="memory">
+          <h3 class="text-2xl font-bold mb-6">Memory on stateless infra</h3>
+          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment"><span class="text-aws font-mono">DynamoDB</span> — run state, handoffs between agents</li>
+            <li class="fragment"><span class="text-aws font-mono">Vector store</span> — repo context, prior fixes, embeddings</li>
+            <li class="fragment">Cold start vs. <span class="text-aws">context loading</span> — the real latency trade-off</li>
+            <li class="fragment">Step Functions when agent workflows exceed Lambda 15 min limit</li>
           </ul>
         </section>
       </section>
@@ -210,7 +233,7 @@
 
       <section id="takeaways">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
-        <h3 class="text-3xl font-bold mb-8">When to build an AI Factory</h3>
+        <h3 class="text-3xl font-bold mb-8">When to build a Serverless AI Factory</h3>
         <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-lg">
           <div class="fragment">
             <p class="text-green-400 font-semibold mb-2">✓ Do</p>
