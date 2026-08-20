@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,7 +18,8 @@
           fontFamily: { sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
           colors: {
             brand: { DEFAULT: '#FF9900', dark: '#EC7211' },
-            squid: { DEFAULT: '#232F3E', muted: '#545B64', light: '#879596' }
+            squid: { DEFAULT: '#232F3E', muted: '#545B64', light: '#879596' },
+            surface: { DEFAULT: '#000000', card: '#16191f', raised: '#232f3e' }
           }
         }
       }
@@ -26,17 +27,22 @@
   </script>
   <style>
     :root {
-      --acd-bg: #ffffff;
-      --acd-text: #232f3e;
-      --acd-heading: #16191f;
+      --acd-bg: #000000;
+      --acd-text: #eaeded;
+      --acd-heading: #ffffff;
       --acd-brand: #ff9900;
-      --acd-border: #d5dbdb;
-      --acd-card: #f7f8f8;
+      --acd-accent: #979d42;
+      --acd-border: #414d5c;
+      --acd-card: #16191f;
+      --acd-muted: #879596;
     }
     html, body, .reveal, .reveal .slides section {
       font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
-      background: var(--acd-bg);
+      background: var(--acd-bg) !important;
       color: var(--acd-text);
+    }
+    .reveal .backgrounds, .reveal .slide-background {
+      background: var(--acd-bg) !important;
     }
     .reveal .slides {
       width: 100% !important;
@@ -44,8 +50,8 @@
     }
     .reveal .slides section {
       box-sizing: border-box;
-      padding: 1rem 1.25rem 3rem;
-      font-size: 1.1rem;
+      padding: max(0.75rem, env(safe-area-inset-top)) max(0.85rem, env(safe-area-inset-right)) max(2.75rem, calc(env(safe-area-inset-bottom) + 2rem)) max(0.85rem, env(safe-area-inset-left));
+      font-size: 1.15rem;
       line-height: 1.45;
       text-align: left;
       height: 100%;
@@ -81,9 +87,10 @@
       padding: 0.35rem 0.55rem;
     }
     .reveal .slides section .arch-diagram {
-      max-height: min(34vh, 220px);
+      max-height: min(38vh, 260px);
       width: 100%;
       object-fit: contain;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
     }
     .reveal .slides section .title-logo {
       height: 2.75rem;
@@ -98,6 +105,8 @@
       font-weight: 600 !important;
       margin-bottom: 0.75rem !important;
     }
+    .reveal a { color: var(--acd-brand); }
+    .reveal a:hover { color: #ec7211; }
     .reveal h3 { font-size: 1.45rem !important; line-height: 1.25 !important; margin-bottom: 0.75rem !important; }
     .reveal .slides section h1 { font-size: 1.35rem !important; line-height: 1.2 !important; }
     .reveal p, .reveal li { font-size: 0.95rem !important; }
@@ -107,19 +116,26 @@
     .border-slate-600, .border-slate-700 { border-color: var(--acd-border) !important; }
     .text-slate-100, .text-slate-200 { color: var(--acd-heading) !important; }
     .text-slate-300 { color: var(--acd-text) !important; }
-    .text-slate-400, .text-slate-500 { color: var(--acd-muted, #545b64) !important; }
+    .text-slate-400, .text-slate-500 { color: var(--acd-muted) !important; }
+    .failure-item {
+      background: rgba(127, 29, 29, 0.22) !important;
+      border-color: #991b1b !important;
+      color: #fecaca !important;
+    }
+    .takeaway-do { color: #86efac !important; }
+    .takeaway-dont { color: #fca5a5 !important; }
     .slide-footer {
       position: absolute;
-      left: 2.5rem;
-      right: 2.5rem;
-      bottom: 0.85rem;
+      left: max(0.85rem, env(safe-area-inset-left));
+      right: max(0.85rem, env(safe-area-inset-right));
+      bottom: max(0.45rem, env(safe-area-inset-bottom));
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 1px solid var(--acd-border);
       padding-top: 0.55rem;
       font-size: 0.68rem;
-      color: #879596;
+      color: var(--acd-muted);
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
@@ -151,28 +167,43 @@
     }
     @media (max-width: 768px) {
       .reveal .slides section {
-        padding: 0.65rem 0.85rem 2.5rem;
+        padding: max(0.55rem, env(safe-area-inset-top)) max(0.65rem, env(safe-area-inset-right)) max(2.35rem, calc(env(safe-area-inset-bottom) + 1.75rem)) max(0.65rem, env(safe-area-inset-left));
+        font-size: 1.05rem;
+        text-align: left;
       }
       .reveal .slides section.center-slide { text-align: center; }
-      .reveal h2 { letter-spacing: 0.12em; margin-bottom: 0.5rem !important; }
-      .reveal h3 { font-size: 1.2rem !important; }
-      .reveal p, .reveal li { font-size: 0.88rem !important; }
+      .reveal h2 { letter-spacing: 0.12em; margin-bottom: 0.5rem !important; font-size: 0.72rem !important; }
+      .reveal h3 { font-size: 1.35rem !important; line-height: 1.2 !important; margin-bottom: 0.65rem !important; }
+      .reveal .slides section h1 { font-size: 1.45rem !important; }
+      .reveal p, .reveal li { font-size: 0.95rem !important; }
+      .reveal .slides section ol.text-xl,
+      .reveal .slides section ul.text-xl { font-size: 0.95rem !important; }
+      .reveal .slides section .text-lg { font-size: 0.92rem !important; }
+      .reveal .slides section .text-3xl { font-size: 1.35rem !important; }
+      .reveal .slides section .text-2xl { font-size: 1.15rem !important; }
+      .reveal .slides section .text-4xl { font-size: 1.65rem !important; }
+      .reveal .slides section .space-y-3 > * + * { margin-top: 0.55rem !important; }
+      .reveal .slides section .space-y-4 > * + * { margin-top: 0.65rem !important; }
+      .reveal .slides section .mb-8 { margin-bottom: 1rem !important; }
+      .reveal .slides section .mb-6 { margin-bottom: 0.75rem !important; }
+      .reveal .slides section .mt-8 { margin-top: 1rem !important; }
+      .reveal .slides section .mt-10 { margin-top: 1.1rem !important; }
+      .reveal .slides section .arch-diagram { max-height: min(42vh, 280px); }
+      .reveal .slides section .pipeline-flow span { font-size: 0.78rem !important; }
       .slide-footer {
-        left: 0.75rem;
-        right: 0.75rem;
-        bottom: 0.45rem;
         padding-top: 0.35rem;
-        font-size: 0.48rem;
+        font-size: 0.5rem;
         letter-spacing: 0.02em;
       }
-      .slide-footer span { max-width: 55%; text-align: right; line-height: 1.2; }
+      .slide-footer span { max-width: 58%; text-align: right; line-height: 1.2; }
       .reveal .slide-number { font-size: 0.65rem; }
       .reveal .slides section .rounded-xl { padding: 0.85rem !important; }
-      .reveal .slides section .text-5xl { font-size: 2.25rem !important; }
+      .reveal .slides section .text-5xl { font-size: 2.35rem !important; }
+      .reveal .slides section .title-logo { height: 2.35rem; }
     }
   </style>
 </head>
-<body class="bg-white text-squid antialiased font-sans">
+<body class="bg-black text-slate-100 antialiased font-sans">
   <div class="reveal">
     <div class="slides">
 
@@ -390,10 +421,10 @@
         <section>
           <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
           <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Circular agent loops</li>
-            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Runaway token spend</li>
-            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Hallucinated git commands</li>
-            <li class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-900">Debugging across CloudWatch log groups</li>
+            <li class="failure-item rounded-lg border px-4 py-3">Circular agent loops</li>
+            <li class="failure-item rounded-lg border px-4 py-3">Runaway token spend</li>
+            <li class="failure-item rounded-lg border px-4 py-3">Hallucinated git commands</li>
+            <li class="failure-item rounded-lg border px-4 py-3">Debugging across CloudWatch log groups</li>
           </ul>
           <p class="mt-8 text-slate-400">TODO: anonymized incident examples</p>
         
@@ -444,7 +475,7 @@
         <h3 class="text-3xl font-bold mb-8">When to build a Serverless AI Factory</h3>
         <div class="card-grid text-left text-lg">
           <div>
-            <p class="text-green-600 font-semibold mb-2">✓ Do</p>
+            <p class="takeaway-do font-semibold mb-2">✓ Do</p>
             <ul class="space-y-2 text-slate-300">
               <li>Bursty, async workloads</li>
               <li>Issue-driven automation</li>
@@ -452,7 +483,7 @@
             </ul>
           </div>
           <div>
-            <p class="text-red-600 font-semibold mb-2">✗ Don't</p>
+            <p class="takeaway-dont font-semibold mb-2">✗ Don't</p>
             <ul class="space-y-2 text-slate-300">
               <li>Persistent WebSockets</li>
               <li>Long-lived browser sessions</li>
@@ -502,7 +533,7 @@
         height: mobile ? 844 : 1080,
         margin: mobile ? 0.02 : 0.04,
         minScale: 0.2,
-        maxScale: mobile ? 1.25 : 2.5,
+        maxScale: mobile ? 1.35 : 2.5,
         center: true,
         transition: 'none',
         backgroundTransition: 'none',
