@@ -120,6 +120,22 @@
       border-radius: 0.5rem;
       border: 2px solid var(--acd-brand);
     }
+    .reveal .slides section .client-logo {
+      height: 2.25rem;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.75rem;
+    }
+    .reveal .slides section .client-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      width: 100%;
+      margin-top: 1rem;
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -184,6 +200,8 @@
       .reveal .slides section .title-logo { height: 3.5rem; }
       .reveal .slides section .speaker-avatar { width: 7rem; height: 7rem; }
       .reveal .slides section .qr-code-host { width: 6rem; height: 6rem; }
+      .reveal .slides section .client-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .reveal .slides section .client-logo { height: 2.75rem; }
       .slide-footer { left: 2.5rem; right: 2.5rem; }
     }
     @media (max-width: 768px) {
@@ -227,16 +245,15 @@
       <section id="speaker">
         <div class="slide-inner">
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Speaker</h2>
-          <h3 class="text-3xl font-bold mb-6">Martin Mueller</h3>
+          <h3 class="text-3xl font-bold mb-4">Martin Mueller</h3>
           <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-4 items-start">
             <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
             <div class="flex-1 min-w-0">
               <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI on AWS</p>
               <ul class="space-y-2 text-slate-300">
-                <li>AWS Community Builder · builds production agent systems on scale-to-zero AWS</li>
-                <li>Runs an autonomous dev pipeline: GitHub issue → plan → code → pull request</li>
+                <li>AWS Community Builder · production agent systems on scale-to-zero AWS</li>
+                <li>Autonomous dev pipeline: GitHub issue → plan → code → pull request</li>
                 <li>EventBridge · Lambda · Step Functions · DynamoDB · vector memory</li>
-                <li>Digitalisierungslotse · KI-Stammtisch host · Ludwigslust area</li>
               </ul>
               <p class="mt-3">
                 <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
@@ -248,8 +265,26 @@
               <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
             </a>
           </div>
+          <div class="client-grid">
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-3">
+              <img src="assets/air-canada-logo.svg?v=1" alt="Air Canada" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Until July 2026</p>
+                <p class="text-lg font-semibold text-slate-100">Air Canada</p>
+                <p class="text-sm text-slate-300 mt-1">Enterprise AI chatbot for customer service — conversational AI in production</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-3">
+              <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Current</p>
+                <p class="text-lg font-semibold text-slate-100">HDI Versicherung</p>
+                <p class="text-sm text-slate-300 mt-1">Cyquins cyber insurance · automated cloud risk scoring on AWS</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <aside class="notes">Quick intro — builder who ships this in production, not a slide-deck architect. Tagline from CFP: DevOps ftw.</aside>
+        <aside class="notes">Air Canada: KI-Chatbot Kundenservice. HDI: Cyquins/Prowler. Then pipeline story. DevOps ftw.</aside>
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
