@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Serverless AI Factory — AWS Community Day DACH 2026</title>
   <meta name="description" content="An Autonomous Dev Pipeline on AWS — Martin Mueller, AWS Community Day DACH 2026, Berlin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,14 +38,57 @@
       background: var(--acd-bg);
       color: var(--acd-text);
     }
+    .reveal .slides {
+      width: 100% !important;
+      height: 100% !important;
+    }
     .reveal .slides section {
       box-sizing: border-box;
-      padding: 1.25rem 2.5rem 2.75rem;
-      font-size: 1.05rem;
+      padding: 1rem 1.25rem 3rem;
+      font-size: 1.1rem;
       line-height: 1.45;
       text-align: left;
+      height: 100%;
+      top: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
     }
     .reveal .slides section.center-slide { text-align: center; }
+    .reveal .slides section [class*='max-w-'] {
+      max-width: 100% !important;
+      width: 100%;
+    }
+    .reveal .slides section .slide-body {
+      width: 100%;
+      max-width: 100%;
+    }
+    .reveal .slides section .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .reveal .slides section .pipeline-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.35rem 0.5rem;
+      width: 100%;
+    }
+    .reveal .slides section .pipeline-flow span {
+      font-size: 0.82rem !important;
+      padding: 0.35rem 0.55rem;
+    }
+    .reveal .slides section .arch-diagram {
+      max-height: min(34vh, 220px);
+      width: 100%;
+      object-fit: contain;
+    }
+    .reveal .slides section .title-logo {
+      height: 2.75rem;
+      width: auto;
+    }
     .reveal h1, .reveal h3, .reveal h4 { color: var(--acd-heading) !important; font-weight: 600; }
     .reveal h2, .text-aws, .text-brand { color: var(--acd-brand) !important; }
     .reveal h2 {
@@ -55,8 +98,9 @@
       font-weight: 600 !important;
       margin-bottom: 0.75rem !important;
     }
-    .reveal h3 { font-size: 1.75rem !important; line-height: 1.25 !important; margin-bottom: 1rem !important; }
-    .reveal p, .reveal li { font-size: 1rem !important; }
+    .reveal h3 { font-size: 1.45rem !important; line-height: 1.25 !important; margin-bottom: 0.75rem !important; }
+    .reveal .slides section h1 { font-size: 1.35rem !important; line-height: 1.2 !important; }
+    .reveal p, .reveal li { font-size: 0.95rem !important; }
     .reveal .progress span { background: var(--acd-brand); }
     .reveal .slide-number { color: var(--acd-brand); background: transparent; font-size: 0.75rem; }
     .bg-surface-light { background: var(--acd-card) !important; }
@@ -79,11 +123,52 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
-    .slide-footer img { height: 1.35rem; width: auto; }
+    .slide-footer img { height: 1.1rem; width: auto; }
     .reveal .slides section .fragment {
       opacity: 1 !important;
       visibility: visible !important;
       transform: none !important;
+    }
+    @media (min-width: 900px) {
+      .reveal .slides section {
+        padding: 1.25rem 2.5rem 3rem;
+        font-size: 1.15rem;
+      }
+      .reveal h2 { font-size: 0.82rem !important; }
+      .reveal h3 { font-size: 1.85rem !important; margin-bottom: 1rem !important; }
+      .reveal .slides section h1 { font-size: 2rem !important; }
+      .reveal p, .reveal li { font-size: 1.05rem !important; }
+      .reveal .slides section .card-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .reveal .slides section .pipeline-flow span { font-size: 1rem !important; }
+      .reveal .slides section .arch-diagram { max-height: min(42vh, 320px); }
+      .reveal .slides section .title-logo { height: 3.5rem; }
+      .slide-footer {
+        left: 2.5rem;
+        right: 2.5rem;
+        font-size: 0.68rem;
+      }
+      .slide-footer img { height: 1.35rem; }
+    }
+    @media (max-width: 768px) {
+      .reveal .slides section {
+        padding: 0.65rem 0.85rem 2.5rem;
+      }
+      .reveal .slides section.center-slide { text-align: center; }
+      .reveal h2 { letter-spacing: 0.12em; margin-bottom: 0.5rem !important; }
+      .reveal h3 { font-size: 1.2rem !important; }
+      .reveal p, .reveal li { font-size: 0.88rem !important; }
+      .slide-footer {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.45rem;
+        padding-top: 0.35rem;
+        font-size: 0.48rem;
+        letter-spacing: 0.02em;
+      }
+      .slide-footer span { max-width: 55%; text-align: right; line-height: 1.2; }
+      .reveal .slide-number { font-size: 0.65rem; }
+      .reveal .slides section .rounded-xl { padding: 0.85rem !important; }
+      .reveal .slides section .text-5xl { font-size: 2.25rem !important; }
     }
   </style>
 </head>
@@ -93,7 +178,7 @@
 
       <section id="title" class="center-slide">
         <div class="flex flex-col items-center justify-center gap-5 text-center">
-          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH" class="h-14 w-auto mb-2">
+          <img src="assets/community-day-dach-logo.png?v=1" alt="AWS Community Day DACH" class="title-logo mb-1">
           <p class="text-brand text-sm font-semibold uppercase tracking-[0.22em]">15 September 2026 · Kosmos Berlin · Germany</p>
           <h1 class="text-3xl font-semibold leading-tight max-w-5xl text-slate-100">Serverless AI Factory:<br>An Autonomous Dev Pipeline on AWS</h1>
           <p class="text-lg text-slate-300 max-w-3xl">GitHub issue → plan → code → PR · fully autonomous · scale-to-zero</p>
@@ -164,7 +249,7 @@
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
           <h3 class="text-3xl font-bold mb-8">Autonomous dev pipeline</h3>
-          <div class="grid grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
+          <div class="card-grid text-left">
             <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Trigger</p>
               <p class="text-slate-300">GitHub issue webhook → API Gateway</p>
@@ -189,7 +274,7 @@
         </div></section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
-          <div class="flex flex-wrap items-center justify-center gap-2 text-base md:text-lg">
+          <div class="pipeline-flow text-base md:text-lg">
             <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">GitHub issue</span>
             <span class="text-aws">→</span>
             <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Plan agent</span>
@@ -212,7 +297,7 @@
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
           <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless</h3>
-          <img src="assets/architecture.svg" alt="Architecture diagram" class="mx-auto max-h-80 w-full object-contain">
+          <img src="assets/architecture.svg" alt="Architecture diagram" class="arch-diagram mx-auto">
           <p class="mt-4 text-slate-400 text-sm">API Gateway → EventBridge → Lambda → Step Functions</p>
         
         <div class="slide-footer">
@@ -264,7 +349,7 @@
       <section id="why-serverless">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
         <h3 class="text-3xl font-bold mb-8">Bursty by nature</h3>
-        <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+        <div class="card-grid text-left">
           <div>
             <p class="text-aws font-semibold text-xl mb-2">Agent workloads</p>
             <p class="text-slate-300">Issue in → 3 min intense work → idle</p>
@@ -321,8 +406,8 @@
       <section id="economics">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Economics</h2>
         <h3 class="text-3xl font-bold mb-8">Real numbers</h3>
-        <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div class="rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+        <div class="card-grid">
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700 text-center">
             <p class="text-5xl font-bold text-aws">~€2–4</p>
             <p class="mt-2 text-slate-400">AWS infra / month</p>
           </div>
@@ -357,9 +442,9 @@
       <section id="takeaways">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
         <h3 class="text-3xl font-bold mb-8">When to build a Serverless AI Factory</h3>
-        <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-lg">
+        <div class="card-grid text-left text-lg">
           <div>
-            <p class="text-green-400 font-semibold mb-2">✓ Do</p>
+            <p class="text-green-600 font-semibold mb-2">✓ Do</p>
             <ul class="space-y-2 text-slate-300">
               <li>Bursty, async workloads</li>
               <li>Issue-driven automation</li>
@@ -367,7 +452,7 @@
             </ul>
           </div>
           <div>
-            <p class="text-red-400 font-semibold mb-2">✗ Don't</p>
+            <p class="text-red-600 font-semibold mb-2">✗ Don't</p>
             <ul class="space-y-2 text-slate-300">
               <li>Persistent WebSockets</li>
               <li>Long-lived browser sessions</li>
@@ -408,15 +493,34 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
-    Reveal.initialize({
-      hash: true,
-      slideNumber: 'c/t',
-      width: 1280,
-      height: 720,
-      margin: 0.06,
-      transition: 'none',
-      backgroundTransition: 'none',
-      plugins: [ RevealNotes ]
+    function revealConfig() {
+      const mobile = window.innerWidth < 768;
+      return {
+        hash: true,
+        slideNumber: 'c/t',
+        width: mobile ? 390 : 1920,
+        height: mobile ? 844 : 1080,
+        margin: mobile ? 0.02 : 0.04,
+        minScale: 0.2,
+        maxScale: mobile ? 1.25 : 2.5,
+        center: true,
+        transition: 'none',
+        backgroundTransition: 'none',
+        touch: true,
+        plugins: [ RevealNotes ]
+      };
+    }
+
+    Reveal.initialize(revealConfig());
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const mobile = window.innerWidth < 768;
+        const wasMobile = Reveal.getConfig().width < 500;
+        if (mobile !== wasMobile) location.reload();
+      }, 250);
     });
   </script>
 </body>
