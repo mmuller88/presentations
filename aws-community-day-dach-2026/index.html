@@ -20,6 +20,13 @@
       }
     }
   </script>
+  <style>
+    .reveal .slides section .{
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+  </style>
 </head>
 <body class="bg-surface text-slate-100 antialiased">
   <div class="reveal">
@@ -67,7 +74,7 @@
           <li class="fragment">Runs on <span class="text-aws font-semibold">scale-to-zero AWS</span> — agents on demand</li>
           <li class="fragment">Production for months · dozens of issues processed autonomously</li>
         </ul>
-        <p class="fragment mt-8 text-slate-500 text-base max-w-2xl mx-auto">Different talk: OpenClaw VPS → serverless migration (personal agent, heartbeats, Telegram).</p>
+        <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">Different talk: OpenClaw VPS → serverless migration (personal agent, heartbeats, Telegram).</p>
       </section>
 
       <section id="hook">
@@ -77,7 +84,7 @@
           <li class="fragment">GitHub issue arrives at 2am</li>
           <li class="fragment">Agent plans, codes, opens PR — no human in the loop</li>
           <li class="fragment">Runs on serverless: spin up, work, scale to zero</li>
-          <li class="fragment fade-up text-aws">What could go wrong? (spoiler: a lot)</li>
+          <li class="text-aws">What could go wrong? (spoiler: a lot)</li>
         </ul>
       </section>
 
@@ -86,19 +93,19 @@
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
           <h3 class="text-3xl font-bold mb-8">Autonomous dev pipeline</h3>
           <div class="grid grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Trigger</p>
               <p class="text-slate-300">GitHub issue webhook → API Gateway</p>
             </div>
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Agents</p>
               <p class="text-slate-300">Plan → implement → test → open PR</p>
             </div>
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Orchestration</p>
               <p class="text-slate-300">EventBridge routing · Step Functions &gt;15 min</p>
             </div>
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">AWS stack</p>
               <p class="text-slate-300">Lambda · DynamoDB · vector store · CDK</p>
             </div>
@@ -117,7 +124,7 @@
             <span class="text-aws">→</span>
             <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
           </div>
-          <p class="fragment mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
+          <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
         </section>
       </section>
 
@@ -194,12 +201,12 @@
         <section>
           <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
           <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops</li>
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Runaway token spend</li>
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Hallucinated git commands</li>
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups</li>
+            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops</li>
+            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Runaway token spend</li>
+            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Hallucinated git commands</li>
+            <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups</li>
           </ul>
-          <p class="fragment mt-8 text-slate-400">TODO: anonymized incident examples</p>
+          <p class="mt-8 text-slate-400">TODO: anonymized incident examples</p>
         </section>
       </section>
 
@@ -207,16 +214,16 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Economics</h2>
         <h3 class="text-3xl font-bold mb-8">Real numbers</h3>
         <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+          <div class="rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
             <p class="text-5xl font-bold text-aws">~€2–4</p>
             <p class="mt-2 text-slate-400">AWS infra / month</p>
           </div>
-          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+          <div class="rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
             <p class="text-5xl font-bold text-amber-400">~95%</p>
             <p class="mt-2 text-slate-400">LLM token costs</p>
           </div>
         </div>
-        <p class="fragment mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
+        <p class="mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
       </section>
 
       <section id="live-demo">
@@ -228,7 +235,7 @@
           <li class="fragment">3. Agent plans + implements</li>
           <li class="fragment">4. PR opened — trace in CloudWatch</li>
         </ol>
-        <p class="fragment mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
+        <p class="mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
       </section>
 
       <section id="takeaways">
@@ -282,7 +289,8 @@
       width: 1280,
       height: 720,
       margin: 0.08,
-      transition: 'slide',
+      transition: 'none',
+      backgroundTransition: 'none',
       plugins: [ RevealNotes ]
     });
   </script>
