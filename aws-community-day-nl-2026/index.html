@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AWS European Sovereign Cloud: A Builder's Guide — AWS Community Day NL 2026</title>
+  <meta name="description" content="Main Stage · 18 min · Martin Mueller · AWS Community Day NL 2026">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#FF9900', dark: '#ec7211' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b', card: '#232f3e' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .reveal .slides section { box-sizing: border-box; padding: 1rem 2rem; font-size: 1.2rem; line-height: 1.45; text-align: left; }
+    .reveal .slides section.center-slide { text-align: center; }
+    .reveal h2 { font-size: 0.9rem !important; letter-spacing: 0.15em; margin-bottom: 0.75rem !important; color: #FF9900 !important; }
+    .reveal h3 { font-size: 1.85rem !important; line-height: 1.2 !important; margin-bottom: 1rem !important; }
+    .reveal p, .reveal li { font-size: 1.05rem !important; }
+    .reveal table.compact-table { width: 100%; border-collapse: collapse; font-size: 0.92rem !important; }
+    .reveal table.compact-table th, .reveal table.compact-table td { border: 1px solid #475569; padding: 0.45rem 0.6rem; vertical-align: top; }
+    .reveal table.compact-table th { background: #232f3e; color: #FF9900; }
+    .reveal .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 768px) { .reveal .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="bg-surface text-slate-100 antialiased">
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" data-id="title" class="center-slide">
+        <div class="flex flex-col items-center justify-center gap-4">
+          <p class="text-brand text-sm font-semibold uppercase tracking-[0.2em]">AWS Community Day NL 2026</p>
+          <p class="text-slate-400">23 September · Utrecht · Main Stage · 14:10 · 18 min</p>
+          <h1 class="text-4xl font-bold leading-tight max-w-5xl">AWS European Sovereign Cloud:<br>A Builder's Guide</h1>
+          <p class="text-xl text-slate-300 max-w-3xl">Decision framework first — then what breaks in migration</p>
+          <p class="text-slate-400 mt-4">Martin Mueller · AWS Community Builder · martinmueller.dev</p>
+        </div>
+        <aside class="notes">Nick: decision framework is the spine. 16 min content + 2 min Q&A. Shared laptop, pre-recorded CDK demo in deck.</aside>
+      </section>
+
+      <section id="core-question" data-id="core-question">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">Spine</h2>
+          <h3 class="font-bold">Start with the question procurement asks</h3>
+          <p class="text-2xl text-slate-100 mb-6">Is <span class="font-mono text-brand">eu-central-1</span> enough — or do you need partition <span class="font-mono text-brand">aws-eusc</span>?</p>
+          <ul class="space-y-2 text-slate-300">
+            <li>ESC GA Jan 2026 · region <code>eusc-de-east-1</code> (Brandenburg)</li>
+            <li>SCHUFA, ITZBund, SAP on it — but most builders still on standard AWS</li>
+            <li class="text-brand">Wrong answer costs months; right answer is workload-specific</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="decision-framework" data-id="decision-framework">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">Decision framework</h2>
+          <h3 class="font-bold">Three buckets</h3>
+          <div class="card-grid">
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-600">
+              <p class="text-brand font-semibold mb-1">1 · eu-central-1</p>
+              <p class="text-slate-300 text-sm">EU residency enough · full catalog · most customers</p>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-brand/60 border-2">
+              <p class="text-brand font-semibold mb-1">2 · ESC workloads</p>
+              <p class="text-slate-300 text-sm">Sovereign partition required · hybrid phased migration</p>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-600 col-span-2">
+              <p class="text-brand font-semibold mb-1">3 · Full sovereign stack</p>
+              <p class="text-slate-300 text-sm">ESC + on-prem / national cloud — deliberate, rare</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">~3 min. Map audience mentally to bucket before technical depth.</aside>
+      </section>
+
+      <section id="regulation-map" data-id="regulation-map">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">Regulation → bucket</h2>
+          <h3 class="font-bold">Four frameworks, one architecture question</h3>
+          <table class="compact-table text-slate-300">
+            <thead><tr><th>Regulation</th><th>Typical push</th><th>Often lands in</th></tr></thead>
+            <tbody>
+              <tr><td>NIS2</td><td>Critical entities, supply chain</td><td>Bucket 1 or 2</td></tr>
+              <tr><td>DORA</td><td>Financial ICT resilience</td><td>Bucket 2</td></tr>
+              <tr><td>GDPR</td><td>Residency &amp; processors</td><td>Bucket 1</td></tr>
+              <tr><td>EU AI Act</td><td>High-risk AI + data gov</td><td>Bucket 1 or 2</td></tr>
+            </tbody>
+          </table>
+          <p class="mt-4 text-slate-400 text-sm">ESC enables Bucket 2 — it does not auto-satisfy any regulation alone.</p>
+        </div>
+      </section>
+
+      <section id="what-is-esc" data-id="what-is-esc">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">Context</h2>
+          <h3 class="font-bold">What ESC adds beyond an EU region</h3>
+          <img src="assets/partition-compare.svg" alt="aws vs aws-eusc" class="mb-3 max-h-[38vh]">
+          <p class="text-slate-400 text-sm">Data residency ≠ sovereign partition · EU-resident operations · ~90 services at GA</p>
+        </div>
+      </section>
+
+      <section id="builder-changes" data-id="builder-changes">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">For builders</h2>
+          <h3 class="font-bold">What breaks in migration</h3>
+          <div class="card-grid text-slate-300">
+            <ul class="space-y-1">
+              <li><span class="text-slate-100">IAM</span> — new identities, no 1:1 copy</li>
+              <li><span class="text-slate-100">ARNs</span> — partition <code>aws-eusc</code></li>
+              <li><span class="text-slate-100">Route 53</span> — common pain point</li>
+            </ul>
+            <ul class="space-y-1">
+              <li><span class="text-slate-100">Billing</span> — partition-scoped</li>
+              <li><span class="text-slate-100">CI/CD</span> — separate creds/pipelines</li>
+              <li><span class="text-slate-100">Services</span> — verify matrix first</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">~5 min total with next slide. Marketing skips this — builders feel it at deploy time.</aside>
+      </section>
+
+      <section id="cdk-migration" data-id="cdk-migration">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">CDK migration</h2>
+          <h3 class="font-bold">Concrete steps · pre-recorded demo</h3>
+          <img src="assets/migration-flow.svg" alt="Migration flow" class="mb-4 max-h-[22vh]">
+          <ol class="space-y-1 text-slate-300 list-decimal list-inside">
+            <li>Region → <code>eusc-de-east-1</code> · partition-aware ARNs</li>
+            <li>Fix Route 53 · redeploy pilot stack</li>
+          </ol>
+          <p class="mt-4 text-brand">▶ Embedded demo clip here (shared laptop rule)</p>
+        </div>
+      </section>
+
+      <section id="cloud-act" data-id="cloud-act">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">Honest take</h2>
+          <h3 class="font-bold">CLOUD Act — ~3 min</h3>
+          <div class="card-grid">
+            <ul class="space-y-1 text-slate-300 text-sm">
+              <li class="text-brand font-semibold">ESC addresses</li>
+              <li>Isolated EU infra · EU-only ops · EU governance</li>
+            </ul>
+            <ul class="space-y-1 text-slate-300 text-sm">
+              <li class="text-brand font-semibold">Still your job</li>
+              <li>Contracts · support paths · data classification</li>
+            </ul>
+          </div>
+          <p class="mt-4 text-slate-300">eu-central-1 = EU hosting, partition still <code>aws</code>.</p>
+        </div>
+      </section>
+
+      <section id="decision-close" data-id="decision-close">
+        <div class="slide-inner">
+          <h2 class="font-semibold uppercase tracking-widest">Close the loop</h2>
+          <h3 class="font-bold">Takeaway: pick your bucket, then migrate</h3>
+          <ul class="space-y-2 text-slate-300">
+            <li><strong>Bucket 1</strong> — stop here; eu-central-1 is fine</li>
+            <li><strong>Bucket 2</strong> — readiness → landing zone → pilot → hybrid rollout</li>
+            <li><strong>Bucket 3</strong> — architecture review, not a feature flag</li>
+          </ul>
+          <p class="mt-5 text-slate-400">martinmueller.dev/aws-esc · office@martinmueller.dev</p>
+        </div>
+        <aside class="notes">Return to spine. Nick wants revised abstract aligned to this — send by end Aug.</aside>
+      </section>
+
+      <section id="qa" data-id="qa" class="center-slide">
+        <div class="slide-inner flex flex-col items-center justify-center gap-4">
+          <h3 class="font-bold text-4xl">Questions?</h3>
+          <p class="text-slate-400">Slides: mmuller88.github.io/presentations/aws-community-day-nl-2026/</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({ hash: true, slideNumber: 'c/t', width: 1920, height: 1080, margin: 0.04, plugins: [ RevealNotes ] });
+  </script>
+</body>
+</html>

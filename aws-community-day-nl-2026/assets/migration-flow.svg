@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 200" role="img" aria-label="CDK migration path">
+  <rect width="960" height="200" fill="#0f172a"/>
+  <g font-family="system-ui,sans-serif" font-size="14" fill="#e2e8f0">
+    <rect x="20" y="70" width="130" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="85" y="105" text-anchor="middle">Readiness</text>
+    <rect x="190" y="70" width="130" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="255" y="105" text-anchor="middle">Landing Zone</text>
+    <rect x="360" y="70" width="130" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="425" y="105" text-anchor="middle">Partition + Region</text>
+    <rect x="530" y="70" width="130" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="595" y="95" text-anchor="middle">Fix ARNs /</text>
+    <text x="595" y="115" text-anchor="middle">Route 53</text>
+    <rect x="700" y="70" width="110" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="755" y="105" text-anchor="middle">Pilot</text>
+    <rect x="850" y="70" width="90" height="60" rx="10" fill="#232f3e" stroke="#FF9900" stroke-width="2"/>
+    <text x="895" y="105" text-anchor="middle">Rollout</text>
+  </g>
+  <g stroke="#FF9900" stroke-width="2" fill="none">
+    <path d="M150 100 h40"/><path d="M320 100 h40"/><path d="M490 100 h40"/><path d="M660 100 h40"/><path d="M810 100 h40"/>
+  </g>
+  <text x="480" y="40" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">Typical builder path  phased, not big bang</text>
+</svg>

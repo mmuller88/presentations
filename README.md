@@ -6,7 +6,8 @@ Standalone HTML slide decks for conference talks.
 
 | Event | Path | URL |
 |-------|------|-----|
-| AWS Community Day DACH 2026 | [`aws-community-day-dach-2026/`](aws-community-day-dach-2026/) | https://mmuller88.github.io/presentations/aws-community-day-dach-2026/ |
+| AWS Community Day NL 2026 (accepted) | [`aws-community-day-nl-2026/`](aws-community-day-nl-2026/) | https://mmuller88.github.io/presentations/aws-community-day-nl-2026/ |
+| AWS Community Day DACH 2026 (draft/wrong) | [`aws-community-day-dach-2026/`](aws-community-day-dach-2026/) | https://mmuller88.github.io/presentations/aws-community-day-dach-2026/ |
 | ServerlessDays Milan 2026 | [`milan-2026-ai-factory/`](milan-2026-ai-factory/) | https://mmuller88.github.io/presentations/milan-2026-ai-factory/ |
 | AI Builder Community Intro | [`ai-builder-intro/`](ai-builder-intro/) | https://mmuller88.github.io/presentations/ai-builder-intro/ |
 | KI Stammtisch (Talk) | [`ki-stammtisch/`](ki-stammtisch/) | https://mmuller88.github.io/presentations/ki-stammtisch/ |

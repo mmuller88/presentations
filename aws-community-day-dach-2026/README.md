@@ -1,31 +1,13 @@
-# AWS Community Day DACH 2026 — ESC Builder's Guide
+# AWS Community Day DACH 2026 — ⚠️ not a speaker slot
 
-**Talk:** AWS European Sovereign Cloud: A Builder's Guide  
-**Event:** [AWS Community Day DACH 2026](https://www.aws-community-day.de) · Kosmos Berlin · 15 Sep 2026  
-**Format:** English · Technical session · Level 300 · ~30 min + Q&A  
-**Speaker:** Martin Mueller · [martinmueller.dev](https://martinmueller.dev)
+**Status (email 14 Aug 2026):** All five CFP submissions **rejected**, including ESC.
 
-## URLs
+**Waitlist only:** *Serverless AI Factory: An Autonomous Dev Pipeline on AWS* (Sessionize, 7 Aug) — **not confirmed**.
 
-- **Live:** https://mmuller88.github.io/presentations/aws-community-day-dach-2026/
-- **Start:** [#/title](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/#/title)
-- **Agenda:** [#/agenda](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/#/agenda)
-- **CDK demo:** [#/cdk-demo](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/#/cdk-demo)
+**Aug 20 ticket email:** attendee registration only, not speaker acceptance.
 
-## Source
+This folder currently holds a **draft ESC deck built on the wrong assumption**. Do not use for Berlin.
 
-- CFP / abstract: `proposal4_aws_esc.md` (synced from Dropbox `/Conference/2026/Sep_15_berlin_aws_community_day/`)
-- Builder content: [martinmueller.dev/aws-esc](https://martinmueller.dev/aws-esc)
+**Accepted talk:** ESC at **AWS Community Day NL 2026** (Utrecht, 23 Sep) → [`../aws-community-day-nl-2026/`](../aws-community-day-nl-2026/)
 
-## Local preview
-
-```bash
-cd aws-community-day-dach-2026
-python3 -m http.server 8080
-```
-
-## TODO before conference
-
-- [ ] Live CDK demo stack or screen recording on `#/cdk-demo-steps`
-- [ ] Verify ESC GA service list (serverless slide)
-- [ ] Optional: speaker photo, customer logos (license)
+**Event:** https://www.aws-community-day.de · 15 Sep · Kosmos Berlin · attendee OK
