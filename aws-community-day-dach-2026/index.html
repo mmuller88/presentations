@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>AWS European Sovereign Cloud: A Builder's Guide — AWS Community Day DACH 2026</title>
-  <meta name="description" content="Technical session at AWS Community Day DACH 2026 — Kosmos Berlin, 15 Sep 2026 — Martin Mueller">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serverless AI Factory — AWS Community Day DACH 2026</title>
+  <meta name="description" content="An Autonomous Dev Pipeline on AWS — Martin Mueller, AWS Community Day DACH 2026, Berlin">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,397 +13,237 @@
       theme: {
         extend: {
           colors: {
-            brand: { DEFAULT: '#FF9900', dark: '#ec7211', muted: '#ffb84d' },
-            surface: { DEFAULT: '#0f172a', light: '#1e293b', card: '#232f3e' }
+            aws: { DEFAULT: '#FF9900', dark: '#EC7211' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
           }
         }
       }
     }
   </script>
-  <style>
-    .reveal .slides section {
-      box-sizing: border-box;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      line-height: 1.45;
-      text-align: left;
-    }
-    .reveal .slides section .slide-inner {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    .reveal .slides section.center-slide { text-align: center; }
-    .reveal .slides section.center-slide .slide-inner { text-align: center; }
-    .reveal h2 {
-      font-size: 0.9rem !important;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.75rem !important;
-      color: #FF9900 !important;
-    }
-    .reveal h3 {
-      font-size: 1.85rem !important;
-      line-height: 1.2 !important;
-      margin-bottom: 1rem !important;
-    }
-    .reveal p, .reveal li { font-size: 1.05rem !important; }
-    .reveal .slides section img,
-    .reveal .slides section svg { max-height: 52vh; width: 100%; object-fit: contain; }
-    .reveal table.compact-table { width: 100%; border-collapse: collapse; font-size: 0.95rem !important; }
-    .reveal table.compact-table th,
-    .reveal table.compact-table td {
-      border: 1px solid #475569;
-      padding: 0.5rem 0.65rem;
-      vertical-align: top;
-    }
-    .reveal table.compact-table th { background: #232f3e; color: #FF9900; }
-    .reveal .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media (min-width: 900px) {
-      .reveal .slides section { padding: 1.25rem 3rem; font-size: 1.35rem; }
-      .reveal h3 { font-size: 2.1rem !important; }
-      .reveal p, .reveal li { font-size: 1.15rem !important; }
-      .reveal .card-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    }
-    @media (max-width: 768px) {
-      .reveal .slides section { padding: 0.75rem 1rem 1.25rem; font-size: 1rem; }
-      .reveal h3 { font-size: 1.35rem !important; }
-      .reveal p, .reveal li { font-size: 0.95rem !important; }
-    }
-  </style>
 </head>
 <body class="bg-surface text-slate-100 antialiased">
   <div class="reveal">
     <div class="slides">
 
-      <section id="title" data-id="title" class="center-slide">
-        <div class="slide-inner flex flex-col items-center justify-center gap-5">
-          <p class="text-brand text-sm font-semibold uppercase tracking-[0.25em]">AWS Community Day DACH 2026</p>
-          <p class="text-slate-400 text-lg">15 September · Kosmos Berlin · Technical Session · Level 300</p>
-          <h1 class="text-4xl font-bold leading-tight max-w-5xl">AWS European Sovereign Cloud:<br>A Builder's Guide</h1>
-          <p class="text-xl text-slate-300 max-w-3xl">When eu-central-1 is enough — and when you need <span class="text-brand font-mono">aws-eusc</span></p>
-          <div class="mt-6 flex flex-col gap-1 text-slate-400">
+      <section id="title">
+        <div class="flex flex-col items-center justify-center gap-6 text-center">
+          <p class="text-aws text-sm font-semibold uppercase tracking-[0.3em]">AWS Community Day DACH 2026 · 15 Sep · Kosmos Berlin</p>
+          <h1 class="text-4xl font-bold leading-tight max-w-4xl">Serverless AI Factory</h1>
+          <p class="text-xl text-slate-300 max-w-3xl">An Autonomous Dev Pipeline on AWS</p>
+          <div class="mt-8 flex flex-col gap-1 text-slate-400">
             <p class="text-lg text-slate-200">Martin Mueller</p>
-            <p>AWS Community Builder · AWS SA Pro · martinmueller.dev</p>
-            <p class="text-sm"><a href="https://www.aws-community-day.de" class="text-brand underline">aws-community-day.de</a></p>
+            <p>AWS Community Builder · martinmueller.dev</p>
           </div>
+          <p class="mt-4 text-sm text-slate-500">aws-community-day.de</p>
         </div>
         <aside class="notes">
-          Welcome. Community-led event — thank organizers and sponsors. 30 min + Q&A. Slides public after talk.
+          Waitlist backup deck — Serverless AI Factory (Sessionize 10798).
+          Confirmed speaker slot is ESC at NL Community Day (23 Sep Utrecht).
+          ~30 min talk + 5–10 min Q&A if slot opens.
         </aside>
       </section>
 
-      <section id="hook" data-id="hook">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Hook</h2>
-          <h3 class="font-bold">GA since January 2026 — what actually changes for builders?</h3>
-          <ul class="space-y-3 text-slate-300 max-w-4xl">
-            <li class="fragment">Physically isolated EU infrastructure · separate partition · EU-resident operations</li>
-            <li class="fragment"><span class="text-slate-100">SCHUFA</span>, <span class="text-slate-100">ITZBund</span>, <span class="text-slate-100">SAP</span> already committed — sovereignty is procurement reality in DACH</li>
-            <li class="fragment">Most decks <em>sell</em> sovereignty — this one explains what <strong>breaks in migration</strong></li>
-            <li class="fragment fade-up text-brand">Core question: eu-central-1 or aws-eusc?</li>
+      <section id="agenda">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
+        <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
+        <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
+          <li class="fragment">Hook — pipeline that never sleeps</li>
+          <li class="fragment">AI Factory overview &amp; flow</li>
+          <li class="fragment">Serverless architecture</li>
+          <li class="fragment">Why serverless for agents</li>
+          <li class="fragment">War stories &amp; failure modes</li>
+          <li class="fragment">Economics — real numbers</li>
+          <li class="fragment">Live demo</li>
+          <li class="fragment">Takeaways</li>
+        </ol>
+      </section>
+
+      <section id="hook">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
+        <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
+        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li class="fragment">GitHub issue arrives at 2am</li>
+          <li class="fragment">Agent plans, codes, opens PR — no human in the loop</li>
+          <li class="fragment">Runs on serverless: spin up, work, scale to zero</li>
+          <li class="fragment fade-up text-aws">What could go wrong? (spoiler: a lot)</li>
+        </ul>
+      </section>
+
+      <section id="overview">
+        <section>
+          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
+          <h3 class="text-3xl font-bold mb-8">The AI Factory</h3>
+          <div class="grid grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-aws font-semibold mb-2">Core pipeline</p>
+              <p class="text-slate-300">Issue → plan → code → test → PR</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-aws font-semibold mb-2">Side tasks</p>
+              <p class="text-slate-300">Email, calendar, contacts, heartbeats</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-aws font-semibold mb-2">Production</p>
+              <p class="text-slate-300">Months live · dozens of issues processed</p>
+            </div>
+            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-aws font-semibold mb-2">Stack</p>
+              <p class="text-slate-300">OpenClaw + AWS serverless</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
+          <div class="flex flex-wrap items-center justify-center gap-3 text-lg">
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">GitHub webhook</span>
+            <span class="text-aws">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Plan agent</span>
+            <span class="text-aws">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Code agent</span>
+            <span class="text-aws">→</span>
+            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">PR</span>
+          </div>
+          <p class="fragment mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
+        </section>
+      </section>
+
+      <section id="architecture">
+        <section>
+          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
+          <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless</h3>
+          <img src="assets/architecture.svg" alt="Architecture diagram" class="mx-auto max-h-80 w-full object-contain">
+          <p class="mt-4 text-slate-400 text-sm">API Gateway → EventBridge → Lambda → Step Functions</p>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Key components</h3>
+          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment"><span class="text-aws font-mono">API Gateway</span> — webhook ingress (GitHub, Telegram)</li>
+            <li class="fragment"><span class="text-aws font-mono">EventBridge</span> — event routing &amp; scheduling</li>
+            <li class="fragment"><span class="text-aws font-mono">Lambda</span> — agent compute per turn</li>
+            <li class="fragment"><span class="text-aws font-mono">Step Functions</span> — workflows &gt;15 min</li>
+            <li class="fragment"><span class="text-aws font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
           </ul>
-        </div>
-        <aside class="notes">
-          Set expectation: vendor-fluff-free, hands-on. You don't need ESC for everything.
-        </aside>
-      </section>
-
-      <section id="agenda" data-id="agenda">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Agenda</h2>
-          <h3 class="font-bold">~30 minutes</h3>
-          <ol class="space-y-2 text-slate-300 max-w-3xl list-decimal list-inside">
-            <li>What ESC is — beyond "servers in the EU"</li>
-            <li>Decision framework: three buckets</li>
-            <li>What changes: IAM, DNS, ARNs, CDK</li>
-            <li>Serverless at GA · live CDK migration walkthrough</li>
-            <li>Regulation in DACH: NIS2, DORA, GDPR, EU AI Act</li>
-            <li>CLOUD Act — honest assessment</li>
-            <li>Reference customers · readiness next steps</li>
-          </ol>
-        </div>
-        <aside class="notes">Roughly 4 min per block. Leave 5–10 min Q&A.</aside>
-      </section>
-
-      <section id="what-is-esc" data-id="what-is-esc">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Context</h2>
-          <h3 class="font-bold">EU region ≠ sovereign partition</h3>
-          <img src="assets/partition-compare.svg" alt="Standard AWS vs AWS ESC partition comparison" class="mb-4">
-          <p class="text-slate-400 text-sm">Region <span class="font-mono text-slate-300">eusc-de-east-1</span> (Brandenburg) · partition <span class="font-mono text-slate-300">aws-eusc</span></p>
-        </div>
-        <aside class="notes">
-          eu-central-1 = data residency. ESC adds partition isolation + EU-governed ops. That's the sovereignty step.
-        </aside>
-      </section>
-
-      <section id="compare-table" data-id="compare-table">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Compare</h2>
-          <h3 class="font-bold">Standard AWS vs ESC</h3>
-          <table class="compact-table">
-            <thead>
-              <tr>
-                <th>Aspect</th>
-                <th>eu-central-1</th>
-                <th>aws-eusc</th>
-              </tr>
-            </thead>
-            <tbody class="text-slate-300">
-              <tr><td>Partition</td><td><code>aws</code></td><td><code>aws-eusc</code></td></tr>
-              <tr><td>Data residency</td><td>Yes (EU)</td><td>Yes (EU) + isolated ops layer</td></tr>
-              <tr><td>Operations</td><td>Global AWS ops</td><td>EU-resident, European governance</td></tr>
-              <tr><td>Services</td><td>Full catalog</td><td>~90 at GA — growing</td></tr>
-              <tr><td>Typical buyer</td><td>Most workloads</td><td>Sovereignty-critical / public sector</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="decision-framework" data-id="decision-framework">
-        <section id="decision-intro" data-id="decision-intro">
-          <div class="slide-inner">
-            <h2 class="font-semibold uppercase tracking-widest">Decision framework</h2>
-            <h3 class="font-bold">Three buckets — workload-specific, not org-wide</h3>
-            <p class="text-slate-300 mb-4">First question: <strong>what sovereignty requirement do you have?</strong> — not which vendor shouts loudest.</p>
-            <div class="card-grid">
-              <div class="rounded-xl bg-surface-light p-5 border border-slate-600">
-                <p class="text-brand font-semibold text-lg mb-2">Bucket 1</p>
-                <p class="text-slate-100 font-medium mb-2">eu-central-1 is enough</p>
-                <p class="text-slate-400">EU residency suffices · no partition mandate · full AWS catalog</p>
-              </div>
-              <div class="rounded-xl bg-surface-light p-5 border border-brand/50 border-2">
-                <p class="text-brand font-semibold text-lg mb-2">Bucket 2</p>
-                <p class="text-slate-100 font-medium mb-2">ESC for defined workloads</p>
-                <p class="text-slate-400">Contract/political sovereign partition · hybrid with eu-central-1</p>
-              </div>
-            </div>
-            <p class="fragment mt-4 text-slate-400">Bucket 3: ESC + on-prem / Hetzner / national cloud — deliberate full sovereign stack</p>
-          </div>
         </section>
-        <section id="decision-bucket1" data-id="decision-bucket1">
-          <div class="slide-inner">
-            <h3 class="font-bold mb-4">Bucket 1 — most of you land here</h3>
-            <ul class="space-y-2 text-slate-300">
-              <li>EU data residency meets contractual needs</li>
-              <li>No requirement for isolated partition or EU-only operations</li>
-              <li>You want Lambda, Bedrock, full service breadth without split</li>
-              <li class="text-brand">That's OK — don't over-engineer sovereignty</li>
-            </ul>
-          </div>
-        </section>
-        <section id="decision-bucket2" data-id="decision-bucket2">
-          <div class="slide-inner">
-            <h3 class="font-bold mb-4">Bucket 2 — phased ESC migration</h3>
-            <ul class="space-y-2 text-slate-300">
-              <li>Finance, health, federal IT, critical infrastructure</li>
-              <li>Hybrid: core on ESC, rest stays on eu-central-1</li>
-              <li>Path: readiness → landing zone → pilot → rollout</li>
-            </ul>
-            <img src="assets/migration-flow.svg" alt="Migration flow" class="mt-6">
-          </div>
-        </section>
-      </section>
-
-      <section id="builder-changes" data-id="builder-changes">
-        <section id="builder-identity" data-id="builder-identity">
-          <div class="slide-inner">
-            <h2 class="font-semibold uppercase tracking-widest">For builders</h2>
-            <h3 class="font-bold">Partition &amp; identity</h3>
-            <ul class="space-y-3 text-slate-300 max-w-3xl">
-              <li class="fragment">Separate IAM identities — <strong>no 1:1 copy</strong> from standard accounts</li>
-              <li class="fragment">ARN formats change · new landing zone / account layout</li>
-              <li class="fragment">Billing and organizations are partition-scoped</li>
-            </ul>
-          </div>
-        </section>
-        <section id="builder-dns" data-id="builder-dns">
-          <div class="slide-inner">
-            <h3 class="font-bold mb-4">DNS &amp; networking</h3>
-            <ul class="space-y-2 text-slate-300">
-              <li>Route 53 zones and behavior — frequent migration pain point</li>
-              <li>Cross-partition references: plan explicitly or avoid</li>
-              <li>VPC endpoints, private DNS — verify per service in ESC</li>
-            </ul>
-          </div>
-        </section>
-        <section id="builder-cdk" data-id="builder-cdk">
-          <div class="slide-inner">
-            <h3 class="font-bold mb-4">IaC / CDK / Terraform</h3>
-            <ul class="space-y-2 text-slate-300 font-mono text-base">
-              <li><span class="text-brand font-sans font-semibold">Region:</span> eusc-de-east-1</li>
-              <li><span class="text-brand font-sans font-semibold">Partition:</span> aws-eusc</li>
-            </ul>
-            <ul class="mt-4 space-y-2 text-slate-300">
-              <li>Hardcoded eu-central-1 ARNs break silently or at deploy</li>
-              <li>CI/CD: separate credentials · often separate pipelines</li>
-              <li>Check service availability before design — not everything from Frankfurt is in ESC yet</li>
-            </ul>
-          </div>
-        </section>
-      </section>
-
-      <section id="serverless-ga" data-id="serverless-ga">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">At GA</h2>
-          <h3 class="font-bold">Serverless stack — verify, don't assume</h3>
-          <div class="card-grid">
-            <ul class="space-y-2 text-slate-300 rounded-xl bg-surface-light p-5 border border-slate-600">
-              <li>Lambda · API Gateway · EventBridge</li>
-              <li>S3 · DynamoDB · SQS · SNS</li>
-              <li>Step Functions · CloudWatch</li>
-            </ul>
-            <ul class="space-y-2 text-slate-300 rounded-xl bg-surface-light p-5 border border-slate-600">
-              <li class="text-slate-100">Always check ESC service matrix</li>
-              <li>"In eu-central-1" ≠ "in ESC"</li>
-              <li>Bedrock / newer services — confirm GA status</li>
-            </ul>
-          </div>
-        </div>
-        <aside class="notes">Point to official ESC service list. Update slide before conference if GA set changed.</aside>
-      </section>
-
-      <section id="cdk-demo" data-id="cdk-demo">
-        <section id="cdk-demo-steps" data-id="cdk-demo-steps">
-          <div class="slide-inner">
-            <h2 class="font-semibold uppercase tracking-widest">Live walkthrough</h2>
-            <h3 class="font-bold">CDK stack migration — concrete steps</h3>
-            <ol class="space-y-2 text-slate-300 list-decimal list-inside max-w-3xl">
-              <li>Clone working stack from eu-central-1</li>
-              <li>Set <code class="text-brand">env.region</code> → <code>eusc-de-east-1</code></li>
-              <li>Replace partition in ARNs · IAM paths · SSM parameters</li>
-              <li>Route 53 hosted zones — recreate or import per ESC rules</li>
-              <li>Deploy pilot · run integration tests · compare cost &amp; latency</li>
-            </ol>
-            <p class="fragment mt-6 text-slate-400">Demo: TODO — your real stack or minimal Lambda+API example</p>
-          </div>
-        </section>
-        <section id="cdk-demo-code" data-id="cdk-demo-code">
-          <div class="slide-inner">
-            <h3 class="font-bold mb-4">CDK environment snippet</h3>
-            <pre class="rounded-xl bg-surface-card p-5 border border-slate-600 text-sm leading-relaxed overflow-x-auto"><code class="text-slate-200">const app = new cdk.App();
-
-new MyStack(app, 'MyEscStack', {
-  env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: 'eusc-de-east-1',
-  },
-});
-
-// Partition-aware ARN (don't hardcode aws:)
-const partition = cdk.Stack.of(this).partition; // aws-eusc</code></pre>
-          </div>
-        </section>
-      </section>
-
-      <section id="regulation" data-id="regulation">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">DACH context</h2>
-          <h3 class="font-bold">Regulation driving sovereign cloud projects</h3>
-          <div class="card-grid">
-            <ul class="space-y-2 text-slate-300">
-              <li><span class="text-brand font-semibold">NIS2</span> — critical entities, supply chain, incident reporting</li>
-              <li><span class="text-brand font-semibold">DORA</span> — financial sector ICT resilience</li>
-            </ul>
-            <ul class="space-y-2 text-slate-300">
-              <li><span class="text-brand font-semibold">GDPR</span> — data residency &amp; processor obligations</li>
-              <li><span class="text-brand font-semibold">EU AI Act</span> — high-risk AI + data governance overlap</li>
-            </ul>
-          </div>
-          <p class="fragment mt-5 text-slate-400">ESC is an <em>architecture option</em> for sovereignty requirements — not automatic compliance.</p>
-        </div>
-      </section>
-
-      <section id="cloud-act" data-id="cloud-act">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Honest take</h2>
-          <h3 class="font-bold">CLOUD Act &amp; third-country access</h3>
-          <div class="card-grid">
-            <div class="rounded-xl bg-surface-light p-5 border border-slate-600">
-              <p class="text-brand font-semibold mb-2">What ESC addresses</p>
-              <ul class="space-y-1 text-slate-300 text-sm">
-                <li>Physically isolated EU infrastructure</li>
-                <li>EU-resident operations — no global US ops path</li>
-                <li>European governance structure</li>
-              </ul>
-            </div>
-            <div class="rounded-xl bg-surface-light p-5 border border-slate-600">
-              <p class="text-brand font-semibold mb-2">What it doesn't replace</p>
-              <ul class="space-y-1 text-slate-300 text-sm">
-                <li>Contract review (subprocessors, support)</li>
-                <li>Data classification per workload</li>
-                <li>Political expectations vs technical reality</li>
-              </ul>
-            </div>
-          </div>
-          <p class="fragment mt-4 text-slate-300">eu-central-1 hosts in EU but partition stays <code>aws</code> — that's the distinction lawyers ask about.</p>
-        </div>
-      </section>
-
-      <section id="customers" data-id="customers">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Who's on it</h2>
-          <h3 class="font-bold">Public reference direction (not migration playbooks)</h3>
-          <div class="card-grid text-slate-300">
-            <ul class="space-y-2">
-              <li><span class="text-slate-100">SCHUFA</span> — credit data, EU-only ops narrative</li>
-              <li><span class="text-slate-100">ITZBund</span> — federal IT commitment</li>
-              <li><span class="text-slate-100">EWE</span> — energy / critical infrastructure</li>
-            </ul>
-            <ul class="space-y-2">
-              <li><span class="text-slate-100">SAP</span> — ERP on sovereign partition</li>
-              <li><span class="text-slate-100">UK Essen / Lausitz</span> — health &amp; research</li>
-              <li>Pattern: hybrid · workload-specific · not org-wide big bang</li>
-            </ul>
-          </div>
-          <p class="text-slate-400 text-sm mt-4">Gap: IAM layout, CDK paths, timelines — where readiness assessments start.</p>
-        </div>
-      </section>
-
-      <section id="hybrid" data-id="hybrid">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Hybrid</h2>
-          <h3 class="font-bold">Sovereignty is not either/or</h3>
-          <ul class="space-y-2 text-slate-300 max-w-3xl">
-            <li>ESC for sovereignty-critical workloads</li>
-            <li>eu-central-1 for everything else</li>
-            <li>Or self-hosted EU (Hetzner, on-prem) for greenfield — different trade-off</li>
-            <li class="text-brand">Most enterprises: Bucket 2 hybrid, phased</li>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Multi-agent coordination</h3>
+          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment">Reasoning models for planning</li>
+            <li class="fragment">Specialized agents for coding &amp; review</li>
+            <li class="fragment">Each agent = ephemeral function invocation</li>
+            <li class="fragment">Shared state via DynamoDB + embeddings</li>
           </ul>
-        </div>
+        </section>
       </section>
 
-      <section id="readiness" data-id="readiness">
-        <div class="slide-inner">
-          <h2 class="font-semibold uppercase tracking-widest">Next step</h2>
-          <h3 class="font-bold">ESC readiness assessment (45 min, no pitch deck)</h3>
-          <ol class="space-y-2 text-slate-300 list-decimal list-inside">
-            <li>Which bucket for your workloads</li>
-            <li>CDK/Terraform stumbling blocks (IAM, Route 53, partition)</li>
-            <li>Migration roadmap — pilot → rollout</li>
-          </ol>
-          <div class="mt-6 space-y-1 text-slate-300">
-            <p><a href="mailto:office@martinmueller.dev" class="text-brand underline">office@martinmueller.dev</a></p>
-            <p><a href="https://calendly.com/martinmueller_dev" class="text-brand underline">calendly.com/martinmueller_dev</a></p>
-            <p><a href="https://martinmueller.dev/aws-esc" class="text-brand underline">martinmueller.dev/aws-esc</a></p>
+      <section id="why-serverless">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
+        <h3 class="text-3xl font-bold mb-8">Bursty by nature</h3>
+        <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+          <div class="fragment">
+            <p class="text-aws font-semibold text-xl mb-2">Agent workloads</p>
+            <p class="text-slate-300">Issue in → 3 min intense work → idle</p>
+          </div>
+          <div class="fragment">
+            <p class="text-aws font-semibold text-xl mb-2">VPS alternative</p>
+            <p class="text-slate-300">€10/mo fixed, 95% idle</p>
+          </div>
+          <div class="fragment">
+            <p class="text-aws font-semibold text-xl mb-2">Serverless win</p>
+            <p class="text-slate-300">Pay per invocation · scale to zero</p>
+          </div>
+          <div class="fragment">
+            <p class="text-aws font-semibold text-xl mb-2">Caveat</p>
+            <p class="text-slate-300">LLM tokens dwarf infra either way</p>
           </div>
         </div>
       </section>
 
-      <section id="qa" data-id="qa" class="center-slide">
-        <div class="slide-inner flex flex-col items-center justify-center gap-6">
-          <h2 class="font-semibold uppercase tracking-widest">Thank you</h2>
-          <h3 class="font-bold text-4xl">Questions?</h3>
-          <p class="text-slate-300 text-xl">AWS Community Day DACH 2026 · Kosmos Berlin</p>
-          <p class="text-slate-400">Slides: <a href="https://mmuller88.github.io/presentations/aws-community-day-dach-2026/" class="text-brand underline">mmuller88.github.io/presentations/aws-community-day-dach-2026</a></p>
-          <p class="text-slate-400">Networking 18:00–21:00 · beers, bites, community 🍻</p>
+      <section id="war-stories">
+        <section>
+          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
+          <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
+          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+            <li class="fragment">Cold start vs. context loading — real latency bottleneck</li>
+            <li class="fragment">Stateful memory on stateless infra</li>
+            <li class="fragment">Multi-agent coordination across invocations</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
+          <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops</li>
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Runaway token spend</li>
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Hallucinated git commands</li>
+            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups</li>
+          </ul>
+          <p class="fragment mt-8 text-slate-400">TODO: anonymized incident examples</p>
+        </section>
+      </section>
+
+      <section id="economics">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Economics</h2>
+        <h3 class="text-3xl font-bold mb-8">Real numbers</h3>
+        <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-aws">~€2–4</p>
+            <p class="mt-2 text-slate-400">AWS infra / month</p>
+          </div>
+          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-amber-400">~95%</p>
+            <p class="mt-2 text-slate-400">LLM token costs</p>
+          </div>
+        </div>
+        <p class="fragment mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
+      </section>
+
+      <section id="live-demo">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
+        <h3 class="text-3xl font-bold mb-6">Issue → merged PR in &lt;5 min</h3>
+        <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
+          <li class="fragment">1. Create GitHub issue</li>
+          <li class="fragment">2. Webhook triggers agent pipeline</li>
+          <li class="fragment">3. Agent plans + implements</li>
+          <li class="fragment">4. PR opened — trace in CloudWatch</li>
+        </ol>
+        <p class="fragment mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
+      </section>
+
+      <section id="takeaways">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
+        <h3 class="text-3xl font-bold mb-8">When to build an AI Factory</h3>
+        <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-lg">
+          <div class="fragment">
+            <p class="text-green-400 font-semibold mb-2">✓ Do</p>
+            <ul class="space-y-2 text-slate-300">
+              <li>Bursty, async workloads</li>
+              <li>Issue-driven automation</li>
+              <li>Burst economics over idle servers</li>
+            </ul>
+          </div>
+          <div class="fragment">
+            <p class="text-red-400 font-semibold mb-2">✗ Don't</p>
+            <ul class="space-y-2 text-slate-300">
+              <li>Persistent WebSockets</li>
+              <li>Long-lived browser sessions</li>
+              <li>Real-time sub-second latency</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="qa">
+        <div class="flex flex-col items-center gap-6 text-center">
+          <h2 class="text-4xl font-bold">Questions?</h2>
+          <div class="mt-4 space-y-2 text-slate-300">
+            <p class="text-xl text-slate-100">Martin Mueller</p>
+            <p>martinmueller.dev</p>
+            <p>github.com/mmuller88 · linkedin.com/in/martinmueller88</p>
+          </div>
+          <p class="mt-8 text-aws text-sm uppercase tracking-widest">AWS Community Day DACH 2026 · Berlin</p>
         </div>
         <aside class="notes">
-          Remind: community event, ~12% acceptance rate. Connect on LinkedIn. Subject ESC Readiness for follow-up.
+          30 min talk + 5–10 min Q&A buffer.
+          Slides public per CFP — yes.
         </aside>
       </section>
 
@@ -416,13 +256,10 @@ const partition = cdk.Stack.of(this).partition; // aws-eusc</code></pre>
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
-      width: window.innerWidth < 768 ? 390 : 1920,
-      height: window.innerWidth < 768 ? 700 : 1080,
-      margin: window.innerWidth < 768 ? 0.02 : 0.04,
-      minScale: 0.2,
-      maxScale: window.innerWidth < 768 ? 1.2 : 2.5,
-      center: true,
-      transition: 'none',
+      width: 1280,
+      height: 720,
+      margin: 0.08,
+      transition: 'slide',
       plugins: [ RevealNotes ]
     });
   </script>

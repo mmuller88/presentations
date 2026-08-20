@@ -1,13 +1,30 @@
-# AWS Community Day DACH 2026 — ⚠️ not a speaker slot
+# AWS Community Day DACH 2026 — Berlin (waitlist backup)
 
-**Status (email 14 Aug 2026):** All five CFP submissions **rejected**, including ESC.
+**Event:** [AWS Community Day DACH 2026](https://www.aws-community-day.de) · 15 Sep 2026 · Kosmos Berlin  
+**Status:** Attendee ticket confirmed · **Speaker waitlist only** (Sessionize 10798, 7 Aug 2026)
 
-**Waitlist only:** *Serverless AI Factory: An Autonomous Dev Pipeline on AWS* (Sessionize, 7 Aug) — **not confirmed**.
+## Talk (waitlist)
 
-**Aug 20 ticket email:** attendee registration only, not speaker acceptance.
+**Serverless AI Factory: An Autonomous Dev Pipeline on AWS**
 
-This folder currently holds a **draft ESC deck built on the wrong assumption**. Do not use for Berlin.
+- Level 300–400 · ~30 min + Q&A
+- CFP: `proposal1_ai_factory.md`
 
-**Accepted talk:** ESC at **AWS Community Day NL 2026** (Utrecht, 23 Sep) → [`../aws-community-day-nl-2026/`](../aws-community-day-nl-2026/)
+All other Berlin CFPs rejected (14 Aug Sessionize 10875): ESC, OpenClaw, Cyquins, AI Security.
 
-**Event:** https://www.aws-community-day.de · 15 Sep · Kosmos Berlin · attendee OK
+## Confirmed speaker slot (different event)
+
+ESC talk accepted for **AWS Community Day NL** (23 Sep Utrecht) → see `aws-community-day-nl-2026/`.
+
+## Live
+
+https://mmuller88.github.io/presentations/aws-community-day-dach-2026/
+
+Key slides: `#/title` · `#/agenda` · `#/architecture` · `#/live-demo` · `#/qa`
+
+## TODO before slot opens
+
+- [ ] Git history screenshot on pipeline slide
+- [ ] Anonymized incident examples on war-stories
+- [ ] Sanitized bill breakdown chart
+- [ ] Pre-recorded demo fallback clip
