@@ -136,6 +136,20 @@
       width: 100%;
       margin-top: 1rem;
     }
+    .reveal .slides section.slide-top {
+      top: 0 !important;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .reveal .slides section.slide-top .slide-inner {
+      padding-top: 0.15rem;
+    }
+    .reveal .slides section .speaker-bio-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -215,6 +229,31 @@
       .reveal .slides section .arch-diagram { max-height: min(40vh, 240px); }
       .slide-footer { font-size: 0.5rem; left: 0.75rem; right: 0.75rem; }
       .slide-footer span { max-width: 58%; text-align: right; line-height: 1.2; }
+      .reveal .slides section.slide-top { padding-top: 0.5rem; padding-bottom: 2.25rem; }
+      .reveal .slides section .speaker-bio-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.75rem !important;
+        gap: 0.65rem;
+      }
+      .reveal .slides section .speaker-avatar { width: 4.25rem; height: 4.25rem; }
+      .reveal .slides section .speaker-bio-card ul { text-align: left; }
+      .reveal .slides section .speaker-bio-card li { font-size: 0.84rem !important; line-height: 1.35 !important; }
+      .reveal .slides section .client-grid { gap: 0.5rem; margin-top: 0.65rem; }
+      .reveal .slides section .client-grid > div { padding: 0.65rem !important; gap: 0.5rem !important; }
+      .reveal .slides section .client-logo { height: 1.75rem; padding: 0.25rem 0.5rem; }
+      .reveal .slides section[id^="speaker"] h3 { font-size: 1.15rem !important; margin-bottom: 0.5rem !important; }
+      .reveal .slides section[id^="speaker"] h2 { margin-bottom: 0.35rem !important; }
+      .reveal .slides section.center-slide {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100%;
+      }
+      .reveal .slides section.center-slide .slide-inner {
+        margin: auto 0;
+      }
     }
   </style>
   <noscript>
@@ -242,39 +281,51 @@
         </aside>
       </section>
 
-      <section id="speaker">
+      <section id="speaker" class="slide-top">
         <div class="slide-inner">
-          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Speaker</h2>
-          <h3 class="text-3xl font-bold mb-4">Martin Mueller</h3>
-          <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-4 items-start">
+          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Speaker</h2>
+          <h3 class="text-3xl font-bold mb-3">Martin Mueller</h3>
+          <div class="speaker-bio-card rounded-xl bg-surface-light p-5 border border-slate-700">
             <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
-            <div class="flex-1 min-w-0">
+            <div class="flex-1 min-w-0 w-full">
               <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI on AWS</p>
-              <ul class="space-y-2 text-slate-300">
-                <li>AWS Community Builder · production agent systems on scale-to-zero AWS</li>
-                <li>Agent dev pipeline with human gates: issue → plan → code → PR → you merge</li>
-                <li>EventBridge · Lambda · Step Functions · DynamoDB · vector memory</li>
+              <ul class="space-y-1.5 text-slate-300">
+                <li>AWS Community Builder · agent systems on scale-to-zero AWS</li>
+                <li>Dev pipeline with human gates: issue → PR → you merge</li>
+                <li>EventBridge · Lambda · Step Functions · DynamoDB</li>
               </ul>
-              <p class="mt-3">
+              <p class="mt-2 text-sm">
                 <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
                 · martinmueller.dev
               </p>
             </div>
-            <a href="https://www.linkedin.com/in/martinmueller88" class="shrink-0 hidden sm:block text-center">
+            <a href="https://www.linkedin.com/in/martinmueller88" class="shrink-0 hidden md:block text-center">
               <img src="assets/qr-linkedin-martin.png?v=1" alt="LinkedIn QR" class="qr-code-host" width="370" height="370">
               <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
             </a>
           </div>
-          <div class="client-grid">
-            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-3">
+        </div>
+        <aside class="notes">Bio + stack. Next slide: Air Canada + HDI. DevOps ftw.</aside>
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div>
+      </section>
+
+      <section id="speaker-clients" class="slide-top">
+        <div class="slide-inner">
+          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Speaker</h2>
+          <h3 class="text-3xl font-bold mb-3">Selected clients</h3>
+          <div class="client-grid mt-0">
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <img src="assets/air-canada-logo.svg?v=1" alt="Air Canada" class="client-logo" loading="lazy">
               <div>
                 <p class="text-brand text-xs uppercase tracking-wide mb-1">Until July 2026</p>
                 <p class="text-lg font-semibold text-slate-100">Air Canada</p>
-                <p class="text-sm text-slate-300 mt-1">Enterprise AI chatbot for customer service — conversational AI in production</p>
+                <p class="text-sm text-slate-300 mt-1">Enterprise AI chatbot · customer service · conversational AI in production</p>
               </div>
             </div>
-            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-3">
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
               <div>
                 <p class="text-brand text-xs uppercase tracking-wide mb-1">Current</p>
@@ -284,7 +335,7 @@
             </div>
           </div>
         </div>
-        <aside class="notes">Air Canada: KI-Chatbot Kundenservice. HDI: Cyquins/Prowler. Then pipeline story. DevOps ftw.</aside>
+        <aside class="notes">Air Canada: KI-Chatbot Kundenservice. HDI: Cyquins/Prowler. Then pipeline story.</aside>
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
@@ -295,7 +346,7 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
-          <li>Speaker intro</li>
+          <li>Speaker intro · selected clients</li>
           <li>What is the Serverless AI Factory?</li>
           <li>Human in the loop — not full autonomy</li>
           <li>Agent dev pipeline flow</li>
@@ -626,7 +677,7 @@
         margin: mobile ? 0.02 : 0.04,
         minScale: 0.2,
         maxScale: mobile ? 1.2 : 2.5,
-        center: true,
+        center: mobile ? false : true,
         transition: 'none',
         backgroundTransition: 'none',
         touch: true,
