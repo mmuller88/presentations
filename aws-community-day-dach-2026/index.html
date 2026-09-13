@@ -120,6 +120,30 @@
       border-radius: 0.5rem;
       border: 2px solid var(--acd-brand);
     }
+    .reveal .slides section .qr-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .reveal .slides section .qr-link span {
+      font-size: 0.65rem;
+      color: var(--acd-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .reveal .slides section .qr-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .reveal .slides section .speaker-bio-card .qr-link {
+      margin-top: 0.5rem;
+    }
     .reveal .slides section .client-logo {
       height: 2.25rem;
       width: auto;
@@ -299,6 +323,13 @@
       padding: 0.65rem !important;
       gap: 0.5rem;
     }
+    html.mobile-deck .reveal .slides section .qr-code-host {
+      width: 4.5rem;
+      height: 4.5rem;
+      min-width: 72px;
+      min-height: 72px;
+    }
+    html.mobile-deck .reveal .slides section .qr-row { gap: 0.85rem; }
     html.mobile-deck .reveal .slides section .speaker-avatar { width: 4rem; height: 4rem; }
     html.mobile-deck .reveal .slides section .speaker-bio-card ul { text-align: left; }
     html.mobile-deck .reveal .slides section .speaker-bio-card li { font-size: 0.82rem !important; line-height: 1.3 !important; }
@@ -365,6 +396,10 @@
                   · martinmueller.dev
                 </p>
               </div>
+              <a href="https://www.linkedin.com/in/martinmueller88" class="qr-link" aria-label="LinkedIn QR code">
+                <img src="assets/qr-linkedin-martin.png?v=2" alt="LinkedIn QR" class="qr-code-host" width="200" height="200" loading="lazy">
+                <span>LinkedIn</span>
+              </a>
             </div>
           </div>
           <div class="slide-footer">
@@ -745,7 +780,21 @@
             <p>martinmueller.dev</p>
             <p>github.com/mmuller88 · linkedin.com/in/martinmueller88</p>
           </div>
-          <a href="https://www.aws-community-day.de/agenda" class="mt-4 text-sm text-brand hover:underline">aws-community-day.de/agenda</a>
+          <div class="qr-row">
+            <a href="https://www.linkedin.com/in/martinmueller88" class="qr-link" aria-label="LinkedIn QR code">
+              <img src="assets/qr-linkedin-martin.png?v=2" alt="LinkedIn QR" class="qr-code-host" width="200" height="200" loading="lazy">
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://martinmueller.dev" class="qr-link" aria-label="Website QR code">
+              <img src="assets/qr-martinmueller-dev.png?v=1" alt="Website QR" class="qr-code-host" width="200" height="200" loading="lazy">
+              <span>Website</span>
+            </a>
+            <a href="https://github.com/mmuller88" class="qr-link" aria-label="GitHub QR code">
+              <img src="assets/qr-github-mmuller88.png?v=1" alt="GitHub QR" class="qr-code-host" width="200" height="200" loading="lazy">
+              <span>GitHub</span>
+            </a>
+          </div>
+          <a href="https://www.aws-community-day.de/agenda" class="mt-2 text-sm text-brand hover:underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">
           30 min talk + 5–10 min Q&A buffer.
