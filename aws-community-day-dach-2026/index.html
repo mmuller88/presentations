@@ -220,76 +220,106 @@
       .reveal .slides section .client-logo { height: 2.75rem; }
       .slide-footer { left: 2.5rem; right: 2.5rem; }
     }
-    @media (max-width: 768px) {
-      .reveal .viewport {
-        overflow: hidden;
-      }
-      .reveal .slides section {
-        top: 0 !important;
-        display: block !important;
-        height: 100% !important;
-        max-height: 100% !important;
-        overflow-y: auto !important;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        padding: 0.65rem 0.85rem 1rem;
-        font-size: 1rem;
-        box-sizing: border-box;
-      }
-      .reveal .slides section .slide-inner {
-        padding-bottom: 2.75rem;
-      }
-      .reveal h3 { font-size: 1.2rem !important; }
-      .reveal .slides section h1 { font-size: 1.3rem !important; }
-      .reveal p, .reveal li { font-size: 0.88rem !important; }
-      .reveal .slides section .arch-diagram { max-height: min(32vh, 200px); }
-      .slide-footer {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin-top: 0.75rem;
-        font-size: 0.5rem;
-        padding-top: 0.45rem;
-      }
-      .slide-footer span { max-width: 62%; text-align: right; line-height: 1.2; }
-      .reveal .slides section.slide-top { padding-top: 0.35rem; }
-      .reveal .slides section .speaker-bio-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0.65rem !important;
-        gap: 0.5rem;
-      }
-      .reveal .slides section .speaker-avatar { width: 4rem; height: 4rem; }
-      .reveal .slides section .speaker-bio-card ul { text-align: left; }
-      .reveal .slides section .speaker-bio-card li { font-size: 0.82rem !important; line-height: 1.3 !important; }
-      .reveal .slides section .client-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.45rem;
-        margin-top: 0.5rem;
-      }
-      .reveal .slides section .client-grid > div { padding: 0.5rem !important; gap: 0.35rem !important; }
-      .reveal .slides section .client-grid .text-lg { font-size: 0.82rem !important; }
-      .reveal .slides section .client-grid .text-sm { font-size: 0.72rem !important; line-height: 1.25 !important; }
-      .reveal .slides section .client-logo { height: 1.5rem; padding: 0.2rem 0.4rem; }
-      .reveal .slides section[id^="speaker"] h3 { font-size: 1.1rem !important; margin-bottom: 0.35rem !important; }
-      .reveal .slides section[id^="speaker"] h2 { margin-bottom: 0.25rem !important; }
-      .reveal .slides section.center-slide {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: flex-start;
-        min-height: 100%;
-        overflow-y: auto !important;
-      }
-      .reveal .slides section.center-slide .slide-inner {
-        margin: auto 0;
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-      }
-      .reveal .slides section#agenda ol { font-size: 0.84rem !important; }
-      .reveal .slides section#agenda li { margin-bottom: 0.15rem; }
+    /* Mobile: neutralize Reveal transforms (top:0 + translate = off-screen) */
+    html.mobile-deck,
+    html.mobile-deck body {
+      height: 100%;
+      overflow: hidden;
     }
+    html.mobile-deck .reveal {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.mobile-deck .reveal .viewport {
+      width: 100% !important;
+      height: 100dvh !important;
+      overflow: hidden;
+    }
+    html.mobile-deck .reveal .slides {
+      transform: none !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.mobile-deck .reveal .slides section {
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 100% !important;
+      transform: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    html.mobile-deck .reveal .slides section:not(.present) {
+      visibility: hidden !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+    }
+    html.mobile-deck .reveal .slides section.present {
+      visibility: visible !important;
+      pointer-events: auto !important;
+      opacity: 1 !important;
+      z-index: 1;
+    }
+    html.mobile-deck .slide-scroll {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.65rem 0.85rem 0.75rem;
+    }
+    html.mobile-deck .reveal h3 { font-size: 1.2rem !important; }
+    html.mobile-deck .reveal .slides section h1 { font-size: 1.3rem !important; }
+    html.mobile-deck .reveal p,
+    html.mobile-deck .reveal li { font-size: 0.88rem !important; }
+    html.mobile-deck .reveal .slides section .arch-diagram { max-height: min(32vh, 200px); }
+    html.mobile-deck .slide-footer {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      margin-top: 0.75rem;
+      font-size: 0.5rem;
+      padding-top: 0.45rem;
+      flex-shrink: 0;
+    }
+    html.mobile-deck .slide-footer span { max-width: 62%; text-align: right; line-height: 1.2; }
+    html.mobile-deck .reveal .slides section .speaker-bio-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.65rem !important;
+      gap: 0.5rem;
+    }
+    html.mobile-deck .reveal .slides section .speaker-avatar { width: 4rem; height: 4rem; }
+    html.mobile-deck .reveal .slides section .speaker-bio-card ul { text-align: left; }
+    html.mobile-deck .reveal .slides section .speaker-bio-card li { font-size: 0.82rem !important; line-height: 1.3 !important; }
+    html.mobile-deck .reveal .slides section .client-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+    html.mobile-deck .reveal .slides section .client-grid > div { padding: 0.5rem !important; gap: 0.35rem !important; }
+    html.mobile-deck .reveal .slides section .client-grid .text-lg { font-size: 0.82rem !important; }
+    html.mobile-deck .reveal .slides section .client-grid .text-sm { font-size: 0.72rem !important; line-height: 1.25 !important; }
+    html.mobile-deck .reveal .slides section .client-logo { height: 1.5rem; padding: 0.2rem 0.4rem; }
+    html.mobile-deck .reveal .slides section[id^="speaker"] h3 { font-size: 1.1rem !important; margin-bottom: 0.35rem !important; }
+    html.mobile-deck .reveal .slides section[id^="speaker"] h2 { margin-bottom: 0.25rem !important; }
+    html.mobile-deck .reveal .slides section.center-slide .slide-scroll {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    html.mobile-deck .reveal .slides section#agenda ol { font-size: 0.84rem !important; }
+    html.mobile-deck .reveal .slides section#agenda li { margin-bottom: 0.15rem; }
   </style>
   <noscript>
     <style>
@@ -317,41 +347,40 @@
       </section>
 
       <section id="speaker" class="slide-top">
-        <div class="slide-inner">
-          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Speaker</h2>
-          <h3 class="text-3xl font-bold mb-3">Martin Mueller</h3>
-          <div class="speaker-bio-card rounded-xl bg-surface-light p-5 border border-slate-700">
-            <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
-            <div class="flex-1 min-w-0 w-full">
-              <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI agents</p>
-              <ul class="space-y-1.5 text-slate-300">
-                <li>OpenClaw on Hostinger VPS · Telegram as control plane</li>
-                <li>Manages AWS: HalloCasa · ai-secure.dev · qr-plakat.de</li>
-                <li>Pipeline with human gates: issue → PR → you merge</li>
-              </ul>
-              <p class="mt-2 text-sm">
-                <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
-                · martinmueller.dev
-              </p>
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Speaker</h2>
+            <h3 class="text-3xl font-bold mb-3">Martin Mueller</h3>
+            <div class="speaker-bio-card rounded-xl bg-surface-light p-5 border border-slate-700">
+              <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
+              <div class="flex-1 min-w-0 w-full">
+                <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI agents</p>
+                <ul class="space-y-1.5 text-slate-300">
+                  <li>OpenClaw on Hostinger VPS · Telegram as control plane</li>
+                  <li>Manages AWS: HalloCasa · ai-secure.dev · qr-plakat.de</li>
+                  <li>Pipeline with human gates: issue → PR → you merge</li>
+                </ul>
+                <p class="mt-2 text-sm">
+                  <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
+                  · martinmueller.dev
+                </p>
+              </div>
             </div>
-            <a href="https://www.linkedin.com/in/martinmueller88" class="shrink-0 hidden md:block text-center">
-              <img src="assets/qr-linkedin-martin.png?v=1" alt="LinkedIn QR" class="qr-code-host" width="370" height="370">
-              <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
-            </a>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
+            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
           </div>
         </div>
         <aside class="notes">Bio + stack. Next slide: Air Canada + HDI. DevOps ftw.</aside>
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div>
       </section>
 
       <section id="speaker-clients" class="slide-top">
-        <div class="slide-inner">
-          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Context</h2>
-          <h3 class="text-3xl font-bold mb-3">Clients + AWS deployments I manage</h3>
-          <div class="client-grid mt-0">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Context</h2>
+            <h3 class="text-3xl font-bold mb-3">Clients + AWS deployments I manage</h3>
+            <div class="client-grid mt-0">
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <img src="assets/air-canada-logo.svg?v=1" alt="Air Canada" class="client-logo" loading="lazy">
               <div>
@@ -383,12 +412,13 @@
               </div>
             </div>
           </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
+            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+          </div>
         </div>
         <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. VPS is the honest control plane.</aside>
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div>
       </section>
 
       <section id="agenda">
@@ -733,8 +763,11 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
+    const isMobileDeck = window.innerWidth < 768;
+    if (isMobileDeck) document.documentElement.classList.add('mobile-deck');
+
     function revealConfig() {
-      const mobile = window.innerWidth < 768;
+      const mobile = isMobileDeck;
       const plugins = [];
       if (typeof RevealNotes !== 'undefined') plugins.push(RevealNotes);
       const vw = window.innerWidth;
@@ -756,8 +789,39 @@
       };
     }
 
+    function slideToHashId() {
+      const raw = (location.hash || '').replace(/^#\/?/, '');
+      if (!raw) return;
+      const id = raw.split('/')[0];
+      const el = document.getElementById(id);
+      if (!el || typeof Reveal.getIndices !== 'function') return;
+      const indices = Reveal.getIndices(el);
+      if (indices) Reveal.slide(indices.h, indices.v);
+    }
+
+    function wrapMobileSlides() {
+      if (!isMobileDeck) return;
+      document.querySelectorAll('.reveal .slides section').forEach((section) => {
+        if (section.querySelector(':scope > .slide-scroll')) return;
+        if (section.querySelector(':scope > section')) return;
+        const scroll = document.createElement('div');
+        scroll.className = 'slide-scroll';
+        const keep = [];
+        [...section.childNodes].forEach((node) => {
+          if (node.nodeName === 'ASIDE') keep.push(node);
+          else scroll.appendChild(node);
+        });
+        section.insertBefore(scroll, section.firstChild);
+        keep.forEach((node) => section.appendChild(node));
+      });
+    }
+
     try {
-      Reveal.initialize(revealConfig());
+      Reveal.initialize(revealConfig()).then(() => {
+        wrapMobileSlides();
+        slideToHashId();
+        window.addEventListener('hashchange', slideToHashId);
+      });
     } catch (err) {
       console.error('Reveal init failed', err);
       document.querySelector('.reveal')?.classList.add('ready');
