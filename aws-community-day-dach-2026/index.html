@@ -371,7 +371,7 @@
           <a href="https://www.aws-community-day.de/agenda" class="text-sm text-brand underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">
-          Honest deck — agent on Hostinger VPS + Telegram, not Lambda.
+          Agent on Hostinger VPS + Telegram · manages AWS production targets.
           AWS angle: managing HalloCasa, ai-secure, qr-plakat deployments.
           ~30 min talk + 5–10 min Q&A.
         </aside>
@@ -443,7 +443,7 @@
               <div>
                 <p class="text-brand text-xs uppercase tracking-wide mb-1">Control plane</p>
                 <p class="text-lg font-semibold text-slate-100">Hostinger + Telegram</p>
-                <p class="text-sm text-slate-300 mt-1">OpenClaw in Docker · not Lambda · honest architecture</p>
+                <p class="text-sm text-slate-300 mt-1">OpenClaw in Docker · Telegram · always-on control plane</p>
               </div>
             </div>
           </div>
@@ -461,14 +461,14 @@
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
           <li>Speaker intro · clients · AWS deployments</li>
-          <li>What I actually run — VPS + Telegram, not Lambda</li>
+          <li>What I actually run — VPS + Telegram + AWS</li>
           <li>Human in the loop — not full autonomy</li>
           <li>Dev pipeline flow — issue → PR</li>
           <li>Two-tier architecture — control plane vs AWS targets</li>
-          <li>Why VPS beat serverless for the agent</li>
+          <li>Practical learnings — CI, cost, models, dual track</li>
           <li>Managing AWS from Telegram — SSO, pipelines, ops</li>
           <li>War stories &amp; failure modes</li>
-          <li>Economics — VPS + AWS + LLM tokens</li>
+          <li>Economics — VPS + AWS + LLM spend</li>
           <li>Live demo — Telegram → agent → PR</li>
         </ol>
       
@@ -479,15 +479,15 @@
 
       <section id="what-is">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Honest architecture</h2>
-        <h3 class="text-3xl font-bold mb-8">Not Lambda. Not a chatbot-only bot.</h3>
+        <h3 class="text-3xl font-bold mb-8">Dev pipeline — not a chatbot-only bot</h3>
         <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-          <li><span class="text-aws font-semibold">Telegram</span> — where I talk to the agent (phone, anywhere)</li>
+          <li><span class="text-aws font-semibold">Telegram</span> — talk to the agent from your phone, anywhere</li>
           <li><span class="text-aws font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
           <li>Watches <span class="text-aws font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-aws font-semibold">PRs</span></li>
           <li><span class="text-aws font-semibold">AWS</span> — where production lives (HalloCasa, ai-secure, qr-plakat)</li>
           <li class="text-aws font-semibold">Human in the loop: review PR, SSO approve, kill runaway jobs</li>
         </ul>
-        <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">I considered serverless. VPS won for persistent state, heartbeats, Cursor CLI, and Telegram UX.</p>
+        <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">Build via Telegram on the go — or pair deeply in Cursor IDE. Same agent, two tracks.</p>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -607,7 +607,7 @@
             <li><span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
             <li><span class="text-aws font-semibold">Review agent</span> — automated sanity check before PR</li>
             <li><span class="text-aws font-semibold">Human gate</span> — diff review, merge approval, token/spend caps</li>
-            <li>Long runs OK on VPS — no 15 min Lambda ceiling · Cursor CLI sessions</li>
+            <li>Persistent VPS shell · long Cursor CLI sessions · Telegram always on</li>
           </ul>
         
         <div class="slide-footer">
@@ -629,32 +629,24 @@
         </div></section>
       </section>
 
-      <section id="why-vps">
-        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Why VPS, not Lambda?</h2>
-        <h3 class="text-3xl font-bold mb-8">I tried the serverless story — kept the VPS</h3>
-        <div class="card-grid text-left">
-          <div>
-            <p class="text-aws font-semibold text-xl mb-2">VPS wins</p>
-            <p class="text-slate-300">Persistent shell · Cursor CLI · no 15 min cap · Telegram always on</p>
+      <section id="learnings" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
+            <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
+            <ul class="space-y-4 text-left text-lg text-slate-300 max-w-3xl mx-auto">
+              <li><span class="text-aws font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
+              <li><span class="text-aws font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
+              <li><span class="text-aws font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
+              <li><span class="text-aws font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
+            </ul>
           </div>
-          <div>
-            <p class="text-aws font-semibold text-xl mb-2">Serverless pain</p>
-            <p class="text-slate-300">State across invocations · cold starts · Step Functions for long runs</p>
-          </div>
-          <div>
-            <p class="text-aws font-semibold text-xl mb-2">AWS still central</p>
-            <p class="text-slate-300">Production targets · SSO · pipelines · MCP endpoints</p>
-          </div>
-          <div>
-            <p class="text-aws font-semibold text-xl mb-2">Caveat</p>
-            <p class="text-slate-300">LLM tokens dwarf infra either way (~95%)</p>
+          <div class="slide-footer">
+            <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
+            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
           </div>
         </div>
-      
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div></section>
+      </section>
 
       <section id="aws-ops">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">AWS learnings</h2>
@@ -716,10 +708,10 @@
           </div>
           <div class="rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
             <p class="text-5xl font-bold text-amber-400">~95%</p>
-            <p class="mt-2 text-slate-400">LLM token costs</p>
+            <p class="mt-2 text-slate-400">LLM spend (subscriptions &gt; API keys)</p>
           </div>
         </div>
-        <p class="mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
+        <p class="mt-10 text-slate-400 text-lg">Subscriptions + fast CI keep the agent affordable at scale</p>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -753,15 +745,16 @@
               <li>VPS control plane + AWS production targets</li>
               <li>Telegram/Slack UX + GitHub PR workflow</li>
               <li>Human merge gates + SSO approval for AWS</li>
-              <li>Separate agent infra from what you deploy</li>
+              <li>CI checks for deterministic work · subscriptions for LLM cost</li>
+              <li>Telegram + Cursor IDE — dual track building</li>
             </ul>
           </div>
           <div>
             <p class="takeaway-dont font-semibold mb-2">✗ Don't</p>
             <ul class="space-y-2 text-slate-300">
-              <li>Claim serverless when you run a VPS</li>
+              <li>Let the agent be your only test runner</li>
               <li>Auto-merge / auto-deploy without review</li>
-              <li>Force Lambda for long Cursor CLI sessions</li>
+              <li>Default to expensive models for every task</li>
             </ul>
           </div>
         </div>
@@ -780,20 +773,10 @@
             <p>martinmueller.dev</p>
             <p>github.com/mmuller88 · linkedin.com/in/martinmueller88</p>
           </div>
-          <div class="qr-row">
-            <a href="https://www.linkedin.com/in/martinmueller88" class="qr-link" aria-label="LinkedIn QR code">
-              <img src="assets/qr-linkedin-martin.png?v=2" alt="LinkedIn QR" class="qr-code-host" width="200" height="200" loading="lazy">
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://martinmueller.dev" class="qr-link" aria-label="Website QR code">
-              <img src="assets/qr-martinmueller-dev.png?v=1" alt="Website QR" class="qr-code-host" width="200" height="200" loading="lazy">
-              <span>Website</span>
-            </a>
-            <a href="https://github.com/mmuller88" class="qr-link" aria-label="GitHub QR code">
-              <img src="assets/qr-github-mmuller88.png?v=1" alt="GitHub QR" class="qr-code-host" width="200" height="200" loading="lazy">
-              <span>GitHub</span>
-            </a>
-          </div>
+          <a href="https://www.linkedin.com/in/martinmueller88" class="qr-link" aria-label="LinkedIn QR code">
+            <img src="assets/qr-linkedin-martin.png?v=2" alt="LinkedIn QR" class="qr-code-host" width="200" height="200" loading="lazy">
+            <span>LinkedIn</span>
+          </a>
           <a href="https://www.aws-community-day.de/agenda" class="mt-2 text-sm text-brand hover:underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">

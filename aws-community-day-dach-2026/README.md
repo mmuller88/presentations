@@ -21,7 +21,7 @@ ESC talk accepted for **AWS Community Day NL** (23 Sep Utrecht) → see `aws-com
 
 https://mmuller88.github.io/presentations/aws-community-day-dach-2026/
 
-Key slides: `#/title` · `#/what-is` · `#/architecture` · `#/why-vps` · `#/aws-ops` · `#/live-demo`
+Key slides: `#/title` · `#/what-is` · `#/architecture` · `#/learnings` · `#/aws-ops` · `#/live-demo`
 
 ## TODO before slot opens
 
