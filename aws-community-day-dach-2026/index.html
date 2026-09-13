@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Serverless AI Factory — AWS Community Day DACH 2026</title>
-  <meta name="description" content="An Autonomous Dev Pipeline on AWS — Martin Mueller, AWS Community Day DACH 2026, Berlin">
+  <title>AI DevOps Agent — AWS Community Day DACH 2026</title>
+  <meta name="description" content="Managing AWS from a VPS + Telegram — Martin Mueller, AWS Community Day DACH 2026, Berlin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -270,14 +270,14 @@
         <div class="slide-inner flex flex-col items-center gap-4">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH" class="title-logo">
           <p class="text-brand text-sm font-semibold uppercase tracking-[0.22em]">15 September 2026 · Kosmos Berlin · Germany</p>
-          <h1 class="font-semibold leading-tight text-slate-100">Serverless AI Factory:<br>An Autonomous Dev Pipeline on AWS</h1>
-          <p class="text-slate-300">GitHub issue → plan → code → PR · human in the loop · scale-to-zero</p>
+          <h1 class="font-semibold leading-tight text-slate-100">AI DevOps Agent:<br>VPS Control Plane, AWS Production</h1>
+          <p class="text-slate-300">Telegram → plan → code → PR · Hostinger + OpenClaw · HalloCasa · ai-secure · qr-plakat on AWS</p>
           <a href="https://www.aws-community-day.de/agenda" class="text-sm text-brand underline">aws-community-day.de/agenda</a>
         </div>
         <aside class="notes">
-          Waitlist backup deck — Serverless AI Factory (Sessionize 10798).
-          Confirmed speaker slot is ESC at NL Community Day (23 Sep Utrecht).
-          ~30 min talk + 5–10 min Q&A if slot opens.
+          Honest deck — agent on Hostinger VPS + Telegram, not Lambda.
+          AWS angle: managing HalloCasa, ai-secure, qr-plakat deployments.
+          ~30 min talk + 5–10 min Q&A.
         </aside>
       </section>
 
@@ -288,11 +288,11 @@
           <div class="speaker-bio-card rounded-xl bg-surface-light p-5 border border-slate-700">
             <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
             <div class="flex-1 min-w-0 w-full">
-              <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI on AWS</p>
+              <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI agents</p>
               <ul class="space-y-1.5 text-slate-300">
-                <li>AWS Community Builder · agent systems on scale-to-zero AWS</li>
-                <li>Dev pipeline with human gates: issue → PR → you merge</li>
-                <li>EventBridge · Lambda · Step Functions · DynamoDB</li>
+                <li>OpenClaw on Hostinger VPS · Telegram as control plane</li>
+                <li>Manages AWS: HalloCasa · ai-secure.dev · qr-plakat.de</li>
+                <li>Pipeline with human gates: issue → PR → you merge</li>
               </ul>
               <p class="mt-2 text-sm">
                 <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
@@ -314,8 +314,8 @@
 
       <section id="speaker-clients" class="slide-top">
         <div class="slide-inner">
-          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Speaker</h2>
-          <h3 class="text-3xl font-bold mb-3">Selected clients</h3>
+          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-2">Context</h2>
+          <h3 class="text-3xl font-bold mb-3">Clients + AWS deployments I manage</h3>
           <div class="client-grid mt-0">
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <img src="assets/air-canada-logo.svg?v=1" alt="Air Canada" class="client-logo" loading="lazy">
@@ -333,9 +333,23 @@
                 <p class="text-sm text-slate-300 mt-1">Cyquins cyber insurance · automated cloud risk scoring on AWS</p>
               </div>
             </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Own projects · AWS</p>
+                <p class="text-lg font-semibold text-slate-100">HalloCasa · ai-secure · qr-plakat</p>
+                <p class="text-sm text-slate-300 mt-1">CDK/CodePipeline · AgentCore/MCP · event infra — agent operates from VPS</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Control plane</p>
+                <p class="text-lg font-semibold text-slate-100">Hostinger + Telegram</p>
+                <p class="text-sm text-slate-300 mt-1">OpenClaw in Docker · not Lambda · honest architecture</p>
+              </div>
+            </div>
           </div>
         </div>
-        <aside class="notes">Air Canada: KI-Chatbot Kundenservice. HDI: Cyquins/Prowler. Then pipeline story.</aside>
+        <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. VPS is the honest control plane.</aside>
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
@@ -346,16 +360,16 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
-          <li>Speaker intro · selected clients</li>
-          <li>What is the Serverless AI Factory?</li>
+          <li>Speaker intro · clients · AWS deployments</li>
+          <li>What I actually run — VPS + Telegram, not Lambda</li>
           <li>Human in the loop — not full autonomy</li>
-          <li>Agent dev pipeline flow</li>
-          <li>AWS architecture — EventBridge, Lambda, Step Functions</li>
-          <li>Multi-agent memory on stateless infra</li>
-          <li>Why serverless for bursty agent workloads</li>
+          <li>Dev pipeline flow — issue → PR</li>
+          <li>Two-tier architecture — control plane vs AWS targets</li>
+          <li>Why VPS beat serverless for the agent</li>
+          <li>Managing AWS from Telegram — SSO, pipelines, ops</li>
           <li>War stories &amp; failure modes</li>
-          <li>Economics — infra vs LLM tokens</li>
-          <li>Live demo — issue to PR · you merge</li>
+          <li>Economics — VPS + AWS + LLM tokens</li>
+          <li>Live demo — Telegram → agent → PR</li>
         </ol>
       
         <div class="slide-footer">
@@ -364,16 +378,16 @@
         </div></section>
 
       <section id="what-is">
-        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Serverless AI Factory</h2>
-        <h3 class="text-3xl font-bold mb-8">Not a chatbot. A dev pipeline.</h3>
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Honest architecture</h2>
+        <h3 class="text-3xl font-bold mb-8">Not Lambda. Not a chatbot-only bot.</h3>
         <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-          <li>Watches <span class="text-aws font-semibold">GitHub issues</span> — not Telegram, not email</li>
-          <li>Plans the work, writes code, opens <span class="text-aws font-semibold">pull requests</span></li>
-          <li>Runs on <span class="text-aws font-semibold">scale-to-zero AWS</span> — agents on demand</li>
-          <li>Production for months · agents draft work overnight — humans ship it</li>
-          <li class="text-aws font-semibold">Human in the loop: review PR, approve merge, set spend limits</li>
+          <li><span class="text-aws font-semibold">Telegram</span> — where I talk to the agent (phone, anywhere)</li>
+          <li><span class="text-aws font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
+          <li>Watches <span class="text-aws font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-aws font-semibold">PRs</span></li>
+          <li><span class="text-aws font-semibold">AWS</span> — where production lives (HalloCasa, ai-secure, qr-plakat)</li>
+          <li class="text-aws font-semibold">Human in the loop: review PR, SSO approve, kill runaway jobs</li>
         </ul>
-        <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">Different talk: OpenClaw VPS → serverless migration (personal agent, heartbeats, Telegram).</p>
+        <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">I considered serverless. VPS won for persistent state, heartbeats, Cursor CLI, and Telegram UX.</p>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -400,9 +414,9 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
         <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
         <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-          <li>GitHub issue arrives at 2am</li>
-          <li>Agent plans, codes, opens PR — you review over coffee</li>
-          <li>Runs on serverless: spin up, work, scale to zero</li>
+          <li>Telegram ping at 2am — or GitHub issue lands overnight</li>
+          <li>Agent on VPS plans, codes, opens PR — you review over coffee</li>
+          <li>Needs AWS? Agent asks · you SSO-approve on phone · it deploys</li>
           <li class="text-aws">What could go wrong without guardrails? (spoiler: a lot)</li>
         </ul>
       
@@ -418,19 +432,19 @@
           <div class="card-grid text-left">
             <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Trigger</p>
-              <p class="text-slate-300">GitHub issue webhook → API Gateway</p>
+              <p class="text-slate-300">Telegram message · GitHub issue · heartbeat cron</p>
+            </div>
+            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
+              <p class="text-aws font-semibold mb-2">Control plane</p>
+              <p class="text-slate-300">Hostinger VPS · OpenClaw · Cursor CLI</p>
             </div>
             <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
               <p class="text-aws font-semibold mb-2">Agents</p>
               <p class="text-slate-300">Plan → implement → test → open PR</p>
             </div>
             <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Orchestration</p>
-              <p class="text-slate-300">EventBridge routing · Step Functions &gt;15 min</p>
-            </div>
-            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">AWS stack</p>
-              <p class="text-slate-300">Lambda · DynamoDB · vector store · CDK</p>
+              <p class="text-aws font-semibold mb-2">AWS targets</p>
+              <p class="text-slate-300">CDK · CodePipeline · SSO · AgentCore · MCP</p>
             </div>
           </div>
         
@@ -464,9 +478,9 @@
       <section id="architecture">
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
-          <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless</h3>
+          <h3 class="text-3xl font-bold mb-6">Two tiers — VPS control plane, AWS production</h3>
           <img src="assets/architecture.svg" alt="Architecture diagram" class="arch-diagram mx-auto">
-          <p class="mt-4 text-slate-400 text-sm">API Gateway → EventBridge → Lambda → Step Functions</p>
+          <p class="mt-4 text-slate-400 text-sm">Telegram → OpenClaw on VPS → manages HalloCasa · ai-secure · qr-plakat on AWS</p>
         
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -475,11 +489,11 @@
         <section>
           <h3 class="text-2xl font-bold mb-6">Key components</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li><span class="text-aws font-mono">API Gateway</span> — GitHub issue webhook ingress</li>
-            <li><span class="text-aws font-mono">EventBridge</span> — event routing &amp; scheduling</li>
-            <li><span class="text-aws font-mono">Lambda</span> — agent compute per turn</li>
-            <li><span class="text-aws font-mono">Step Functions</span> — workflows &gt;15 min</li>
-            <li><span class="text-aws font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
+            <li><span class="text-aws font-semibold">VPS:</span> OpenClaw gateway · Docker · cron heartbeats · MEMORY.md</li>
+            <li><span class="text-aws font-semibold">Interface:</span> Telegram topics · Slack mirror · GitHub via gh CLI</li>
+            <li><span class="text-aws font-semibold">Coding:</span> Cursor CLI — plan on Opus, implement on Composer</li>
+            <li><span class="text-aws font-semibold">AWS:</span> SSO device-code · CDK deploy · CodePipeline trigger</li>
+            <li><span class="text-aws font-semibold">Memory:</span> markdown files + Peachbase vector DB on API Gateway</li>
           </ul>
         
         <div class="slide-footer">
@@ -493,7 +507,7 @@
             <li><span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
             <li><span class="text-aws font-semibold">Review agent</span> — automated sanity check before PR</li>
             <li><span class="text-aws font-semibold">Human gate</span> — diff review, merge approval, token/spend caps</li>
-            <li>Each agent = ephemeral Lambda invocation · scale to zero when idle</li>
+            <li>Long runs OK on VPS — no 15 min Lambda ceiling · Cursor CLI sessions</li>
           </ul>
         
         <div class="slide-footer">
@@ -501,12 +515,12 @@
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
         </div></section>
         <section id="memory">
-          <h3 class="text-2xl font-bold mb-6">Memory on stateless infra</h3>
+          <h3 class="text-2xl font-bold mb-6">Memory &amp; state — why VPS helps</h3>
           <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li><span class="text-aws font-mono">DynamoDB</span> — run state, handoffs between agents</li>
-            <li><span class="text-aws font-mono">Vector store</span> — repo context, prior fixes, embeddings</li>
-            <li>Cold start vs. <span class="text-aws">context loading</span> — the real latency trade-off</li>
-            <li>Step Functions when agent workflows exceed Lambda 15 min limit</li>
+            <li><span class="text-aws font-mono">MEMORY.md</span> + daily notes — curated long-term context</li>
+            <li><span class="text-aws font-mono">heartbeat-state.json</span> — cron checks, issue polling</li>
+            <li><span class="text-aws font-mono">Skills + TOOLS.md</span> — how-to for AWS SSO, gh, MCP</li>
+            <li><span class="text-aws font-mono">Peachbase</span> on AWS — semantic recall across sessions</li>
           </ul>
         
         <div class="slide-footer">
@@ -515,27 +529,43 @@
         </div></section>
       </section>
 
-      <section id="why-serverless">
-        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
-        <h3 class="text-3xl font-bold mb-8">Bursty by nature</h3>
+      <section id="why-vps">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Why VPS, not Lambda?</h2>
+        <h3 class="text-3xl font-bold mb-8">I tried the serverless story — kept the VPS</h3>
         <div class="card-grid text-left">
           <div>
-            <p class="text-aws font-semibold text-xl mb-2">Agent workloads</p>
-            <p class="text-slate-300">Issue in → 3 min intense work → idle</p>
+            <p class="text-aws font-semibold text-xl mb-2">VPS wins</p>
+            <p class="text-slate-300">Persistent shell · Cursor CLI · no 15 min cap · Telegram always on</p>
           </div>
           <div>
-            <p class="text-aws font-semibold text-xl mb-2">VPS alternative</p>
-            <p class="text-slate-300">€10/mo fixed, 95% idle</p>
+            <p class="text-aws font-semibold text-xl mb-2">Serverless pain</p>
+            <p class="text-slate-300">State across invocations · cold starts · Step Functions for long runs</p>
           </div>
           <div>
-            <p class="text-aws font-semibold text-xl mb-2">Serverless win</p>
-            <p class="text-slate-300">Pay per invocation · scale to zero</p>
+            <p class="text-aws font-semibold text-xl mb-2">AWS still central</p>
+            <p class="text-slate-300">Production targets · SSO · pipelines · MCP endpoints</p>
           </div>
           <div>
             <p class="text-aws font-semibold text-xl mb-2">Caveat</p>
-            <p class="text-slate-300">LLM tokens dwarf infra either way</p>
+            <p class="text-slate-300">LLM tokens dwarf infra either way (~95%)</p>
           </div>
         </div>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
+
+      <section id="aws-ops">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">AWS learnings</h2>
+        <h3 class="text-3xl font-bold mb-8">Managing prod from Telegram</h3>
+        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <li><span class="text-aws font-semibold">HalloCasa</span> — CDK, CodePipeline trigger, prod DB ops via SSO</li>
+          <li><span class="text-aws font-semibold">ai-secure.dev</span> — AgentCore, MCP scans, compliance reports</li>
+          <li><span class="text-aws font-semibold">qr-plakat.de</span> — event QR infra, fast iteration</li>
+          <li>Agent reads TOOLS.md → knows device-code SSO flow → sends you URL + code</li>
+          <li>Real DevOps value: one interface (Telegram) across multiple AWS accounts</li>
+        </ul>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -547,9 +577,9 @@
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
           <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
           <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-            <li>Cold start vs. context loading — real latency bottleneck</li>
-            <li>Stateful memory on stateless infra</li>
-            <li>Multi-agent coordination across invocations</li>
+            <li>AWS SSO from VPS — device-code flow to your phone</li>
+            <li>Agent almost auto-merged without approval — human gate saved prod</li>
+            <li>Heartbeat + issue polling — state drift if you skip triage</li>
           </ul>
         
         <div class="slide-footer">
@@ -562,7 +592,7 @@
             <li class="failure-item rounded-lg border px-4 py-3">Circular agent loops</li>
             <li class="failure-item rounded-lg border px-4 py-3">Runaway token spend — fix: human approval + hard limits</li>
             <li class="failure-item rounded-lg border px-4 py-3">Hallucinated git commands</li>
-            <li class="failure-item rounded-lg border px-4 py-3">Debugging across CloudWatch log groups</li>
+            <li class="failure-item rounded-lg border px-4 py-3">Wrong AWS profile / expired SSO mid-deploy</li>
           </ul>
           <p class="mt-8 text-slate-400">TODO: anonymized incident examples</p>
         
@@ -577,8 +607,12 @@
         <h3 class="text-3xl font-bold mb-8">Real numbers</h3>
         <div class="card-grid">
           <div class="rounded-xl bg-surface-light p-6 border border-slate-700 text-center">
-            <p class="text-5xl font-bold text-aws">~€2–4</p>
-            <p class="mt-2 text-slate-400">AWS infra / month</p>
+            <p class="text-5xl font-bold text-aws">~€10</p>
+            <p class="mt-2 text-slate-400">Hostinger VPS / month</p>
+          </div>
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-slate-200">varies</p>
+            <p class="mt-2 text-slate-400">AWS client projects (HalloCasa, ai-secure, …)</p>
           </div>
           <div class="rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
             <p class="text-5xl font-bold text-amber-400">~95%</p>
@@ -596,10 +630,10 @@
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
         <h3 class="text-3xl font-bold mb-6">Issue → PR in minutes · merge when you&apos;re ready</h3>
         <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
-          <li>1. Create GitHub issue</li>
-          <li>2. Webhook triggers agent pipeline</li>
-          <li>3. Agent plans + implements</li>
-          <li>4. PR opened — trace in CloudWatch</li>
+          <li>1. Message in Telegram (or GitHub issue lands)</li>
+          <li>2. OpenClaw on VPS plans + Cursor CLI implements</li>
+          <li>3. PR opened — needs AWS? SSO device-code to your phone</li>
+          <li>4. CodePipeline / CDK deploy to prod</li>
           <li>5. <span class="text-aws font-semibold">You review the diff and merge</span> — human in the loop</li>
         </ol>
         <p class="mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
@@ -611,23 +645,23 @@
 
       <section id="takeaways">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
-        <h3 class="text-3xl font-bold mb-8">When to build a Serverless AI Factory</h3>
+        <h3 class="text-3xl font-bold mb-8">When this pattern works</h3>
         <div class="card-grid text-left text-lg">
           <div>
             <p class="takeaway-do font-semibold mb-2">✓ Do</p>
             <ul class="space-y-2 text-slate-300">
-              <li>Bursty, async workloads</li>
-              <li>Issue-driven automation with human merge gates</li>
-              <li>Burst economics over idle servers</li>
-              <li>Human in the loop — review, approve, kill runs</li>
+              <li>VPS control plane + AWS production targets</li>
+              <li>Telegram/Slack UX + GitHub PR workflow</li>
+              <li>Human merge gates + SSO approval for AWS</li>
+              <li>Separate agent infra from what you deploy</li>
             </ul>
           </div>
           <div>
             <p class="takeaway-dont font-semibold mb-2">✗ Don't</p>
             <ul class="space-y-2 text-slate-300">
-              <li>Auto-merge without human review</li>
-              <li>“Fully autonomous” with no spend guardrails</li>
-              <li>Persistent WebSockets / sub-second latency</li>
+              <li>Claim serverless when you run a VPS</li>
+              <li>Auto-merge / auto-deploy without review</li>
+              <li>Force Lambda for long Cursor CLI sessions</li>
             </ul>
           </div>
         </div>

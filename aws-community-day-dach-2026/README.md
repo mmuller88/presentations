@@ -5,10 +5,11 @@
 
 ## Talk (waitlist)
 
-**Serverless AI Factory: An Autonomous Dev Pipeline on AWS**
+**AI DevOps Agent: VPS Control Plane, AWS Production**
 
 - Level 300–400 · ~30 min + Q&A
 - CFP: `proposal1_ai_factory.md`
+- Honest arch: Hostinger VPS + Telegram agent → manages HalloCasa, ai-secure, qr-plakat on AWS
 
 All other Berlin CFPs rejected (14 Aug Sessionize 10875): ESC, OpenClaw, Cyquins, AI Security.
 
@@ -20,7 +21,7 @@ ESC talk accepted for **AWS Community Day NL** (23 Sep Utrecht) → see `aws-com
 
 https://mmuller88.github.io/presentations/aws-community-day-dach-2026/
 
-Key slides: `#/title` · `#/what-is` · `#/overview` · `#/architecture` · `#/agents` · `#/memory` · `#/live-demo`
+Key slides: `#/title` · `#/what-is` · `#/architecture` · `#/why-vps` · `#/aws-ops` · `#/live-demo`
 
 ## TODO before slot opens
 
