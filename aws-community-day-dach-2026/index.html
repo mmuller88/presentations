@@ -204,11 +204,6 @@
     .text-slate-100, .text-slate-200 { color: var(--acd-heading) !important; }
     .text-slate-300 { color: var(--acd-text) !important; }
     .text-slate-400, .text-slate-500 { color: var(--acd-muted) !important; }
-    .failure-item {
-      background: rgba(127, 29, 29, 0.22) !important;
-      border-color: #991b1b !important;
-      color: #fecaca !important;
-    }
     .takeaway-do { color: #86efac !important; }
     .takeaway-dont { color: #fca5a5 !important; }
     .slide-footer {
@@ -576,7 +571,7 @@
               <div>
                 <p class="text-brand text-xs uppercase tracking-wide mb-1">Own project · AWS</p>
                 <p class="text-lg font-semibold text-slate-100">qr-plakat.de</p>
-                <p class="text-sm text-slate-300 mt-1">OpenNext · Lambda · CloudFront — event QR poster SaaS</p>
+                <p class="text-sm text-slate-300 mt-1">OpenNext · Lambda · CloudFront — hosted landing pages with metadata preview</p>
               </div>
             </div>
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
@@ -607,7 +602,6 @@
           <li>Two-tier architecture — control plane vs AWS targets</li>
           <li>Practical learnings — CI, cost, models, dual track</li>
           <li>Managing AWS from Telegram — SSO, pipelines, ops</li>
-          <li>War stories &amp; failure modes</li>
           <li>Economics — VPS + AWS + LLM spend</li>
           <li>Live demo — Telegram → agent → PR</li>
         </ol>
@@ -657,7 +651,6 @@
           <li>Telegram ping at 2am — or GitHub issue lands overnight</li>
           <li>Agent on VPS plans, codes, opens PR — you review over coffee</li>
           <li>Needs AWS? Agent asks · you SSO-approve on phone · it deploys</li>
-          <li class="text-aws">What could go wrong without guardrails? (spoiler: a lot)</li>
         </ul>
       
         <div class="slide-footer">
@@ -733,7 +726,7 @@
             <li><span class="text-aws font-semibold">Interface:</span> Telegram topics · Slack mirror · GitHub via gh CLI</li>
             <li><span class="text-aws font-semibold">Coding:</span> Cursor CLI — plan on Opus, implement on Composer</li>
             <li><span class="text-aws font-semibold">AWS:</span> SSO device-code · CDK deploy · CodePipeline trigger</li>
-            <li><span class="text-aws font-semibold">Memory:</span> markdown files + Peachbase vector DB on API Gateway</li>
+            <li><span class="text-aws font-semibold">Memory:</span> markdown files on disk — MEMORY.md, skills, daily notes</li>
           </ul>
         
         <div class="slide-footer">
@@ -760,7 +753,6 @@
             <li><span class="text-aws font-mono">MEMORY.md</span> + daily notes — curated long-term context</li>
             <li><span class="text-aws font-mono">heartbeat-state.json</span> — cron checks, issue polling</li>
             <li><span class="text-aws font-mono">Skills + TOOLS.md</span> — how-to for AWS SSO, gh, MCP</li>
-            <li><span class="text-aws font-mono">Peachbase</span> on AWS — semantic recall across sessions</li>
           </ul>
         
         <div class="slide-footer">
@@ -794,7 +786,7 @@
         <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
           <li><span class="text-aws font-semibold">HalloCasa</span> — CDK, CodePipeline trigger, prod DB ops via SSO</li>
           <li><span class="text-aws font-semibold">ai-secure.dev</span> — AgentCore, MCP scans, compliance reports</li>
-          <li><span class="text-aws font-semibold">qr-plakat.de</span> — event QR infra, fast iteration</li>
+          <li><span class="text-aws font-semibold">qr-plakat.de</span> — OpenNext on AWS · hosted landing pages with metadata preview</li>
           <li>Agent reads TOOLS.md → knows device-code SSO flow → sends you URL + code</li>
           <li>Real DevOps value: one interface (Telegram) across multiple AWS accounts</li>
         </ul>
@@ -803,36 +795,6 @@
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
         </div></section>
-
-      <section id="war-stories">
-        <section>
-          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
-          <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
-          <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-            <li>AWS SSO from VPS — device-code flow to your phone</li>
-            <li>Agent almost auto-merged without approval — human gate saved prod</li>
-            <li>Heartbeat + issue polling — state drift if you skip triage</li>
-          </ul>
-        
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div></section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
-          <ul class="content-prose space-y-4 text-left text-lg text-slate-300">
-            <li class="failure-item rounded-lg border px-4 py-3">Circular agent loops</li>
-            <li class="failure-item rounded-lg border px-4 py-3">Runaway token spend — fix: human approval + hard limits</li>
-            <li class="failure-item rounded-lg border px-4 py-3">Hallucinated git commands</li>
-            <li class="failure-item rounded-lg border px-4 py-3">Wrong AWS profile / expired SSO mid-deploy</li>
-          </ul>
-          <p class="mt-8 text-slate-400">TODO: anonymized incident examples</p>
-        
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div></section>
-      </section>
 
       <section id="economics">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Economics</h2>

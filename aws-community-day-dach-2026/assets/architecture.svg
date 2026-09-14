@@ -54,13 +54,9 @@
   <text x="815" y="122" text-anchor="middle" class="label">ai-secure.dev</text>
   <text x="815" y="140" text-anchor="middle" class="sublabel">AgentCore · MCP · scans</text>
 
-  <rect x="540" y="184" width="170" height="64" class="box"/>
-  <text x="625" y="210" text-anchor="middle" class="label">qr-plakat.de</text>
-  <text x="625" y="228" text-anchor="middle" class="sublabel">event QR · deployments</text>
-
-  <rect x="730" y="184" width="170" height="64" class="box"/>
-  <text x="815" y="210" text-anchor="middle" class="label">Peachbase</text>
-  <text x="815" y="228" text-anchor="middle" class="sublabel">vector memory · API GW</text>
+  <rect x="540" y="184" width="360" height="64" class="box"/>
+  <text x="720" y="210" text-anchor="middle" class="label">qr-plakat.de</text>
+  <text x="720" y="228" text-anchor="middle" class="sublabel">OpenNext · hosted landing pages · metadata preview</text>
 
   <rect x="540" y="272" width="360" height="56" class="box"/>
   <text x="720" y="298" text-anchor="middle" class="label">AWS SSO · sts · CloudWatch</text>

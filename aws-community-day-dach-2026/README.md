@@ -26,6 +26,5 @@ Key slides: `#/title` · `#/what-is` · `#/architecture` · `#/learnings` · `#/
 ## TODO before slot opens
 
 - [ ] Git history screenshot on pipeline slide
-- [ ] Anonymized incident examples on war-stories
 - [ ] Sanitized bill breakdown chart
 - [ ] Pre-recorded demo fallback clip
