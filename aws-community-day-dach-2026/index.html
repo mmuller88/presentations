@@ -437,10 +437,93 @@
       align-items: center;
     }
     html.desktop-deck .reveal .slides section.center-slide:has(> .slide-footer) {
-      justify-content: center;
+      justify-content: flex-start;
     }
     html.desktop-deck .reveal .slides section.center-slide:has(> .slide-footer) > .slide-inner {
-      flex: 0 1 auto;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-height: 0;
+    }
+    html.desktop-deck .reveal .slides section#title {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center !important;
+      height: 100% !important;
+      top: 0 !important;
+    }
+    html.desktop-deck .slide-body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-height: 0;
+      width: 100%;
+      gap: clamp(0.35rem, 1.5vh, 1.25rem);
+    }
+    html.desktop-deck .slide-body > ul:not(.list-decimal) {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin: 0;
+      padding: clamp(0.25rem, 1.5vh, 1.25rem) 0;
+      gap: clamp(0.35rem, 1.8vh, 1rem);
+    }
+    html.desktop-deck .slide-body > ol,
+    html.desktop-deck .slide-body > ul.list-decimal {
+      flex: 1 1 auto;
+      margin: auto 0;
+      padding: clamp(0.5rem, 2vh, 1.5rem) 0;
+    }
+    html.desktop-deck .slide-body > .card-grid {
+      flex: 1 1 auto;
+      align-content: space-evenly;
+      min-height: 0;
+    }
+    html.desktop-deck .slide-body > .arch-diagram {
+      flex: 1 1 auto;
+      max-height: min(62vh, 580px);
+      width: min(100%, 1200px);
+      margin-inline: auto;
+      object-fit: contain;
+    }
+    html.desktop-deck .slide-body > p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    html.desktop-deck .reveal .slides section .card-grid > div {
+      padding: clamp(1rem, 2.5vh, 1.75rem) !important;
+    }
+    html.desktop-deck .reveal .slides section.slide-top {
+      height: 100% !important;
+      top: 0 !important;
+      overflow: hidden;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .slide-scroll {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .slide-inner {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-height: 0;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .client-grid {
+      flex: 1 1 auto;
+      align-content: space-evenly;
+      margin-top: 0;
+    }
+    html.desktop-deck .reveal .slides section#speaker .speaker-bio-card {
+      flex: 1 1 auto;
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section#agenda .slide-body {
+      justify-content: space-between;
     }
     @media (min-width: 1280px) {
       html.desktop-deck .reveal .slides section .client-grid {
@@ -1037,7 +1120,7 @@
         margin,
         minScale: 1,
         maxScale: 1,
-        center: !mobile,
+        center: false,
         transition: 'none',
         backgroundTransition: 'none',
         touch: true,
@@ -1053,6 +1136,27 @@
       if (!el || typeof Reveal.getIndices !== 'function') return;
       const indices = Reveal.getIndices(el);
       if (indices) Reveal.slide(indices.h, indices.v);
+    }
+
+    function wrapDesktopSlideBodies() {
+      if (isMobileDeck) return;
+      document.querySelectorAll('.reveal .slides section').forEach((section) => {
+        if (section.querySelector(':scope > section')) return;
+        if (section.querySelector(':scope > .slide-scroll')) return;
+        if (section.querySelector(':scope > .slide-body')) return;
+        const footer = section.querySelector(':scope > .slide-footer');
+        const body = document.createElement('div');
+        body.className = 'slide-body';
+        [...section.childNodes].forEach((node) => {
+          if (node.nodeName === 'ASIDE') return;
+          if (node.nodeType === 1 && node.classList.contains('slide-footer')) return;
+          if (node.nodeType === 3 && !node.textContent.trim()) return;
+          body.appendChild(node);
+        });
+        if (!body.childNodes.length) return;
+        if (footer) section.insertBefore(body, footer);
+        else section.appendChild(body);
+      });
     }
 
     function wrapMobileSlides() {
@@ -1074,6 +1178,7 @@
 
     try {
       Reveal.initialize(revealConfig()).then(() => {
+        wrapDesktopSlideBodies();
         wrapMobileSlides();
         slideToHashId();
         window.addEventListener('hashchange', slideToHashId);
