@@ -97,6 +97,10 @@
       width: 100%;
       object-fit: contain;
     }
+    .reveal .slides section .content-prose {
+      width: 100%;
+      max-width: 100%;
+    }
     .reveal .slides section .title-logo {
       height: 2.75rem;
       width: auto;
@@ -243,6 +247,122 @@
       .reveal .slides section .client-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
       .reveal .slides section .client-logo { height: 2.75rem; }
       .slide-footer { left: 2.5rem; right: 2.5rem; }
+    }
+    /* Desktop: fill viewport, scale typography + grids to available space */
+    html.desktop-deck .reveal,
+    html.desktop-deck .reveal .viewport {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.desktop-deck .reveal .slides section {
+      padding: clamp(1rem, 2.5vh, 2rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 4vh, 3.5rem);
+      font-size: clamp(1rem, 1.1vw + 0.65rem, 1.35rem);
+    }
+    html.desktop-deck .reveal h2 {
+      font-size: clamp(0.75rem, 0.5vw + 0.55rem, 0.95rem) !important;
+      margin-bottom: clamp(0.5rem, 1.2vh, 1rem) !important;
+    }
+    html.desktop-deck .reveal h3 {
+      font-size: clamp(1.75rem, 2.2vw + 0.75rem, 2.75rem) !important;
+      margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem) !important;
+    }
+    html.desktop-deck .reveal .slides section h1 {
+      font-size: clamp(2rem, 2.8vw + 0.5rem, 3.25rem) !important;
+    }
+    html.desktop-deck .reveal p,
+    html.desktop-deck .reveal li {
+      font-size: clamp(1rem, 0.85vw + 0.55rem, 1.35rem) !important;
+      line-height: 1.5 !important;
+    }
+    html.desktop-deck .reveal .slides section .slide-inner {
+      width: min(100%, 1400px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section.center-slide .slide-inner {
+      width: min(100%, 960px);
+    }
+    html.desktop-deck .reveal .slides section .content-prose {
+      width: min(100%, 1100px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .content-prose-wide {
+      width: min(100%, 1280px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(0.75rem, 1.5vw, 1.5rem);
+    }
+    html.desktop-deck .reveal .slides section#economics .card-grid,
+    html.desktop-deck .reveal .slides section .card-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    html.desktop-deck .reveal .slides section .client-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(0.75rem, 1.2vw, 1.25rem);
+    }
+    html.desktop-deck .reveal .slides section .arch-diagram {
+      max-height: min(58vh, 520px);
+      width: min(100%, 1200px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .title-logo {
+      height: clamp(3rem, 6vh, 4.5rem);
+      max-width: min(70vw, 560px);
+    }
+    html.desktop-deck .reveal .slides section .speaker-bio-card {
+      gap: clamp(1rem, 2vw, 2rem);
+      padding: clamp(1rem, 2vw, 1.75rem) !important;
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section .speaker-avatar {
+      width: clamp(6rem, 10vw, 9rem);
+      height: clamp(6rem, 10vw, 9rem);
+    }
+    html.desktop-deck .reveal .slides section .qr-code-host {
+      width: clamp(5.5rem, 7vw, 7.5rem);
+      height: clamp(5.5rem, 7vw, 7.5rem);
+    }
+    html.desktop-deck .reveal .slides section .client-logo {
+      height: clamp(2.25rem, 3.5vh, 3.25rem);
+    }
+    html.desktop-deck .reveal .slides section .pipeline-flow {
+      justify-content: center;
+      gap: 0.5rem 0.75rem;
+    }
+    html.desktop-deck .reveal .slides section .pipeline-flow span {
+      font-size: clamp(0.85rem, 0.7vw + 0.5rem, 1.1rem) !important;
+      padding: 0.45rem 0.85rem;
+    }
+    html.desktop-deck .reveal .slides section#agenda ol {
+      columns: 2;
+      column-gap: clamp(2rem, 4vw, 4rem);
+      max-width: none;
+      width: min(100%, 1200px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section#agenda li {
+      break-inside: avoid;
+      margin-bottom: 0.35rem;
+    }
+    html.desktop-deck .reveal .slides section#takeaways .card-grid {
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+    html.desktop-deck .reveal .slides section#qa h2 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+    }
+    html.desktop-deck .slide-footer {
+      left: clamp(1.5rem, 4vw, 4rem);
+      right: clamp(1.5rem, 4vw, 4rem);
+      font-size: clamp(0.62rem, 0.45vw + 0.45rem, 0.78rem);
+    }
+    @media (min-width: 1280px) {
+      html.desktop-deck .reveal .slides section .client-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      html.desktop-deck .reveal .slides section#overview .card-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
     }
     /* Mobile: neutralize Reveal transforms (top:0 + translate = off-screen) */
     html.mobile-deck,
@@ -459,7 +579,7 @@
       <section id="agenda">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
-        <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto list-decimal list-inside">
+        <ol class="content-prose space-y-3 text-left text-xl text-slate-300 list-decimal list-inside">
           <li>Speaker intro · clients · AWS deployments</li>
           <li>What I actually run — VPS + Telegram + AWS</li>
           <li>Human in the loop — not full autonomy</li>
@@ -480,14 +600,14 @@
       <section id="what-is">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Honest architecture</h2>
         <h3 class="text-3xl font-bold mb-8">Dev pipeline — not a chatbot-only bot</h3>
-        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
           <li><span class="text-aws font-semibold">Telegram</span> — talk to the agent from your phone, anywhere</li>
           <li><span class="text-aws font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
           <li>Watches <span class="text-aws font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-aws font-semibold">PRs</span></li>
           <li><span class="text-aws font-semibold">AWS</span> — where production lives (HalloCasa, ai-secure, qr-plakat)</li>
           <li class="text-aws font-semibold">Human in the loop: review PR, SSO approve, kill runaway jobs</li>
         </ul>
-        <p class="mt-8 text-slate-500 text-base max-w-2xl mx-auto">Build via Telegram on the go — or pair deeply in Cursor IDE. Same agent, two tracks.</p>
+        <p class="content-prose mt-8 text-slate-500 text-base">Build via Telegram on the go — or pair deeply in Cursor IDE. Same agent, two tracks.</p>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -497,13 +617,13 @@
       <section id="hitl">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Design principle</h2>
         <h3 class="text-3xl font-bold mb-8">Human in the loop — always</h3>
-        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
           <li><span class="text-aws font-semibold">Agents execute</span> — plan, code, test, open PR</li>
           <li><span class="text-aws font-semibold">Humans decide</span> — review diff, approve merge, kill runaway jobs</li>
           <li>Full autonomy sounds cool · production needs guardrails</li>
           <li>Air Canada &amp; HDI: AI assists · people stay accountable</li>
         </ul>
-        <p class="mt-8 text-slate-400 text-lg max-w-2xl mx-auto">Autonomous pipeline ≠ autonomous production. The factory runs 24/7 — you still own the merge button.</p>
+        <p class="content-prose mt-8 text-slate-400 text-lg">Autonomous pipeline ≠ autonomous production. The factory runs 24/7 — you still own the merge button.</p>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=3" alt="AWS Community Day DACH">
@@ -513,7 +633,7 @@
       <section id="hook">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
         <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
-        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
           <li>Telegram ping at 2am — or GitHub issue lands overnight</li>
           <li>Agent on VPS plans, codes, opens PR — you review over coffee</li>
           <li>Needs AWS? Agent asks · you SSO-approve on phone · it deploys</li>
@@ -588,7 +708,7 @@
         </div></section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Key components</h3>
-          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+          <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
             <li><span class="text-aws font-semibold">VPS:</span> OpenClaw gateway · Docker · cron heartbeats · MEMORY.md</li>
             <li><span class="text-aws font-semibold">Interface:</span> Telegram topics · Slack mirror · GitHub via gh CLI</li>
             <li><span class="text-aws font-semibold">Coding:</span> Cursor CLI — plan on Opus, implement on Composer</li>
@@ -602,7 +722,7 @@
         </div></section>
         <section id="agents">
           <h3 class="text-2xl font-bold mb-6">Dev pipeline agents</h3>
-          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+          <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
             <li><span class="text-aws font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
             <li><span class="text-aws font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
             <li><span class="text-aws font-semibold">Review agent</span> — automated sanity check before PR</li>
@@ -616,7 +736,7 @@
         </div></section>
         <section id="memory">
           <h3 class="text-2xl font-bold mb-6">Memory &amp; state — why VPS helps</h3>
-          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+          <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
             <li><span class="text-aws font-mono">MEMORY.md</span> + daily notes — curated long-term context</li>
             <li><span class="text-aws font-mono">heartbeat-state.json</span> — cron checks, issue polling</li>
             <li><span class="text-aws font-mono">Skills + TOOLS.md</span> — how-to for AWS SSO, gh, MCP</li>
@@ -634,7 +754,7 @@
           <div class="slide-inner">
             <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
             <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
-            <ul class="space-y-4 text-left text-lg text-slate-300 max-w-3xl mx-auto">
+            <ul class="content-prose-wide space-y-4 text-left text-lg text-slate-300">
               <li><span class="text-aws font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
               <li><span class="text-aws font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
               <li><span class="text-aws font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
@@ -651,7 +771,7 @@
       <section id="aws-ops">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">AWS learnings</h2>
         <h3 class="text-3xl font-bold mb-8">Managing prod from Telegram</h3>
-        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
           <li><span class="text-aws font-semibold">HalloCasa</span> — CDK, CodePipeline trigger, prod DB ops via SSO</li>
           <li><span class="text-aws font-semibold">ai-secure.dev</span> — AgentCore, MCP scans, compliance reports</li>
           <li><span class="text-aws font-semibold">qr-plakat.de</span> — event QR infra, fast iteration</li>
@@ -668,7 +788,7 @@
         <section>
           <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
           <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
-          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
+          <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
             <li>AWS SSO from VPS — device-code flow to your phone</li>
             <li>Agent almost auto-merged without approval — human gate saved prod</li>
             <li>Heartbeat + issue polling — state drift if you skip triage</li>
@@ -680,7 +800,7 @@
         </div></section>
         <section>
           <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
-          <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
+          <ul class="content-prose space-y-4 text-left text-lg text-slate-300">
             <li class="failure-item rounded-lg border px-4 py-3">Circular agent loops</li>
             <li class="failure-item rounded-lg border px-4 py-3">Runaway token spend — fix: human approval + hard limits</li>
             <li class="failure-item rounded-lg border px-4 py-3">Hallucinated git commands</li>
@@ -721,7 +841,7 @@
       <section id="live-demo">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
         <h3 class="text-3xl font-bold mb-6">Issue → PR in minutes · merge when you&apos;re ready</h3>
-        <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
+        <ol class="content-prose space-y-3 text-left text-xl text-slate-300">
           <li>1. Message in Telegram (or GitHub issue lands)</li>
           <li>2. OpenClaw on VPS plans + Cursor CLI implements</li>
           <li>3. PR opened — needs AWS? SSO device-code to your phone</li>
@@ -797,24 +917,41 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
-    const isMobileDeck = window.innerWidth < 768;
-    if (isMobileDeck) document.documentElement.classList.add('mobile-deck');
+    const MOBILE_BREAKPOINT = 768;
+    const isMobileDeck = window.innerWidth < MOBILE_BREAKPOINT;
+    if (isMobileDeck) {
+      document.documentElement.classList.add('mobile-deck');
+    } else {
+      document.documentElement.classList.add('desktop-deck');
+    }
+
+    function viewportSize() {
+      const mobile = window.innerWidth < MOBILE_BREAKPOINT;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const margin = mobile ? 0 : 0.02;
+      const pad = mobile ? 0 : Math.round(Math.min(vw, vh) * margin);
+      return {
+        width: Math.max(320, vw - pad * 2),
+        height: Math.max(480, vh - pad * 2),
+        margin
+      };
+    }
 
     function revealConfig() {
       const mobile = isMobileDeck;
       const plugins = [];
       if (typeof RevealNotes !== 'undefined') plugins.push(RevealNotes);
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
+      const { width, height, margin } = viewportSize();
 
       return {
         hash: true,
         slideNumber: 'c/t',
-        width: mobile ? vw : 1920,
-        height: mobile ? vh : 1080,
-        margin: mobile ? 0 : 0.04,
-        minScale: mobile ? 1 : 0.2,
-        maxScale: mobile ? 1 : 2.5,
+        width,
+        height,
+        margin,
+        minScale: 1,
+        maxScale: 1,
         center: !mobile,
         transition: 'none',
         backgroundTransition: 'none',
@@ -866,10 +1003,18 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        const mobile = window.innerWidth < 768;
-        const wasMobile = Reveal.getConfig().width < 500;
-        if (mobile !== wasMobile) location.reload();
-      }, 250);
+        const mobile = window.innerWidth < MOBILE_BREAKPOINT;
+        const wasMobile = document.documentElement.classList.contains('mobile-deck');
+        if (mobile !== wasMobile) {
+          location.reload();
+          return;
+        }
+        if (typeof Reveal !== 'undefined' && Reveal.isReady && Reveal.isReady()) {
+          const { width, height, margin } = viewportSize();
+          Reveal.configure({ width, height, margin });
+          Reveal.layout();
+        }
+      }, 200);
     });
   </script>
 </body>
