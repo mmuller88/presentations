@@ -153,6 +153,18 @@
     .reveal .slides section .speaker-bio-card .qr-link {
       margin-top: 0.5rem;
     }
+    .reveal .slides section#speaker .qr-code-host,
+    .reveal .slides section#qa .qr-code-host {
+      width: 8rem;
+      height: 8rem;
+      min-width: 128px;
+      min-height: 128px;
+      padding: 0.4rem;
+    }
+    .reveal .slides section#speaker .qr-link span,
+    .reveal .slides section#qa .qr-link span {
+      font-size: 0.75rem;
+    }
     .reveal .slides section .client-logo {
       height: 2.25rem;
       width: auto;
@@ -253,6 +265,8 @@
       .slide-footer .event-logo { height: 2.75rem; max-width: min(36vw, 320px); }
       .reveal .slides section .speaker-avatar { width: 7rem; height: 7rem; }
       .reveal .slides section .qr-code-host { width: 6rem; height: 6rem; }
+      .reveal .slides section#speaker .qr-code-host,
+      .reveal .slides section#qa .qr-code-host { width: 8.5rem; height: 8.5rem; }
       .reveal .slides section .client-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
       .reveal .slides section .client-logo { height: 2.75rem; }
       .slide-footer { left: 2.5rem; right: 2.5rem; }
@@ -337,6 +351,15 @@
     html.desktop-deck .reveal .slides section .qr-code-host {
       width: clamp(5.5rem, 7vw, 7.5rem);
       height: clamp(5.5rem, 7vw, 7.5rem);
+    }
+    html.desktop-deck .reveal .slides section#speaker .qr-code-host,
+    html.desktop-deck .reveal .slides section#qa .qr-code-host {
+      width: clamp(9rem, 16vw, 14rem);
+      height: clamp(9rem, 16vw, 14rem);
+    }
+    html.desktop-deck .reveal .slides section#speaker .qr-link span,
+    html.desktop-deck .reveal .slides section#qa .qr-link span {
+      font-size: clamp(0.75rem, 0.9vw, 0.95rem);
     }
     html.desktop-deck .reveal .slides section .client-logo {
       height: clamp(2.25rem, 3.5vh, 3.25rem);
@@ -519,6 +542,13 @@
       height: 4.5rem;
       min-width: 72px;
       min-height: 72px;
+    }
+    html.mobile-deck .reveal .slides section#speaker .qr-code-host,
+    html.mobile-deck .reveal .slides section#qa .qr-code-host {
+      width: 6.5rem;
+      height: 6.5rem;
+      min-width: 104px;
+      min-height: 104px;
     }
     html.mobile-deck .reveal .slides section .qr-row { gap: 0.85rem; }
     html.mobile-deck .reveal .slides section .speaker-avatar { width: 4rem; height: 4rem; }
