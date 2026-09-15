@@ -243,21 +243,36 @@
       gap: clamp(0.75rem, 2vh, 1.25rem);
       width: 100%;
     }
-    .reveal .slides section .chatgpt-ads-hero {
+    .reveal .slides section .chatgpt-ads-ad-big {
+      width: 100%;
+    }
+    .reveal .slides section .chatgpt-ads-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 2vh, 1.25rem);
+    }
+    .reveal .slides section .chatgpt-ads-figure {
       margin: 0;
       border-radius: 0.75rem;
       overflow: hidden;
       border: 2px solid var(--acd-border);
       background: #0d1117;
     }
-    .reveal .slides section .chatgpt-ads-hero-img {
+    .reveal .slides section .chatgpt-ads-ad-big-img {
       display: block;
       width: 100%;
-      max-height: min(30vh, 240px);
+      max-height: min(18vh, 160px);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .reveal .slides section .chatgpt-ads-screenshot-img {
+      display: block;
+      width: 100%;
+      max-height: min(22vh, 180px);
       object-fit: contain;
       object-position: center top;
     }
-    .reveal .slides section .chatgpt-ads-hero-caption {
+    .reveal .slides section .chatgpt-ads-figure-caption {
       padding: 0.4rem 0.75rem;
       font-size: 0.68rem;
       color: var(--acd-muted);
@@ -600,19 +615,24 @@
     }
     html.desktop-deck .reveal .slides section .chatgpt-ads-layout {
       flex: 1 1 auto;
+      justify-content: space-evenly;
+      gap: clamp(1rem, 2vh, 1.75rem);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-ad-big-img {
+      max-height: min(26vh, 240px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-bottom {
+      flex: 1 1 auto;
       flex-direction: row;
       align-items: stretch;
       gap: clamp(1.25rem, 2.5vw, 2.5rem);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-hero {
-      flex: 0 0 min(44%, 520px);
-      display: flex;
-      flex-direction: column;
+    html.desktop-deck .reveal .slides section .chatgpt-ads-screenshot {
+      flex: 0 0 min(42%, 480px);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-hero-img {
-      flex: 1 1 auto;
-      max-height: min(48vh, 420px);
-      object-fit: contain;
+    html.desktop-deck .reveal .slides section .chatgpt-ads-screenshot-img {
+      max-height: min(36vh, 340px);
     }
     html.desktop-deck .reveal .slides section .chatgpt-ads-copy {
       flex: 1 1 auto;
@@ -958,16 +978,26 @@
               </div>
             </div>
             <div class="chatgpt-ads-layout content-prose-wide">
-              <figure class="chatgpt-ads-hero">
+              <figure class="chatgpt-ads-figure chatgpt-ads-ad-big">
                 <img
-                  src="assets/chatgpt-ads-martinmueller.png?v=1"
-                  alt="ChatGPT conversation showing a sponsored martinmueller.dev ad card"
-                  class="chatgpt-ads-hero-img"
+                  src="assets/chatgpt-ads-martinmueller-big.png?v=1"
+                  alt="Sponsored martinmueller.dev ad card — AWS ohne Overhead"
+                  class="chatgpt-ads-ad-big-img"
                   loading="lazy"
                 >
-                <figcaption class="chatgpt-ads-hero-caption">Live placement · martinmueller.dev in ChatGPT</figcaption>
+                <figcaption class="chatgpt-ads-figure-caption">The ad · martinmueller.dev</figcaption>
               </figure>
-              <div class="chatgpt-ads-copy">
+              <div class="chatgpt-ads-bottom">
+                <figure class="chatgpt-ads-figure chatgpt-ads-screenshot">
+                  <img
+                    src="assets/chatgpt-ads-martinmueller.png?v=1"
+                    alt="ChatGPT conversation showing the sponsored placement in context"
+                    class="chatgpt-ads-screenshot-img"
+                    loading="lazy"
+                  >
+                  <figcaption class="chatgpt-ads-figure-caption">In context · live ChatGPT placement</figcaption>
+                </figure>
+                <div class="chatgpt-ads-copy">
                 <ul class="space-y-4 text-left text-xl text-slate-300">
                   <li><span class="text-aws font-semibold">Distribution at intent</span> — sponsored placements below answers, matched to conversation context (not a search results page)</li>
                   <li><span class="text-aws font-semibold">Platform maturing fast</span> — Ads Manager in Europe · CPC + conversion measurement · still early formats</li>
@@ -977,6 +1007,7 @@
                 <p class="openclaw-alternatives">
                   Personal interest, not a pitch — happy to swap notes after the talk if you're experimenting too.
                 </p>
+                </div>
               </div>
             </div>
           </div>
