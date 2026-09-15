@@ -218,6 +218,25 @@
       text-align: center;
       letter-spacing: 0.04em;
     }
+    .reveal .slides section .openclaw-header {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.75rem, 2vw, 1.25rem);
+      margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
+    }
+    .reveal .slides section .openclaw-logo {
+      width: clamp(3.5rem, 8vh, 5rem);
+      height: clamp(3.5rem, 8vh, 5rem);
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    .reveal .slides section .openclaw-alternatives {
+      margin-top: clamp(0.75rem, 2vh, 1.5rem);
+      padding-top: clamp(0.5rem, 1.5vh, 1rem);
+      border-top: 1px solid var(--acd-border);
+      font-size: clamp(0.85rem, 0.75vw + 0.5rem, 1.05rem);
+      color: var(--acd-muted);
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -847,6 +866,35 @@
           <li class="text-aws font-semibold">Human in the loop: review PR, SSO approve, kill runaway jobs</li>
         </ul>
         <p class="content-prose mt-8 text-slate-500 text-base">Build via Telegram on the go — or pair deeply in Cursor IDE. Same agent, two tracks.</p>
+      
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div></section>
+
+      <section id="openclaw">
+        <div class="openclaw-header">
+          <img src="assets/openclaw-logo.svg?v=1" alt="OpenClaw" class="openclaw-logo" loading="lazy">
+          <div>
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-1">Agent runtime</h2>
+            <h3 class="text-3xl font-bold mb-0">What is OpenClaw?</h3>
+          </div>
+        </div>
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
+          <li><span class="text-aws font-semibold">Open-source gateway</span> — self-hosted on your VPS (Docker), always on</li>
+          <li><span class="text-aws font-semibold">Messengers in</span> — Telegram, Slack · <span class="text-aws font-semibold">tools out</span> — shell, GitHub, AWS SSO, email</li>
+          <li>Persistent memory, cron heartbeats, skills — an agent harness, not just a chat UI</li>
+          <li>Routes to Cursor CLI / LLMs · plans, codes, opens PRs — with human gates</li>
+        </ul>
+        <p class="openclaw-alternatives content-prose-wide">
+          <span class="text-slate-400">Alternatives:</span>
+          <span class="text-slate-300"><span class="text-aws font-semibold">Hermes</span> (Nous Research · self-hosted personal assistant)</span>
+          ·
+          <span class="text-slate-300"><span class="text-aws font-semibold">LangDock</span> (hosted EU platform · DSGVO-oriented · less DIY)</span>
+        </p>
+        <aside class="notes">
+          30s context for anyone who hasn't heard of OpenClaw. Same category as Hermes/LangDock — different trade-offs: control vs convenience.
+        </aside>
       
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
