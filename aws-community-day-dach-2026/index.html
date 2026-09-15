@@ -237,16 +237,6 @@
       font-size: clamp(0.85rem, 0.75vw + 0.5rem, 1.05rem);
       color: var(--acd-muted);
     }
-    .reveal .slides section .excitement-cta {
-      margin-top: clamp(1rem, 2.5vh, 1.75rem);
-      padding: clamp(0.75rem, 1.5vh, 1.25rem) clamp(1rem, 2vw, 1.5rem);
-      border: 1px solid var(--acd-brand);
-      border-radius: 0.75rem;
-      background: rgba(255, 153, 0, 0.08);
-      font-size: clamp(0.95rem, 0.85vw + 0.55rem, 1.15rem);
-      color: var(--acd-text);
-      line-height: 1.5;
-    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -628,7 +618,7 @@
       box-sizing: border-box;
       font-size: 1rem;
     }
-    html.mobile-deck .reveal .slides section:not(.present) {
+    html.mobile-deck .reveal .slides section:not(.present):not(:has(.present)) {
       visibility: hidden !important;
       pointer-events: none !important;
       opacity: 0 !important;
@@ -665,7 +655,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 50;
+      z-index: 2147483000;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -688,8 +678,9 @@
       font-weight: 600;
       touch-action: manipulation;
     }
-    html.mobile-deck .mobile-slide-nav button:disabled {
+    html.mobile-deck .mobile-slide-nav button.is-disabled {
       opacity: 0.35;
+      pointer-events: none;
     }
     html.mobile-deck .mobile-slide-nav .mobile-slide-count {
       flex: 1 1 auto;
@@ -900,23 +891,26 @@
       </section>
 
       <section id="chatgpt-ads">
-        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Right now</h2>
-        <h3 class="text-3xl font-bold mb-8">What excites me: ChatGPT Ads</h3>
+        <div class="openclaw-header">
+          <img src="assets/chatgpt-logo.svg?v=1" alt="ChatGPT" class="openclaw-logo" loading="lazy">
+          <div>
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-1">Right now</h2>
+            <h3 class="text-3xl font-bold mb-0">What excites me: ChatGPT Ads</h3>
+          </div>
+        </div>
         <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-          <li><span class="text-aws font-semibold">Intent at the moment of decision</span> — sponsored placements below answers, matched to conversation context</li>
-          <li><span class="text-aws font-semibold">New channel, moving fast</span> — $1B ARR in &lt;200 days · self-serve Ads Manager now in Europe</li>
-          <li><span class="text-aws font-semibold">SMB-friendly stack</span> — CPC bidding, Pixel + Conversions API, product feeds — not just big-brand CPM tests</li>
-          <li>Still early: formats, targeting, and measurement evolving — room to experiment before budgets consolidate</li>
+          <li><span class="text-aws font-semibold">Distribution at intent</span> — sponsored placements below answers, matched to conversation context (not a search results page)</li>
+          <li><span class="text-aws font-semibold">Platform maturing fast</span> — Ads Manager in Europe · CPC + conversion measurement · still early formats</li>
+          <li><span class="text-aws font-semibold">Builder angle</span> — product feeds, landing pages, attribution — same craft as growth + infra work</li>
+          <li>Watching it like early Google/Facebook ads: messy now, obvious in hindsight</li>
         </ul>
-        <p class="excitement-cta content-prose-wide">
-          <span class="text-aws font-semibold">Building a product or SaaS?</span>
-          I'd love to help you explore ChatGPT Ads — positioning, landing pages, measurement setup.
-          Grab me after the talk or on <a href="https://www.linkedin.com/in/martinmueller88">LinkedIn</a>.
+        <p class="openclaw-alternatives content-prose-wide">
+          Personal interest, not a pitch — happy to swap notes after the talk if you're experimenting too.
         </p>
         <aside class="notes">
           Pivot from AWS agent talk to what I'm personally excited about right now.
           ChatGPT Ads = conversation-context distribution, Europe rollout Aug 2026.
-          Soft CTA — consulting/help, not a sales deck. Keep it 60–90 seconds.
+          No sales CTA — curiosity + builder lens. Keep it ~60 seconds.
         </aside>
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
@@ -1270,7 +1264,8 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     const MOBILE_BREAKPOINT = 768;
-    const isMobileDeck = window.innerWidth < MOBILE_BREAKPOINT;
+    const mobileMedia = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const isMobileDeck = mobileMedia.matches;
     if (isMobileDeck) {
       document.documentElement.classList.add('mobile-deck');
     } else {
@@ -1312,26 +1307,58 @@
       };
     }
 
+    function syncMobileSlideVisibility() {
+      if (!document.documentElement.classList.contains('mobile-deck')) return;
+      document.querySelectorAll('.reveal .slides section').forEach((section) => {
+        const active = section.classList.contains('present') || section.querySelector(':scope > section.present');
+        section.style.visibility = active ? 'visible' : 'hidden';
+        section.style.pointerEvents = active ? 'auto' : 'none';
+        section.style.opacity = active ? '1' : '0';
+      });
+    }
+
     function setupMobileNavigation() {
-      if (!isMobileDeck) return;
+      if (!document.documentElement.classList.contains('mobile-deck')) return;
       const nav = document.querySelector('.mobile-slide-nav');
       const prevBtn = document.getElementById('mobile-prev');
       const nextBtn = document.getElementById('mobile-next');
       const countEl = document.getElementById('mobile-slide-count');
       if (!nav || !prevBtn || !nextBtn || !countEl) return;
-      nav.hidden = false;
+      nav.removeAttribute('hidden');
+
+      const goPrev = () => {
+        Reveal.prev();
+        syncMobileSlideVisibility();
+      };
+      const goNext = () => {
+        Reveal.next();
+        syncMobileSlideVisibility();
+      };
 
       const updateNav = () => {
         const routes = Reveal.availableRoutes();
         const total = Reveal.getTotalSlides();
         const current = Reveal.getSlidePastCount() + 1;
         countEl.textContent = `${current} / ${total}`;
-        prevBtn.disabled = !routes.left && !routes.up;
-        nextBtn.disabled = !routes.right && !routes.down;
+        prevBtn.classList.toggle('is-disabled', !routes.left && !routes.up);
+        nextBtn.classList.toggle('is-disabled', !routes.right && !routes.down);
+        syncMobileSlideVisibility();
       };
 
-      prevBtn.addEventListener('click', () => Reveal.prev());
-      nextBtn.addEventListener('click', () => Reveal.next());
+      const bindTap = (button, action) => {
+        const handler = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (button.classList.contains('is-disabled')) return;
+          action();
+          updateNav();
+        };
+        button.addEventListener('click', handler);
+        button.addEventListener('touchend', handler, { passive: false });
+      };
+
+      bindTap(prevBtn, goPrev);
+      bindTap(nextBtn, goNext);
       Reveal.on('slidechanged', updateNav);
       Reveal.on('ready', updateNav);
       updateNav();
@@ -1351,8 +1378,9 @@
         const dx = event.changedTouches[0].clientX - startX;
         const dy = event.changedTouches[0].clientY - startY;
         if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.15) return;
-        if (dx < 0) Reveal.next();
-        else Reveal.prev();
+        if (dx < 0) goNext();
+        else goPrev();
+        updateNav();
       }, { passive: true });
     }
 
@@ -1422,7 +1450,7 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        const mobile = window.innerWidth < MOBILE_BREAKPOINT;
+        const mobile = mobileMedia.matches;
         const wasMobile = document.documentElement.classList.contains('mobile-deck');
         if (mobile !== wasMobile) {
           location.reload();
