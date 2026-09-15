@@ -315,6 +315,25 @@
     .reveal .slides section .chatgpt-ads-copy .openclaw-alternatives {
       margin-top: clamp(0.5rem, 1.5vh, 1rem);
     }
+    .reveal .slides section .what-is-layout {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 2vh, 1.25rem);
+      width: 100%;
+    }
+    .reveal .slides section .what-is-figure {
+      margin: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--acd-border);
+      background: #0d1117;
+    }
+    .reveal .slides section .what-is-image {
+      display: block;
+      width: 100%;
+      max-height: min(28vh, 220px);
+      object-fit: contain;
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -679,6 +698,27 @@
     }
     html.desktop-deck .reveal .slides section .chatgpt-ads-copy > ul {
       margin-bottom: 0;
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-layout {
+      flex: 1 1 auto;
+      flex-direction: row;
+      align-items: stretch;
+      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-figure {
+      flex: 0 0 min(44%, 540px);
+      display: flex;
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-image {
+      max-height: min(46vh, 400px);
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-copy {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-width: 0;
     }
     html.desktop-deck .reveal .slides section#agenda .slide-body {
       justify-content: space-between;
@@ -1095,22 +1135,38 @@
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
         </div></section>
 
-      <section id="what-is">
-        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Honest architecture</h2>
-        <h3 class="text-3xl font-bold mb-8">AI Factory — cool concept, skeptical for code</h3>
-        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-          <li><span class="text-aws font-semibold">AI Factory</span> — issues in, PRs out, 24/7. Great buzzword · I'm not trusting full autonomy on production code yet</li>
-          <li><span class="text-aws font-semibold">Telegram</span> — talk to the agent from your phone, anywhere</li>
-          <li><span class="text-aws font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
-          <li>Watches <span class="text-aws font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-aws font-semibold">PRs</span> · <span class="text-aws font-semibold">AWS</span> targets (HalloCasa, ai-secure, qr-plakat)</li>
-          <li><span class="text-aws font-semibold">Human in the loop</span> — review diff, SSO approve, kill runaway jobs. Non-negotiable when code matters — at least for now</li>
-        </ul>
-        <p class="content-prose mt-8 text-slate-500 text-base">Factory runs overnight · you own the merge. Telegram on the go — or pair deeply in Cursor IDE.</p>
-      
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div></section>
+      <section id="what-is" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Honest architecture</h2>
+            <h3 class="text-3xl font-bold mb-6">AI Factory — cool concept, skeptical for code</h3>
+            <div class="what-is-layout content-prose-wide">
+              <figure class="what-is-figure">
+                <img
+                  src="assets/ai-factory.png?v=1"
+                  alt="AI factory diagram — issues in, PRs out, human review at the merge gate"
+                  class="what-is-image"
+                  loading="lazy"
+                >
+              </figure>
+              <div class="what-is-copy">
+                <ul class="space-y-4 text-left text-xl text-slate-300">
+                  <li><span class="text-aws font-semibold">AI Factory</span> — issues in, PRs out, 24/7. Great buzzword · I'm not trusting full autonomy on production code yet</li>
+                  <li><span class="text-aws font-semibold">Telegram</span> — talk to the agent from your phone, anywhere</li>
+                  <li><span class="text-aws font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
+                  <li>Watches <span class="text-aws font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-aws font-semibold">PRs</span> · <span class="text-aws font-semibold">AWS</span> targets (HalloCasa, ai-secure, qr-plakat)</li>
+                  <li><span class="text-aws font-semibold">Human in the loop</span> — review diff, SSO approve, kill runaway jobs. Non-negotiable when code matters — at least for now</li>
+                </ul>
+                <p class="text-slate-500 text-base">Factory runs overnight · you own the merge. Telegram on the go — or pair deeply in Cursor IDE.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH" class="event-logo">
+            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+          </div>
+        </div>
+      </section>
 
       <section id="openclaw">
         <div class="openclaw-header">
