@@ -645,7 +645,61 @@
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      overscroll-behavior: contain;
       padding: 0.65rem 0.85rem 0.75rem;
+      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+    }
+    html.mobile-deck .reveal .slides section:not(:has(.slide-scroll)) {
+      touch-action: pan-y;
+      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+    }
+    html.mobile-deck .reveal .slides > section > section {
+      position: absolute !important;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.mobile-deck .mobile-slide-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.55rem 0.85rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(0, 0, 0, 0.92);
+      border-top: 1px solid var(--acd-border);
+      pointer-events: auto;
+    }
+    html.mobile-deck .mobile-slide-nav button {
+      flex: 0 0 auto;
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--acd-border);
+      background: var(--acd-card);
+      color: var(--acd-text);
+      font-size: 1.1rem;
+      font-weight: 600;
+      touch-action: manipulation;
+    }
+    html.mobile-deck .mobile-slide-nav button:disabled {
+      opacity: 0.35;
+    }
+    html.mobile-deck .mobile-slide-nav .mobile-slide-count {
+      flex: 1 1 auto;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--acd-muted);
+      letter-spacing: 0.04em;
+    }
+    html.desktop-deck .mobile-slide-nav {
+      display: none !important;
     }
     html.mobile-deck .reveal h3 { font-size: 1.2rem !important; }
     html.mobile-deck .reveal .slides section h1 { font-size: 1.3rem !important; }
@@ -1205,6 +1259,12 @@
     </div>
   </div>
 
+  <nav class="mobile-slide-nav" aria-label="Slide navigation" hidden>
+    <button type="button" id="mobile-prev" aria-label="Previous slide">←</button>
+    <span class="mobile-slide-count" id="mobile-slide-count" aria-live="polite"></span>
+    <button type="button" id="mobile-next" aria-label="Next slide">→</button>
+  </nav>
+
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
@@ -1246,9 +1306,53 @@
         center: false,
         transition: 'none',
         backgroundTransition: 'none',
-        touch: true,
+        touch: !mobile,
         plugins
       };
+    }
+
+    function setupMobileNavigation() {
+      if (!isMobileDeck) return;
+      const nav = document.querySelector('.mobile-slide-nav');
+      const prevBtn = document.getElementById('mobile-prev');
+      const nextBtn = document.getElementById('mobile-next');
+      const countEl = document.getElementById('mobile-slide-count');
+      if (!nav || !prevBtn || !nextBtn || !countEl) return;
+      nav.hidden = false;
+
+      const updateNav = () => {
+        const routes = Reveal.availableRoutes();
+        const total = Reveal.getTotalSlides();
+        const current = Reveal.getSlidePastCount() + 1;
+        countEl.textContent = `${current} / ${total}`;
+        prevBtn.disabled = !routes.left && !routes.up;
+        nextBtn.disabled = !routes.right && !routes.down;
+      };
+
+      prevBtn.addEventListener('click', () => Reveal.prev());
+      nextBtn.addEventListener('click', () => Reveal.next());
+      Reveal.on('slidechanged', updateNav);
+      Reveal.on('ready', updateNav);
+      updateNav();
+
+      const viewport = document.querySelector('.reveal .viewport') || document.querySelector('.reveal');
+      let startX = 0;
+      let startY = 0;
+
+      viewport.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1) return;
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', (event) => {
+        if (event.changedTouches.length !== 1) return;
+        const dx = event.changedTouches[0].clientX - startX;
+        const dy = event.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.15) return;
+        if (dx < 0) Reveal.next();
+        else Reveal.prev();
+      }, { passive: true });
     }
 
     function slideToHashId() {
@@ -1303,6 +1407,7 @@
       Reveal.initialize(revealConfig()).then(() => {
         wrapDesktopSlideBodies();
         wrapMobileSlides();
+        setupMobileNavigation();
         slideToHashId();
         window.addEventListener('hashchange', slideToHashId);
       });
