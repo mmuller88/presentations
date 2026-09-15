@@ -237,6 +237,16 @@
       font-size: clamp(0.85rem, 0.75vw + 0.5rem, 1.05rem);
       color: var(--acd-muted);
     }
+    .reveal .slides section .excitement-cta {
+      margin-top: clamp(1rem, 2.5vh, 1.75rem);
+      padding: clamp(0.75rem, 1.5vh, 1.25rem) clamp(1rem, 2vw, 1.5rem);
+      border: 1px solid var(--acd-brand);
+      border-radius: 0.75rem;
+      background: rgba(255, 153, 0, 0.08);
+      font-size: clamp(0.95rem, 0.85vw + 0.55rem, 1.15rem);
+      color: var(--acd-text);
+      line-height: 1.5;
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -835,11 +845,36 @@
         <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. VPS is the honest control plane.</aside>
       </section>
 
+      <section id="chatgpt-ads">
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Right now</h2>
+        <h3 class="text-3xl font-bold mb-8">What excites me: ChatGPT Ads</h3>
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
+          <li><span class="text-aws font-semibold">Intent at the moment of decision</span> — sponsored placements below answers, matched to conversation context</li>
+          <li><span class="text-aws font-semibold">New channel, moving fast</span> — $1B ARR in &lt;200 days · self-serve Ads Manager now in Europe</li>
+          <li><span class="text-aws font-semibold">SMB-friendly stack</span> — CPC bidding, Pixel + Conversions API, product feeds — not just big-brand CPM tests</li>
+          <li>Still early: formats, targeting, and measurement evolving — room to experiment before budgets consolidate</li>
+        </ul>
+        <p class="excitement-cta content-prose-wide">
+          <span class="text-aws font-semibold">Building a product or SaaS?</span>
+          I'd love to help you explore ChatGPT Ads — positioning, landing pages, measurement setup.
+          Grab me after the talk or on <a href="https://www.linkedin.com/in/martinmueller88">LinkedIn</a>.
+        </p>
+        <aside class="notes">
+          Pivot from AWS agent talk to what I'm personally excited about right now.
+          ChatGPT Ads = conversation-context distribution, Europe rollout Aug 2026.
+          Soft CTA — consulting/help, not a sales deck. Keep it 60–90 seconds.
+        </aside>
+        <div class="slide-footer">
+          <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
+          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
+        </div>
+      </section>
+
       <section id="agenda">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~30 minutes</h3>
         <ol class="content-prose space-y-3 text-left text-xl text-slate-300 list-decimal list-inside">
-          <li>Speaker intro · clients · AWS deployments</li>
+          <li>Speaker intro · clients · what excites me (ChatGPT Ads)</li>
           <li>What I actually run — VPS + Telegram + AWS</li>
           <li>Human in the loop — not full autonomy</li>
           <li>Dev pipeline flow — issue → PR</li>
