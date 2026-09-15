@@ -358,8 +358,6 @@
     .text-slate-100, .text-slate-200 { color: var(--acd-heading) !important; }
     .text-slate-300 { color: var(--acd-text) !important; }
     .text-slate-400, .text-slate-500 { color: var(--acd-muted) !important; }
-    .takeaway-do { color: #86efac !important; }
-    .takeaway-dont { color: #fca5a5 !important; }
     .slide-footer {
       position: absolute;
       left: 1rem;
@@ -523,9 +521,6 @@
     html.desktop-deck .reveal .slides section#agenda li {
       break-inside: avoid;
       margin-bottom: 0.35rem;
-    }
-    html.desktop-deck .reveal .slides section#takeaways .card-grid {
-      gap: clamp(1.5rem, 3vw, 3rem);
     }
     html.desktop-deck .reveal .slides section#qa h2 {
       font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
@@ -1121,10 +1116,10 @@
           <li>Human in the loop — not full autonomy</li>
           <li>Dev pipeline flow — issue → PR</li>
           <li>Two-tier architecture — control plane vs AWS targets</li>
-          <li>Practical learnings — CI, cost, models, dual track</li>
           <li>Managing AWS from Telegram — SSO, pipelines, ops</li>
           <li>Economics — VPS + AWS + LLM spend</li>
           <li>Live demo — Telegram → agent → PR</li>
+          <li>Practical learnings — CI, cost, models, dual track</li>
         </ol>
       
         <div class="slide-footer">
@@ -1300,27 +1295,6 @@
         </div></section>
       </section>
 
-      <section id="learnings" class="slide-top">
-        <div class="slide-scroll">
-          <div class="slide-inner">
-            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
-            <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
-            <ul class="content-prose-wide space-y-4 text-left text-lg text-slate-300">
-              <li><span class="text-aws font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
-              <li><span class="text-aws font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
-              <li><span class="text-aws font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
-              <li><span class="text-aws font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
-              <li><span class="text-aws font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
-              <li><span class="text-aws font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
-            </ul>
-          </div>
-          <div class="slide-footer">
-            <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH" class="event-logo">
-            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-          </div>
-        </div>
-      </section>
-
       <section id="aws-ops">
         <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">AWS learnings</h2>
         <h3 class="text-3xl font-bold mb-8">Managing prod from Telegram</h3>
@@ -1378,34 +1352,26 @@
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
         </div></section>
 
-      <section id="takeaways">
-        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
-        <h3 class="text-3xl font-bold mb-8">When this pattern works</h3>
-        <div class="card-grid text-left text-lg">
-          <div>
-            <p class="takeaway-do font-semibold mb-2">✓ Do</p>
-            <ul class="space-y-2 text-slate-300">
-              <li>VPS control plane + AWS targets (HalloCasa · ai-secure · qr-plakat)</li>
-              <li>Telegram/Slack UX + GitHub PR workflow</li>
-              <li>Human merge gates + SSO approval for AWS</li>
-              <li>CI checks for deterministic work · subscriptions for LLM cost</li>
-              <li>Telegram + Cursor IDE — dual track building</li>
+      <section id="learnings" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
+            <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
+            <ul class="content-prose-wide space-y-4 text-left text-lg text-slate-300">
+              <li><span class="text-aws font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
+              <li><span class="text-aws font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
+              <li><span class="text-aws font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
+              <li><span class="text-aws font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
+              <li><span class="text-aws font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
+              <li><span class="text-aws font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
             </ul>
           </div>
-          <div>
-            <p class="takeaway-dont font-semibold mb-2">✗ Don't</p>
-            <ul class="space-y-2 text-slate-300">
-              <li>Let the agent be your only test runner</li>
-              <li>Auto-merge / auto-deploy without review</li>
-              <li>Default to expensive models for every task</li>
-            </ul>
+          <div class="slide-footer">
+            <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH" class="event-logo">
+            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
           </div>
         </div>
-      
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div></section>
+      </section>
 
       <section id="qa" class="center-slide">
         <div class="slide-inner flex flex-col items-center gap-4 text-center">
