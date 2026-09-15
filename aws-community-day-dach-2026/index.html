@@ -227,6 +227,29 @@
       text-align: center;
       letter-spacing: 0.04em;
     }
+    .reveal .slides section .speaker-relocation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--acd-text);
+    }
+    .reveal .slides section .speaker-flags {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .reveal .slides section .speaker-flag {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .reveal .slides section .speaker-flag-arrow {
+      color: var(--acd-brand);
+      font-weight: 700;
+      font-size: 1rem;
+    }
     .reveal .slides section .openclaw-header {
       display: flex;
       align-items: center;
@@ -887,6 +910,14 @@
               <div class="speaker-bio-main">
                 <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
                 <div class="flex-1 min-w-0 w-full">
+                  <p class="speaker-relocation">
+                    <span class="speaker-flags" aria-label="Portugal to Germany">
+                      <span class="speaker-flag" role="img" aria-label="Portugal">🇵🇹</span>
+                      <span class="speaker-flag-arrow" aria-hidden="true">→</span>
+                      <span class="speaker-flag" role="img" aria-label="Germany">🇩🇪</span>
+                    </span>
+                    <span>Moved back to Germany · February 2026</span>
+                  </p>
                   <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI agents</p>
                   <ul class="space-y-1.5 text-slate-300">
                     <li>OpenClaw on Hostinger VPS · Telegram as control plane</li>
