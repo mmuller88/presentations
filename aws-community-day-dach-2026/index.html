@@ -181,6 +181,15 @@
       width: 100%;
       margin-top: 1rem;
     }
+    .reveal .slides section .client-grid .qr-code-host {
+      width: 4.5rem;
+      height: 4.5rem;
+      min-width: 72px;
+      min-height: 72px;
+    }
+    .reveal .slides section .client-grid .qr-link span {
+      font-size: 0.6rem;
+    }
     .reveal .slides section.slide-top {
       top: 0 !important;
       height: 100%;
@@ -449,6 +458,10 @@
     }
     html.desktop-deck .reveal .slides section .client-logo {
       height: clamp(2.25rem, 3.5vh, 3.25rem);
+    }
+    html.desktop-deck .reveal .slides section .client-grid .qr-code-host {
+      width: clamp(5rem, 8vw, 6.5rem);
+      height: clamp(5rem, 8vw, 6.5rem);
     }
     html.desktop-deck .reveal .slides section .pipeline-flow {
       justify-content: center;
@@ -952,10 +965,17 @@
             </div>
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <div>
-                <p class="text-brand text-xs uppercase tracking-wide mb-1">Control plane</p>
-                <p class="text-lg font-semibold text-slate-100">Hostinger + Telegram</p>
-                <p class="text-sm text-slate-300 mt-1">OpenClaw in Docker · Telegram · always-on control plane</p>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Open for work</p>
+                <p class="text-lg font-semibold text-slate-100">Give Clients</p>
+                <p class="text-sm text-slate-300 mt-1">AWS · DevOps · AI agents — book 15 min if you need help</p>
               </div>
+              <a href="https://calendly.com/martinmueller_dev" class="qr-link" aria-label="Calendly booking QR code">
+                <img src="assets/qr-calendly-martin.png?v=1" alt="Calendly QR" class="qr-code-host" width="200" height="200" loading="lazy">
+                <span>Calendly</span>
+              </a>
+              <p class="text-sm">
+                <a href="https://calendly.com/martinmueller_dev" class="text-brand underline">calendly.com/martinmueller_dev</a>
+              </p>
             </div>
           </div>
           </div>
@@ -964,7 +984,7 @@
             <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
           </div>
         </div>
-        <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. VPS is the honest control plane.</aside>
+        <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. Last card: "Give Clients" + Calendly QR — light CTA for freelance leads.</aside>
       </section>
 
       <section id="chatgpt-ads" class="slide-top">
