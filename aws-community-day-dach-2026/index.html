@@ -237,6 +237,37 @@
       font-size: clamp(0.85rem, 0.75vw + 0.5rem, 1.05rem);
       color: var(--acd-muted);
     }
+    .reveal .slides section .chatgpt-ads-layout {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 2vh, 1.25rem);
+      width: 100%;
+    }
+    .reveal .slides section .chatgpt-ads-hero {
+      margin: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--acd-border);
+      background: #0d1117;
+    }
+    .reveal .slides section .chatgpt-ads-hero-img {
+      display: block;
+      width: 100%;
+      max-height: min(30vh, 240px);
+      object-fit: contain;
+      object-position: center top;
+    }
+    .reveal .slides section .chatgpt-ads-hero-caption {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.68rem;
+      color: var(--acd-muted);
+      background: var(--acd-card);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    .reveal .slides section .chatgpt-ads-copy .openclaw-alternatives {
+      margin-top: clamp(0.5rem, 1.5vh, 1rem);
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--acd-heading) !important;
       font-weight: 600;
@@ -567,6 +598,32 @@
     html.desktop-deck .reveal .slides section .speaker-family-photo {
       max-height: min(34vh, 300px);
     }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-layout {
+      flex: 1 1 auto;
+      flex-direction: row;
+      align-items: stretch;
+      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-hero {
+      flex: 0 0 min(44%, 520px);
+      display: flex;
+      flex-direction: column;
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-hero-img {
+      flex: 1 1 auto;
+      max-height: min(48vh, 420px);
+      object-fit: contain;
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-copy {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-width: 0;
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-copy > ul {
+      margin-bottom: 0;
+    }
     html.desktop-deck .reveal .slides section#agenda .slide-body {
       justify-content: space-between;
     }
@@ -890,32 +947,50 @@
         <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. VPS is the honest control plane.</aside>
       </section>
 
-      <section id="chatgpt-ads">
-        <div class="openclaw-header">
-          <img src="assets/chatgpt-logo.svg?v=1" alt="ChatGPT" class="openclaw-logo" loading="lazy">
-          <div>
-            <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-1">Right now</h2>
-            <h3 class="text-3xl font-bold mb-0">What excites me: ChatGPT Ads</h3>
+      <section id="chatgpt-ads" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <div class="openclaw-header">
+              <img src="assets/chatgpt-logo.svg?v=2" alt="ChatGPT" class="openclaw-logo" loading="lazy">
+              <div>
+                <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-1">Right now</h2>
+                <h3 class="text-3xl font-bold mb-0">What excites me: ChatGPT Ads</h3>
+              </div>
+            </div>
+            <div class="chatgpt-ads-layout content-prose-wide">
+              <figure class="chatgpt-ads-hero">
+                <img
+                  src="assets/chatgpt-ads-martinmueller.png?v=1"
+                  alt="ChatGPT conversation showing a sponsored martinmueller.dev ad card"
+                  class="chatgpt-ads-hero-img"
+                  loading="lazy"
+                >
+                <figcaption class="chatgpt-ads-hero-caption">Live placement · martinmueller.dev in ChatGPT</figcaption>
+              </figure>
+              <div class="chatgpt-ads-copy">
+                <ul class="space-y-4 text-left text-xl text-slate-300">
+                  <li><span class="text-aws font-semibold">Distribution at intent</span> — sponsored placements below answers, matched to conversation context (not a search results page)</li>
+                  <li><span class="text-aws font-semibold">Platform maturing fast</span> — Ads Manager in Europe · CPC + conversion measurement · still early formats</li>
+                  <li><span class="text-aws font-semibold">Builder angle</span> — product feeds, landing pages, attribution — same craft as growth + infra work</li>
+                  <li>Watching it like early Google/Facebook ads: messy now, obvious in hindsight</li>
+                </ul>
+                <p class="openclaw-alternatives">
+                  Personal interest, not a pitch — happy to swap notes after the talk if you're experimenting too.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
+            <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
           </div>
         </div>
-        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-          <li><span class="text-aws font-semibold">Distribution at intent</span> — sponsored placements below answers, matched to conversation context (not a search results page)</li>
-          <li><span class="text-aws font-semibold">Platform maturing fast</span> — Ads Manager in Europe · CPC + conversion measurement · still early formats</li>
-          <li><span class="text-aws font-semibold">Builder angle</span> — product feeds, landing pages, attribution — same craft as growth + infra work</li>
-          <li>Watching it like early Google/Facebook ads: messy now, obvious in hindsight</li>
-        </ul>
-        <p class="openclaw-alternatives content-prose-wide">
-          Personal interest, not a pitch — happy to swap notes after the talk if you're experimenting too.
-        </p>
         <aside class="notes">
           Pivot from AWS agent talk to what I'm personally excited about right now.
+          Show the real ChatGPT ad screenshot — martinmueller.dev placement.
           ChatGPT Ads = conversation-context distribution, Europe rollout Aug 2026.
           No sales CTA — curiosity + builder lens. Keep it ~60 seconds.
         </aside>
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div>
       </section>
 
       <section id="agenda">
