@@ -730,9 +730,6 @@
       html.desktop-deck .reveal .slides section#speaker-clients .client-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-      html.desktop-deck .reveal .slides section#overview .card-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
     }
     /* Mobile: neutralize Reveal transforms (top:0 + translate = off-screen) */
     html.mobile-deck,
@@ -1228,55 +1225,27 @@
         </div></section>
 
       <section id="overview">
-        <section>
-          <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
-          <h3 class="text-3xl font-bold mb-8">Agent pipeline · human gates</h3>
-          <div class="card-grid text-left">
-            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Trigger</p>
-              <p class="text-slate-300">Telegram message · GitHub issue · heartbeat cron</p>
-            </div>
-            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Control plane</p>
-              <p class="text-slate-300">Hostinger VPS · OpenClaw · Cursor CLI</p>
-            </div>
-            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">Agents</p>
-              <p class="text-slate-300">Plan → implement → test → open PR</p>
-            </div>
-            <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-aws font-semibold mb-2">AWS targets</p>
-              <p class="text-slate-300">HalloCasa · ai-secure.dev · qr-plakat.de</p>
-              <p class="text-slate-400 text-sm mt-2">CDK · CodePipeline · SSO · AgentCore · MCP</p>
-            </div>
-          </div>
-        
+        <h2 class="text-aws text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
+        <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
+        <div class="pipeline-flow text-base md:text-lg">
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">GitHub issue</span>
+          <span class="text-aws">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Plan agent</span>
+          <span class="text-aws">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Code agent</span>
+          <span class="text-aws">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Test / review</span>
+          <span class="text-aws">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
+          <span class="text-aws">→</span>
+          <span class="rounded-lg bg-brand/20 px-3 py-2 border border-brand text-aws font-semibold">Human review &amp; merge</span>
+        </div>
+        <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
+      
         <div class="slide-footer">
           <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
           <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
         </div></section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
-          <div class="pipeline-flow text-base md:text-lg">
-            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">GitHub issue</span>
-            <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Plan agent</span>
-            <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Code agent</span>
-            <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Test / review</span>
-            <span class="text-aws">→</span>
-            <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
-            <span class="text-aws">→</span>
-            <span class="rounded-lg bg-brand/20 px-3 py-2 border border-brand text-aws font-semibold">Human review &amp; merge</span>
-          </div>
-          <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
-        
-        <div class="slide-footer">
-          <img src="assets/community-day-dach-logo.png?v=4" alt="AWS Community Day DACH">
-          <span>aws-community-day.de · 15 Sep 2026 · Kosmos Berlin</span>
-        </div></section>
-      </section>
 
       <section id="architecture">
         <section>
