@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-label="qr-plakat.de">
+  <rect x="0" y="4" width="40" height="40" rx="10" fill="#14B8A6"/>
+  <g fill="#FFFFFF">
+    <path d="M6 6h10v10H6zM24 6h10v10H24zM6 24h10v10H6z"/>
+  </g>
+  <g fill="#14B8A6">
+    <path d="M8 8h6v6H8zM26 8h6v6H26zM8 26h6v6H8z"/>
+  </g>
+  <g fill="#FFFFFF">
+    <path d="M10 10h2v2h-2zM28 10h2v2h-2zM10 28h2v2h-2z"/>
+  </g>
+  <text x="52" y="31" font-family="Poppins, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="600" fill="#0f766e">qr-plakat.de</text>
+</svg>

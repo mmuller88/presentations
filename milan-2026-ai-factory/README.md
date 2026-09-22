@@ -1,9 +1,11 @@
 # The AI Factory That Never Sleeps
 
 **Event:** [ServerlessDays Milano 2026](https://milan.serverlessdays.io/)  
-**Date:** 13 Oct 2026 · WAO Romolo C30, Milan  
+**Date:** 13 Oct 2026 · 13:20–14:00 · WAO Romolo C30, Milan  
 **Format:** 40 min regular talk (content + Q&A)  
-**Speaker:** Martin Mueller — [martinmueller.dev](https://martinmueller.dev)
+**Speaker:** Martin Mueller — DevOps & AI Engineer @ [martinmueller.dev](https://martinmueller.dev)
+
+Based on the [AWS Community Day DACH 2026](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/) Berlin deck — same story, ServerlessDays purple branding + serverless framing.
 
 ## URLs
 

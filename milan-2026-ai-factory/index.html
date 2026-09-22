@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The AI Factory That Never Sleeps — ServerlessDays Milan 2026</title>
-  <meta name="description" content="Building an Autonomous Dev Pipeline with Serverless Agents — Martin Mueller, ServerlessDays Milan 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The AI Factory That Never Sleeps — ServerlessDays Milano 2026</title>
+  <meta name="description" content="Building an Autonomous Dev Pipeline with Serverless Agents — Martin Mueller, ServerlessDays Milano 2026">
+  <link rel="canonical" href="https://mmuller88.github.io/presentations/milan-2026-ai-factory/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mmuller88.github.io/presentations/milan-2026-ai-factory/">
+  <meta property="og:title" content="The AI Factory That Never Sleeps — ServerlessDays Milano 2026">
+  <meta property="og:description" content="Event-driven AI agent pipeline — serverless patterns, real cost numbers, live demo. ServerlessDays Milano 2026.">
+  <meta property="og:image" content="https://martinmueller.dev/one-man-agency/hero.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="OpenClaw AI agent orchestrating blog posts, code, invoices and SEO work">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The AI Factory That Never Sleeps — ServerlessDays Milano 2026">
+  <meta name="twitter:description" content="Event-driven AI agent pipeline — serverless patterns, real cost numbers, live demo. ServerlessDays Milano 2026.">
+  <meta name="twitter:image" content="https://martinmueller.dev/one-man-agency/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,244 +28,1811 @@
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: { sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
           colors: {
-            brand: { DEFAULT: '#38bdf8', dark: '#0ea5e9' },
-            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+            brand: { DEFAULT: '#e9d5ff', dark: '#d8b4fe', accent: '#f9a8d4' },
+            squid: { DEFAULT: '#232F3E', muted: '#545B64', light: '#879596' },
+            surface: { DEFAULT: '#000000', card: '#16191f', raised: '#232f3e' }
           }
         }
       }
     }
   </script>
+  <style>
+    :root {
+      --sld-bg-start: #581c87;
+      --sld-bg-mid: #1e3a8a;
+      --sld-bg-end: #312e81;
+      --sld-text: #f3e8ff;
+      --sld-heading: #ffffff;
+      --sld-brand: #e9d5ff;
+      --sld-accent: #f9a8d4;
+      --sld-border: rgba(255, 255, 255, 0.2);
+      --sld-card-start: #6b21a8;
+      --sld-card-end: #9333ea;
+      --sld-muted: #d8b4fe;
+      --sld-glass: rgba(255, 255, 255, 0.1);
+      --r-background-color: #581c87;
+      --r-main-color: #f3e8ff;
+      --r-heading-color: #ffffff;
+      --r-link-color: #f9a8d4;
+    }
+    html, body {
+      font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+      background: linear-gradient(to bottom right, var(--sld-bg-start), var(--sld-bg-mid), var(--sld-bg-end));
+      color: var(--sld-text);
+    }
+    html.desktop-deck .reveal,
+    html.desktop-deck .reveal .viewport,
+    html.desktop-deck .reveal .slides {
+      background: linear-gradient(to bottom right, var(--sld-bg-start), var(--sld-bg-mid), var(--sld-bg-end)) !important;
+    }
+    .reveal .slides section {
+      background: transparent !important;
+    }
+    .bg-sld-bg { background: transparent !important; }
+    .reveal .slides section .rounded-xl,
+    .bg-surface-light {
+      background: linear-gradient(to bottom right, var(--sld-card-start), var(--sld-card-end)) !important;
+      border: 1px solid var(--sld-border) !important;
+      border-radius: 1.5rem !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+    }
+    .reveal .slides section .pipeline-flow span {
+      background: var(--sld-glass) !important;
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--sld-border) !important;
+      border-radius: 0.75rem !important;
+      color: #fff !important;
+    }
+    .reveal .slides section .pipeline-flow .text-brand { color: #f9a8d4 !important; }
+    .text-gradient-milano {
+      background: linear-gradient(to right, #fcd34d, #f9a8d4, #d8b4fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+    }
+    .glass-panel {
+      background: var(--sld-glass) !important;
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--sld-border) !important;
+      border-radius: 1rem !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2) !important;
+    }
+    .reveal .slides section .title-logo,
+    .reveal .slides section .event-logo {
+      height: 3.5rem;
+      width: auto;
+      max-width: min(92vw, 480px);
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+    }
+    .reveal *, .reveal *::before, .reveal *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+    /* Fallback: show first slide before Reveal.js boots */
+    .reveal:not(.ready) .slides > section:first-child {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      position: relative !important;
+    }
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 1rem 1.25rem 2.75rem;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      text-align: left;
+      color: var(--sld-text) !important;
+    }
+    .reveal .slides section.present {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .reveal .slides section.center-slide { text-align: center; }
+    .reveal .slides section .slide-inner {
+      width: 100%;
+      max-width: 100%;
+    }
+    .reveal .slides section [class*='max-w-'] {
+      max-width: 100% !important;
+      width: 100%;
+    }
+    .reveal .slides section .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .reveal .slides section .pipeline-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.35rem 0.5rem;
+      width: 100%;
+    }
+    .reveal .slides section .pipeline-flow span {
+      font-size: 0.82rem !important;
+      padding: 0.35rem 0.55rem;
+    }
+    .reveal .slides section .arch-diagram {
+      max-height: min(38vh, 260px);
+      width: 100%;
+      object-fit: contain;
+    }
+    .reveal .slides section .content-prose {
+      width: 100%;
+      max-width: 100%;
+    }
+    .reveal .slides section .title-logo,
+    .reveal .slides section .event-logo {
+      height: 4rem;
+      width: auto;
+      max-width: min(92vw, 520px);
+      margin: 0 auto 0.5rem;
+    }
+    .slide-footer .event-logo {
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .reveal .slides section .speaker-avatar {
+      width: 5.5rem;
+      height: 5.5rem;
+      object-fit: cover;
+      border-radius: 9999px;
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .reveal .slides section .qr-code-host {
+      width: 5rem;
+      height: 5rem;
+      min-width: 80px;
+      min-height: 80px;
+      background: #fff;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .reveal .slides section .qr-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .reveal .slides section .qr-link span {
+      font-size: 0.65rem;
+      color: var(--sld-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .reveal .slides section .qr-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .reveal .slides section .speaker-bio-card .qr-link {
+      margin-top: 0.5rem;
+    }
+    .reveal .slides section#speaker .qr-code-host,
+    .reveal .slides section#qa .qr-code-host {
+      width: 8rem;
+      height: 8rem;
+      min-width: 128px;
+      min-height: 128px;
+      padding: 0.4rem;
+    }
+    .reveal .slides section#speaker .qr-link span,
+    .reveal .slides section#qa .qr-link span {
+      font-size: 0.75rem;
+    }
+    .reveal .slides section .client-logo {
+      height: 2.25rem;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.75rem;
+    }
+    .reveal .slides section .client-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .reveal .slides section .client-grid .qr-code-host {
+      width: 4.5rem;
+      height: 4.5rem;
+      min-width: 72px;
+      min-height: 72px;
+    }
+    .reveal .slides section .client-grid .qr-link span {
+      font-size: 0.6rem;
+    }
+    .reveal .slides section.slide-top {
+      top: 0 !important;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    .reveal .slides section.slide-top .slide-inner {
+      padding-top: 0.15rem;
+      padding-bottom: 0.5rem;
+    }
+    .reveal .slides section .speaker-bio-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+    .reveal .slides section .speaker-bio-main {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .reveal .slides section .speaker-family-photo {
+      width: 100%;
+      max-height: min(26vh, 200px);
+      object-fit: cover;
+      object-position: center 35%;
+      border-radius: 0.75rem;
+      border: 2px solid var(--sld-border);
+    }
+    .reveal .slides section .speaker-family-caption {
+      margin-top: 0.35rem;
+      font-size: 0.68rem;
+      color: var(--sld-muted);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .reveal .slides section .speaker-relocation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--sld-text);
+    }
+    .reveal .slides section .speaker-flags {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .reveal .slides section .speaker-flag {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .reveal .slides section .speaker-flag-arrow {
+      color: var(--sld-brand);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .reveal .slides section .openclaw-header {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.75rem, 2vw, 1.25rem);
+      margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
+    }
+    .reveal .slides section .openclaw-logo {
+      width: clamp(3.5rem, 8vh, 5rem);
+      height: clamp(3.5rem, 8vh, 5rem);
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    .reveal .slides section .openclaw-alternatives {
+      margin-top: clamp(0.75rem, 2vh, 1.5rem);
+      padding-top: clamp(0.5rem, 1.5vh, 1rem);
+      border-top: 1px solid var(--sld-border);
+      font-size: clamp(0.85rem, 0.75vw + 0.5rem, 1.05rem);
+      color: var(--sld-muted);
+    }
+    .reveal .slides section .chatgpt-ads-layout {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 2vh, 1.25rem);
+      width: 100%;
+    }
+    .reveal .slides section .chatgpt-ads-ad-big {
+      width: 100%;
+    }
+    .reveal .slides section .chatgpt-ads-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 2vh, 1.25rem);
+    }
+    .reveal .slides section .chatgpt-ads-figure {
+      margin: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--sld-border);
+      background: #0d1117;
+    }
+    .reveal .slides section .chatgpt-ads-ad-big-img {
+      display: block;
+      width: 100%;
+      max-height: min(18vh, 160px);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .reveal .slides section .chatgpt-ads-screenshot-img {
+      display: block;
+      width: 100%;
+      max-height: min(22vh, 180px);
+      object-fit: contain;
+      object-position: center top;
+    }
+    .reveal .slides section .chatgpt-ads-figure-caption {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.68rem;
+      color: var(--sld-muted);
+      background: rgba(107, 33, 168, 0.55);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    .reveal .slides section .chatgpt-ads-copy .openclaw-alternatives {
+      margin-top: clamp(0.5rem, 1.5vh, 1rem);
+    }
+    .reveal .slides section .what-is-layout {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 2vh, 1.25rem);
+      width: 100%;
+    }
+    .reveal .slides section .what-is-figure {
+      margin: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--sld-border);
+      background: #0d1117;
+    }
+    .reveal .slides section .what-is-image {
+      display: block;
+      width: 100%;
+      max-height: min(28vh, 220px);
+      object-fit: contain;
+    }
+    .reveal h1, .reveal h3, .reveal h4 {
+      color: var(--sld-heading) !important;
+      font-weight: 600;
+      text-transform: none !important;
+    }
+    .reveal h2, .text-brand { color: #f9a8d4 !important; }
+    .reveal h2 {
+      font-size: 0.82rem !important;
+      letter-spacing: 0.18em;
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .reveal a { color: var(--sld-brand) !important; }
+    .reveal h3 { font-size: 1.45rem !important; line-height: 1.25 !important; margin-bottom: 0.75rem !important; }
+    .reveal .slides section h1 { font-size: 1.5rem !important; line-height: 1.2 !important; color: var(--sld-heading) !important; }
+    .reveal p, .reveal li { font-size: 0.95rem !important; color: var(--sld-text) !important; }
+    .reveal .progress span { background: linear-gradient(to right, #9333ea, #ec4899); }
+    .reveal .slide-number { color: var(--sld-brand); background: transparent; font-size: 0.75rem; }
+    .border-slate-600, .border-slate-700 { border-color: var(--sld-border) !important; }
+    .text-slate-100, .text-slate-200 { color: var(--sld-heading) !important; }
+    .text-slate-300 { color: var(--sld-text) !important; }
+    .text-slate-400, .text-slate-500 { color: var(--sld-muted) !important; }
+    .slide-footer {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 0.55rem;
+      font-size: 0.68rem;
+      color: #d8b4fe;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .slide-footer img,
+    .slide-footer .event-logo { height: 2.25rem; width: auto; max-width: min(42vw, 280px); }
+    .slide-footer span {
+      flex: 1 1 auto;
+      text-align: right;
+      line-height: 1.25;
+    }
+    .reveal .slides section .fragment {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+    .reveal .slides,
+    .reveal .slide-background,
+    .reveal .slide-background-content {
+      transition: none !important;
+      animation: none !important;
+    }
+    .reveal .slides section,
+    .reveal .slides section.past,
+    .reveal .slides section.future,
+    .reveal .slides section.present {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+    .reveal.slide .slides section:not(.present) {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    .reveal.slide .slides section.present {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+    html.mobile-deck .reveal .slides section .card-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.55rem !important;
+    }
+    html.mobile-deck .reveal .slides section .client-grid {
+      grid-template-columns: 1fr !important;
+    }
+    html.mobile-deck .reveal .slides section .pipeline-flow {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    html.mobile-deck .reveal .slides section .pipeline-flow .text-brand {
+      display: none;
+    }
+    html.mobile-deck .reveal .slides section .pipeline-flow span:not(.text-brand) {
+      width: 100%;
+      text-align: center;
+    }
+    html.mobile-deck .reveal .slides section .title-logo {
+      height: 2.5rem !important;
+    }
+    html.mobile-deck .reveal .slides section h1 {
+      font-size: 1.45rem !important;
+      line-height: 1.25 !important;
+    }
+    html.mobile-deck .glass-panel {
+      padding: 0.75rem 1rem !important;
+    }
+    html.mobile-deck .slide-footer {
+      font-size: 0.58rem !important;
+      gap: 0.35rem;
+    }
+    html.mobile-deck .slide-footer span {
+      max-width: 58%;
+      font-size: 0.58rem !important;
+    }
+    html.mobile-deck .reveal .slides section:not(:has(.slide-scroll)) {
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.65rem 0.85rem calc(3.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    html.mobile-deck .reveal .slides section.slide-top:not(:has(.slide-scroll)) > :not(aside):not(.slide-footer) {
+      width: 100%;
+    }
+    @media (min-width: 900px) {
+      .reveal .slides section {
+        padding: 1.25rem 2.5rem 3rem;
+        font-size: 1.15rem;
+      }
+      .reveal h3 { font-size: 1.85rem !important; }
+      .reveal .slides section h1 { font-size: 2rem !important; }
+      .reveal p, .reveal li { font-size: 1.05rem !important; }
+      .reveal .slides section .card-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .reveal .slides section .title-logo,
+      .reveal .slides section .event-logo { height: 5rem; }
+      .slide-footer img,
+      .slide-footer .event-logo { height: 2.75rem; max-width: min(36vw, 320px); }
+      .reveal .slides section .speaker-avatar { width: 7rem; height: 7rem; }
+      .reveal .slides section .qr-code-host { width: 6rem; height: 6rem; }
+      .reveal .slides section#speaker .qr-code-host,
+      .reveal .slides section#qa .qr-code-host { width: 8.5rem; height: 8.5rem; }
+      .reveal .slides section .client-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .reveal .slides section .client-logo { height: 2.75rem; }
+      .slide-footer { left: 2.5rem; right: 2.5rem; }
+    }
+    /* Desktop: fill viewport, scale typography + grids to available space */
+    html.desktop-deck .reveal,
+    html.desktop-deck .reveal .viewport {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.desktop-deck .reveal .slides section {
+      padding: clamp(1rem, 2.5vh, 2rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 4vh, 3.5rem);
+      font-size: clamp(1rem, 1.1vw + 0.65rem, 1.35rem);
+    }
+    html.desktop-deck .reveal h2 {
+      font-size: clamp(0.75rem, 0.5vw + 0.55rem, 0.95rem) !important;
+      margin-bottom: clamp(0.5rem, 1.2vh, 1rem) !important;
+    }
+    html.desktop-deck .reveal h3 {
+      font-size: clamp(1.75rem, 2.2vw + 0.75rem, 2.75rem) !important;
+      margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem) !important;
+    }
+    html.desktop-deck .reveal .slides section h1 {
+      font-size: clamp(2rem, 2.8vw + 0.5rem, 3.25rem) !important;
+    }
+    html.desktop-deck .reveal p,
+    html.desktop-deck .reveal li {
+      font-size: clamp(1rem, 0.85vw + 0.55rem, 1.35rem) !important;
+      line-height: 1.5 !important;
+    }
+    html.desktop-deck .reveal .slides section .slide-inner {
+      width: min(100%, 1400px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section.center-slide .slide-inner {
+      width: min(100%, 960px);
+    }
+    html.desktop-deck .reveal .slides section .content-prose {
+      width: min(100%, 1100px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .content-prose-wide {
+      width: min(100%, 1280px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(0.75rem, 1.5vw, 1.5rem);
+    }
+    html.desktop-deck .reveal .slides section#economics .card-grid,
+    html.desktop-deck .reveal .slides section .card-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    html.desktop-deck .reveal .slides section .client-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(0.75rem, 1.2vw, 1.25rem);
+    }
+    html.desktop-deck .reveal .slides section .arch-diagram {
+      max-height: min(58vh, 520px);
+      width: min(100%, 1200px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .title-logo,
+    html.desktop-deck .reveal .slides section .event-logo {
+      height: clamp(4.5rem, 9vh, 6.5rem);
+      max-width: min(78vw, 640px);
+    }
+    html.desktop-deck .slide-footer img,
+    html.desktop-deck .slide-footer .event-logo {
+      height: clamp(2.5rem, 4.5vh, 3.25rem);
+      max-width: min(32vw, 360px);
+    }
+    html.desktop-deck .reveal .slides section .speaker-bio-card {
+      gap: clamp(1rem, 2vw, 2rem);
+      padding: clamp(1rem, 2vw, 1.75rem) !important;
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section .speaker-avatar {
+      width: clamp(6rem, 10vw, 9rem);
+      height: clamp(6rem, 10vw, 9rem);
+    }
+    html.desktop-deck .reveal .slides section .qr-code-host {
+      width: clamp(5.5rem, 7vw, 7.5rem);
+      height: clamp(5.5rem, 7vw, 7.5rem);
+    }
+    html.desktop-deck .reveal .slides section#speaker .qr-code-host,
+    html.desktop-deck .reveal .slides section#qa .qr-code-host {
+      width: clamp(9rem, 16vw, 14rem);
+      height: clamp(9rem, 16vw, 14rem);
+    }
+    html.desktop-deck .reveal .slides section#speaker .qr-link span,
+    html.desktop-deck .reveal .slides section#qa .qr-link span {
+      font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+    }
+    html.desktop-deck .reveal .slides section .client-logo {
+      height: clamp(2.25rem, 3.5vh, 3.25rem);
+    }
+    html.desktop-deck .reveal .slides section .client-grid .qr-code-host {
+      width: clamp(5rem, 8vw, 6.5rem);
+      height: clamp(5rem, 8vw, 6.5rem);
+    }
+    html.desktop-deck .reveal .slides section .pipeline-flow {
+      justify-content: center;
+      gap: 0.5rem 0.75rem;
+    }
+    html.desktop-deck .reveal .slides section .pipeline-flow span {
+      font-size: clamp(0.85rem, 0.7vw + 0.5rem, 1.1rem) !important;
+      padding: 0.45rem 0.85rem;
+    }
+    html.desktop-deck .reveal .slides section#agenda ol {
+      columns: 2;
+      column-gap: clamp(2rem, 4vw, 4rem);
+      max-width: none;
+      width: min(100%, 1200px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section#agenda li {
+      break-inside: avoid;
+      margin-bottom: 0.35rem;
+    }
+    html.desktop-deck .reveal .slides section#qa h2 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+    }
+    html.desktop-deck .slide-footer {
+      font-size: clamp(0.62rem, 0.45vw + 0.45rem, 0.78rem);
+    }
+    /* Pin footer to slide bottom — absolute + Reveal center = misaligned */
+    html.desktop-deck .reveal .slides section:has(> .slide-footer) {
+      display: flex !important;
+      flex-direction: column;
+      align-items: stretch;
+      top: 0 !important;
+      height: 100% !important;
+      min-height: 100%;
+      justify-content: flex-start;
+      padding-bottom: clamp(0.75rem, 1.5vh, 1.25rem) !important;
+    }
+    html.desktop-deck .reveal .slides section:has(> .slide-footer) > .slide-footer {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: 100%;
+      margin-top: auto;
+      flex-shrink: 0;
+      gap: clamp(0.75rem, 2vw, 1.5rem);
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section.slide-top:has(.slide-scroll) {
+      display: block !important;
+      padding-bottom: 0 !important;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .slide-scroll {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      box-sizing: border-box;
+      padding: clamp(1rem, 2.5vh, 2rem) clamp(1.5rem, 4vw, 4rem) clamp(0.75rem, 1.5vh, 1.25rem);
+    }
+    html.desktop-deck .reveal .slides section.slide-top .slide-scroll > .slide-footer {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: 100%;
+      margin-top: auto;
+      flex-shrink: 0;
+      gap: clamp(0.75rem, 2vw, 1.5rem);
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section.center-slide:has(> .slide-footer) {
+      justify-content: flex-start;
+    }
+    html.desktop-deck .reveal .slides section.center-slide:has(> .slide-footer) > .slide-inner {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-height: 0;
+    }
+    html.desktop-deck .reveal .slides section#title {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center !important;
+      height: 100% !important;
+      top: 0 !important;
+    }
+    html.desktop-deck .slide-body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-height: 0;
+      width: 100%;
+      gap: clamp(0.35rem, 1.5vh, 1.25rem);
+    }
+    html.desktop-deck .slide-body > ul:not(.list-decimal) {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin: 0;
+      padding: clamp(0.25rem, 1.5vh, 1.25rem) 0;
+      gap: clamp(0.35rem, 1.8vh, 1rem);
+    }
+    html.desktop-deck .slide-body > ol,
+    html.desktop-deck .slide-body > ul.list-decimal {
+      flex: 1 1 auto;
+      margin: auto 0;
+      padding: clamp(0.5rem, 2vh, 1.5rem) 0;
+    }
+    html.desktop-deck .slide-body > .card-grid {
+      flex: 1 1 auto;
+      align-content: space-evenly;
+      min-height: 0;
+    }
+    html.desktop-deck .slide-body > .arch-diagram {
+      flex: 1 1 auto;
+      max-height: min(62vh, 580px);
+      width: min(100%, 1200px);
+      margin-inline: auto;
+      object-fit: contain;
+    }
+    html.desktop-deck .slide-body > p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    html.desktop-deck .reveal .slides section .card-grid > div {
+      padding: clamp(1rem, 2.5vh, 1.75rem) !important;
+    }
+    html.desktop-deck .reveal .slides section.slide-top {
+      height: 100% !important;
+      top: 0 !important;
+      overflow: hidden;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .slide-scroll {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .slide-inner {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-height: 0;
+    }
+    html.desktop-deck .reveal .slides section.slide-top .client-grid {
+      flex: 1 1 auto;
+      align-content: space-evenly;
+      margin-top: 0;
+    }
+    html.desktop-deck .reveal .slides section#speaker .speaker-bio-card {
+      flex: 1 1 auto;
+    }
+    html.desktop-deck .reveal .slides section#speaker .speaker-bio-main {
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section .speaker-family-photo {
+      max-height: min(34vh, 300px);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-layout {
+      flex: 1 1 auto;
+      justify-content: space-evenly;
+      gap: clamp(1rem, 2vh, 1.75rem);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-ad-big-img {
+      max-height: min(26vh, 240px);
+      margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-bottom {
+      flex: 1 1 auto;
+      flex-direction: row;
+      align-items: stretch;
+      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-screenshot {
+      flex: 0 0 min(42%, 480px);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-screenshot-img {
+      max-height: min(36vh, 340px);
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-copy {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-width: 0;
+    }
+    html.desktop-deck .reveal .slides section .chatgpt-ads-copy > ul {
+      margin-bottom: 0;
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-layout {
+      flex: 1 1 auto;
+      flex-direction: row;
+      align-items: stretch;
+      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-figure {
+      flex: 0 0 min(44%, 540px);
+      display: flex;
+      align-items: center;
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-image {
+      max-height: min(46vh, 400px);
+    }
+    html.desktop-deck .reveal .slides section#what-is .what-is-copy {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      min-width: 0;
+    }
+    html.desktop-deck .reveal .slides section#agenda .slide-body {
+      justify-content: space-between;
+    }
+    @media (min-width: 1280px) {
+      html.desktop-deck .reveal .slides section .client-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      html.desktop-deck .reveal .slides section#speaker-clients .client-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    /* Mobile: neutralize Reveal transforms (top:0 + translate = off-screen) */
+    html.mobile-deck,
+    html.mobile-deck body {
+      height: 100%;
+      overflow: hidden;
+    }
+    html.mobile-deck .reveal {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.mobile-deck .reveal .viewport {
+      width: 100% !important;
+      height: 100svh !important;
+      height: 100dvh !important;
+      overflow: hidden;
+    }
+    html.mobile-deck .reveal .slides {
+      transform: none !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.mobile-deck .reveal .slides section {
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 100% !important;
+      transform: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    html.mobile-deck .reveal .slides section:not(.present):not(:has(.present)) {
+      visibility: hidden !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+    }
+    html.mobile-deck .reveal .slides section.present {
+      visibility: visible !important;
+      pointer-events: auto !important;
+      opacity: 1 !important;
+      z-index: 1;
+    }
+    html.mobile-deck .slide-scroll {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      overscroll-behavior: contain;
+      padding: 0.65rem 0.85rem 0.75rem;
+      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+    }
+    html.mobile-deck .reveal .slides section:not(:has(.slide-scroll)) {
+      touch-action: pan-y;
+      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+    }
+    html.mobile-deck .reveal .slides > section > section {
+      position: absolute !important;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    html.mobile-deck .mobile-slide-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2147483000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.55rem 0.85rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+      background: linear-gradient(to right, #581c87, #1e3a8a);
+      border-top: 1px solid var(--sld-border);
+      pointer-events: auto;
+    }
+    html.mobile-deck .mobile-slide-nav button {
+      flex: 0 0 auto;
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--sld-border);
+      background: rgba(107, 33, 168, 0.55);
+      color: var(--sld-text);
+      font-size: 1.1rem;
+      font-weight: 600;
+      touch-action: manipulation;
+    }
+    html.mobile-deck .mobile-slide-nav button.is-disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    html.mobile-deck .mobile-slide-nav .mobile-slide-count {
+      flex: 1 1 auto;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--sld-muted);
+      letter-spacing: 0.04em;
+    }
+    html.desktop-deck .mobile-slide-nav {
+      display: none !important;
+    }
+    html.mobile-deck .reveal h3 { font-size: 1.2rem !important; }
+    html.mobile-deck .reveal .slides section h1 { font-size: 1.3rem !important; }
+    html.mobile-deck .reveal p,
+    html.mobile-deck .reveal li { font-size: 0.88rem !important; }
+    html.mobile-deck .reveal .slides section .arch-diagram { max-height: min(32vh, 200px); }
+    html.mobile-deck .slide-footer {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      margin-top: 0.75rem;
+      font-size: 0.5rem;
+      padding-top: 0.45rem;
+      flex-shrink: 0;
+    }
+    html.mobile-deck .slide-footer img,
+    html.mobile-deck .slide-footer .event-logo {
+      height: 1.85rem;
+      max-width: min(48vw, 200px);
+    }
+    html.mobile-deck .slide-footer span { max-width: 62%; text-align: right; line-height: 1.2; }
+    html.mobile-deck .reveal .slides section .speaker-bio-card {
+      align-items: stretch;
+      text-align: center;
+      padding: 0.65rem !important;
+      gap: 0.5rem;
+    }
+    html.mobile-deck .reveal .slides section .speaker-bio-main {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    html.mobile-deck .reveal .slides section .speaker-family-photo {
+      max-height: min(22vh, 160px);
+    }
+    html.mobile-deck .reveal .slides section .qr-code-host {
+      width: 4.5rem;
+      height: 4.5rem;
+      min-width: 72px;
+      min-height: 72px;
+    }
+    html.mobile-deck .reveal .slides section#speaker .qr-code-host,
+    html.mobile-deck .reveal .slides section#qa .qr-code-host {
+      width: 6.5rem;
+      height: 6.5rem;
+      min-width: 104px;
+      min-height: 104px;
+    }
+    html.mobile-deck .reveal .slides section .qr-row { gap: 0.85rem; }
+    html.mobile-deck .reveal .slides section .speaker-avatar { width: 4rem; height: 4rem; }
+    html.mobile-deck .reveal .slides section .speaker-bio-card ul { text-align: left; }
+    html.mobile-deck .reveal .slides section .speaker-bio-card li { font-size: 0.82rem !important; line-height: 1.3 !important; }
+    html.mobile-deck .reveal .slides section .client-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+    html.mobile-deck .reveal .slides section .client-grid > div { padding: 0.5rem !important; gap: 0.35rem !important; }
+    html.mobile-deck .reveal .slides section .client-grid .text-lg { font-size: 0.82rem !important; }
+    html.mobile-deck .reveal .slides section .client-grid .text-sm { font-size: 0.72rem !important; line-height: 1.25 !important; }
+    html.mobile-deck .reveal .slides section .client-logo { height: 1.5rem; padding: 0.2rem 0.4rem; }
+    html.mobile-deck .reveal .slides section[id^="speaker"] h3 { font-size: 1.1rem !important; margin-bottom: 0.35rem !important; }
+    html.mobile-deck .reveal .slides section[id^="speaker"] h2 { margin-bottom: 0.25rem !important; }
+    html.mobile-deck .reveal .slides section.center-slide .slide-scroll {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    html.mobile-deck .reveal .slides section#agenda ol { font-size: 0.84rem !important; }
+    html.mobile-deck .reveal .slides section#agenda li { margin-bottom: 0.15rem; }
+  </style>
+  <noscript>
+    <style>
+      .reveal .slides > section { display: block !important; opacity: 1 !important; position: relative !important; }
+    </style>
+  </noscript>
 </head>
-<body class="bg-surface text-slate-100 antialiased">
+<body class="bg-sld-bg text-slate-100 antialiased font-sans">
   <div class="reveal">
     <div class="slides">
 
-      <!-- 1. Title -->
-      <section>
-        <div class="flex flex-col items-center justify-center gap-6 text-center">
-          <p class="text-brand text-sm font-semibold uppercase tracking-[0.3em]">ServerlessDays Milan 2026 · 13 Oct</p>
-          <h1 class="text-4xl font-bold leading-tight max-w-4xl">The AI Factory That Never Sleeps</h1>
-          <p class="text-xl text-slate-300 max-w-3xl">Building an Autonomous Dev Pipeline with Serverless Agents</p>
-          <div class="mt-8 flex flex-col gap-1 text-slate-400">
-            <p class="text-lg text-slate-200">Martin Mueller</p>
-            <p>AWS Community Builder · martinmueller.dev</p>
+      <section id="title" class="center-slide">
+        <div class="slide-inner flex flex-col items-center gap-5">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="title-logo event-logo">
+          <p class="text-brand text-sm font-medium tracking-wide">🌟 ServerlessDays Milano · Italy&apos;s serverless community conference</p>
+          <h1 class="font-bold leading-tight text-white text-center">
+            The AI Factory<br>That Never Sleeps
+          </h1>
+          <div class="glass-panel px-6 py-4 max-w-3xl w-full text-center">
+            <p class="text-lg sm:text-xl text-white font-semibold">Building an Autonomous Dev Pipeline with Serverless Agents</p>
+            <p class="text-purple-200 text-sm mt-2">📅 October 13, 2026 · 📍 WAO Romolo C30, Milano 🇮🇹</p>
+          </div>
+          <p class="text-purple-300 text-base">Martin Mueller · martinmueller.dev</p>
+          <a href="https://milan.serverlessdays.io" class="text-sm text-brand underline">milan.serverlessdays.io</a>
+        </div>
+        <aside class="notes">
+          Agent on Hostinger VPS + Telegram · manages AWS production targets.
+          AWS angle: managing HalloCasa, ai-secure, qr-plakat deployments.
+          ~40 min talk + Q&A buffer.
+        </aside>
+      </section>
+
+      <section id="speaker" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-2">Speaker</h2>
+            <h3 class="text-3xl font-bold mb-3">Martin Mueller</h3>
+            <div class="speaker-bio-card rounded-xl bg-surface-light p-5 border border-slate-700">
+              <div class="speaker-bio-main">
+                <img src="assets/martin-mueller.jpg?v=1" alt="Martin Mueller" class="speaker-avatar shrink-0" loading="lazy">
+                <div class="flex-1 min-w-0 w-full">
+                  <p class="speaker-relocation">
+                    <span class="speaker-flags" aria-label="Portugal to Germany">
+                      <span class="speaker-flag" role="img" aria-label="Portugal">🇵🇹</span>
+                      <span class="speaker-flag-arrow" aria-hidden="true">→</span>
+                      <span class="speaker-flag" role="img" aria-label="Germany">🇩🇪</span>
+                    </span>
+                    <span>Moved back to Germany · February 2026</span>
+                  </p>
+                  <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI agents</p>
+                  <ul class="space-y-1.5 text-slate-300">
+                    <li>OpenClaw on Hostinger VPS · Telegram as control plane</li>
+                    <li>Manages AWS: HalloCasa · ai-secure.dev · qr-plakat.de</li>
+                    <li>Pipeline with human gates: issue → PR → you merge</li>
+                  </ul>
+                  <p class="mt-2 text-sm">
+                    <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
+                    · martinmueller.dev
+                  </p>
+                </div>
+                <a href="https://www.linkedin.com/in/martinmueller88" class="qr-link" aria-label="LinkedIn QR code">
+                  <img src="assets/qr-linkedin-martin.png?v=2" alt="LinkedIn QR" class="qr-code-host" width="200" height="200" loading="lazy">
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+              <div>
+                <img src="assets/muellers-christmas-2025-cookies.jpeg?v=1" alt="Mueller family baking Christmas cookies, 2025" class="speaker-family-photo" loading="lazy">
+                <p class="speaker-family-caption">Family · Christmas 2025</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+          </div>
+        </div>
+        <aside class="notes">Bio + stack. Next slide: Air Canada + HDI. DevOps ftw.</aside>
+      </section>
+
+      <section id="speaker-clients" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-2">Context</h2>
+            <h3 class="text-3xl font-bold mb-3">Clients + AWS deployments I manage</h3>
+            <div class="client-grid mt-0">
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <img src="assets/air-canada-logo.svg?v=1" alt="Air Canada" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Until July 2026</p>
+                <p class="text-lg font-semibold text-slate-100">Air Canada</p>
+                <p class="text-sm text-slate-300 mt-1">Enterprise AI chatbot · customer service · conversational AI in production</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Current</p>
+                <p class="text-lg font-semibold text-slate-100">HDI Versicherung</p>
+                <p class="text-sm text-slate-300 mt-1">Cyquins cyber insurance · automated cloud risk scoring on AWS</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <img src="assets/hallocasa-logo.svg?v=1" alt="HalloCasa" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Own project · AWS</p>
+                <p class="text-lg font-semibold text-slate-100">HalloCasa</p>
+                <p class="text-sm text-slate-300 mt-1">CDK · CodePipeline · prod SSO — real estate platform</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <img src="assets/ai-secure-logo.svg?v=1" alt="AI Secure" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Own project · AWS</p>
+                <p class="text-lg font-semibold text-slate-100">ai-secure.dev</p>
+                <p class="text-sm text-slate-300 mt-1">AgentCore · MCP scans · compliance reports (ISO, SOC 2, NIST)</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <img src="assets/qr-plakat-logo.svg?v=1" alt="qr-plakat.de" class="client-logo" loading="lazy">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Own project · AWS</p>
+                <p class="text-lg font-semibold text-slate-100">qr-plakat.de</p>
+                <p class="text-sm text-slate-300 mt-1">OpenNext · Lambda · CloudFront — hosted landing pages with metadata preview</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
+              <div>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Freelance</p>
+                <p class="text-lg font-semibold text-slate-100">Open for work</p>
+                <p class="text-sm text-slate-300 mt-1">AWS · DevOps · AI agents — book 15 min if you need help</p>
+              </div>
+              <a href="https://calendly.com/martinmueller_dev" class="qr-link" aria-label="Calendly booking QR code">
+                <img src="assets/qr-calendly-martin.png?v=1" alt="Calendly QR" class="qr-code-host" width="200" height="200" loading="lazy">
+                <span>Calendly</span>
+              </a>
+              <p class="text-sm">
+                <a href="https://calendly.com/martinmueller_dev" class="text-brand underline">calendly.com/martinmueller_dev</a>
+              </p>
+            </div>
+          </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+          </div>
+        </div>
+        <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. Last card: Calendly QR — light CTA for freelance leads.</aside>
+      </section>
+
+      <section id="chatgpt-ads" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <div class="openclaw-header">
+              <img src="assets/chatgpt-logo.svg?v=2" alt="ChatGPT" class="openclaw-logo" loading="lazy">
+              <div>
+                <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">Right now</h2>
+                <h3 class="text-3xl font-bold mb-0">What excites me: ChatGPT Ads</h3>
+              </div>
+            </div>
+            <div class="chatgpt-ads-layout content-prose-wide">
+              <figure class="chatgpt-ads-figure chatgpt-ads-ad-big">
+                <img
+                  src="assets/chatgpt-ads-martinmueller-big.png?v=1"
+                  alt="Sponsored martinmueller.dev ad card — AWS ohne Overhead"
+                  class="chatgpt-ads-ad-big-img"
+                  loading="lazy"
+                >
+                <figcaption class="chatgpt-ads-figure-caption">The ad · martinmueller.dev</figcaption>
+              </figure>
+              <div class="chatgpt-ads-bottom">
+                <figure class="chatgpt-ads-figure chatgpt-ads-screenshot">
+                  <img
+                    src="assets/chatgpt-ads-martinmueller.png?v=1"
+                    alt="ChatGPT conversation showing the sponsored placement in context"
+                    class="chatgpt-ads-screenshot-img"
+                    loading="lazy"
+                  >
+                  <figcaption class="chatgpt-ads-figure-caption">In context · live ChatGPT placement</figcaption>
+                </figure>
+                <div class="chatgpt-ads-copy">
+                <ul class="space-y-4 text-left text-xl text-slate-300">
+                  <li><span class="text-brand font-semibold">Distribution at intent</span> — sponsored placements below answers, matched to conversation context (not a search results page)</li>
+                  <li><span class="text-brand font-semibold">Platform maturing fast</span> — Ads Manager in Europe · CPC + conversion measurement · still early formats</li>
+                  <li><span class="text-brand font-semibold">Builder angle</span> — product feeds, landing pages, attribution — same craft as growth + infra work</li>
+                  <li>Watching it like early Google/Facebook ads: messy now, obvious in hindsight</li>
+                </ul>
+                <p class="openclaw-alternatives">
+                  Personal interest, not a pitch — happy to swap notes after the talk if you're experimenting too.
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+          </div>
+        </div>
+        <aside class="notes">
+          Pivot from AWS agent talk to what I'm personally excited about right now.
+          Show the real ChatGPT ad screenshot — martinmueller.dev placement.
+          ChatGPT Ads = conversation-context distribution, Europe rollout Aug 2026.
+          No sales CTA — curiosity + builder lens. Keep it ~60 seconds.
+        </aside>
+      </section>
+
+      <section id="agenda" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
+        <h3 class="text-3xl font-bold mb-8">~40 minutes</h3>
+        <ol class="content-prose space-y-3 text-left text-xl text-slate-300 list-decimal list-inside">
+          <li>Speaker intro · clients · what excites me (ChatGPT Ads)</li>
+          <li>What I actually run — VPS + Telegram + serverless AWS targets</li>
+          <li>Human in the loop — not full autonomy</li>
+          <li>Why serverless for agent workloads — bursty, scale to zero</li>
+          <li>Event-driven architecture — webhooks → Lambda → Step Functions</li>
+          <li>Dev pipeline flow — issue → PR</li>
+          <li>Where it breaks — cold starts, state, multi-agent coordination</li>
+          <li>Economics — VPS + AWS serverless + LLM spend</li>
+          <li>Live demo — issue → agent → PR</li>
+          <li>Practical learnings — CI, cost, models, dual track</li>
+        </ol>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+      <section id="what-is" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Honest architecture</h2>
+            <h3 class="text-3xl font-bold mb-6">AI Factory — cool concept, skeptical for code</h3>
+            <div class="what-is-layout content-prose-wide">
+              <figure class="what-is-figure">
+                <img
+                  src="assets/ai-factory.png?v=1"
+                  alt="AI factory diagram — issues in, PRs out, human review at the merge gate"
+                  class="what-is-image"
+                  loading="lazy"
+                >
+              </figure>
+              <div class="what-is-copy">
+                <ul class="space-y-4 text-left text-xl text-slate-300">
+                  <li><span class="text-brand font-semibold">AI Factory</span> — issues in, PRs out, 24/7. Great buzzword · I'm not trusting full autonomy on production code yet</li>
+                  <li><span class="text-brand font-semibold">Telegram</span> — talk to the agent from your phone, anywhere</li>
+                  <li><span class="text-brand font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
+                  <li>Watches <span class="text-brand font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-brand font-semibold">PRs</span> · <span class="text-brand font-semibold">AWS</span> targets (HalloCasa, ai-secure, qr-plakat)</li>
+                  <li><span class="text-brand font-semibold">Human in the loop</span> — review diff, SSO approve, kill runaway jobs. Non-negotiable when code matters — at least for now</li>
+                </ul>
+                <p class="text-slate-500 text-base">Factory runs overnight · you own the merge. Telegram on the go — or pair deeply in Cursor IDE.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
           </div>
         </div>
       </section>
 
-      <!-- 2. Hook -->
-      <section>
+      <section id="openclaw" class="slide-top">
+        <div class="openclaw-header">
+          <img src="assets/openclaw-logo.svg?v=1" alt="OpenClaw" class="openclaw-logo" loading="lazy">
+          <div>
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">Agent runtime</h2>
+            <h3 class="text-3xl font-bold mb-0">What is OpenClaw?</h3>
+          </div>
+        </div>
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
+          <li><span class="text-brand font-semibold">Open-source gateway</span> — self-hosted on your VPS (Docker), always on</li>
+          <li><span class="text-brand font-semibold">Messengers in</span> — Telegram, Slack · <span class="text-brand font-semibold">tools out</span> — shell, GitHub, AWS SSO, email</li>
+          <li>Persistent memory, cron heartbeats, skills — an agent harness, not just a chat UI</li>
+          <li>Routes to Cursor CLI / LLMs · plans, codes, opens PRs — with human gates</li>
+        </ul>
+        <p class="openclaw-alternatives content-prose-wide">
+          <span class="text-slate-400">Alternatives:</span>
+          <span class="text-slate-300"><span class="text-brand font-semibold">Hermes</span> (Nous Research · self-hosted personal assistant)</span>
+          ·
+          <span class="text-slate-300"><span class="text-brand font-semibold">LangDock</span> (hosted EU platform · DSGVO-oriented · less DIY)</span>
+        </p>
+        <aside class="notes">
+          30s context for anyone who hasn't heard of OpenClaw. Same category as Hermes/LangDock — different trade-offs: control vs convenience.
+        </aside>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+      <section id="hitl" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Design principle</h2>
+        <h3 class="text-3xl font-bold mb-8">Human in the loop — always</h3>
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
+          <li><span class="text-brand font-semibold">Agents execute</span> — plan, code, test, open PR</li>
+          <li><span class="text-brand font-semibold">Humans decide</span> — review diff, approve merge, kill runaway jobs</li>
+          <li>Full autonomy sounds cool · production needs guardrails</li>
+          <li>HalloCasa · ai-secure · qr-plakat: agent proposes · you SSO-approve + merge</li>
+        </ul>
+        <p class="content-prose mt-8 text-slate-400 text-lg">Autonomous pipeline ≠ autonomous production. The factory runs 24/7 — you still own the merge button.</p>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+      <section id="hook" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
         <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
-        <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-          <li class="fragment">GitHub issue arrives at 2am</li>
-          <li class="fragment">Agent plans, codes, opens PR — no human in the loop</li>
-          <li class="fragment">Runs on serverless: spin up, work, scale to zero</li>
-          <li class="fragment fade-up text-brand">What could go wrong? (spoiler: a lot)</li>
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
+          <li>Telegram ping at 2am — or GitHub issue lands overnight</li>
+          <li>Agent on VPS plans, codes, opens PR — you review over coffee</li>
+          <li>Needs AWS? HalloCasa pipeline · ai-secure scan · qr-plakat deploy — you SSO-approve on phone</li>
         </ul>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
-      <!-- 3. AI Factory overview -->
-      <section>
-        <section>
-          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
-          <h3 class="text-3xl font-bold mb-8">The AI Factory</h3>
-          <div class="grid grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-brand font-semibold mb-2">Core pipeline</p>
-              <p class="text-slate-300">Issue → plan → code → test → PR</p>
-            </div>
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-brand font-semibold mb-2">Side tasks</p>
-              <p class="text-slate-300">Email, calendar, contacts, heartbeats</p>
-            </div>
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-brand font-semibold mb-2">Production</p>
-              <p class="text-slate-300">Months live · dozens of issues processed</p>
-            </div>
-            <div class="fragment rounded-xl bg-surface-light p-6 border border-slate-700">
-              <p class="text-brand font-semibold mb-2">Stack</p>
-              <p class="text-slate-300">OpenClaw + AWS serverless</p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
-          <div class="flex flex-wrap items-center justify-center gap-3 text-lg">
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">GitHub webhook</span>
-            <span class="text-brand">→</span>
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Plan agent</span>
-            <span class="text-brand">→</span>
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">Code agent</span>
-            <span class="text-brand">→</span>
-            <span class="rounded-lg bg-surface-light px-4 py-2 border border-slate-600">PR</span>
-          </div>
-          <p class="fragment mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
-        </section>
-      </section>
+      <section id="overview" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
+        <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
+        <div class="pipeline-flow text-base md:text-lg">
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">GitHub issue</span>
+          <span class="text-brand">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Plan agent</span>
+          <span class="text-brand">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Code agent</span>
+          <span class="text-brand">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Test / review</span>
+          <span class="text-brand">→</span>
+          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
+          <span class="text-brand">→</span>
+          <span class="rounded-lg bg-brand/20 px-3 py-2 border border-brand text-brand font-semibold">Human review &amp; merge</span>
+        </div>
+        <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
-      <!-- 4. Architecture -->
-      <section>
-        <section>
-          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
-          <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless</h3>
-          <img src="assets/architecture.svg" alt="Architecture diagram" class="mx-auto max-h-80 w-full object-contain">
-          <p class="mt-4 text-slate-400 text-sm">API Gateway → EventBridge → Lambda → Step Functions</p>
-        </section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Key components</h3>
-          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="fragment"><span class="text-brand font-mono">API Gateway</span> — webhook ingress (GitHub, Telegram)</li>
-            <li class="fragment"><span class="text-brand font-mono">EventBridge</span> — event routing &amp; scheduling</li>
-            <li class="fragment"><span class="text-brand font-mono">Lambda</span> — agent compute per turn</li>
-            <li class="fragment"><span class="text-brand font-mono">Step Functions</span> — workflows &gt;15 min</li>
-            <li class="fragment"><span class="text-brand font-mono">DynamoDB + vector DB</span> — memory across invocations</li>
-          </ul>
-        </section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Multi-agent coordination</h3>
-          <ul class="space-y-3 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="fragment">Reasoning models for planning</li>
-            <li class="fragment">Specialized agents for coding &amp; review</li>
-            <li class="fragment">Each agent = ephemeral function invocation</li>
-            <li class="fragment">Shared state via DynamoDB + embeddings</li>
-          </ul>
-        </section>
-      </section>
+      <section id="architecture" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
+        <h3 class="text-3xl font-bold mb-6">Event-driven &amp; serverless at the core</h3>
+        <img src="assets/architecture.svg" alt="Architecture diagram" class="arch-diagram mx-auto">
+        <p class="mt-4 text-slate-400 text-sm">Webhooks → API Gateway → EventBridge → Lambda · Step Functions for long runs · VPS gateway for Telegram</p>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
-      <!-- 5. Why serverless -->
-      <section>
+      <section id="architecture-components" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
+        <h3 class="text-2xl font-bold mb-6">Key components</h3>
+        <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
+          <li><span class="text-brand font-semibold">VPS:</span> OpenClaw gateway · Docker · cron heartbeats · MEMORY.md</li>
+          <li><span class="text-brand font-semibold">Interface:</span> Telegram topics · Slack mirror · GitHub via gh CLI</li>
+          <li><span class="text-brand font-semibold">Coding:</span> Cursor CLI — plan on Opus, implement on Composer</li>
+          <li><span class="text-brand font-semibold">AWS:</span> SSO device-code · CDK deploy · CodePipeline trigger</li>
+          <li><span class="text-brand font-semibold">Memory:</span> markdown files on disk — MEMORY.md, skills, daily notes</li>
+        </ul>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+      <section id="agents" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
+        <h3 class="text-2xl font-bold mb-6">Dev pipeline agents</h3>
+        <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
+          <li><span class="text-brand font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
+          <li><span class="text-brand font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
+          <li><span class="text-brand font-semibold">Review agent</span> — automated sanity check before PR</li>
+          <li><span class="text-brand font-semibold">Human gate</span> — diff review, merge approval, token/spend caps</li>
+          <li>Persistent VPS shell · long Cursor CLI sessions · Telegram always on</li>
+        </ul>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+      <section id="memory" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
+        <h3 class="text-2xl font-bold mb-6">Memory &amp; state — why VPS helps</h3>
+        <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
+          <li><span class="text-brand font-mono">MEMORY.md</span> + daily notes — curated long-term context</li>
+          <li><span class="text-brand font-mono">heartbeat-state.json</span> — cron checks, issue polling</li>
+          <li><span class="text-brand font-mono">Skills + TOOLS.md</span> — how-to for AWS SSO, gh, MCP</li>
+        </ul>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+
+      <section id="why-serverless" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
-        <h3 class="text-3xl font-bold mb-8">Bursty by nature</h3>
-        <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-          <div class="fragment">
-            <p class="text-brand font-semibold text-xl mb-2">Agent workloads</p>
-            <p class="text-slate-300">Issue in → 3 min intense work → idle</p>
+        <h3 class="text-3xl font-bold mb-8">Agent workloads are bursty</h3>
+        <div class="card-grid">
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
+            <p class="text-brand font-semibold text-xl mb-2">The pattern</p>
+            <p class="text-slate-300">Issue in → 3 min intense work → idle for hours</p>
           </div>
-          <div class="fragment">
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
             <p class="text-brand font-semibold text-xl mb-2">VPS alternative</p>
-            <p class="text-slate-300">€10/mo fixed, 95% idle</p>
+            <p class="text-slate-300">€10/mo fixed · always on · 95% idle</p>
           </div>
-          <div class="fragment">
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
             <p class="text-brand font-semibold text-xl mb-2">Serverless win</p>
-            <p class="text-slate-300">Pay per invocation · scale to zero</p>
+            <p class="text-slate-300">Pay per invocation · spin up on demand · scale to zero</p>
           </div>
-          <div class="fragment">
-            <p class="text-brand font-semibold text-xl mb-2">Caveat</p>
-            <p class="text-slate-300">LLM tokens dwarf infra either way</p>
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
+            <p class="text-brand font-semibold text-xl mb-2">Honest caveat</p>
+            <p class="text-slate-300">LLM tokens dwarf infra either way · gateway still needs a home</p>
+          </div>
+        </div>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
+
+      <section id="war-stories" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
+            <h3 class="text-3xl font-bold mb-6">Where serverless + agents break</h3>
+            <ul class="content-prose-wide space-y-3 text-left text-lg text-slate-300">
+              <li><span class="text-brand font-semibold">Cold start + context loading</span> — real latency bottleneck, not the Lambda cold start meme</li>
+              <li><span class="text-brand font-semibold">Stateful memory on stateless infra</span> — DynamoDB + embeddings vs markdown on disk</li>
+              <li><span class="text-brand font-semibold">Multi-agent coordination</span> — plan → code → review across invocations</li>
+              <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops · runaway token spend · hallucinated git commands</li>
+              <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups — observability is the hard part</li>
+            </ul>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
           </div>
         </div>
       </section>
 
-      <!-- 6. War stories -->
-      <section>
-        <section>
-          <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
-          <h3 class="text-3xl font-bold mb-8">Where it breaks</h3>
-          <ul class="space-y-4 text-left text-xl text-slate-300 max-w-3xl mx-auto">
-            <li class="fragment">Cold start vs. context loading — real latency bottleneck</li>
-            <li class="fragment">Stateful memory on stateless infra</li>
-            <li class="fragment">Multi-agent coordination across invocations</li>
-          </ul>
-        </section>
-        <section>
-          <h3 class="text-2xl font-bold mb-6">Failure modes</h3>
-          <ul class="space-y-4 text-left text-lg text-slate-300 max-w-2xl mx-auto">
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops</li>
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Runaway token spend</li>
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Hallucinated git commands</li>
-            <li class="fragment rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups</li>
-          </ul>
-          <p class="fragment mt-8 text-slate-400">TODO: anonymized incident examples</p>
-        </section>
-      </section>
+      <section id="aws-ops" class="slide-top">
+        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">AWS learnings</h2>
+        <h3 class="text-3xl font-bold mb-8">Managing prod from Telegram</h3>
+        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
+          <li><span class="text-brand font-semibold">HalloCasa</span> — CDK, CodePipeline trigger, prod DB ops via SSO</li>
+          <li><span class="text-brand font-semibold">ai-secure.dev</span> — AgentCore, MCP scans, compliance reports</li>
+          <li><span class="text-brand font-semibold">qr-plakat.de</span> — OpenNext on AWS · hosted landing pages with metadata preview</li>
+          <li>Agent reads TOOLS.md → knows device-code SSO flow → sends you URL + code</li>
+          <li>Real DevOps value: one interface (Telegram) across multiple AWS accounts</li>
+        </ul>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
-      <!-- 7. Economics -->
-      <section>
+      <section id="economics" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Economics</h2>
         <h3 class="text-3xl font-bold mb-8">Real numbers</h3>
-        <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
-            <p class="text-5xl font-bold text-brand">~€2–4</p>
-            <p class="mt-2 text-slate-400">AWS infra / month</p>
+        <div class="card-grid">
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-brand">~€10</p>
+            <p class="mt-2 text-slate-400">Hostinger VPS / month</p>
           </div>
-          <div class="fragment rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
+          <div class="rounded-xl bg-surface-light p-6 border border-slate-700 text-center">
+            <p class="text-5xl font-bold text-slate-200">varies</p>
+            <p class="mt-2 text-slate-400">HalloCasa · ai-secure.dev · qr-plakat.de</p>
+          </div>
+          <div class="rounded-xl bg-surface-light p-8 border border-slate-700 text-center">
             <p class="text-5xl font-bold text-amber-400">~95%</p>
-            <p class="mt-2 text-slate-400">LLM token costs</p>
+            <p class="mt-2 text-slate-400">LLM spend (subscriptions &gt; API keys)</p>
           </div>
         </div>
-        <p class="fragment mt-10 text-slate-400 text-lg">TODO: sanitized bill breakdown chart</p>
-      </section>
+        <p class="mt-10 text-slate-400 text-lg">Subscriptions + fast CI keep the agent affordable at scale</p>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
-      <!-- 8. Live demo -->
-      <section>
+      <section id="live-demo" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
-        <h3 class="text-3xl font-bold mb-6">Issue → merged PR in &lt;5 min</h3>
-        <ol class="space-y-3 text-left text-xl text-slate-300 max-w-2xl mx-auto">
-          <li class="fragment">1. Create GitHub issue</li>
-          <li class="fragment">2. Webhook triggers agent pipeline</li>
-          <li class="fragment">3. Agent plans + implements</li>
-          <li class="fragment">4. PR opened — trace in CloudWatch</li>
+        <h3 class="text-3xl font-bold mb-6">Issue → PR in minutes · merge when you&apos;re ready</h3>
+        <ol class="content-prose space-y-3 text-left text-xl text-slate-300">
+          <li>1. Message in Telegram (or GitHub issue lands)</li>
+          <li>2. OpenClaw on VPS plans + Cursor CLI implements</li>
+          <li>3. PR opened — needs AWS? SSO device-code to your phone</li>
+          <li>4. CodePipeline / CDK deploy to prod</li>
+          <li>5. <span class="text-brand font-semibold">You review the diff and merge</span> — human in the loop</li>
         </ol>
-        <p class="fragment mt-8 text-slate-500">Fallback: assets/demo-fallback.png</p>
-      </section>
+        <p class="mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
-      <!-- 9. Takeaways -->
-      <section>
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Takeaways</h2>
-        <h3 class="text-3xl font-bold mb-8">When to build an AI Factory</h3>
-        <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-lg">
-          <div class="fragment">
-            <p class="text-green-400 font-semibold mb-2">✓ Do</p>
-            <ul class="space-y-2 text-slate-300">
-              <li>Bursty, async workloads</li>
-              <li>Issue-driven automation</li>
-              <li>Burst economics over idle servers</li>
+      <section id="learnings" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
+            <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
+            <ul class="content-prose-wide space-y-4 text-left text-lg text-slate-300">
+              <li><span class="text-brand font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
+              <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
+              <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
+              <li><span class="text-brand font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
+              <li><span class="text-brand font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
+              <li><span class="text-brand font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
             </ul>
           </div>
-          <div class="fragment">
-            <p class="text-red-400 font-semibold mb-2">✗ Don't</p>
-            <ul class="space-y-2 text-slate-300">
-              <li>Persistent WebSockets</li>
-              <li>Long-lived browser sessions</li>
-              <li>Real-time sub-second latency</li>
-            </ul>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
           </div>
         </div>
       </section>
 
-      <!-- 10. Q&A + bio -->
-      <section>
-        <div class="flex flex-col items-center gap-6 text-center">
-          <h2 class="text-4xl font-bold">Questions?</h2>
-          <div class="mt-4 space-y-2 text-slate-300">
-            <p class="text-xl text-slate-100">Martin Mueller</p>
+      <section id="qa" class="center-slide">
+        <div class="slide-inner flex flex-col items-center gap-4 text-center">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="title-logo event-logo">
+          <h2 class="text-4xl font-semibold">Questions?</h2>
+          <div class="mt-2 space-y-2 text-slate-300">
+            <p class="text-xl font-medium text-slate-200">Martin Mueller</p>
             <p>martinmueller.dev</p>
             <p>github.com/mmuller88 · linkedin.com/in/martinmueller88</p>
           </div>
-          <p class="mt-8 text-brand text-sm uppercase tracking-widest">ServerlessDays Milan 2026</p>
+          <div class="mt-4 flex flex-col items-center gap-2">
+            <a href="https://www.linkedin.com/in/martinmueller88" class="qr-link" aria-label="LinkedIn QR code">
+              <img src="assets/qr-linkedin-martin.png?v=3" alt="LinkedIn QR" class="qr-code-host" width="200" height="200" loading="lazy">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <a href="https://milan.serverlessdays.io" class="mt-2 text-sm text-brand hover:underline">milan.serverlessdays.io</a>
         </div>
         <aside class="notes">
-          40 min total: ~35 min content + ~5 min Q&A buffer.
-          Hold social announcement until organizer lineup reveal.
+          40 min talk + Q&A buffer.
+          Slides public per CFP — yes.
         </aside>
-      </section>
+      
+        <div class="slide-footer">
+          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
+          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+        </div></section>
 
     </div>
   </div>
 
+  <nav class="mobile-slide-nav" aria-label="Slide navigation" hidden>
+    <button type="button" id="mobile-prev" aria-label="Previous slide">←</button>
+    <span class="mobile-slide-count" id="mobile-slide-count" aria-live="polite"></span>
+    <button type="button" id="mobile-next" aria-label="Next slide">→</button>
+  </nav>
+
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
-    Reveal.initialize({
-      hash: true,
-      slideNumber: 'c/t',
-      width: 1280,
-      height: 720,
-      margin: 0.08,
-      transition: 'slide',
-      plugins: [ RevealNotes ]
+    const MOBILE_BREAKPOINT = 768;
+    const mobileMedia = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const isMobileDeck = mobileMedia.matches;
+    if (isMobileDeck) {
+      document.documentElement.classList.add('mobile-deck');
+    } else {
+      document.documentElement.classList.add('desktop-deck');
+    }
+
+    function viewportSize() {
+      const mobile = window.innerWidth < MOBILE_BREAKPOINT;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const margin = mobile ? 0 : 0.02;
+      const pad = mobile ? 0 : Math.round(Math.min(vw, vh) * margin);
+      return {
+        width: Math.max(320, vw - pad * 2),
+        height: Math.max(480, vh - pad * 2),
+        margin
+      };
+    }
+
+    function revealConfig() {
+      const mobile = isMobileDeck;
+      const plugins = [];
+      if (typeof RevealNotes !== 'undefined') plugins.push(RevealNotes);
+      const { width, height, margin } = viewportSize();
+
+      return {
+        hash: true,
+        slideNumber: 'c/t',
+        width,
+        height,
+        margin,
+        minScale: 1,
+        maxScale: 1,
+        center: false,
+        transition: 'none',
+        backgroundTransition: 'none',
+        transitionSpeed: 0,
+        fragments: false,
+        navigationMode: 'linear',
+        autoAnimate: false,
+        autoAnimateMatcher: null,
+        touch: !mobile,
+        plugins
+      };
+    }
+
+    function syncMobileSlideVisibility() {
+      if (!document.documentElement.classList.contains('mobile-deck')) return;
+      document.querySelectorAll('.reveal .slides section').forEach((section) => {
+        const active = section.classList.contains('present') || section.querySelector(':scope > section.present');
+        section.style.visibility = active ? 'visible' : 'hidden';
+        section.style.pointerEvents = active ? 'auto' : 'none';
+        section.style.opacity = active ? '1' : '0';
+      });
+    }
+
+    function setupMobileNavigation() {
+      if (!document.documentElement.classList.contains('mobile-deck')) return;
+      const nav = document.querySelector('.mobile-slide-nav');
+      const prevBtn = document.getElementById('mobile-prev');
+      const nextBtn = document.getElementById('mobile-next');
+      const countEl = document.getElementById('mobile-slide-count');
+      if (!nav || !prevBtn || !nextBtn || !countEl) return;
+      nav.removeAttribute('hidden');
+
+      const goPrev = () => {
+        Reveal.prev();
+        syncMobileSlideVisibility();
+      };
+      const goNext = () => {
+        Reveal.next();
+        syncMobileSlideVisibility();
+      };
+
+      const updateNav = () => {
+        const routes = Reveal.availableRoutes();
+        const total = Reveal.getTotalSlides();
+        const current = Reveal.getSlidePastCount() + 1;
+        countEl.textContent = `${current} / ${total}`;
+        prevBtn.classList.toggle('is-disabled', !routes.left && !routes.up);
+        nextBtn.classList.toggle('is-disabled', !routes.right && !routes.down);
+        syncMobileSlideVisibility();
+      };
+
+      const bindTap = (button, action) => {
+        const handler = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (button.classList.contains('is-disabled')) return;
+          action();
+          updateNav();
+        };
+        button.addEventListener('click', handler);
+        button.addEventListener('touchend', handler, { passive: false });
+      };
+
+      bindTap(prevBtn, goPrev);
+      bindTap(nextBtn, goNext);
+      Reveal.on('slidechanged', updateNav);
+      Reveal.on('ready', updateNav);
+      updateNav();
+
+      const viewport = document.querySelector('.reveal .viewport') || document.querySelector('.reveal');
+      let startX = 0;
+      let startY = 0;
+
+      viewport.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1) return;
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', (event) => {
+        if (event.changedTouches.length !== 1) return;
+        const dx = event.changedTouches[0].clientX - startX;
+        const dy = event.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.15) return;
+        if (dx < 0) goNext();
+        else goPrev();
+        updateNav();
+      }, { passive: true });
+    }
+
+    function slideToHashId() {
+      const raw = (location.hash || '').replace(/^#\/?/, '');
+      if (!raw) return;
+      const id = raw.split('/')[0];
+      const el = document.getElementById(id);
+      if (!el || typeof Reveal.getIndices !== 'function') return;
+      const indices = Reveal.getIndices(el);
+      if (indices) Reveal.slide(indices.h, indices.v);
+    }
+
+    function wrapDesktopSlideBodies() {
+      if (isMobileDeck) return;
+      document.querySelectorAll('.reveal .slides section').forEach((section) => {
+        if (section.querySelector(':scope > section')) return;
+        if (section.querySelector(':scope > .slide-scroll')) return;
+        if (section.querySelector(':scope > .slide-body')) return;
+        const footer = section.querySelector(':scope > .slide-footer');
+        const body = document.createElement('div');
+        body.className = 'slide-body';
+        [...section.childNodes].forEach((node) => {
+          if (node.nodeName === 'ASIDE') return;
+          if (node.nodeType === 1 && node.classList.contains('slide-footer')) return;
+          if (node.nodeType === 3 && !node.textContent.trim()) return;
+          body.appendChild(node);
+        });
+        if (!body.childNodes.length) return;
+        if (footer) section.insertBefore(body, footer);
+        else section.appendChild(body);
+      });
+    }
+
+    function wrapMobileSlides() {
+      if (!isMobileDeck) return;
+      document.querySelectorAll('.reveal .slides > section').forEach((section) => {
+        if (section.querySelector(':scope > .slide-scroll')) return;
+        if (section.querySelector(':scope > section')) return;
+        const scroll = document.createElement('div');
+        scroll.className = 'slide-scroll';
+        const keep = [];
+        [...section.childNodes].forEach((node) => {
+          if (node.nodeName === 'ASIDE') keep.push(node);
+          else scroll.appendChild(node);
+        });
+        if (!scroll.childNodes.length) return;
+        section.insertBefore(scroll, section.firstChild);
+        keep.forEach((node) => section.appendChild(node));
+      });
+    }
+
+    function showAllFragments() {
+      document.querySelectorAll('.reveal .slides .fragment').forEach((el) => {
+        el.classList.add('visible');
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'none';
+      });
+    }
+
+    function flattenNestedSlides() {
+      document.querySelectorAll('.reveal .slides > section > section').forEach((nested) => {
+        const parent = nested.parentElement;
+        if (!parent || parent.parentElement?.classList.contains('slides') === false) return;
+        parent.parentElement.insertBefore(nested, parent.nextSibling);
+      });
+      document.querySelectorAll('.reveal .slides > section:empty').forEach((empty) => empty.remove());
+    }
+
+    try {
+      flattenNestedSlides();
+      Reveal.initialize(revealConfig()).then(() => {
+        showAllFragments();
+        wrapDesktopSlideBodies();
+        wrapMobileSlides();
+        setupMobileNavigation();
+        slideToHashId();
+        Reveal.on('slidechanged', showAllFragments);
+        Reveal.on('ready', showAllFragments);
+        window.addEventListener('hashchange', slideToHashId);
+      });
+    } catch (err) {
+      console.error('Reveal init failed', err);
+      document.querySelector('.reveal')?.classList.add('ready');
+      document.querySelector('.reveal .slides > section')?.classList.add('present');
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const mobile = mobileMedia.matches;
+        const wasMobile = document.documentElement.classList.contains('mobile-deck');
+        if (mobile !== wasMobile) {
+          location.reload();
+          return;
+        }
+        if (typeof Reveal !== 'undefined' && Reveal.isReady && Reveal.isReady()) {
+          const { width, height, margin } = viewportSize();
+          Reveal.configure({ width, height, margin });
+          Reveal.layout();
+        }
+      }, 200);
     });
   </script>
 </body>
