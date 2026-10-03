@@ -59,11 +59,19 @@
       padding: 0.35rem 0.5rem;
       border: 1px solid #475569;
     }
+    .reveal .slides section img.title-ad-preview {
+      max-height: 28vh;
+      width: auto;
+      border-radius: 0.5rem;
+      border: 1px solid #334155;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    }
     @media (max-width: 768px) {
       .reveal h1 { font-size: 1.5rem !important; }
       .reveal h3 { font-size: 1.15rem !important; }
       .reveal p, .reveal li { font-size: 0.9rem !important; }
       .reveal .slides section img.slide-shot { max-height: 32vh; }
+      .reveal .slides section img.title-ad-preview { max-height: 22vh; }
     }
   </style>
 </head>
@@ -73,19 +81,40 @@
 
       <section id="titel" data-id="titel" class="center-slide">
         <p class="text-brand text-xs md:text-sm font-semibold uppercase tracking-[0.25em]">AI Builder Meetup #3 · Ludwigslust · hybrid</p>
-        <h1 class="text-2xl md:text-4xl font-bold leading-tight max-w-4xl mx-auto mt-4">ChatGPT Ads in Europa</h1>
-        <p class="text-base md:text-xl text-slate-300 max-w-3xl mx-auto mt-3">Feldnotizen aus meiner ersten Kampagne</p>
-        <div class="mt-6 md:mt-10 text-sm md:text-base text-slate-400">
-          <p class="text-slate-200 text-base md:text-lg">Martin Mueller</p>
-          <p>martinmueller.dev · 7. Okt 2026</p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-3 md:mt-4 max-w-5xl mx-auto">
+          <div class="text-center md:text-left">
+            <h1 class="text-2xl md:text-4xl font-bold leading-tight">ChatGPT Ads in Europa</h1>
+            <p class="text-base md:text-xl text-slate-300 mt-2">Feldnotizen aus meiner ersten Kampagne</p>
+            <div class="mt-4 md:mt-6 text-sm md:text-base text-slate-400">
+              <p class="text-slate-200 text-base md:text-lg">Martin Mueller</p>
+              <p>martinmueller.dev · 7. Okt 2026</p>
+            </div>
+          </div>
+          <figure class="shrink-0">
+            <img
+              src="assets/chatgpt-ads-martinmueller-big.png"
+              alt="Sponsored Card — AWS ohne Overhead"
+              class="title-ad-preview"
+              loading="lazy"
+            >
+            <figcaption class="text-xs text-slate-500 mt-1">Live-Placement · martinmueller.dev</figcaption>
+          </figure>
         </div>
-        <aside class="notes">Kurz vorstellen: erste Ads-Erfahrung überhaupt, kein Mediaplan — Neugier + kleines Budget.</aside>
+        <p class="mt-4 md:mt-6 text-xs md:text-sm text-slate-400">
+          Folien:
+          <a
+            href="https://mmuller88.github.io/presentations/ai-builder-meetup-3-chatgpt-ads/"
+            class="text-brand underline break-all"
+          >mmuller88.github.io/presentations/ai-builder-meetup-3-chatgpt-ads/</a>
+        </p>
+        <aside class="notes">Deck-Link für Hybrid-Teilnehmer. Ad-Screenshot = Hook. Erste Ads-Erfahrung überhaupt.</aside>
       </section>
 
       <section id="agenda" data-id="agenda">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Agenda</p>
         <h3 class="text-xl md:text-3xl font-bold mb-4">~20 Min + Diskussion</h3>
         <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-2xl">
+          <li>Kurz: wer ich bin</li>
           <li>Was sind ChatGPT Ads — und woran sie sich von Google/Meta unterscheiden</li>
           <li>Zwei Live-Kampagnen: Freelance-AWS + qr-plakat.de</li>
           <li>Tooling: Ads Manager + ChatGPT-Plugin</li>
@@ -93,6 +122,64 @@
           <li>Offene Fragen — wer experimentiert schon?</li>
         </ol>
         <aside class="notes">Blog als Deep Dive: martinmueller.dev/chatgpt-ads-learnings-de/</aside>
+      </section>
+
+      <section id="beruf" data-id="beruf">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Beruflich</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4 md:mb-6">Wo ich gerade herkomme</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl">
+          <div class="rounded-2xl bg-surface-light p-4 md:p-6 border border-slate-700 flex flex-col items-center text-center gap-3">
+            <img src="assets/air-canada-logo.svg" alt="Air Canada" class="h-10 md:h-12 w-auto object-contain bg-white rounded-lg px-4 py-2" loading="lazy">
+            <div>
+              <p class="text-brand text-xs uppercase tracking-wide mb-1">Bis Juli 2026</p>
+              <p class="text-lg md:text-xl font-semibold text-slate-100">Air Canada</p>
+              <p class="text-sm text-slate-300 mt-1">KI-Chatbot Kundenservice — conversational AI in Produktion</p>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-surface-light p-4 md:p-6 border border-slate-700 flex flex-col items-center text-center gap-3">
+            <img src="assets/hdi-logo.svg" alt="HDI" class="h-10 md:h-12 w-auto object-contain bg-white rounded-lg px-4 py-2" loading="lazy">
+            <div>
+              <p class="text-brand text-xs uppercase tracking-wide mb-1">Aktuell</p>
+              <p class="text-lg md:text-xl font-semibold text-slate-100">HDI · Prowler</p>
+              <p class="text-sm text-slate-300 mt-1">Cyquins Risiko-Scoring · Security Engineering</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">Kurz Logos. HDI + Prowler wie ki-stammtisch-Deck.</aside>
+      </section>
+
+      <section id="intro" data-id="intro">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Intro</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-2">Wer bin ich?</h3>
+        <p class="text-sm md:text-base text-slate-400 mb-4">Martin Müller — Freelancer, Vater, KI-Nutzer im Alltag</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl text-sm md:text-base">
+          <div class="rounded-xl bg-surface-light p-4 border border-slate-700">
+            <p class="text-brand font-semibold mb-2">Was ich mache</p>
+            <ul class="space-y-1.5 text-slate-300">
+              <li>Freelancer · AWS · KI-Agenten (OpenClaw im Alltag)</li>
+              <li>Gründer <span class="text-brand">HalloCasa.com</span> · <span class="text-brand">qr-plakat.de</span></li>
+              <li>Blog &amp; Talks · AWS Community Builder seit 2022</li>
+              <li>Vater · Portugal 🇵🇹</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-surface-light p-4 border border-slate-700">
+            <p class="text-brand font-semibold mb-2">Warum dieser Talk</p>
+            <ul class="space-y-1.5 text-slate-300">
+              <li>ChatGPT Ads EU — meine <strong>erste</strong> Paid-Kampagne ever</li>
+              <li>Zwei Angebote live getestet (Services + SaaS)</li>
+              <li>Feldnotizen, kein Mediaplan — zum Mitexperimentieren</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center gap-4 mt-4 max-w-5xl">
+          <img src="assets/family.jpg" alt="Martin mit Familie" class="max-h-32 md:max-h-40 rounded-xl border border-slate-700 object-cover" loading="lazy">
+          <img src="assets/martin-mueller.jpg" alt="Martin Mueller" class="max-h-32 md:max-h-40 rounded-xl border border-slate-700 object-cover" loading="lazy">
+          <div class="text-sm text-slate-400">
+            <p><span class="text-brand">linkedin.com/in/martinmueller88</span></p>
+            <p><span class="text-brand">martinmueller.dev</span></p>
+          </div>
+        </div>
+        <aside class="notes">Gleiche Intro-Struktur wie KI-Stammtisch-Deck, Inhalt auf Ads angepasst.</aside>
       </section>
 
       <section id="hook" data-id="hook">
@@ -124,7 +211,10 @@
           </tbody>
         </table>
         <p class="mt-4 text-sm md:text-base text-slate-400">Inventory fühlt sich first-gen an — näher frühes Facebook als poliertes Google.</p>
-        <aside class="notes">Metapher: Fußnote, die das Modell vorschlagen könnte — mit „Gesponsert“ und Link.</aside>
+        <p class="mt-3 text-sm md:text-base text-amber-100/90 rounded-lg border border-amber-600/40 bg-amber-950/40 p-3 max-w-3xl">
+          <span class="font-semibold text-amber-200">Free vs. Plus:</span> Ads sehen vor allem Nutzer im <strong>Free-Web-Tier</strong> — mit Plus/Team oft weniger bis keine Ads im Chat. Gut für Werber-Reichweite dort; <strong>nachteilig</strong>, wenn du selbst Plus zahlst und dein Placement im eigenen Account testen willst.
+        </p>
+        <aside class="notes">Ehrlich: Inventory ≠ alle ChatGPT-User. Hybrid-Raum: wer ist Free vs. Plus? Eigene Ad ggf. in zweitem (Free) Account oder Geo-Trick testen.</aside>
       </section>
 
       <section id="zielgruppe" data-id="zielgruppe">
@@ -134,8 +224,9 @@
           <li>User sind schon in <strong>ChatGPT Web</strong> — lösen ein Problem im Dialog</li>
           <li>Stark für B2B-Services, SaaS, alles AI-nahe</li>
           <li>Early Adopter + hohe Intent — seltene Konzentration</li>
+          <li class="pt-2 border-t border-slate-700"><span class="text-brand font-semibold">Builder-Seite:</span> Ads Manager <strong>Plugin</strong> ist genial — wünsche mir zusätzlich ein <strong>MCP-Tool</strong>, damit OpenClaw/Cursor-Agenten Kampagnen direkt mitsteuern (nicht nur im ChatGPT-Tab)</li>
         </ul>
-        <aside class="notes">Bridge zu Meetup: ihr seid genau diese Zielgruppe — Diskussion: würdet ihr hier klicken?</aside>
+        <aside class="notes">Plugin vs. MCP: Plugin = human-in-loop in ChatGPT. MCP = Agents in der Pipeline. Open Question an OpenAI.</aside>
       </section>
 
       <section id="kampagne-aws" data-id="kampagne-aws">
@@ -172,8 +263,9 @@
           <li>Kampagnen in natürlicher Sprache — Preview vor Apply</li>
           <li>Fühlt sich an wie <strong>Software shippen</strong>, nicht Medien kaufen</li>
           <li>Für mich als Einsteiger der größte Unlock</li>
+          <li><span class="text-brand font-semibold">Wishlist:</span> offizielles <strong>MCP</strong> für Ads Manager — gleiche APIs, aber für Agent-Stacks (OpenClaw, CI, Reporting)</li>
         </ul>
-        <aside class="notes">Builder im Raum: Pair-Programming für Ads. Wer nutzt schon Plugins für Ops?</aside>
+        <aside class="notes">Plugin reicht für Solo-Iteration. MCP würde Ads neben Mail/Calendar/GitHub in einen Agent verbinden.</aside>
       </section>
 
       <section id="testen" data-id="testen">

@@ -28,7 +28,8 @@ python3 -m http.server 8080
 
 | Slide | Hash |
 |-------|------|
-| Titel | `#/titel` |
+| Titel (+ Ad + Deck-Link) | `#/titel` |
+| Beruf / Intro | `#/beruf` · `#/intro` |
 | Agenda | `#/agenda` |
 | Kampagne AWS | `#/kampagne-aws` |
 | Kampagne qr-plakat | `#/kampagne-qr` |
