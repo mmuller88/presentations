@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ChatGPT Ads — Feldnotizen · AI Builder Meetup #3</title>
+  <meta name="description" content="Erste Kampagne, zwei Produkte, was überrascht hat — Martin Mueller">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#10a37f', dark: '#0d8c6d' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 0.5rem 1rem;
+      text-align: left;
+    }
+    .reveal .slides section.center-slide {
+      text-align: center;
+    }
+    .reveal .slides section img.slide-shot {
+      max-height: 52vh;
+      width: auto;
+      margin: 0 auto;
+      border-radius: 0.5rem;
+      border: 1px solid #334155;
+    }
+    .reveal .slides section img.slide-shot-sm {
+      max-height: 38vh;
+    }
+    .reveal .slides section .two-up {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .reveal .slides section .two-up {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .reveal table.compact {
+      font-size: 0.85rem !important;
+      width: 100%;
+    }
+    .reveal table.compact th,
+    .reveal table.compact td {
+      padding: 0.35rem 0.5rem;
+      border: 1px solid #475569;
+    }
+    @media (max-width: 768px) {
+      .reveal h1 { font-size: 1.5rem !important; }
+      .reveal h3 { font-size: 1.15rem !important; }
+      .reveal p, .reveal li { font-size: 0.9rem !important; }
+      .reveal .slides section img.slide-shot { max-height: 32vh; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-slate-100 antialiased">
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="titel" data-id="titel" class="center-slide">
+        <p class="text-brand text-xs md:text-sm font-semibold uppercase tracking-[0.25em]">AI Builder Meetup #3 · Ludwigslust · hybrid</p>
+        <h1 class="text-2xl md:text-4xl font-bold leading-tight max-w-4xl mx-auto mt-4">ChatGPT Ads in Europa</h1>
+        <p class="text-base md:text-xl text-slate-300 max-w-3xl mx-auto mt-3">Feldnotizen aus meiner ersten Kampagne</p>
+        <div class="mt-6 md:mt-10 text-sm md:text-base text-slate-400">
+          <p class="text-slate-200 text-base md:text-lg">Martin Mueller</p>
+          <p>martinmueller.dev · 7. Okt 2026</p>
+        </div>
+        <aside class="notes">Kurz vorstellen: erste Ads-Erfahrung überhaupt, kein Mediaplan — Neugier + kleines Budget.</aside>
+      </section>
+
+      <section id="agenda" data-id="agenda">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Agenda</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">~20 Min + Diskussion</h3>
+        <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-2xl">
+          <li>Was sind ChatGPT Ads — und woran sie sich von Google/Meta unterscheiden</li>
+          <li>Zwei Live-Kampagnen: Freelance-AWS + qr-plakat.de</li>
+          <li>Tooling: Ads Manager + ChatGPT-Plugin</li>
+          <li>Eigene Anzeige testen · Messung · Learnings</li>
+          <li>Offene Fragen — wer experimentiert schon?</li>
+        </ol>
+        <aside class="notes">Blog als Deep Dive: martinmueller.dev/chatgpt-ads-learnings-de/</aside>
+      </section>
+
+      <section id="hook" data-id="hook">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Kontext</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Warum ich reingegangen bin</h3>
+        <ul class="space-y-3 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li><span class="text-brand font-semibold">Aug 2026</span> — ChatGPT Ads in Europa live</li>
+          <li><span class="text-brand font-semibold">Mitte Sep 2026</span> — registriert, Ads <em>am selben Tag</em> live</li>
+          <li>Meine <span class="text-brand font-semibold">erste Ads-Erfahrung überhaupt</span> — skeptisch, dann süchtig nach dem ersten Placement im echten Thread</li>
+          <li>Feldnotizen, kein Ads-Profi — genau das, was ich einem Freund erzählen würde</li>
+        </ul>
+        <aside class="notes">Ton: ehrlich, nicht Verkauf. Zielgruppe hier = Builder, viele nutzen ChatGPT schon täglich.</aside>
+      </section>
+
+      <section id="was-ist" data-id="was-ist">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="assets/chatgpt-logo.svg" alt="" class="h-8 w-8" loading="lazy">
+          <h3 class="text-xl md:text-2xl font-bold mb-0">Was ChatGPT Ads sind</h3>
+        </div>
+        <p class="text-sm md:text-lg text-slate-300 mb-4">Gesponserte Karte <strong>unter der Antwort</strong> — gematcht zum <strong>Gespräch</strong>, nicht zur Suchergebnisseite.</p>
+        <table class="compact text-slate-200">
+          <thead class="bg-surface-light">
+            <tr><th>Kanal</th><th>Matching</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Google Search</td><td>Keywords auf der SERP</td></tr>
+            <tr><td>Meta Feed</td><td>Interessen + Verhalten</td></tr>
+            <tr class="text-brand"><td><strong>ChatGPT</strong></td><td><strong>laufender Chat</strong> — Intent im Dialog</td></tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm md:text-base text-slate-400">Inventory fühlt sich first-gen an — näher frühes Facebook als poliertes Google.</p>
+        <aside class="notes">Metapher: Fußnote, die das Modell vorschlagen könnte — mit „Gesponsert“ und Link.</aside>
+      </section>
+
+      <section id="zielgruppe" data-id="zielgruppe">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Zielgruppe</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Keine passiven Scroller</h3>
+        <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li>User sind schon in <strong>ChatGPT Web</strong> — lösen ein Problem im Dialog</li>
+          <li>Stark für B2B-Services, SaaS, alles AI-nahe</li>
+          <li>Early Adopter + hohe Intent — seltene Konzentration</li>
+        </ul>
+        <aside class="notes">Bridge zu Meetup: ihr seid genau diese Zielgruppe — Diskussion: würdet ihr hier klicken?</aside>
+      </section>
+
+      <section id="kampagne-aws" data-id="kampagne-aws">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Kampagne 1</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-2">martinmueller.dev · Freelance AWS</h3>
+        <p class="text-sm text-slate-400 mb-3">Creative: <em>AWS ohne Overhead</em> — Builder-Positionierung</p>
+        <div class="two-up">
+          <figure>
+            <img src="assets/chatgpt-ads-martinmueller-big.png" alt="Sponsored Card AWS ohne Overhead" class="slide-shot slide-shot-sm" loading="lazy">
+            <figcaption class="text-xs text-slate-500 mt-1 text-center">Die Karte</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/chatgpt-ads-in-context.png" alt="Placement im Chat-Kontext" class="slide-shot slide-shot-sm" loading="lazy">
+            <figcaption class="text-xs text-slate-500 mt-1 text-center">Im Thread</figcaption>
+          </figure>
+        </div>
+        <aside class="notes">Eigene Anzeige im Chat sehen &gt; jedes Dashboard. Placement, Dichte, Copy-Länge sofort klar.</aside>
+      </section>
+
+      <section id="kampagne-qr" data-id="kampagne-qr">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Kampagne 2</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-2">qr-plakat.de · SaaS</h3>
+        <p class="text-sm md:text-lg text-slate-300 mb-3">Landing = <strong>konkretes Galerie-Plakat</strong>, nicht Homepage — Produkt im Kontext vor dem Signup.</p>
+        <img src="assets/qr-plakat-galerie-c3e4f5a6.png" alt="QR-Plakat Galerie Beispiel" class="slide-shot mx-auto" loading="lazy">
+        <p class="text-xs text-slate-500 mt-2 text-center">qr-plakat.de/galerie/…</p>
+        <aside class="notes">Gleicher Kanal, anderes Angebot — Lesson: eine Seite, ein Job.</aside>
+      </section>
+
+      <section id="plugin" data-id="plugin">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Tooling</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">ChatGPT Ads Manager Plugin</h3>
+        <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li>Plugin in ChatGPT/Codex · Konto verbinden</li>
+          <li>Kampagnen in natürlicher Sprache — Preview vor Apply</li>
+          <li>Fühlt sich an wie <strong>Software shippen</strong>, nicht Medien kaufen</li>
+          <li>Für mich als Einsteiger der größte Unlock</li>
+        </ul>
+        <aside class="notes">Builder im Raum: Pair-Programming für Ads. Wer nutzt schon Plugins für Ops?</aside>
+      </section>
+
+      <section id="testen" data-id="testen">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Praxis</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Eigene Anzeige sehen</h3>
+        <ol class="space-y-3 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-3xl">
+          <li>Geo im Ads Manager <strong>eingrenzen</strong> (Stadt/Region) — nicht gegen ganz DE bieten</li>
+          <li>Standort checken (z. B. ipwho.is) vs. ChatGPT-Geo</li>
+          <li>ChatGPT <strong>Prompts vorschlagen lassen</strong>, die dein Thema triggern → frischer Chat → Karte da?</li>
+        </ol>
+        <p class="mt-4 text-sm text-slate-400">Kein perfektes Lab — Inventory/Pacing gelten — aber besser als ins Dashboard starren.</p>
+        <aside class="notes">Live-Demo optional wenn WLAN: einen Prompt aus dem Blog/Plugin generieren.</aside>
+      </section>
+
+      <section id="messen" data-id="messen">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Messung</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Was ich (nicht) optimiere</h3>
+        <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li class="text-brand font-semibold">Ein Angebot · eine Seite · eine Metrik</li>
+          <li>Downstream: Calendly, Kontaktformular, DMs — nicht nur Klicks im Manager</li>
+          <li>Dashboard = Richtwert, nicht Wahrheit (Attribution noch jung)</li>
+          <li>Creative: conversational, kein Hard Sell</li>
+        </ul>
+        <aside class="notes">Kurz Conversion-Pixel/Calendly erwähnen wenn jemand B2B fragt — Details im Blog.</aside>
+      </section>
+
+      <section id="ueberraschungen" data-id="ueberraschungen">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Überraschungen</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Was mich gehookt hat</h3>
+        <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li>Schnell live — register Mittag, Placement abends</li>
+          <li>Context Matching wirkt — relevant zum Thread</li>
+          <li>Kleines Budget reicht zum Lernen von Placement + UX</li>
+          <li>Erster Ads-Kanal, bei dem ich morgen wieder den Manager öffnen will</li>
+        </ul>
+        <aside class="notes">Ehrlich: Spaß-Faktor ist real — nicht jeder Kanal hat das.</aside>
+      </section>
+
+      <section id="offen" data-id="offen">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Offen</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Noch keine Antworten</h3>
+        <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li>CPC wenn mehr EU-Werber reinkommen?</li>
+          <li>Lead-Qualität vs. LinkedIn/Google für B2B — zu früh</li>
+          <li>Mehr Context-Signale für Advertiser oder Black Box?</li>
+          <li>User-Reaktion wenn Ad-Dichte im Chat steigt?</li>
+        </ul>
+        <aside class="notes">Diskussion einladen — wer testet parallel?</aside>
+      </section>
+
+      <section id="fazit" data-id="fazit" class="center-slide">
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Fazit</h3>
+        <p class="text-sm md:text-lg text-slate-300 max-w-2xl mx-auto">Real, in EU live, auf eine gute Art weird — Distribution <strong>im Moment der Intent</strong> im Gespräch.</p>
+        <p class="text-sm md:text-lg text-slate-300 max-w-2xl mx-auto mt-4">Klarer Angebot + Landing + Neugier → <strong>kleinen Test</strong> laufen lassen.</p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-8">
+          <img src="assets/qr-blog-chatgpt-ads.png" alt="QR Blog" class="w-28 h-28 bg-white p-1 rounded-lg border border-brand" loading="lazy">
+          <p class="text-sm text-slate-400 text-left">Feldnotizen + Screenshots<br><span class="text-brand">martinmueller.dev/chatgpt-ads-learnings-de/</span></p>
+        </div>
+        <aside class="notes">Soft CTA: Notizen tauschen. Training/Freelance nur wenn jemand fragt.</aside>
+      </section>
+
+      <section id="fragen" data-id="fragen" class="center-slide">
+        <h3 class="text-2xl md:text-4xl font-bold">Fragen &amp; Swap Notes</h3>
+        <p class="text-slate-400 mt-6 text-sm md:text-base">AI Builder Meetup #3 · Ludwigslust</p>
+        <p class="text-brand mt-2 text-sm">meetup.ps/e/QdTgs/zGg6L/i</p>
+        <aside class="notes">Zeit für Diskussion: Experimente? Ethik? Ad-Dichte? Hybrid: Online-Fragen einsammeln.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    function revealConfig() {
+      const mobile = window.innerWidth < 768;
+      return {
+        hash: true,
+        slideNumber: 'c/t',
+        width: mobile ? 390 : 1280,
+        height: mobile ? 700 : 720,
+        margin: mobile ? 0.02 : 0.08,
+        minScale: 0.2,
+        maxScale: mobile ? 1.2 : 1.0,
+        transition: 'slide',
+        touch: true,
+        plugins: [ RevealNotes ]
+      };
+    }
+    Reveal.initialize(revealConfig());
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const mobile = window.innerWidth < 768;
+        const wasMobile = Reveal.getConfig().width < 500;
+        if (mobile !== wasMobile) location.reload();
+      }, 250);
+    });
+  </script>
+</body>
+</html>
