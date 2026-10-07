@@ -21,22 +21,34 @@
     }
   </script>
   <style>
-    .reveal .slides {
-      width: 100% !important;
-      height: 100% !important;
-    }
     .reveal .slides section {
       box-sizing: border-box;
-      padding: 1rem 2rem;
-      font-size: 1.25rem;
-      line-height: 1.45;
-      height: 100%;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.1rem;
+      line-height: 1.4;
       top: 0 !important;
+      text-align: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 100%;
     }
     .reveal .slides section .slide-inner {
       width: 100%;
       max-width: 100%;
       margin: 0 auto;
+      max-height: 100%;
+    }
+    .reveal .slides section .host-card {
+      padding: 0.75rem 1rem;
+    }
+    @media (max-height: 780px) {
+      .reveal .slides section .host-card {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .reveal .slides section .host-card .qr-code-host {
+        display: none;
+      }
     }
     .reveal h2 {
       font-size: 0.95rem !important;
@@ -52,10 +64,11 @@
       line-height: 1.45 !important;
     }
     .reveal .slides section .title-hero {
-      max-height: 58vh;
-      max-width: min(92vw, 1100px);
+      max-height: min(42vh, 320px);
+      max-width: min(88vw, 720px);
       width: auto;
       height: auto;
+      object-fit: contain;
     }
     .reveal .slides section .host-avatar {
       width: 6.5rem;
@@ -98,30 +111,44 @@
       gap: 1rem;
       width: 100%;
     }
-    @media (min-width: 900px) {
+    @media (min-width: 900px) and (min-height: 700px) {
       .reveal .slides section {
-        padding: 1.25rem 3rem;
-        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
       }
-      .reveal h2 { font-size: 1rem !important; }
-      .reveal h3 { font-size: 2.25rem !important; }
-      .reveal p, .reveal li { font-size: 1.2rem !important; }
-      .reveal .card-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+      .reveal h2 { font-size: 0.95rem !important; }
+      .reveal h3 { font-size: 1.65rem !important; }
+      .reveal p, .reveal li { font-size: 1.05rem !important; }
+      .reveal .card-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
       .reveal .slides section .host-avatar {
-        width: 8rem;
-        height: 8rem;
+        width: 5.5rem;
+        height: 5.5rem;
       }
       .reveal .slides section .qr-code {
-        width: 12rem;
-        height: 12rem;
-        min-width: 160px;
-        min-height: 160px;
+        width: 9rem;
+        height: 9rem;
+        min-width: 120px;
+        min-height: 120px;
       }
       .reveal .slides section .qr-code-host {
-        width: 6.5rem;
-        height: 6.5rem;
-        min-width: 104px;
-        min-height: 104px;
+        width: 4.5rem;
+        height: 4.5rem;
+        min-width: 72px;
+        min-height: 72px;
+      }
+    }
+    @media (max-height: 780px) {
+      .reveal h3 { font-size: 1.35rem !important; margin-bottom: 0.5rem !important; }
+      .reveal p, .reveal li { font-size: 0.9rem !important; }
+      .reveal .card-grid { grid-template-columns: 1fr !important; gap: 0.75rem; }
+      .reveal .slides section .title-hero {
+        max-height: min(32vh, 220px);
+      }
+      .reveal .slides section .qr-code {
+        width: 7rem;
+        height: 7rem;
+        min-width: 96px;
+        min-height: 96px;
       }
     }
     @media (max-width: 768px) {
@@ -209,7 +236,7 @@
           <h2 class="text-brand font-semibold uppercase tracking-widest">Hosts</h2>
           <h3 class="font-bold">Eure Ansprechpartner heute</h3>
           <div class="card-grid">
-            <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-4 items-center">
+            <div class="host-card rounded-xl bg-surface-light border border-slate-700 flex gap-4 items-center">
               <img src="assets/alexander-ertner.jpg" alt="Alexander Ertner" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
               <div class="flex-1 min-w-0">
                 <p class="text-slate-100 font-semibold text-xl">Alexander Ertner</p>
@@ -228,7 +255,7 @@
                 <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
               </a>
             </div>
-            <div class="rounded-xl bg-surface-light p-5 border border-slate-700 flex gap-4 items-center">
+            <div class="host-card rounded-xl bg-surface-light border border-slate-700 flex gap-4 items-center">
               <img src="assets/martin-mueller.jpg" alt="Martin Müller" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
               <div class="flex-1 min-w-0">
                 <p class="text-slate-100 font-semibold text-xl">Martin Müller</p>
@@ -379,19 +406,21 @@
       return {
         hash: true,
         slideNumber: 'c/t',
-        width: mobile ? 390 : 1920,
-        height: mobile ? 700 : 1080,
-        margin: mobile ? 0.02 : 0.04,
-        minScale: 0.2,
-        maxScale: mobile ? 1.2 : 2.5,
-        center: true,
+        width: mobile ? 390 : 1280,
+        height: mobile ? 700 : 720,
+        margin: mobile ? 0.02 : 0.06,
+        minScale: 0.15,
+        maxScale: mobile ? 1.15 : 1,
+        center: !mobile,
         transition: 'none',
         touch: true,
         plugins: [ RevealNotes ]
       };
     }
 
-    Reveal.initialize(revealConfig());
+    Reveal.initialize(revealConfig()).then(() => {
+      Reveal.layout();
+    });
 
     let resizeTimer;
     window.addEventListener('resize', () => {
@@ -399,8 +428,12 @@
       resizeTimer = setTimeout(() => {
         const mobile = window.innerWidth < 768;
         const wasMobile = Reveal.getConfig().width < 500;
-        if (mobile !== wasMobile) location.reload();
-      }, 250);
+        if (mobile !== wasMobile) {
+          location.reload();
+          return;
+        }
+        Reveal.layout();
+      }, 200);
     });
   </script>
 </body>
