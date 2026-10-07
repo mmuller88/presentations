@@ -8,6 +8,7 @@
 ## URLs
 
 - **Live (nach Push):** https://mmuller88.github.io/presentations/ai-builder-meetup-3-chatgpt-ads/
+- **OpenAI Ads:** https://ads.openai.com/
 - **Luma:** https://meetu.ps/e/QdTgs/zGg6L/i
 
 ## Local preview
