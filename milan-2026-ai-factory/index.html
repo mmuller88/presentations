@@ -168,6 +168,32 @@
       width: 100%;
       max-width: 100%;
     }
+    .sld-logo-plate {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+      max-width: min(96vw, 720px);
+    }
+    .sld-logo-plate-hero {
+      padding: 0.65rem 1.35rem;
+      border-radius: 1rem;
+    }
+    .sld-logo-plate .title-logo,
+    .sld-logo-plate .event-logo {
+      margin: 0;
+      filter: none;
+    }
+    .slide-footer img {
+      background: #ffffff;
+      border-radius: 0.45rem;
+      padding: 0.2rem 0.45rem;
+      box-sizing: content-box;
+      filter: none;
+    }
     .reveal .slides section .title-logo,
     .reveal .slides section .event-logo {
       height: 4rem;
@@ -556,19 +582,19 @@
       margin-bottom: clamp(0.5rem, 1.2vh, 1rem) !important;
     }
     html.desktop-deck .reveal h3 {
-      font-size: clamp(1.75rem, 2.2vw + 0.75rem, 2.75rem) !important;
+      font-size: clamp(2rem, 2.6vw + 0.85rem, 3.5rem) !important;
       margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem) !important;
     }
     html.desktop-deck .reveal .slides section h1 {
-      font-size: clamp(2rem, 2.8vw + 0.5rem, 3.25rem) !important;
+      font-size: clamp(2.25rem, 3.2vw + 0.5rem, 3.75rem) !important;
     }
     html.desktop-deck .reveal p,
     html.desktop-deck .reveal li {
-      font-size: clamp(1rem, 0.85vw + 0.55rem, 1.35rem) !important;
-      line-height: 1.5 !important;
+      font-size: clamp(1.1rem, 1vw + 0.6rem, 1.6rem) !important;
+      line-height: 1.52 !important;
     }
     html.desktop-deck .reveal .slides section .slide-inner {
-      width: min(100%, 1400px);
+      width: min(100%, 1680px);
       margin-inline: auto;
     }
     html.desktop-deck .reveal .slides section.center-slide .slide-inner {
@@ -579,8 +605,31 @@
       margin-inline: auto;
     }
     html.desktop-deck .reveal .slides section .content-prose-wide {
-      width: min(100%, 1280px);
+      width: min(100%, 92vw, 1520px);
       margin-inline: auto;
+    }
+    html.desktop-deck .reveal .slides section#openclaw .openclaw-header {
+      margin-bottom: clamp(1rem, 2.5vh, 2rem);
+    }
+    html.desktop-deck .reveal .slides section#openclaw .openclaw-logo {
+      width: clamp(4.5rem, 9vw, 6.5rem);
+      height: clamp(4.5rem, 9vw, 6.5rem);
+    }
+    html.desktop-deck .reveal .slides section#openclaw ul {
+      font-size: clamp(1.2rem, 1.05vw + 0.7rem, 1.65rem) !important;
+    }
+    html.desktop-deck .reveal .slides section#openclaw .openclaw-alternatives {
+      font-size: clamp(1.05rem, 0.95vw + 0.65rem, 1.5rem) !important;
+      color: var(--sld-text) !important;
+      line-height: 1.55;
+      margin-top: clamp(1rem, 2.5vh, 2rem);
+    }
+    html.desktop-deck .sld-logo-plate-hero {
+      padding: clamp(0.75rem, 1.5vh, 1.1rem) clamp(1.25rem, 3vw, 2rem);
+    }
+    html.desktop-deck .sld-logo-plate-hero .title-logo {
+      height: clamp(4.5rem, 10vh, 7rem);
+      max-width: min(88vw, 680px);
     }
     html.desktop-deck .reveal .slides section .card-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1056,7 +1105,9 @@
 
       <section id="title" class="center-slide">
         <div class="slide-inner flex flex-col items-center gap-5">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="title-logo event-logo">
+          <div class="sld-logo-plate sld-logo-plate-hero">
+            <img src="assets/serverlessdays-logo.png?v=2" alt="ServerlessDays Milano — /serverless/DAYS" class="title-logo event-logo">
+          </div>
           <p class="text-brand text-sm font-medium tracking-wide">🌟 ServerlessDays Milano · Italy&apos;s serverless community conference</p>
           <h1 class="font-bold leading-tight text-white text-center">
             The AI Factory<br>That Never Sleeps
@@ -1304,27 +1355,30 @@
       </section>
 
       <section id="openclaw" class="slide-top">
-        <div class="openclaw-header">
-          <img src="assets/openclaw-logo.svg?v=1" alt="OpenClaw" class="openclaw-logo" loading="lazy">
-          <div>
-            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">Agent runtime</h2>
-            <h3 class="text-3xl font-bold mb-0">What is OpenClaw?</h3>
+        <div class="slide-body">
+          <div class="openclaw-header">
+            <img src="assets/openclaw-logo.svg?v=1" alt="OpenClaw" class="openclaw-logo" loading="lazy">
+            <div>
+              <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">Agent runtime</h2>
+              <h3 class="text-3xl font-bold mb-0">What is OpenClaw?</h3>
+            </div>
           </div>
+          <ul class="content-prose-wide space-y-4 text-left text-slate-300">
+            <li><span class="text-brand font-semibold">Open-source gateway</span> — self-hosted on your VPS (Docker), always on</li>
+            <li><span class="text-brand font-semibold">Messengers in</span> — Telegram, Slack · <span class="text-brand font-semibold">tools out</span> — shell, GitHub, AWS SSO, email</li>
+            <li>Persistent memory, cron heartbeats, skills — an agent harness, not just a chat UI</li>
+            <li>Routes to Cursor CLI / LLMs · plans, codes, opens PRs — with human gates</li>
+          </ul>
+          <p class="openclaw-alternatives content-prose-wide">
+            <span class="text-brand font-semibold">&ldquo;Why not Hermes?&rdquo;</span>
+            — Fair question. <span class="text-white font-semibold">Hermes is an excellent choice too.</span>
+            These tools inspire each other; feature parity shows up fast in this space.
+            I run <span class="text-brand font-semibold">OpenClaw</span> for my harness (VPS + Telegram + skills), not because the others are wrong.
+            <span class="text-slate-300">Also in the lane: <span class="text-brand font-semibold">LangDock</span> (EU-hosted · less DIY).</span>
+          </p>
         </div>
-        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-          <li><span class="text-brand font-semibold">Open-source gateway</span> — self-hosted on your VPS (Docker), always on</li>
-          <li><span class="text-brand font-semibold">Messengers in</span> — Telegram, Slack · <span class="text-brand font-semibold">tools out</span> — shell, GitHub, AWS SSO, email</li>
-          <li>Persistent memory, cron heartbeats, skills — an agent harness, not just a chat UI</li>
-          <li>Routes to Cursor CLI / LLMs · plans, codes, opens PRs — with human gates</li>
-        </ul>
-        <p class="openclaw-alternatives content-prose-wide">
-          <span class="text-slate-400">Alternatives:</span>
-          <span class="text-slate-300"><span class="text-brand font-semibold">Hermes</span> (Nous Research · self-hosted personal assistant)</span>
-          ·
-          <span class="text-slate-300"><span class="text-brand font-semibold">LangDock</span> (hosted EU platform · DSGVO-oriented · less DIY)</span>
-        </p>
         <aside class="notes">
-          30s context for anyone who hasn't heard of OpenClaw. Same category as Hermes/LangDock — different trade-offs: control vs convenience.
+          30s context. When someone asks Hermes: yes, great pick — ecosystems copy good ideas quickly. I use OpenClaw for my stack; LangDock if you want hosted EU.
         </aside>
       
         <div class="slide-footer">
@@ -1570,7 +1624,9 @@
 
       <section id="qa" class="center-slide">
         <div class="slide-inner flex flex-col items-center gap-4 text-center">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="title-logo event-logo">
+          <div class="sld-logo-plate sld-logo-plate-hero">
+            <img src="assets/serverlessdays-logo.png?v=2" alt="ServerlessDays Milano — /serverless/DAYS" class="title-logo event-logo">
+          </div>
           <h2 class="text-4xl font-semibold">Questions?</h2>
           <div class="mt-2 space-y-2 text-slate-300">
             <p class="text-xl font-medium text-slate-200">Martin Mueller</p>
