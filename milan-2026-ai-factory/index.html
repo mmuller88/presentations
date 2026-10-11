@@ -279,6 +279,27 @@
       height: 2.5rem;
       padding: 0.3rem 0.55rem;
     }
+    .reveal .slides section .client-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      line-height: 0;
+    }
+    .reveal .slides section .client-logo-link:focus-visible {
+      outline: 2px solid #f9a8d4;
+      outline-offset: 2px;
+    }
+    .reveal .slides section .client-logo-wordmark {
+      height: 1.85rem;
+      width: auto;
+      max-width: min(42vw, 160px);
+      object-fit: contain;
+      background: #fff;
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.6rem;
+    }
     .reveal .slides section .client-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1115,6 +1136,11 @@
     html.mobile-deck .reveal .slides section .client-grid .text-lg { font-size: 0.82rem !important; }
     html.mobile-deck .reveal .slides section .client-grid .text-sm { font-size: 0.72rem !important; line-height: 1.25 !important; }
     html.mobile-deck .reveal .slides section .client-logo { height: 1.5rem; padding: 0.2rem 0.4rem; }
+    html.mobile-deck .reveal .slides section .client-logo-wordmark {
+      height: 1.45rem;
+      max-width: min(52vw, 140px);
+      padding: 0.25rem 0.45rem;
+    }
     html.mobile-deck .reveal .slides section[id^="speaker"] h3 { font-size: 1.1rem !important; margin-bottom: 0.35rem !important; }
     html.mobile-deck .reveal .slides section[id^="speaker"] h2 { margin-bottom: 0.25rem !important; }
     html.mobile-deck .reveal .slides section.center-slide .slide-scroll {
@@ -1222,12 +1248,14 @@
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <div class="client-logo-duo">
                 <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
-                <img src="assets/prowler-logo.png?v=1" alt="Prowler" class="client-logo client-logo-partner" loading="lazy">
+                <a href="https://prowler.com/" class="client-logo-link" target="_blank" rel="noopener noreferrer" aria-label="Prowler — prowler.com">
+                  <img src="assets/prowler-wordmark.png?v=1" alt="Prowler" class="client-logo-wordmark" loading="lazy" width="440" height="99">
+                </a>
               </div>
               <div>
                 <p class="text-brand text-xs uppercase tracking-wide mb-1">Current · Cyquins</p>
                 <p class="text-lg font-semibold text-slate-100">HDI Versicherung</p>
-                <p class="text-sm text-slate-300 mt-1">Cyber insurance assessments · multi-cloud scans (AWS, Azure, GCP, Microsoft 365) · <span class="text-brand font-medium">Prowler Cloud</span> as scan backend</p>
+                <p class="text-sm text-slate-300 mt-1">Cyber insurance assessments · multi-cloud scans (AWS, Azure, GCP, Microsoft 365) · <a href="https://prowler.com/" class="text-brand font-medium underline" target="_blank" rel="noopener noreferrer">Prowler Cloud</a> as scan backend</p>
               </div>
             </div>
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
