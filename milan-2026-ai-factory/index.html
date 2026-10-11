@@ -980,11 +980,11 @@
       touch-action: pan-y;
       overscroll-behavior: contain;
       padding: 0.65rem 0.85rem 0.75rem;
-      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
     }
     html.mobile-deck .reveal .slides section:not(:has(.slide-scroll)) {
       touch-action: pan-y;
-      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
     }
     html.mobile-deck .reveal .slides > section > section {
       position: absolute !important;
@@ -1036,6 +1036,23 @@
     }
     html.desktop-deck .mobile-slide-nav {
       display: none !important;
+    }
+    @media (max-width: 1023px) {
+      html.desktop-deck .mobile-slide-nav.is-ready {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2147483000;
+        padding: 0.55rem 0.85rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+        background: linear-gradient(to right, #581c87, #1e3a8a);
+        border-top: 1px solid var(--sld-border);
+        pointer-events: auto;
+      }
     }
     html.mobile-deck .reveal h3 { font-size: 1.2rem !important; }
     html.mobile-deck .reveal .slides section h1 { font-size: 1.3rem !important; }
@@ -1675,7 +1692,7 @@
   <nav class="mobile-slide-nav" aria-label="Slide navigation" aria-hidden="true">
     <button type="button" id="mobile-prev" aria-label="Previous slide">←</button>
     <span class="mobile-slide-count" id="mobile-slide-count" aria-live="polite"></span>
-    <button type="button" id="mobile-next" aria-label="Next slide">→</button>
+    <button type="button" id="mobile-next" aria-label="Next slide">Next →</button>
   </nav>
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
@@ -1736,22 +1753,80 @@
         navigationMode: 'linear',
         autoAnimate: false,
         autoAnimateMatcher: null,
-        touch: !mobile,
+        touch: false,
+        keyboard: true,
         plugins
       };
     }
 
+    function shouldShowMobileNav() {
+      return detectMobileDeck() || window.innerWidth < 1024;
+    }
+
+    function getTopLevelSlides() {
+      return [...document.querySelectorAll('.reveal .slides > section')];
+    }
+
+    function getPresentSlideIndex(slides) {
+      const list = slides || getTopLevelSlides();
+      let index = list.findIndex((slide) => slide.classList.contains('present'));
+      if (index >= 0) return index;
+      if (typeof Reveal.getIndices === 'function') {
+        const { h } = Reveal.getIndices();
+        if (typeof h === 'number' && h >= 0 && h < list.length) return h;
+      }
+      return 0;
+    }
+
     function clearMobileSlideInlineVisibility() {
-      if (!document.documentElement.classList.contains('mobile-deck')) return;
       document.querySelectorAll('.reveal .slides section').forEach((section) => {
         section.style.removeProperty('visibility');
         section.style.removeProperty('pointer-events');
         section.style.removeProperty('opacity');
+        section.style.removeProperty('display');
       });
     }
 
+    let mobileNavLock = false;
+
+    function applyMobilePresentState(index, slides) {
+      const list = slides || getTopLevelSlides();
+      list.forEach((slide, i) => {
+        slide.classList.toggle('present', i === index);
+        slide.classList.toggle('past', i < index);
+        slide.classList.toggle('future', i > index);
+      });
+      clearMobileSlideInlineVisibility();
+    }
+
+    function mobileGoTo(index, { skipHash = false } = {}) {
+      const slides = getTopLevelSlides();
+      if (index < 0 || index >= slides.length || mobileNavLock) return;
+      mobileNavLock = true;
+      try {
+        if (typeof Reveal.slide === 'function') {
+          Reveal.slide(index, 0);
+        }
+        applyMobilePresentState(index, slides);
+        if (!skipHash) {
+          const id = slides[index]?.id;
+          if (id) {
+            const target = `#/${id}`;
+            if (location.hash !== target) {
+              history.replaceState(null, '', target);
+            }
+          }
+        }
+      } finally {
+        mobileNavLock = false;
+      }
+      if (typeof window.__milanUpdateMobileNav === 'function') {
+        window.__milanUpdateMobileNav();
+      }
+    }
+
     function setupMobileNavigation() {
-      if (!document.documentElement.classList.contains('mobile-deck')) return;
+      if (!shouldShowMobileNav()) return;
       const nav = document.querySelector('.mobile-slide-nav');
       const prevBtn = document.getElementById('mobile-prev');
       const nextBtn = document.getElementById('mobile-next');
@@ -1760,30 +1835,39 @@
       nav.classList.add('is-ready');
       nav.setAttribute('aria-hidden', 'false');
 
-      const goPrev = () => { Reveal.prev(); };
-      const goNext = () => { Reveal.next(); };
-
-      const updateNav = () => {
-        clearMobileSlideInlineVisibility();
-        const routes = Reveal.availableRoutes() || {};
-        const total = Reveal.getTotalSlides();
-        const current = Reveal.getSlidePastCount() + 1;
-        countEl.textContent = `${current} / ${total}`;
-        const canPrev = routes.left || routes.up;
-        const canNext = routes.right || routes.down;
-        prevBtn.classList.toggle('is-disabled', !canPrev);
-        nextBtn.classList.toggle('is-disabled', !canNext);
+      const goPrev = () => {
+        const slides = getTopLevelSlides();
+        const index = getPresentSlideIndex(slides);
+        if (index > 0) mobileGoTo(index - 1);
+      };
+      const goNext = () => {
+        const slides = getTopLevelSlides();
+        const index = getPresentSlideIndex(slides);
+        if (index < slides.length - 1) mobileGoTo(index + 1);
       };
 
+      const updateNav = () => {
+        const slides = getTopLevelSlides();
+        const index = getPresentSlideIndex(slides);
+        applyMobilePresentState(index, slides);
+        countEl.textContent = `${index + 1} / ${slides.length}`;
+        prevBtn.classList.toggle('is-disabled', index <= 0);
+        nextBtn.classList.toggle('is-disabled', index >= slides.length - 1);
+      };
+      window.__milanUpdateMobileNav = updateNav;
+
       const bindTap = (button, action) => {
+        let lastTap = 0;
         const handler = (event) => {
           event.preventDefault();
           event.stopPropagation();
           if (button.classList.contains('is-disabled')) return;
+          const now = Date.now();
+          if (now - lastTap < 450) return;
+          lastTap = now;
           action();
         };
-        button.addEventListener('click', handler);
-        button.addEventListener('touchend', handler, { passive: false });
+        button.addEventListener('pointerup', handler, { passive: false });
       };
 
       bindTap(prevBtn, goPrev);
@@ -1816,7 +1900,13 @@
       const raw = (location.hash || '').replace(/^#\/?/, '');
       if (!raw) return;
       const id = raw.split('/')[0];
+      const slides = getTopLevelSlides();
       const el = document.getElementById(id);
+      const index = el ? slides.indexOf(el) : -1;
+      if (index >= 0) {
+        mobileGoTo(index, { skipHash: true });
+        return;
+      }
       if (!el || typeof Reveal.getIndices !== 'function') return;
       const indices = Reveal.getIndices(el);
       if (indices) Reveal.slide(indices.h, indices.v);
@@ -1897,9 +1987,15 @@
         clearMobileSlideInlineVisibility();
         setupMobileNavigation();
         slideToHashId();
+        if (shouldShowMobileNav() && typeof window.__milanUpdateMobileNav === 'function') {
+          window.__milanUpdateMobileNav();
+        }
         Reveal.on('slidechanged', () => {
           showAllFragments();
           clearMobileSlideInlineVisibility();
+          if (typeof window.__milanUpdateMobileNav === 'function') {
+            window.__milanUpdateMobileNav();
+          }
         });
         Reveal.on('ready', showAllFragments);
         window.addEventListener('hashchange', slideToHashId);
