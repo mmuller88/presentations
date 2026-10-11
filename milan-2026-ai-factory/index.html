@@ -283,22 +283,33 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.35rem;
       text-decoration: none;
       border-radius: 0.5rem;
       line-height: 0;
+    }
+    .reveal .slides section .client-logo-link-prowler {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.3rem 0.55rem;
     }
     .reveal .slides section .client-logo-link:focus-visible {
       outline: 2px solid #f9a8d4;
       outline-offset: 2px;
     }
-    .reveal .slides section .client-logo-wordmark {
-      height: 1.85rem;
-      width: auto;
-      max-width: min(42vw, 160px);
+    .reveal .slides section .client-logo-icon {
+      height: 1.65rem;
+      width: 1.65rem;
       object-fit: contain;
-      background: #fff;
-      border-radius: 0.5rem;
-      padding: 0.35rem 0.6rem;
+      flex-shrink: 0;
+    }
+    .reveal .slides section .client-logo-wordmark {
+      height: 1.55rem;
+      width: auto;
+      max-width: min(38vw, 130px);
+      object-fit: contain;
+      background: transparent;
+      padding: 0;
     }
     .reveal .slides section .client-grid {
       display: grid;
@@ -1136,10 +1147,16 @@
     html.mobile-deck .reveal .slides section .client-grid .text-lg { font-size: 0.82rem !important; }
     html.mobile-deck .reveal .slides section .client-grid .text-sm { font-size: 0.72rem !important; line-height: 1.25 !important; }
     html.mobile-deck .reveal .slides section .client-logo { height: 1.5rem; padding: 0.2rem 0.4rem; }
+    html.mobile-deck .reveal .slides section .client-logo-icon {
+      height: 1.35rem;
+      width: 1.35rem;
+    }
     html.mobile-deck .reveal .slides section .client-logo-wordmark {
-      height: 1.45rem;
-      max-width: min(52vw, 140px);
-      padding: 0.25rem 0.45rem;
+      height: 1.2rem;
+      max-width: min(40vw, 110px);
+    }
+    html.mobile-deck .reveal .slides section .client-logo-link-prowler {
+      padding: 0.22rem 0.4rem;
     }
     html.mobile-deck .reveal .slides section[id^="speaker"] h3 { font-size: 1.1rem !important; margin-bottom: 0.35rem !important; }
     html.mobile-deck .reveal .slides section[id^="speaker"] h2 { margin-bottom: 0.25rem !important; }
@@ -1248,8 +1265,9 @@
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <div class="client-logo-duo">
                 <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
-                <a href="https://prowler.com/" class="client-logo-link" target="_blank" rel="noopener noreferrer" aria-label="Prowler — prowler.com">
-                  <img src="assets/prowler-wordmark.png?v=1" alt="Prowler" class="client-logo-wordmark" loading="lazy" width="440" height="99">
+                <a href="https://prowler.com/" class="client-logo-link client-logo-link-prowler" target="_blank" rel="noopener noreferrer" aria-label="Prowler — prowler.com">
+                  <img src="assets/prowler-icon.png?v=2" alt="" class="client-logo-icon" loading="eager" width="300" height="300" aria-hidden="true">
+                  <img src="assets/prowler-wordmark.png?v=2" alt="Prowler" class="client-logo-wordmark" loading="eager" width="440" height="99">
                 </a>
               </div>
               <div>
