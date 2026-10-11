@@ -267,6 +267,18 @@
       border-radius: 0.5rem;
       padding: 0.35rem 0.75rem;
     }
+    .reveal .slides section .client-logo-duo {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 0.65rem;
+      width: 100%;
+    }
+    .reveal .slides section .client-logo-duo .client-logo-partner {
+      height: 2.5rem;
+      padding: 0.3rem 0.55rem;
+    }
     .reveal .slides section .client-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1177,7 +1189,7 @@
         <div class="slide-scroll">
           <div class="slide-inner">
             <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-2">Context</h2>
-            <h3 class="text-3xl font-bold mb-3">Clients + AWS deployments I manage</h3>
+            <h3 class="text-3xl font-bold mb-3">Clients + cloud work I manage</h3>
             <div class="client-grid mt-0">
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
               <img src="assets/air-canada-logo.svg?v=1" alt="Air Canada" class="client-logo" loading="lazy">
@@ -1188,11 +1200,14 @@
               </div>
             </div>
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
-              <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
+              <div class="client-logo-duo">
+                <img src="assets/hdi-logo.svg?v=1" alt="HDI Versicherung" class="client-logo" loading="lazy">
+                <img src="assets/prowler-logo.png?v=1" alt="Prowler" class="client-logo client-logo-partner" loading="lazy">
+              </div>
               <div>
-                <p class="text-brand text-xs uppercase tracking-wide mb-1">Current</p>
+                <p class="text-brand text-xs uppercase tracking-wide mb-1">Current · Cyquins</p>
                 <p class="text-lg font-semibold text-slate-100">HDI Versicherung</p>
-                <p class="text-sm text-slate-300 mt-1">Cyquins cyber insurance · automated cloud risk scoring on AWS</p>
+                <p class="text-sm text-slate-300 mt-1">Cyber insurance assessments · multi-cloud scans (AWS, Azure, GCP, Microsoft 365) · <span class="text-brand font-medium">Prowler Cloud</span> as scan backend</p>
               </div>
             </div>
             <div class="rounded-xl bg-surface-light p-4 border border-slate-700 flex flex-col items-center text-center gap-2">
@@ -1240,7 +1255,7 @@
             <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
           </div>
         </div>
-        <aside class="notes">Clients for credibility. Own AWS projects = where the agent actually works. Last card: Calendly QR — light CTA for freelance leads.</aside>
+        <aside class="notes">HDI/Cyquins: Prowler API backend, four clouds. Own AWS projects = where the agent actually works. Last card: Calendly QR.</aside>
       </section>
 
       <section id="chatgpt-ads" class="slide-top">
