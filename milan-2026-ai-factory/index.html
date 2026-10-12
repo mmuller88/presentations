@@ -410,9 +410,6 @@
       gap: clamp(0.75rem, 2vh, 1.25rem);
       width: 100%;
     }
-    .reveal .slides section .chatgpt-ads-ad-big {
-      width: 100%;
-    }
     .reveal .slides section .chatgpt-ads-bottom {
       display: flex;
       flex-direction: column;
@@ -425,19 +422,17 @@
       border: 2px solid var(--sld-border);
       background: #0d1117;
     }
-    .reveal .slides section .chatgpt-ads-ad-big-img {
+    .reveal .slides section .chatgpt-ads-video {
       display: block;
       width: 100%;
-      max-height: min(18vh, 160px);
-      object-fit: contain;
-      margin-inline: auto;
+      max-height: min(28vh, 220px);
+      background: #000;
+      vertical-align: middle;
     }
-    .reveal .slides section .chatgpt-ads-screenshot-img {
-      display: block;
-      width: 100%;
-      max-height: min(22vh, 180px);
-      object-fit: contain;
-      object-position: center top;
+    .reveal .slides section .chatgpt-ads-figure-caption a {
+      color: #e9d5ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
     .reveal .slides section .chatgpt-ads-figure-caption {
       padding: 0.4rem 0.75rem;
@@ -894,21 +889,17 @@
       justify-content: space-evenly;
       gap: clamp(1rem, 2vh, 1.75rem);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-ad-big-img {
-      max-height: min(26vh, 240px);
-      margin-inline: auto;
-    }
     html.desktop-deck .reveal .slides section .chatgpt-ads-bottom {
       flex: 1 1 auto;
       flex-direction: row;
       align-items: stretch;
       gap: clamp(1.25rem, 2.5vw, 2.5rem);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-screenshot {
-      flex: 0 0 min(42%, 480px);
+    html.desktop-deck .reveal .slides section .chatgpt-ads-video-wrap {
+      flex: 0 0 min(52%, 640px);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-screenshot-img {
-      max-height: min(36vh, 340px);
+    html.desktop-deck .reveal .slides section .chatgpt-ads-video {
+      max-height: min(44vh, 400px);
     }
     html.desktop-deck .reveal .slides section .chatgpt-ads-copy {
       flex: 1 1 auto;
@@ -1347,41 +1338,38 @@
         <div class="slide-scroll">
           <div class="slide-inner">
             <div class="openclaw-header">
-              <img src="assets/chatgpt-logo.svg?v=2" alt="ChatGPT" class="openclaw-logo" loading="lazy">
               <div>
                 <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">Right now</h2>
-                <h3 class="text-3xl font-bold mb-0">What excites me: ChatGPT Ads</h3>
+                <h3 class="text-3xl font-bold mb-0">What excites me: AI video from React → MP4</h3>
               </div>
             </div>
             <div class="chatgpt-ads-layout content-prose-wide">
-              <figure class="chatgpt-ads-figure chatgpt-ads-ad-big">
-                <img
-                  src="assets/chatgpt-ads-martinmueller-big.png?v=1"
-                  alt="Sponsored martinmueller.dev ad card — AWS ohne Overhead"
-                  class="chatgpt-ads-ad-big-img"
-                  loading="lazy"
-                >
-                <figcaption class="chatgpt-ads-figure-caption">The ad · martinmueller.dev</figcaption>
-              </figure>
               <div class="chatgpt-ads-bottom">
-                <figure class="chatgpt-ads-figure chatgpt-ads-screenshot">
-                  <img
-                    src="assets/chatgpt-ads-martinmueller.png?v=1"
-                    alt="ChatGPT conversation showing the sponsored placement in context"
-                    class="chatgpt-ads-screenshot-img"
-                    loading="lazy"
+                <figure class="chatgpt-ads-figure chatgpt-ads-video-wrap" data-testid="aws-promo-video">
+                  <video
+                    class="chatgpt-ads-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    poster="assets/aws-promo.jpg?v=1"
+                    width="1280"
+                    height="720"
                   >
-                  <figcaption class="chatgpt-ads-figure-caption">In context · live ChatGPT placement</figcaption>
+                    <source src="assets/aws-promo.mp4?v=1" type="video/mp4">
+                  </video>
+                  <figcaption class="chatgpt-ads-figure-caption">
+                    AWS consulting promo · <a href="https://martinmueller.dev/one-man-agency/aws/" target="_blank" rel="noopener noreferrer">martinmueller.dev/one-man-agency/aws/</a>
+                  </figcaption>
                 </figure>
                 <div class="chatgpt-ads-copy">
                 <ul class="space-y-4 text-left text-xl text-slate-300">
-                  <li><span class="text-brand font-semibold">Distribution at intent</span> — sponsored placements below answers, matched to conversation context (not a search results page)</li>
-                  <li><span class="text-brand font-semibold">Platform maturing fast</span> — Ads Manager in Europe · CPC + conversion measurement · still early formats</li>
-                  <li><span class="text-brand font-semibold">Builder angle</span> — product feeds, landing pages, attribution — same craft as growth + infra work</li>
-                  <li>Watching it like early Google/Facebook ads: messy now, obvious in hindsight</li>
+                  <li><span class="text-brand font-semibold">React → MP4</span> — Remotion scenes in the site repo; programmatic cuts, typography, and music — not a screen recording</li>
+                  <li><span class="text-brand font-semibold">Real systems on screen</span> — HalloCasa, HDI Cyquins, ai-secure.dev, qr-plakat.de (production work, not stock)</li>
+                  <li><span class="text-brand font-semibold">Same craft as infra</span> — versioned compositions, re-render on deploy, iterate with Cursor like any other code</li>
+                  <li>Feels like the missing layer between “landing page” and “conference talk” — short, sharable proof</li>
                 </ul>
                 <p class="openclaw-alternatives">
-                  Personal interest, not a pitch — happy to swap notes after the talk if you're experimenting too.
+                  Personal rabbit hole — happy to swap Remotion / render pipelines after the talk.
                 </p>
                 </div>
               </div>
@@ -1393,10 +1381,9 @@
           </div>
         </div>
         <aside class="notes">
-          Pivot from AWS agent talk to what I'm personally excited about right now.
-          Show the real ChatGPT ad screenshot — martinmueller.dev placement.
-          ChatGPT Ads = conversation-context distribution, Europe rollout Aug 2026.
-          No sales CTA — curiosity + builder lens. Keep it ~60 seconds.
+          Pivot: what excites me now — AI-made promo video (Remotion React → MP4).
+          Play aws-promo clip (30s) — same as AWS consulting landing.
+          HalloCasa / HDI / ai-secure / qr-plakat scenes = real work. ~60s, not a sales pitch.
         </aside>
       </section>
 
@@ -1404,7 +1391,7 @@
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~40 minutes</h3>
         <ol class="content-prose space-y-3 text-left text-xl text-slate-300 list-decimal list-inside">
-          <li>Speaker intro · clients · what excites me (ChatGPT Ads)</li>
+          <li>Speaker intro · clients · what excites me (AI video · React → MP4)</li>
           <li>What I actually run — VPS + Telegram + serverless AWS targets</li>
           <li>Human in the loop — not full autonomy</li>
           <li>Why serverless for agent workloads — bursty, scale to zero</li>
