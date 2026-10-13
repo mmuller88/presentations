@@ -480,19 +480,23 @@
       border-radius: 0.75rem;
       overflow: hidden;
       border: 2px solid var(--sld-border);
-      background: #f0f2f5;
+      background: transparent;
       display: flex;
       flex-direction: column;
+    }
+    .reveal .slides section .telegram-shot-media {
+      display: flex;
       align-items: center;
+      justify-content: center;
+      background: #0d1117;
+      min-height: min(28vh, 220px);
+      padding: 0.35rem;
     }
     .reveal .slides section .telegram-shot-img {
       display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: min(22vh, 200px);
-      object-fit: scale-down;
-      vertical-align: top;
+      width: 100%;
+      max-height: min(28vh, 220px);
+      object-fit: contain;
     }
     .reveal .slides section .telegram-shot-caption {
       padding: 0.35rem 0.65rem 0.5rem;
@@ -984,12 +988,17 @@
       gap: clamp(0.5rem, 1vw, 0.85rem);
       min-width: 0;
     }
-    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-img {
-      max-height: min(40vh, 340px);
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-media {
+      min-height: min(46vh, 400px);
+      flex: 1 1 auto;
     }
-    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-caption {
-      width: 100%;
-      background: rgba(15, 23, 42, 0.92);
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-img {
+      max-height: min(46vh, 400px);
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-figure {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy {
       flex: 1 1 42%;
@@ -1463,7 +1472,7 @@
           <li>Human in the loop — not full autonomy</li>
           <li>OpenClaw + Telegram Topics (work vs personal)</li>
           <li>VPS agent stack + managed AWS targets</li>
-          <li>Dev pipeline flow — issue → PR</li>
+          <li>Pipeline — issue → plan v2 → approve → PR + CI snapshots</li>
           <li>AWS ops from Telegram — SSO / device-code</li>
           <li>Economics — VPS + AWS + LLM spend</li>
           <li>Live demo — issue → agent → PR</li>
@@ -1548,21 +1557,25 @@
             <div class="telegram-setup-layout content-prose-wide">
               <div class="telegram-shots" data-testid="telegram-setup-shots">
                 <figure class="telegram-shot-figure">
-                  <img
-                    src="assets/telegram-neo-bot-work.jpg?v=2"
-                    alt="Telegram group Neo (bot work) with forum topics for HalloCasa, prowler, mmblog, meetups"
-                    class="telegram-shot-img"
-                    loading="lazy"
-                  >
+                  <div class="telegram-shot-media">
+                    <img
+                      src="assets/telegram-neo-bot-work.jpg?v=3"
+                      alt="Telegram group Neo (bot work) with forum topics for HalloCasa, prowler, mmblog, meetups"
+                      class="telegram-shot-img"
+                      loading="lazy"
+                    >
+                  </div>
                   <figcaption class="telegram-shot-caption"><span class="text-brand font-semibold">Neo (bot work)</span> — clients &amp; code · dozens of topics</figcaption>
                 </figure>
                 <figure class="telegram-shot-figure">
-                  <img
-                    src="assets/telegram-nick-bot-personal.jpg?v=2"
-                    alt="Telegram group Nick (bot personal) with topics Traveling, Energy, Car"
-                    class="telegram-shot-img"
-                    loading="lazy"
-                  >
+                  <div class="telegram-shot-media">
+                    <img
+                      src="assets/telegram-nick-bot-personal.jpg?v=3"
+                      alt="Telegram group Nick (bot personal) with topics Traveling, Energy, Car"
+                      class="telegram-shot-img"
+                      loading="lazy"
+                    >
+                  </div>
                   <figcaption class="telegram-shot-caption"><span class="text-brand font-semibold">Nick (bot personal)</span> — life admin · separate context</figcaption>
                 </figure>
               </div>
@@ -1602,42 +1615,27 @@
           <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
         </div></section>
 
-      <section id="hook" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Hook</h2>
-        <h3 class="text-3xl font-bold mb-8">What if your dev pipeline never slept?</h3>
-        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-          <li>Telegram ping at 2am — or GitHub issue lands overnight</li>
-          <li>Agent on VPS plans, codes, opens PR — you review over coffee</li>
-          <li>Needs AWS? HalloCasa pipeline · ai-secure scan · qr-plakat deploy — you SSO-approve on phone</li>
-        </ul>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
-
       <section id="overview" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
-        <h3 class="text-2xl font-bold mb-6">Pipeline flow</h3>
-        <div class="pipeline-flow text-base md:text-lg">
-          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">GitHub issue</span>
-          <span class="text-brand">→</span>
-          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Plan agent</span>
-          <span class="text-brand">→</span>
-          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Code agent</span>
-          <span class="text-brand">→</span>
-          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Test / review</span>
-          <span class="text-brand">→</span>
-          <span class="rounded-lg bg-surface-light px-3 py-2 border border-slate-600">Pull request</span>
-          <span class="text-brand">→</span>
-          <span class="rounded-lg bg-brand/20 px-3 py-2 border border-brand text-brand font-semibold">Human review &amp; merge</span>
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
+            <h3 class="text-2xl font-bold mb-6">Pipeline flow (HalloCasa-style)</h3>
+            <ol class="content-prose-wide space-y-3 text-left text-lg text-slate-300 list-decimal list-inside">
+              <li><span class="text-brand font-semibold">GitHub issue</span> — filed by me or any teammate</li>
+              <li><span class="text-brand font-semibold">Plan agent</span> — first implementation plan on the issue</li>
+              <li><span class="text-brand font-semibold">Feedback loop</span> — me or the team comments · <span class="text-white font-medium">Plan agent v2</span> revises</li>
+              <li><span class="text-brand font-semibold">Human plan approval</span> — explicit go before code runs</li>
+              <li><span class="text-brand font-semibold">Code agent</span> — opens the PR (implementation)</li>
+              <li><span class="text-brand font-semibold">PR evidence</span> — integration tests in CI, often snapshot diffs that show the change visually</li>
+              <li><span class="text-brand font-semibold">Human review &amp; merge</span> — diff + green checks, then merge</li>
+            </ol>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+          </div>
         </div>
-        <p class="mt-10 text-slate-400 text-lg">TODO: real git history screenshot</p>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
+      </section>
 
       <section id="architecture-components" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
@@ -1749,7 +1747,7 @@
             <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
             <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
             <ul class="content-prose-wide space-y-4 text-left text-lg text-slate-300">
-              <li><span class="text-brand font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
+              <li><span class="text-brand font-semibold">CI/CD owns deterministic work</span> — typecheck, lint, deploys, integration tests: <span class="text-white font-medium">not</span> in the agent loop (too slow, too costly). Agent opens PR · GitHub Actions proves it.</li>
               <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
               <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
               <li><span class="text-brand font-semibold">OAuth2 / SSO where you can</span> — AWS SSO device-code, Google/GitHub OAuth for APIs; fewer long-lived keys in <code class="text-slate-200">TOOLS.md</code> and env files.</li>
