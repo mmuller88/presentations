@@ -464,6 +464,41 @@
       max-height: min(28vh, 220px);
       object-fit: contain;
     }
+    .reveal .slides section .telegram-setup-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .reveal .slides section .telegram-shots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .reveal .slides section .telegram-shot-figure {
+      margin: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--sld-border);
+      background: #0d1117;
+    }
+    .reveal .slides section .telegram-shot-img {
+      display: block;
+      width: 100%;
+      max-height: min(22vh, 200px);
+      object-fit: contain;
+      object-position: top center;
+    }
+    .reveal .slides section .telegram-shot-caption {
+      padding: 0.35rem 0.65rem 0.5rem;
+      font-size: 0.72rem;
+      color: var(--sld-muted);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .reveal .slides section .telegram-setup-copy ul {
+      margin: 0;
+    }
     .reveal h1, .reveal h3, .reveal h4 {
       color: var(--sld-heading) !important;
       font-weight: 600;
@@ -930,6 +965,28 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      min-width: 0;
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-layout {
+      flex: 1 1 auto;
+      flex-direction: row;
+      align-items: stretch;
+      gap: clamp(1rem, 2vw, 1.75rem);
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shots {
+      flex: 1 1 58%;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.5rem, 1vw, 0.85rem);
+      min-width: 0;
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-img {
+      max-height: min(42vh, 380px);
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy {
+      flex: 1 1 42%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       min-width: 0;
     }
     html.desktop-deck .reveal .slides section#agenda .slide-body {
@@ -1473,6 +1530,52 @@
           <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
           <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
         </div></section>
+
+      <section id="openclaw-telegram" class="slide-top">
+        <div class="slide-scroll">
+          <div class="slide-inner">
+            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">In practice</h2>
+            <h3 class="text-3xl font-bold mb-4">How I use OpenClaw — Telegram Topics</h3>
+            <div class="telegram-setup-layout content-prose-wide">
+              <div class="telegram-shots" data-testid="telegram-setup-shots">
+                <figure class="telegram-shot-figure">
+                  <img
+                    src="assets/telegram-neo-bot-work.jpg?v=1"
+                    alt="Telegram group Neo (bot work) with forum topics for HalloCasa, prowler, mmblog, meetups"
+                    class="telegram-shot-img"
+                    loading="lazy"
+                  >
+                  <figcaption class="telegram-shot-caption"><span class="text-brand font-semibold">Neo (bot work)</span> — clients &amp; code · dozens of topics</figcaption>
+                </figure>
+                <figure class="telegram-shot-figure">
+                  <img
+                    src="assets/telegram-nick-bot-personal.jpg?v=1"
+                    alt="Telegram group Nick (bot personal) with topics Traveling, Energy, Car"
+                    class="telegram-shot-img"
+                    loading="lazy"
+                  >
+                  <figcaption class="telegram-shot-caption"><span class="text-brand font-semibold">Nick (bot personal)</span> — life admin · separate context</figcaption>
+                </figure>
+              </div>
+              <div class="telegram-setup-copy">
+                <ul class="space-y-3 text-left text-lg text-slate-300">
+                  <li><span class="text-brand font-semibold">Two groups</span> — work vs personal; same OpenClaw gateway, different Telegram allowlists</li>
+                  <li><span class="text-brand font-semibold">Forum topics</span> — one thread per project (HalloCasa, prowler, meetups, travel, car…) so context stays scoped</li>
+                  <li>Phone-first: ping the agent from Milan, approve AWS SSO, review PR links — without opening the laptop</li>
+                  <li>Slack mirror on HalloCasa work channel — team sees what the agent does; Telegram stays my cockpit</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
+            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
+          </div>
+        </div>
+        <aside class="notes">
+          Show screenshots: 88 topics on work side is real — don't read the list. Point: topics = cheap context boundaries. Milan travel question in personal group is the vibe.
+        </aside>
+      </section>
 
       <section id="hitl" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Design principle</h2>
