@@ -404,37 +404,37 @@
       font-size: clamp(0.85rem, 0.75vw + 0.5rem, 1.05rem);
       color: var(--sld-muted);
     }
-    .reveal .slides section .chatgpt-ads-layout {
+    .reveal .slides section .ai-promo-layout {
       display: flex;
       flex-direction: column;
       gap: clamp(0.75rem, 2vh, 1.25rem);
       width: 100%;
     }
-    .reveal .slides section .chatgpt-ads-bottom {
+    .reveal .slides section .ai-promo-bottom {
       display: flex;
       flex-direction: column;
       gap: clamp(0.75rem, 2vh, 1.25rem);
     }
-    .reveal .slides section .chatgpt-ads-figure {
+    .reveal .slides section .ai-promo-figure {
       margin: 0;
       border-radius: 0.75rem;
       overflow: hidden;
       border: 2px solid var(--sld-border);
       background: #0d1117;
     }
-    .reveal .slides section .chatgpt-ads-video {
+    .reveal .slides section .ai-promo-video {
       display: block;
       width: 100%;
       max-height: min(28vh, 220px);
       background: #000;
       vertical-align: middle;
     }
-    .reveal .slides section .chatgpt-ads-figure-caption a {
+    .reveal .slides section .ai-promo-figure-caption a {
       color: #e9d5ff;
       text-decoration: underline;
       text-underline-offset: 2px;
     }
-    .reveal .slides section .chatgpt-ads-figure-caption {
+    .reveal .slides section .ai-promo-figure-caption {
       padding: 0.4rem 0.75rem;
       font-size: 0.68rem;
       color: var(--sld-muted);
@@ -442,7 +442,7 @@
       text-align: center;
       letter-spacing: 0.03em;
     }
-    .reveal .slides section .chatgpt-ads-copy .openclaw-alternatives {
+    .reveal .slides section .ai-promo-copy .openclaw-alternatives {
       margin-top: clamp(0.5rem, 1.5vh, 1rem);
     }
     .reveal .slides section .what-is-layout {
@@ -884,31 +884,31 @@
     html.desktop-deck .reveal .slides section .speaker-family-photo {
       max-height: min(34vh, 300px);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-layout {
+    html.desktop-deck .reveal .slides section .ai-promo-layout {
       flex: 1 1 auto;
       justify-content: space-evenly;
       gap: clamp(1rem, 2vh, 1.75rem);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-bottom {
+    html.desktop-deck .reveal .slides section .ai-promo-bottom {
       flex: 1 1 auto;
       flex-direction: row;
       align-items: stretch;
       gap: clamp(1.25rem, 2.5vw, 2.5rem);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-video-wrap {
+    html.desktop-deck .reveal .slides section .ai-promo-video-wrap {
       flex: 0 0 min(52%, 640px);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-video {
+    html.desktop-deck .reveal .slides section .ai-promo-video {
       max-height: min(44vh, 400px);
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-copy {
+    html.desktop-deck .reveal .slides section .ai-promo-copy {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       min-width: 0;
     }
-    html.desktop-deck .reveal .slides section .chatgpt-ads-copy > ul {
+    html.desktop-deck .reveal .slides section .ai-promo-copy > ul {
       margin-bottom: 0;
     }
     html.desktop-deck .reveal .slides section#what-is .what-is-layout {
@@ -1336,20 +1336,20 @@
         <aside class="notes">HDI/Cyquins: Prowler API backend, four clouds. Own AWS projects = where the agent actually works. Last card: Calendly QR.</aside>
       </section>
 
-      <section id="chatgpt-ads" class="slide-top">
+      <section id="ai-promo" class="slide-top">
         <div class="slide-scroll">
           <div class="slide-inner">
             <div class="openclaw-header">
               <div>
                 <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-1">Right now</h2>
-                <h3 class="text-3xl font-bold mb-0">What excites me: AI video from React → MP4</h3>
+                <h3 class="text-3xl font-bold mb-0">What excites me: AI-made promo video</h3>
               </div>
             </div>
-            <div class="chatgpt-ads-layout content-prose-wide">
-              <div class="chatgpt-ads-bottom">
-                <figure class="chatgpt-ads-figure chatgpt-ads-video-wrap" data-testid="aws-promo-video">
+            <div class="ai-promo-layout content-prose-wide">
+              <div class="ai-promo-bottom">
+                <figure class="ai-promo-figure ai-promo-video-wrap" data-testid="aws-promo-video">
                   <video
-                    class="chatgpt-ads-video"
+                    class="ai-promo-video"
                     controls
                     playsinline
                     preload="metadata"
@@ -1359,19 +1359,19 @@
                   >
                     <source src="assets/aws-promo.mp4?v=1" type="video/mp4">
                   </video>
-                  <figcaption class="chatgpt-ads-figure-caption">
+                  <figcaption class="ai-promo-figure-caption">
                     AWS consulting promo · <a href="https://martinmueller.dev/one-man-agency/aws/" target="_blank" rel="noopener noreferrer">martinmueller.dev/one-man-agency/aws/</a>
                   </figcaption>
                 </figure>
-                <div class="chatgpt-ads-copy">
+                <div class="ai-promo-copy">
                 <ul class="space-y-4 text-left text-xl text-slate-300">
-                  <li><span class="text-brand font-semibold">React → MP4</span> — Remotion scenes in the site repo; programmatic cuts, typography, and music — not a screen recording</li>
-                  <li><span class="text-brand font-semibold">Real systems on screen</span> — HalloCasa, HDI Cyquins, ai-secure.dev, qr-plakat.de (production work, not stock)</li>
-                  <li><span class="text-brand font-semibold">Same craft as infra</span> — versioned compositions, re-render on deploy, iterate with Cursor like any other code</li>
-                  <li>Feels like the missing layer between “landing page” and “conference talk” — short, sharable proof</li>
+                  <li><span class="text-brand font-semibold">Example on screen</span> — AWS consulting promo (~30s); same clip as my landing page</li>
+                  <li><span class="text-brand font-semibold">Real work on display</span> — HalloCasa, HDI Cyquins, ai-secure.dev, qr-plakat.de — not stock footage</li>
+                  <li><span class="text-brand font-semibold">How I make these?</span> — Not in the deck: <span class="text-white font-semibold">contact me</span> and I’ll walk you through creating videos like this with <span class="text-brand font-semibold">ChatGPT Opus 5.5</span></li>
+                  <li>Short, sharable proof between a landing page and a conference talk</li>
                 </ul>
                 <p class="openclaw-alternatives">
-                  Personal rabbit hole — happy to swap Remotion / render pipelines after the talk.
+                  Ask after the talk or ping me on LinkedIn — happy to share the Opus workflow one-on-one.
                 </p>
                 </div>
               </div>
@@ -1383,9 +1383,8 @@
           </div>
         </div>
         <aside class="notes">
-          Pivot: what excites me now — AI-made promo video (Remotion React → MP4).
-          Play aws-promo clip (30s) — same as AWS consulting landing.
-          HalloCasa / HDI / ai-secure / qr-plakat scenes = real work. ~60s, not a sales pitch.
+          Play aws-promo (~30s). Tease Opus 5.5 workflow — details only if they ask / after talk.
+          ~60s on slide, not a sales pitch.
         </aside>
       </section>
 
@@ -1393,7 +1392,7 @@
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
         <h3 class="text-3xl font-bold mb-8">~40 minutes</h3>
         <ol class="content-prose space-y-3 text-left text-xl text-slate-300 list-decimal list-inside">
-          <li>Speaker intro · clients · what excites me (AI video · React → MP4)</li>
+          <li>Speaker intro · clients · what excites me (AI promo video)</li>
           <li>What I actually run — VPS + Telegram + serverless AWS targets</li>
           <li>Human in the loop — not full autonomy</li>
           <li>Why serverless for agent workloads — bursty, scale to zero</li>
