@@ -776,6 +776,303 @@
       font-size: clamp(0.85rem, 0.7vw + 0.5rem, 1.1rem) !important;
       padding: 0.45rem 0.85rem;
     }
+    .overview-flow {
+      width: min(100%, 92vw, 1520px);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.65rem, 1.4vh, 1rem);
+    }
+    .overview-video-wrap {
+      margin: 0 auto;
+      width: min(100%, 48vw, 560px);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--sld-border);
+      background: #000;
+    }
+    .overview-video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(26vh, 220px);
+      object-fit: contain;
+      background: #000;
+    }
+    html.desktop-deck .reveal .slides section#overview .overview-video-wrap {
+      width: min(100%, 46vw, 520px);
+    }
+    html.desktop-deck .reveal .slides section#overview .overview-video {
+      height: min(24vh, 210px);
+      max-height: min(24vh, 210px);
+    }
+    .overview-video-caption {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.72rem;
+      color: #e9d5ff;
+      background: rgba(107, 33, 168, 0.55);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    html.desktop-deck .reveal .slides section#overview .overview-step {
+      padding: 0.45rem 0.7rem 0.55rem;
+    }
+    html.desktop-deck .reveal .slides section#overview .overview-step .name {
+      font-size: clamp(0.85rem, 0.7vw + 0.4rem, 1.05rem);
+    }
+    html.desktop-deck .reveal .slides section#overview .overview-step .detail {
+      font-size: clamp(0.68rem, 0.35vw + 0.48rem, 0.82rem);
+    }
+    html.desktop-deck .reveal .slides section#overview .overview-conn {
+      height: 1.85rem;
+      margin-bottom: 0.55rem;
+    }
+    html.desktop-deck .reveal .slides section#overview h3 {
+      margin-bottom: 0.35rem !important;
+    }
+    .learnings-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .learnings-share-figure {
+      margin: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--sld-border);
+      background: #0d1117;
+    }
+    .learnings-share-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(32vh, 260px);
+      object-fit: contain;
+      object-position: left center;
+    }
+    .learnings-share-caption {
+      padding: 0.35rem 0.65rem 0.45rem;
+      font-size: 0.72rem;
+      color: var(--sld-muted);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html.desktop-deck .reveal .slides section#learnings h3 {
+      margin-bottom: 0.4rem !important;
+      font-size: clamp(1.55rem, 1.8vw + 0.4rem, 2.35rem) !important;
+    }
+    html.desktop-deck .reveal .slides section#learnings .learnings-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.9fr);
+      gap: clamp(0.75rem, 1.6vw, 1.5rem);
+      align-items: end;
+    }
+    html.desktop-deck .reveal .slides section#learnings .learnings-list {
+      margin: 0;
+    }
+    html.desktop-deck .reveal .slides section#learnings .learnings-list li {
+      margin-top: 0.2rem !important;
+      font-size: clamp(0.82rem, 0.55vw + 0.48rem, 1.02rem) !important;
+      line-height: 1.32 !important;
+    }
+    html.desktop-deck .reveal .slides section#learnings .learnings-share-img {
+      max-height: min(38vh, 320px);
+    }
+    .overview-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 2.15fr) auto minmax(0, 1.15fr);
+      column-gap: 0.45rem;
+      row-gap: 0;
+      align-items: center;
+    }
+    .overview-step {
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: left;
+      border-radius: 1rem;
+      padding: 0.75rem 0.85rem 0.9rem;
+      background: linear-gradient(to bottom right, var(--sld-card-start), var(--sld-card-end));
+      border: 1px solid var(--sld-border);
+      box-shadow: 0 16px 30px -18px rgba(0, 0, 0, 0.5);
+    }
+    .overview-step.gate {
+      background: var(--sld-glass);
+      border: 2px solid var(--sld-accent);
+      box-shadow: 0 0 0 4px rgba(249, 168, 212, 0.12);
+    }
+    .overview-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f9a8d4;
+    }
+    .overview-step .name {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: clamp(0.95rem, 0.85vw + 0.45rem, 1.25rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+    }
+    .overview-step .detail {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: clamp(0.72rem, 0.45vw + 0.5rem, 0.92rem);
+      line-height: 1.35;
+      color: #e9d5ff;
+    }
+    .overview-arrow {
+      flex: 0 0 auto;
+      align-self: center;
+      width: 1.35rem;
+      height: 1.35rem;
+      color: #f9a8d4;
+    }
+    .overview-loop {
+      flex: 2.15 1 0;
+      min-width: 0;
+      display: flex;
+      align-items: stretch;
+      gap: 0.4rem;
+      position: relative;
+      border: 2px dashed rgba(249, 168, 212, 0.9);
+      border-radius: 1.25rem;
+      padding: 0.7rem 0.5rem 0.45rem;
+    }
+    .overview-loop-label {
+      position: absolute;
+      top: -0.65rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.05rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 168, 212, 0.75);
+      background: #4c1d95;
+      color: #f9a8d4;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .overview-conn {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+      height: 2.5rem;
+      margin-bottom: 0.95rem;
+      position: relative;
+      color: #f9a8d4;
+    }
+    .conn-track,
+    .conn-to,
+    .conn-from {
+      position: relative;
+    }
+    .conn-track::before,
+    .conn-to::before,
+    .conn-from::before,
+    .conn-from::after {
+      content: "";
+      position: absolute;
+      background: #f9a8d4;
+    }
+    .conn-track::before,
+    .conn-to::before,
+    .conn-from::before {
+      bottom: 0;
+      height: 2px;
+    }
+    .conn-track::before { left: 0; right: 0; }
+    .conn-to::before { left: 50%; right: 0; }
+    .conn-from::before { left: 0; right: 50%; }
+    .conn-from::after {
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+    }
+    .conn-to::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #f9a8d4;
+    }
+    .conn-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 0.45rem;
+      transform: translateX(-50%);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .overview-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      color: #e9d5ff;
+    }
+    .overview-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .overview-swatch {
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(to bottom right, var(--sld-card-start), var(--sld-card-end));
+      border: 1px solid var(--sld-border);
+    }
+    .overview-swatch.gate {
+      background: var(--sld-glass);
+      border: 2px solid var(--sld-accent);
+    }
+    html.mobile-deck .overview-board,
+    html.mobile-deck .overview-loop {
+      display: flex;
+      flex-direction: column;
+    }
+    html.mobile-deck .overview-arrow {
+      transform: rotate(90deg);
+      margin-inline: auto;
+    }
+    html.mobile-deck .overview-conn {
+      display: flex;
+      justify-content: center;
+      height: auto;
+      margin: 0.15rem 0 0.35rem;
+    }
+    html.mobile-deck .conn-track,
+    html.mobile-deck .conn-to,
+    html.mobile-deck .conn-from {
+      display: none;
+    }
+    html.mobile-deck .overview-conn .conn-track:has(.conn-caption) {
+      display: block;
+    }
+    html.mobile-deck .overview-conn .conn-track:has(.conn-caption)::before {
+      display: none;
+    }
+    html.mobile-deck .conn-caption {
+      position: static;
+      transform: none;
+    }
     html.desktop-deck .reveal .slides section#agenda ol {
       columns: 2;
       column-gap: clamp(2rem, 4vw, 4rem);
@@ -936,11 +1233,12 @@
     html.desktop-deck .reveal .slides section .ai-promo-bottom {
       flex: 1 1 auto;
       flex-direction: row;
-      align-items: stretch;
+      align-items: center;
       gap: clamp(1.25rem, 2.5vw, 2.5rem);
     }
     html.desktop-deck .reveal .slides section .ai-promo-video-wrap {
       flex: 0 0 min(52%, 640px);
+      align-self: center;
     }
     html.desktop-deck .reveal .slides section .ai-promo-video {
       max-height: min(44vh, 400px);
@@ -978,22 +1276,27 @@
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-layout {
       flex: 1 1 auto;
-      flex-direction: row;
-      align-items: stretch;
-      gap: clamp(1rem, 2vw, 1.75rem);
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(0.75rem, 1.6vh, 1.25rem);
+      width: min(100%, 96vw);
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shots {
-      flex: 1 1 58%;
+      width: 100%;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(0.5rem, 1vw, 0.85rem);
+      gap: clamp(0.75rem, 1.4vw, 1.25rem);
       min-width: 0;
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-media {
-      min-height: min(46vh, 400px);
-      flex: 1 1 auto;
+      min-height: 0;
+      padding: 0;
+      background: #0d1117;
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-img {
-      max-height: min(46vh, 400px);
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-figure {
       display: flex;
@@ -1001,11 +1304,18 @@
       min-height: 0;
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy {
-      flex: 1 1 42%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex: 0 0 auto;
+      display: block;
       min-width: 0;
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem 1.75rem;
+      margin: 0;
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy li {
+      margin: 0 !important;
     }
     html.desktop-deck .reveal .slides section#agenda .slide-body {
       justify-content: space-between;
@@ -1599,36 +1909,83 @@
         </aside>
       </section>
 
-      <section id="hitl" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Design principle</h2>
-        <h3 class="text-3xl font-bold mb-8">Human in the loop — always</h3>
-        <ul class="content-prose-wide space-y-4 text-left text-xl text-slate-300">
-          <li><span class="text-brand font-semibold">Agents execute</span> — plan, code, test, open PR</li>
-          <li><span class="text-brand font-semibold">Humans decide</span> — review diff, approve merge, kill runaway jobs</li>
-          <li>Full autonomy sounds cool · production needs guardrails</li>
-          <li>HalloCasa · ai-secure · qr-plakat: agent proposes · you SSO-approve + merge</li>
-        </ul>
-        <p class="content-prose mt-8 text-slate-400 text-lg">Autonomous pipeline ≠ autonomous production. The factory runs 24/7 — you still own the merge button.</p>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
-
       <section id="overview" class="slide-top">
         <div class="slide-scroll">
           <div class="slide-inner">
             <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Overview</h2>
             <h3 class="text-2xl font-bold mb-6">Pipeline flow (HalloCasa-style)</h3>
-            <ol class="content-prose-wide space-y-3 text-left text-lg text-slate-300 list-decimal list-inside">
-              <li><span class="text-brand font-semibold">GitHub issue</span> — filed by me or any teammate</li>
-              <li><span class="text-brand font-semibold">Plan agent</span> — first implementation plan on the issue</li>
-              <li><span class="text-brand font-semibold">Feedback loop</span> — me or the team comments · <span class="text-white font-medium">Plan agent v2</span> revises</li>
-              <li><span class="text-brand font-semibold">Human plan approval</span> — explicit go before code runs</li>
-              <li><span class="text-brand font-semibold">Code agent</span> — opens the PR (implementation)</li>
-              <li><span class="text-brand font-semibold">PR evidence</span> — integration tests in CI, often snapshot diffs that show the change visually</li>
-              <li><span class="text-brand font-semibold">Human review &amp; merge</span> — diff + green checks, then merge</li>
-            </ol>
+            <div class="overview-flow" aria-label="Pipeline from GitHub issue to human merge">
+              <figure class="overview-video-wrap" data-testid="hallocasa-broker-promo">
+                <video
+                  class="overview-video"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="assets/hallocasa-broker-promo.jpg?v=1"
+                  width="1280"
+                  height="720"
+                >
+                  <source src="https://martinmueller.dev/one-man-agency/hallocasa-broker-promo.mp4?v=1" type="video/mp4">
+                </video>
+                <figcaption class="overview-video-caption">HalloCasa broker promo — what this pipeline ships</figcaption>
+              </figure>
+              <div class="overview-board">
+                <div class="overview-step">
+                  <div class="overview-kicker">01</div>
+                  <span class="name">GitHub issue</span>
+                  <span class="detail">Filed by you or any teammate</span>
+                </div>
+                <svg class="overview-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="overview-loop">
+                  <span class="overview-loop-label">revise</span>
+                  <div class="overview-step">
+                    <div class="overview-kicker">02 · agent</div>
+                    <span class="name">Plan agent</span>
+                    <span class="detail">First plan on the issue</span>
+                  </div>
+                  <svg class="overview-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h9M16 4l4 3-4 3M17 17H8M8 14l-4 3 4 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <div class="overview-step">
+                    <div class="overview-kicker">03 · loop</div>
+                    <span class="name">Feedback</span>
+                    <span class="detail">Comments · plan agent v2</span>
+                  </div>
+                </div>
+                <svg class="overview-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="overview-step gate">
+                  <div class="overview-kicker">04 · you</div>
+                  <span class="name">Approve plan</span>
+                  <span class="detail">Explicit go before code runs</span>
+                </div>
+                <div class="overview-conn" aria-hidden="true">
+                  <div class="conn-to"></div>
+                  <div class="conn-track"></div>
+                  <div class="conn-track"><span class="conn-caption">then code</span></div>
+                  <div class="conn-track"></div>
+                  <div class="conn-from"></div>
+                </div>
+                <div class="overview-step">
+                  <div class="overview-kicker">05 · agent</div>
+                  <span class="name">Code agent</span>
+                  <span class="detail">Implements and opens the PR</span>
+                </div>
+                <svg class="overview-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="overview-step">
+                  <div class="overview-kicker">06 · ci</div>
+                  <span class="name">PR evidence</span>
+                  <span class="detail">Integration tests · snapshot diffs</span>
+                </div>
+                <svg class="overview-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="overview-step gate">
+                  <div class="overview-kicker">07 · you</div>
+                  <span class="name">Review &amp; merge</span>
+                  <span class="detail">Diff + green checks, then merge</span>
+                </div>
+              </div>
+              <div class="overview-legend">
+                <span><i class="overview-swatch"></i> Agent does the work</span>
+                <span><i class="overview-swatch gate"></i> You decide</span>
+              </div>
+            </div>
           </div>
           <div class="slide-footer">
             <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
@@ -1746,15 +2103,26 @@
           <div class="slide-inner">
             <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
             <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
-            <ul class="content-prose-wide space-y-4 text-left text-lg text-slate-300">
-              <li><span class="text-brand font-semibold">CI/CD owns deterministic work</span> — typecheck, lint, deploys, integration tests: <span class="text-white font-medium">not</span> in the agent loop (too slow, too costly). Agent opens PR · GitHub Actions proves it.</li>
-              <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
-              <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
-              <li><span class="text-brand font-semibold">OAuth2 / SSO where you can</span> — AWS SSO device-code, Google/GitHub OAuth for APIs; fewer long-lived keys in <code class="text-slate-200">TOOLS.md</code> and env files.</li>
-              <li><span class="text-brand font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
-              <li><span class="text-brand font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
-              <li><span class="text-brand font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
-            </ul>
+            <div class="learnings-layout content-prose-wide">
+              <ul class="learnings-list space-y-3 text-left text-lg text-slate-300">
+                <li><span class="text-brand font-semibold">CI/CD owns deterministic work</span> — typecheck, lint, deploys, integration tests: <span class="text-white font-medium">not</span> in the agent loop (too slow, too costly). Agent opens PR · GitHub Actions proves it.</li>
+                <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
+                <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
+                <li><span class="text-brand font-semibold">OAuth2 / SSO where you can</span> — AWS SSO device-code, Google/GitHub OAuth for APIs; fewer long-lived keys in <code class="text-slate-200">TOOLS.md</code> and env files.</li>
+                <li><span class="text-brand font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
+                <li><span class="text-brand font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
+                <li><span class="text-brand font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
+              </ul>
+              <figure class="learnings-share-figure">
+                <img
+                  src="assets/ai-sharing-slack.png?v=1"
+                  alt="Slack channel ai-neo where a teammate talks with the HalloCasa AI agent"
+                  class="learnings-share-img"
+                  loading="lazy"
+                >
+                <figcaption class="learnings-share-caption"><span class="text-brand font-semibold">#ai-neo</span> — a colleague talks to the agent in Slack</figcaption>
+              </figure>
+            </div>
           </div>
           <div class="slide-footer">
             <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
