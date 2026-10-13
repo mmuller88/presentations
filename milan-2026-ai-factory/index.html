@@ -480,14 +480,19 @@
       border-radius: 0.75rem;
       overflow: hidden;
       border: 2px solid var(--sld-border);
-      background: #0d1117;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .reveal .slides section .telegram-shot-img {
       display: block;
-      width: 100%;
+      width: auto;
+      max-width: 100%;
+      height: auto;
       max-height: min(22vh, 200px);
-      object-fit: contain;
-      object-position: top center;
+      object-fit: scale-down;
+      vertical-align: top;
     }
     .reveal .slides section .telegram-shot-caption {
       padding: 0.35rem 0.65rem 0.5rem;
@@ -980,7 +985,11 @@
       min-width: 0;
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-img {
-      max-height: min(42vh, 380px);
+      max-height: min(40vh, 340px);
+    }
+    html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-shot-caption {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.92);
     }
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy {
       flex: 1 1 42%;
@@ -1452,13 +1461,13 @@
           <li>Speaker intro · clients · what excites me (AI promo video)</li>
           <li>What I actually run — VPS + Telegram + serverless AWS targets</li>
           <li>Human in the loop — not full autonomy</li>
-          <li>Why serverless for agent workloads — bursty, scale to zero</li>
-          <li>VPS agent stack + where AWS serverless fits (managed targets)</li>
+          <li>OpenClaw + Telegram Topics (work vs personal)</li>
+          <li>VPS agent stack + managed AWS targets</li>
           <li>Dev pipeline flow — issue → PR</li>
-          <li>Where it breaks — cold starts, state, multi-agent coordination</li>
-          <li>Economics — VPS + AWS serverless + LLM spend</li>
+          <li>AWS ops from Telegram — SSO / device-code</li>
+          <li>Economics — VPS + AWS + LLM spend</li>
           <li>Live demo — issue → agent → PR</li>
-          <li>Practical learnings — CI, cost, models, dual track</li>
+          <li>Practical learnings — CI, OAuth2/SSO, cost, dual track</li>
         </ol>
       
         <div class="slide-footer">
@@ -1540,7 +1549,7 @@
               <div class="telegram-shots" data-testid="telegram-setup-shots">
                 <figure class="telegram-shot-figure">
                   <img
-                    src="assets/telegram-neo-bot-work.jpg?v=1"
+                    src="assets/telegram-neo-bot-work.jpg?v=2"
                     alt="Telegram group Neo (bot work) with forum topics for HalloCasa, prowler, mmblog, meetups"
                     class="telegram-shot-img"
                     loading="lazy"
@@ -1549,7 +1558,7 @@
                 </figure>
                 <figure class="telegram-shot-figure">
                   <img
-                    src="assets/telegram-nick-bot-personal.jpg?v=1"
+                    src="assets/telegram-nick-bot-personal.jpg?v=2"
                     alt="Telegram group Nick (bot personal) with topics Traveling, Energy, Car"
                     class="telegram-shot-img"
                     loading="lazy"
@@ -1677,53 +1686,6 @@
         </div></section>
 
 
-      <section id="why-serverless" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Why serverless?</h2>
-        <h3 class="text-3xl font-bold mb-8">Agent workloads are bursty</h3>
-        <div class="card-grid">
-          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-            <p class="text-brand font-semibold text-xl mb-2">The pattern</p>
-            <p class="text-slate-300">Issue in → 3 min intense work → idle for hours</p>
-          </div>
-          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-            <p class="text-brand font-semibold text-xl mb-2">VPS alternative</p>
-            <p class="text-slate-300">€10/mo fixed · always on · 95% idle</p>
-          </div>
-          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-            <p class="text-brand font-semibold text-xl mb-2">Serverless win</p>
-            <p class="text-slate-300">Pay per invocation · spin up on demand · scale to zero</p>
-          </div>
-          <div class="rounded-xl bg-surface-light p-6 border border-slate-700">
-            <p class="text-brand font-semibold text-xl mb-2">Honest caveat</p>
-            <p class="text-slate-300">LLM tokens dwarf infra either way · gateway still needs a home</p>
-          </div>
-        </div>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
-
-      <section id="war-stories" class="slide-top">
-        <div class="slide-scroll">
-          <div class="slide-inner">
-            <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">War stories</h2>
-            <h3 class="text-3xl font-bold mb-6">Where serverless + agents break</h3>
-            <ul class="content-prose-wide space-y-3 text-left text-lg text-slate-300">
-              <li><span class="text-brand font-semibold">Cold start + context loading</span> — real latency bottleneck, not the Lambda cold start meme</li>
-              <li><span class="text-brand font-semibold">Stateful memory on stateless infra</span> — DynamoDB + embeddings vs markdown on disk</li>
-              <li><span class="text-brand font-semibold">Multi-agent coordination</span> — plan → code → review across invocations</li>
-              <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Circular agent loops · runaway token spend · hallucinated git commands</li>
-              <li class="rounded-lg bg-red-950/40 border border-red-800/50 px-4 py-3">Debugging across CloudWatch log groups — observability is the hard part</li>
-            </ul>
-          </div>
-          <div class="slide-footer">
-            <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
-            <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-          </div>
-        </div>
-      </section>
-
       <section id="aws-ops" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">AWS learnings</h2>
         <h3 class="text-3xl font-bold mb-8">Managing prod from Telegram</h3>
@@ -1790,6 +1752,7 @@
               <li><span class="text-brand font-semibold">CI/CD + GitHub checks</span> — offload deterministic work from the agent (lint, typecheck, tests). Keep build times short — minutes cost money.</li>
               <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
               <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
+              <li><span class="text-brand font-semibold">OAuth2 / SSO where you can</span> — AWS SSO device-code, Google/GitHub OAuth for APIs; fewer long-lived keys in <code class="text-slate-200">TOOLS.md</code> and env files.</li>
               <li><span class="text-brand font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
               <li><span class="text-brand font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
               <li><span class="text-brand font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
