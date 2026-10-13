@@ -385,6 +385,33 @@
       font-weight: 700;
       font-size: 1rem;
     }
+    .reveal .slides section .speaker-org-link {
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      line-height: 0;
+      margin-left: 0.35rem;
+      text-decoration: none;
+    }
+    .reveal .slides section .speaker-org-logo {
+      width: auto;
+      object-fit: contain;
+    }
+    .reveal .slides section .speaker-org-logo-fv {
+      height: 4.25rem;
+      background: #fff;
+      border-radius: 0.4rem;
+      padding: 0.28rem 0.5rem;
+    }
+    .reveal .slides section .speaker-org-logo-gw {
+      height: 1.85rem;
+    }
+    html.desktop-deck .reveal .slides section#speaker .speaker-org-logo-fv {
+      height: 5.25rem;
+    }
+    html.desktop-deck .reveal .slides section#speaker .speaker-org-logo-gw {
+      height: 2.15rem;
+    }
     .reveal .slides section .openclaw-header {
       display: flex;
       align-items: center;
@@ -830,53 +857,48 @@
     html.desktop-deck .reveal .slides section#overview h3 {
       margin-bottom: 0.35rem !important;
     }
-    .learnings-layout {
+    .learnings-share {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-    }
-    .learnings-share-figure {
-      margin: 0;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      border: 2px solid var(--sld-border);
-      background: #0d1117;
+      align-items: flex-start;
+      gap: 0.45rem;
     }
     .learnings-share-img {
       display: block;
-      width: 100%;
+      width: min(100%, 720px);
+      max-height: min(24vh, 210px);
       height: auto;
-      max-height: min(32vh, 260px);
       object-fit: contain;
       object-position: left center;
+      margin-top: 0.2rem;
+      border-radius: 0.4rem;
+      border: 2px solid var(--sld-border);
+      background: #0d1117;
     }
-    .learnings-share-caption {
-      padding: 0.35rem 0.65rem 0.45rem;
-      font-size: 0.72rem;
-      color: var(--sld-muted);
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    html.desktop-deck .reveal .slides section#learnings h2 {
+      margin-bottom: 0.25rem !important;
     }
     html.desktop-deck .reveal .slides section#learnings h3 {
-      margin-bottom: 0.4rem !important;
-      font-size: clamp(1.55rem, 1.8vw + 0.4rem, 2.35rem) !important;
-    }
-    html.desktop-deck .reveal .slides section#learnings .learnings-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.9fr);
-      gap: clamp(0.75rem, 1.6vw, 1.5rem);
-      align-items: end;
+      margin-bottom: 0.35rem !important;
+      font-size: clamp(1.7rem, 2vw, 2.25rem) !important;
     }
     html.desktop-deck .reveal .slides section#learnings .learnings-list {
-      margin: 0;
+      margin-bottom: 0;
     }
-    html.desktop-deck .reveal .slides section#learnings .learnings-list li {
-      margin-top: 0.2rem !important;
-      font-size: clamp(0.82rem, 0.55vw + 0.48rem, 1.02rem) !important;
-      line-height: 1.32 !important;
+    html.desktop-deck .reveal .slides section#learnings .learnings-list > li {
+      margin-top: 0 !important;
+      margin-bottom: 0.15rem !important;
+      font-size: 1.05rem !important;
+      line-height: 1.28 !important;
     }
     html.desktop-deck .reveal .slides section#learnings .learnings-share-img {
-      max-height: min(38vh, 320px);
+      width: auto;
+      max-width: 100%;
+      height: min(34vh, 360px);
+      max-height: min(34vh, 360px);
+    }
+    html.mobile-deck .learnings-share-img {
+      width: min(100%, 420px);
     }
     .overview-board {
       display: grid;
@@ -1073,17 +1095,6 @@
       position: static;
       transform: none;
     }
-    html.desktop-deck .reveal .slides section#agenda ol {
-      columns: 2;
-      column-gap: clamp(2rem, 4vw, 4rem);
-      max-width: none;
-      width: min(100%, 1200px);
-      margin-inline: auto;
-    }
-    html.desktop-deck .reveal .slides section#agenda li {
-      break-inside: avoid;
-      margin-bottom: 0.35rem;
-    }
     html.desktop-deck .reveal .slides section#qa h2 {
       font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
     }
@@ -1223,7 +1234,7 @@
       align-items: center;
     }
     html.desktop-deck .reveal .slides section .speaker-family-photo {
-      max-height: min(34vh, 300px);
+      max-height: min(16vh, 140px);
     }
     html.desktop-deck .reveal .slides section .ai-promo-layout {
       flex: 1 1 auto;
@@ -1317,9 +1328,6 @@
     html.desktop-deck .reveal .slides section#openclaw-telegram .telegram-setup-copy li {
       margin: 0 !important;
     }
-    html.desktop-deck .reveal .slides section#agenda .slide-body {
-      justify-content: space-between;
-    }
     @media (min-width: 1280px) {
       html.desktop-deck .reveal .slides section .client-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1327,6 +1335,9 @@
       html.desktop-deck .reveal .slides section#speaker-clients .client-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+    }
+    html.desktop-deck .reveal .slides section#speaker-clients .slide-inner {
+      zoom: 0.8;
     }
     /* Mobile: neutralize Reveal transforms (top:0 + translate = off-screen) */
     html.mobile-deck,
@@ -1558,8 +1569,6 @@
       flex-direction: column;
       justify-content: center;
     }
-    html.mobile-deck .reveal .slides section#agenda ol { font-size: 0.84rem !important; }
-    html.mobile-deck .reveal .slides section#agenda li { margin-bottom: 0.15rem; }
   </style>
   <noscript>
     <style>
@@ -1615,9 +1624,8 @@
                   <p class="text-brand text-sm uppercase tracking-wide mb-2">Freelancer · DevOps · AI agents</p>
                   <ul class="space-y-1.5 text-slate-300">
                     <li><span class="text-brand font-semibold">AWS Community Builder</span> — Serverless · 5 years</li>
-                    <li>OpenClaw on Hostinger VPS · Telegram as control plane</li>
-                    <li>Manages AWS: HalloCasa · ai-secure.dev · qr-plakat.de</li>
-                    <li>Pipeline with human gates: issue → PR → you merge</li>
+                    <li>Member of <a href="https://www.aws-community.de/association" class="speaker-org-link" target="_blank" rel="noopener noreferrer"><img src="assets/foerderverein-aws-community-dach.png?v=1" alt="Förderverein AWS Community DACH e.V." class="speaker-org-logo speaker-org-logo-fv"></a></li>
+                    <li>Board member of <a href="https://gruendungswerft.com/" class="speaker-org-link" target="_blank" rel="noopener noreferrer"><img src="assets/gruendungswerft-logo.svg?v=1" alt="Gründungswerft" class="speaker-org-logo speaker-org-logo-gw"></a></li>
                   </ul>
                   <p class="mt-2 text-sm">
                     <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">linkedin.com/in/martinmueller88</a>
@@ -1773,27 +1781,6 @@
         </aside>
       </section>
 
-      <section id="agenda" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Agenda</h2>
-        <h3 class="text-3xl font-bold mb-8">~40 minutes</h3>
-        <ol class="content-prose space-y-3 text-left text-xl text-slate-300 list-decimal list-inside">
-          <li>Speaker intro · clients · what excites me (AI promo video)</li>
-          <li>What I actually run — VPS + Telegram + serverless AWS targets</li>
-          <li>Human in the loop — not full autonomy</li>
-          <li>OpenClaw + Telegram Topics (work vs personal)</li>
-          <li>VPS agent stack + managed AWS targets</li>
-          <li>Pipeline — issue → plan v2 → approve → PR + CI snapshots</li>
-          <li>AWS ops from Telegram — SSO / device-code</li>
-          <li>Economics — VPS + AWS + LLM spend</li>
-          <li>Live demo — issue → agent → PR</li>
-          <li>Practical learnings — CI, OAuth2/SSO, cost, dual track</li>
-        </ol>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
-
       <section id="what-is" class="slide-top">
         <div class="slide-scroll">
           <div class="slide-inner">
@@ -1812,7 +1799,7 @@
                 <ul class="space-y-4 text-left text-xl text-slate-300">
                   <li><span class="text-brand font-semibold">AI Factory</span> — issues in, PRs out, 24/7. Great buzzword · I'm not trusting full autonomy on production code yet</li>
                   <li><span class="text-brand font-semibold">Telegram</span> — talk to the agent from your phone, anywhere</li>
-                  <li><span class="text-brand font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on</li>
+                  <li><span class="text-brand font-semibold">Hostinger VPS</span> — OpenClaw in Docker, ~€10/mo, always on. Any other VM — or a serverless setup — works too</li>
                   <li>Watches <span class="text-brand font-semibold">GitHub issues</span>, plans, codes, opens <span class="text-brand font-semibold">PRs</span> · <span class="text-brand font-semibold">AWS</span> targets (HalloCasa, ai-secure, qr-plakat)</li>
                   <li><span class="text-brand font-semibold">Human in the loop</span> — review diff, SSO approve, kill runaway jobs. Non-negotiable when code matters — at least for now</li>
                 </ul>
@@ -2010,22 +1997,6 @@
           <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
         </div></section>
 
-      <section id="agents" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
-        <h3 class="text-2xl font-bold mb-6">Dev pipeline agents</h3>
-        <ul class="content-prose space-y-3 text-left text-lg text-slate-300">
-          <li><span class="text-brand font-semibold">Plan agent</span> — reasoning model breaks issue into steps</li>
-          <li><span class="text-brand font-semibold">Code agent</span> — implements, runs tests, fixes failures</li>
-          <li><span class="text-brand font-semibold">Review agent</span> — automated sanity check before PR</li>
-          <li><span class="text-brand font-semibold">Human gate</span> — diff review, merge approval, token/spend caps</li>
-          <li>Persistent VPS shell · long Cursor CLI sessions · Telegram always on</li>
-        </ul>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
-
       <section id="memory" class="slide-top">
         <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Architecture</h2>
         <h3 class="text-2xl font-bold mb-6">Memory &amp; state — why VPS helps</h3>
@@ -2081,48 +2052,30 @@
           <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
         </div></section>
 
-      <section id="live-demo" class="slide-top">
-        <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Live demo</h2>
-        <h3 class="text-3xl font-bold mb-6">Issue → PR in minutes · merge when you&apos;re ready</h3>
-        <ol class="content-prose space-y-3 text-left text-xl text-slate-300">
-          <li>1. Message in Telegram (or GitHub issue lands)</li>
-          <li>2. OpenClaw on VPS plans + Cursor CLI implements</li>
-          <li>3. PR opened — needs AWS? SSO device-code to your phone</li>
-          <li>4. CodePipeline / CDK deploy to prod</li>
-          <li>5. <span class="text-brand font-semibold">You review the diff and merge</span> — human in the loop</li>
-        </ol>
-        <p class="mt-8 text-slate-500">Fallback: pre-recorded demo clip if live fails</p>
-      
-        <div class="slide-footer">
-          <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano">
-          <span>milan.serverlessdays.io · 13 Oct 2026 · WAO Romolo C30</span>
-        </div></section>
-
       <section id="learnings" class="slide-top">
         <div class="slide-scroll">
           <div class="slide-inner">
             <h2 class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Learnings</h2>
             <h3 class="text-3xl font-bold mb-6">What actually moved the needle</h3>
-            <div class="learnings-layout content-prose-wide">
-              <ul class="learnings-list space-y-3 text-left text-lg text-slate-300">
-                <li><span class="text-brand font-semibold">CI/CD owns deterministic work</span> — typecheck, lint, deploys, integration tests: <span class="text-white font-medium">not</span> in the agent loop (too slow, too costly). Agent opens PR · GitHub Actions proves it.</li>
-                <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
-                <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
-                <li><span class="text-brand font-semibold">OAuth2 / SSO where you can</span> — AWS SSO device-code, Google/GitHub OAuth for APIs; fewer long-lived keys in <code class="text-slate-200">TOOLS.md</code> and env files.</li>
-                <li><span class="text-brand font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
-                <li><span class="text-brand font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
-                <li><span class="text-brand font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</li>
-              </ul>
-              <figure class="learnings-share-figure">
-                <img
-                  src="assets/ai-sharing-slack.png?v=1"
-                  alt="Slack channel ai-neo where a teammate talks with the HalloCasa AI agent"
-                  class="learnings-share-img"
-                  loading="lazy"
-                >
-                <figcaption class="learnings-share-caption"><span class="text-brand font-semibold">#ai-neo</span> — a colleague talks to the agent in Slack</figcaption>
-              </figure>
-            </div>
+            <ul class="learnings-list content-prose-wide space-y-4 text-left text-lg text-slate-300">
+              <li><span class="text-brand font-semibold">CI/CD owns deterministic work</span> — typecheck, lint, deploys, integration tests: <span class="text-white font-medium">not</span> in the agent loop (too slow, too costly). Agent opens PR · GitHub Actions proves it.</li>
+              <li><span class="text-brand font-semibold">LLM subscriptions</span> — Cursor Pro etc. instead of raw API keys where possible. ~95% of spend is tokens anyway.</li>
+              <li><span class="text-brand font-semibold">Cheap models are enough</span> — Composer, Grok for implementation; reserve Opus for planning. Good enough, much cheaper.</li>
+              <li><span class="text-brand font-semibold">OAuth2 / SSO where you can</span> — AWS SSO device-code, Google/GitHub OAuth for APIs; fewer long-lived keys in <code class="text-slate-200">TOOLS.md</code> and env files.</li>
+              <li><span class="text-brand font-semibold">Dual track</span> — ship from Telegram (async, mobile) and from Cursor IDE (deep focus). Same repos, same PR workflow.</li>
+              <li><span class="text-brand font-semibold">Self-update</span> — configure OpenClaw to upgrade itself + skills (gateway, clawhub, <code class="text-slate-200">npx skills update</code>) so the agent stays current without SSH babysitting.</li>
+              <li>
+                <div class="learnings-share">
+                  <span><span class="text-brand font-semibold">Share the agent</span> — give co-founders / colleagues access (Telegram group, Slack channel). Non-technical teammates get the benefit too — and it saves you being the bottleneck.</span>
+                  <img
+                    src="assets/ai-sharing-slack.png?v=1"
+                    alt="Slack channel ai-neo where a teammate talks with the HalloCasa AI agent"
+                    class="learnings-share-img"
+                    loading="lazy"
+                  >
+                </div>
+              </li>
+            </ul>
           </div>
           <div class="slide-footer">
             <img src="assets/serverlessdays-logo.png?v=1" alt="ServerlessDays Milano" class="event-logo">
