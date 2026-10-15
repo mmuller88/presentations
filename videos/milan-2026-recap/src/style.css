@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-plum: #581c87;
+  --color-plum-deep: #3b0764;
+  --color-indigo: #1e3a8a;
+  --color-night: #1a1033;
+  --color-lavender: #e9d5ff;
+  --color-pink: #f9a8d4;
+  --color-magenta: #ec4899;
+  --color-violet: #9333ea;
+  --color-paper: #f4f1ea;
+  --color-ink: #1a1033;
+  --color-italy-green: #009246;
+  --color-italy-white: #f4f5f0;
+  --color-italy-red: #ce2b37;
+
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
