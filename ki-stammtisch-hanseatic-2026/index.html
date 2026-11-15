@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hanseatic Hackathon Lübeck — KI Stammtisch</title>
+  <meta name="description" content="48h, echte Cases, myLab — Erfahrungsbericht Martin Mueller">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#a78bfa', dark: '#8b5cf6' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 0.5rem 1rem;
+      text-align: left;
+    }
+    .reveal .slides section.center-slide { text-align: center; }
+    .reveal table.compact {
+      font-size: 0.82rem !important;
+      width: 100%;
+    }
+    .reveal table.compact th,
+    .reveal table.compact td {
+      padding: 0.35rem 0.5rem;
+      border: 1px solid #475569;
+    }
+    .reveal .slides section video.demo-loop {
+      max-height: 48vh;
+      width: auto;
+      margin: 0 auto;
+      border-radius: 0.5rem;
+      border: 1px solid #334155;
+    }
+    .todo-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      background: #451a03;
+      color: #fdba74;
+      border: 1px solid #9a3412;
+      vertical-align: middle;
+    }
+    @media (max-width: 768px) {
+      .reveal h1 { font-size: 1.45rem !important; }
+      .reveal h3 { font-size: 1.1rem !important; }
+      .reveal p, .reveal li { font-size: 0.88rem !important; }
+      .reveal .slides section video.demo-loop { max-height: 30vh; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-slate-100 antialiased">
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="titel" data-id="titel" class="center-slide">
+        <p class="text-brand text-xs md:text-sm font-semibold uppercase tracking-[0.25em]">KI Stammtisch · #WdKI2026</p>
+        <h1 class="text-2xl md:text-4xl font-bold leading-tight mt-2">Hanseatic Hackathon Lübeck</h1>
+        <p class="text-base md:text-xl text-slate-300 mt-2">48 Stunden, echte Cases, Uni-Infrastruktur</p>
+        <div class="mt-4 md:mt-6 text-sm md:text-base text-slate-400">
+          <p class="text-slate-200 text-base md:text-lg">Martin Mueller</p>
+          <p>13./14.11.2026 · Bauforum TH Lübeck</p>
+        </div>
+        <p class="mt-4 text-xs text-slate-500">
+          Deck:
+          <a href="https://mmuller88.github.io/presentations/ki-stammtisch-hanseatic-2026/" class="text-brand underline break-all">
+            mmuller88.github.io/presentations/ki-stammtisch-hanseatic-2026/
+          </a>
+        </p>
+        <aside class="notes">Einstieg: nicht Recap-News, sondern was man mitnehmen kann wenn man selbst hacken oder ein Event planen will.</aside>
+      </section>
+
+      <section id="agenda" data-id="agenda">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Agenda</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">~15–20 Min + Diskussion</h3>
+        <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-2xl">
+          <li>Warum ich hingehe (Beratung vs. bauen)</li>
+          <li>Format &amp; sechs Unternehmens-Cases</li>
+          <li>Unser Team &amp; Case <span class="todo-pill">Duve?</span></li>
+          <li>myLab: GitLab, Jupyter, lokale/GWDG-Modelle</li>
+          <li>BYOD: Cursor + API on-prem</li>
+          <li>Was wir gebaut haben (Demo)</li>
+          <li>Learnings für MV / DeveLUP</li>
+          <li>Fragen</li>
+        </ol>
+        <aside class="notes">Publikum: Mix aus Neugierigen, Machern, ggf. Orga-Leute. Nicht zu technisch in den ersten 5 Min.</aside>
+      </section>
+
+      <section id="hook" data-id="hook">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Hook</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Beratung ist gut. Bauen ist anders.</h3>
+        <ul class="space-y-3 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li>Beim Kunden: zuverlässig liefern, manchmal <strong class="text-slate-100">Mund halten</strong>, damit andere bauen.</li>
+          <li>Beim Hackathon: <strong class="text-brand">selbst coden</strong>, Team findet sich vor Ort, Pitch am Samstag.</li>
+          <li>Morgensport am Sonntag war mindestens so viel Spaß wie guter Kundentag 🏃 <span class="text-slate-500 text-sm">(optional im Talk)</span></li>
+        </ul>
+        <aside class="notes">LinkedIn-Post als emotionale Brücke. Kein HDI/Air-Canada-Deep-Dive hier.</aside>
+      </section>
+
+      <section id="format" data-id="format">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Format</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Hanse Innovation Campus · Hanseatic Hackathon</h3>
+        <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
+          <li><strong class="text-slate-100">48 h</strong> · Fr 09:45 Einlass → Sa ~18:15 Finale + Get-together</li>
+          <li><strong class="text-slate-100">6 Cases</strong> aus Region &amp; Mittelstand (kein Spielzeug-API)</li>
+          <li>Teams <strong>vor Ort</strong>, Case-Repo Freitag per GitLab</li>
+          <li>Verpflegung ja · Übernachtung/Hotel <strong>selbst</strong> (FAQ)</li>
+          <li>Anreise für mich: <strong>Ludwigslust</strong> pendeln</li>
+        </ul>
+        <p class="mt-4 text-xs text-slate-500">
+          <a class="text-brand underline" href="https://hanse-innovation-campus.de/de/hanseatic-hackathon-2026-programm">Programm 2026</a>
+        </p>
+        <aside class="notes">Orga Kerstin Rönick / myLab TH Lübeck. Bauforum E2, Parken P8.</aside>
+      </section>
+
+      <section id="cases" data-id="cases">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Cases 2026</p>
+        <h3 class="text-lg md:text-2xl font-bold mb-3">Sechs Briefings — ein Wochenende</h3>
+        <table class="compact text-slate-200">
+          <thead><tr><th>#</th><th>Case</th><th>Kern</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Better.LIVING</td><td>KI-Agent Gäste / Objekterkennung</td></tr>
+            <tr><td>2</td><td>Stadtwerke Lübeck</td><td>Ideenmanagement Validation Engine</td></tr>
+            <tr><td>3</td><td class="text-brand font-semibold">Duve GmbH</td><td>Customer-Service-Copilot, 3 Shops</td></tr>
+            <tr><td>4</td><td>All We Shape</td><td>ReSource-Scan / Kreislauf</td></tr>
+            <tr><td>5</td><td>Greif-Velox</td><td>RAG-Qualität verbessern</td></tr>
+            <tr><td>6</td><td>SAB</td><td>LV-Matching ≥ 75 %</td></tr>
+          </tbody>
+        </table>
+        <p class="mt-3 text-sm text-slate-400">Meine Vorbereitung: Wunsch <strong>Duve</strong>, Backup Greif-Velox (Copilot-Demo vs. RAG-Tiefe).</p>
+        <aside class="notes">Ranking in Dropbox. Diskussion: welchen Case hättet ihr genommen?</aside>
+      </section>
+
+      <section id="case-duve" data-id="case-duve">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Case</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Duve — Multi-Shop Service-Copilot</h3>
+        <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
+          <li>Eingehende Kundenmails über <strong>mehrere Shop-Postfächer</strong></li>
+          <li>Zuordnung: Shop, Kunde, Vorgang + Kontext aus Systemen</li>
+          <li>Ziel: <strong>Antwortentwurf</strong>, den Menschen prüft und sendet</li>
+          <li>Passend zu meinem Portfolio: Copilot, DSGVO, Betrieb in DE</li>
+        </ul>
+        <p class="mt-4 text-sm text-amber-200/90"><span class="todo-pill">Ergänzen</span> Was hat der Case-Geber Freitag noch geliefert (Beispiel-Mails, APIs)?</p>
+        <aside class="notes">Sales-Story: nicht nur Klassifikation, sondern „Betrieb danach“ (Hosting, Kosten, Wartung).</aside>
+      </section>
+
+      <section id="team" data-id="team">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Team</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Wer mitgebaut hat</h3>
+        <div class="rounded-2xl bg-surface-light border border-slate-700 p-4 md:p-6 max-w-3xl">
+          <p class="text-slate-200 font-semibold mb-2">Platzhalter — bitte ersetzen</p>
+          <ul class="text-sm md:text-base text-slate-300 space-y-1">
+            <li>Teamname: <em class="text-slate-400">z. B. „Team Hanse“ (GitLab)</em></li>
+            <li>Rollen: Backend · UX · Domain Duve · Pitch</li>
+            <li>Martin: <em class="text-slate-400">Copilot/Integration/…</em></li>
+          </ul>
+        </div>
+        <aside class="notes">FILLIN.md: Namen nennen wenn OK für öffentlichen Talk. Danke-Slide optional.</aside>
+      </section>
+
+      <section id="zeitplan" data-id="zeitplan">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Zeitplan</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Zwei Tage im Überblick</h3>
+        <table class="compact text-slate-200 max-w-3xl">
+          <thead><tr><th>Fr 13.11.</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>09:45</td><td>Einlass Bauforum</td></tr>
+            <tr><td>10:30</td><td>Cases / Auswahl</td></tr>
+            <tr><td>11:30</td><td>Teams &amp; Worklabs</td></tr>
+            <tr><td>22:00</td><td>Ende Worklabs</td></tr>
+          </tbody>
+          <thead class="mt-2"><tr><th>Sa 14.11.</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>09:00</td><td>Weiterbauen</td></tr>
+            <tr><td>16:00+</td><td>Finale / Pitches</td></tr>
+            <tr><td>~18:15</td><td>Abendessen &amp; Austausch</td></tr>
+          </tbody>
+        </table>
+        <p class="mt-2 text-sm text-slate-400">Freitag Abend fast fertig · Samstag Polish + Story</p>
+        <aside class="notes">Ehrlich: wie viel Schlaf? Pendler vs. Hotel im Team.</aside>
+      </section>
+
+      <section id="mylab" data-id="mylab">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Infrastruktur</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">myLab TH Lübeck</h3>
+        <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
+          <li><strong class="text-slate-100">GitLab</strong> — Hackathon-Gruppe, Team-Repos, Case-Einladung</li>
+          <li><strong class="text-slate-100">JupyterHub</strong> — Notebooks, Demos</li>
+          <li><strong class="text-slate-100">OpenWebUI</strong> + <strong>OpenAI-kompatible API</strong></li>
+          <li>Modelle THL + <strong>GWDG</strong> (Rate-Limits uniweit)</li>
+          <li>Gastlogin mit Hackathon-Mail · 4 Wochen danach weiter nutzbar</li>
+        </ul>
+        <p class="mt-3 text-xs text-slate-500">Docs: wiki.mylab.th-luebeck.de</p>
+        <aside class="notes">Tech-Mail kam kurz vor Start — Passwort-Link, Guest Access nicht normaler TH-Login.</aside>
+      </section>
+
+      <section id="tooling" data-id="tooling">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Tooling</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">BYOD + on-prem LLM</h3>
+        <div class="grid md:grid-cols-2 gap-4 max-w-4xl">
+          <div class="rounded-xl bg-surface-light border border-slate-700 p-4">
+            <p class="text-brand text-xs uppercase mb-2">Erlaubt / sinnvoll</p>
+            <ul class="text-sm text-slate-300 space-y-1">
+              <li>Eigener Laptop + Netzteil</li>
+              <li><strong>Cursor</strong> mit OpenAI-Key <code class="text-xs bg-slate-800 px-1 rounded">mylab</code></li>
+              <li>Base URL → <code class="text-xs bg-slate-800 px-1 rounded break-all">api.mylab.th-luebeck.de/ai/v1</code></li>
+              <li>Alias z. B. <code class="text-xs">coder-large</code>, <code class="text-xs">chat-fast</code></li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-surface-light border border-slate-700 p-4">
+            <p class="text-amber-300 text-xs uppercase mb-2">Vorsicht</p>
+            <ul class="text-sm text-slate-300 space-y-1">
+              <li>Case-Daten nicht blind in externe SaaS</li>
+              <li>Cursor-eigene Modelle → kein Custom-Key</li>
+              <li>Geteilte Rate-Limits → große Jobs planen</li>
+              <li>OpenClaw zu Hause für Orchestrierung, nicht für Case-Upload</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">Handreichung Sep: On-Prem-Gedanke. Freitag am Case-Desk nachfragen wenn unsicher.</aside>
+      </section>
+
+      <section id="loesung" data-id="loesung">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Lösung</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Was wir geliefert haben</h3>
+        <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-3xl">
+          <li><span class="todo-pill">Bullet 1</span> Mail reinkommt → Shop/Kunde erkannt</li>
+          <li><span class="todo-pill">Bullet 2</span> Kontext aus Mock/Anbindung</li>
+          <li><span class="todo-pill">Bullet 3</span> Antwortentwurf + UI für Mitarbeiter</li>
+        </ol>
+        <p class="mt-4 text-sm text-slate-400">Samstag: Produkt <strong class="text-slate-200">fast fertig</strong> am Freitagabend → Samstag Pitch &amp; Polish</p>
+        <aside class="notes">Konkretisieren: Repo-Struktur, ob Streamlit/React, welche Evals.</aside>
+      </section>
+
+      <section id="demo" data-id="demo" class="center-slide">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Demo</p>
+        <h3 class="text-lg md:text-2xl font-bold mb-3">UI-Mock (Aufnahme)</h3>
+        <video class="demo-loop" controls playsinline preload="metadata" poster="">
+          <source src="assets/duve-copilot-mockup.mp4" type="video/mp4">
+        </video>
+        <p class="text-xs text-slate-500 mt-2">Optional live statt Video — oder Screenshots aus GitLab</p>
+        <aside class="notes">Video aus Dropbox mockups. Falls Case-Geber NDA: nur Mock zeigen.</aside>
+      </section>
+
+      <section id="learnings" data-id="learnings">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Learnings</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Was ich mitnehme</h3>
+        <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
+          <li><strong class="text-slate-100">Case-Wahl</strong> zählt mehr als „coolste“ Technik (Demo + Kunde)</li>
+          <li><strong class="text-slate-100">On-prem API</strong> reicht für ernsthaftes Cursor-Coding</li>
+          <li><strong class="text-slate-100">Team vor Ort</strong> schlägt vorab Slack-Gruppe</li>
+          <li><strong class="text-slate-100">Pitch</strong>: Betrieb, DSGVO, nächster Schritt — nicht nur Notebook</li>
+          <li><span class="todo-pill">optional</span> Jury-Platzierung / Feedback in einem Satz</li>
+        </ul>
+        <aside class="notes">Was schiefging? Rate limits, Schlaf, Scope. Ehrlich = Stammtisch-Stil.</aside>
+      </section>
+
+      <section id="transfer" data-id="transfer">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Transfer</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Für Ludwigslust &amp; DeveLUP</h3>
+        <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
+          <li>Geplanter <strong>KI-Hackathon</strong> Landkreis — ähnliches Format möglich</li>
+          <li>Echte regionale Cases &gt; generische Kaggle-Aufgaben</li>
+          <li>Hosted Infra oder klare BYOD-Regeln von Tag 1</li>
+          <li>Tech-Mail <strong>früher</strong> als 24 h vor Start 😅</li>
+          <li>Stammtisch-Story (#1 in Prio-Liste Alex Ertner)</li>
+        </ul>
+        <aside class="notes">qr-plakat / Meetup-Verlinkung optional. Kein Sales-Pitch DeveLUP.</aside>
+      </section>
+
+      <section id="fazit" data-id="fazit">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Fazit</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Lohnt sich?</h3>
+        <p class="text-sm md:text-lg text-slate-300 max-w-3xl">
+          Für mich: <strong class="text-brand">ja</strong> — Netzwerk HI/Lübeck, echte Firmen, intensives Wochenende.
+          Wer mitmachen will: Skills mitbringen, Erwartungen an Schlaf/Team klären, Case-Geber früh nach Daten fragen.
+        </p>
+        <p class="mt-4 text-sm text-slate-400">
+          Mehr Material: Dropbox <code class="text-xs">Conference/2026/Nov_13_14_Luebeck-Hackathon/</code>
+        </p>
+        <aside class="notes">CTA: nächster Stammtisch Termin + wer will Mitveranstalter sein.</aside>
+      </section>
+
+      <section id="fragen" data-id="fragen" class="center-slide">
+        <h3 class="text-2xl md:text-4xl font-bold">Fragen?</h3>
+        <p class="text-slate-400 mt-4 text-sm md:text-base">KI Stammtisch · #WdKI2026</p>
+        <p class="text-brand mt-2 text-sm">martinmueller.dev · LinkedIn /in/martinmueller88</p>
+        <aside class="notes">Swap: wer war auch in Lübeck? Wer plant eigenes Event?</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      width: window.innerWidth < 768 ? 390 : 1280,
+      height: window.innerWidth < 768 ? 700 : 720,
+      margin: window.innerWidth < 768 ? 0.02 : 0.08,
+      transition: 'slide',
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

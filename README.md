@@ -12,6 +12,7 @@ Standalone HTML slide decks for conference talks.
 | AI Builder Community Intro | [`ai-builder-intro/`](ai-builder-intro/) | https://mmuller88.github.io/presentations/ai-builder-intro/ |
 | KI Stammtisch (Talk) | [`ki-stammtisch/`](ki-stammtisch/) | https://mmuller88.github.io/presentations/ki-stammtisch/ |
 | AI Builder Meetup #3 — ChatGPT Ads (7 Oct 2026) | [`ai-builder-meetup-3-chatgpt-ads/`](ai-builder-meetup-3-chatgpt-ads/) | https://mmuller88.github.io/presentations/ai-builder-meetup-3-chatgpt-ads/ |
+| KI Stammtisch — Hanseatic Hackathon 2026 | [`ki-stammtisch-hanseatic-2026/`](ki-stammtisch-hanseatic-2026/) | https://mmuller88.github.io/presentations/ki-stammtisch-hanseatic-2026/ |
 
 ## Conventions
 
