@@ -34,12 +34,13 @@ python3 -m http.server 8080
 | Hook | `#/hook` |
 | Was ist Hanseatic? | `#/format` |
 | Cases | `#/cases` |
-| Unser Case | `#/case-duve` |
+| Unser Case | `#/case-swl` |
 | Team | `#/team` |
 | Zeitplan 48h | `#/zeitplan` |
 | myLab Infra | `#/mylab` |
 | Tooling (BYOD) | `#/tooling` |
-| Lösung / Architektur | `#/loesung` |
+| Lösung | `#/loesung` |
+| Architektur | `#/architektur` |
 | Demo | `#/demo` |
 | Learnings | `#/learnings` |
 | DeveLUP / Lulu | `#/transfer` |
@@ -48,4 +49,4 @@ python3 -m http.server 8080
 
 ## Noch von Martin ergänzen
 
-Siehe `FILLIN.md` — Teamnamen, Jury-Platzierung, 1–2 Event-Fotos, finale Pitch-Story.
+Siehe `FILLIN.md` — Jury-Platz, Fotos, ob Namen auf die Folie dürfen. Case, Stack und Eval stehen.

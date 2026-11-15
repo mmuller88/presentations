@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1849 1040" width="1849" height="1040" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="p-grau" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A4A4A"/></marker>
+    <marker id="p-blau" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#006EB2"/></marker>
+    <marker id="p-lila" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A51BA7"/></marker>
+    <marker id="p-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#007F94"/></marker>
+  </defs>
+
+  <rect width="1849" height="1040" fill="#FFFFFF"/>
+  <rect width="1849" height="8" fill="#FF8200"/>
+  <g transform="translate(124,0)">
+  <text x="60" y="78" font-size="40" font-weight="700" fill="#00467A">Ideen-Enricher · Architektur</text>
+  <text x="60" y="114" font-size="20" fill="#4A4A4A">Zwei Container, zwei Agenten, Text- und Bildmodelle nur auf myLab der TH Lübeck</text>
+
+  <!-- Innovationsmanagement -->
+  <rect x="48" y="164" width="264" height="210" rx="14" fill="#FF8200"/>
+  <g fill="none" stroke="#000000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(108,176)">
+      <circle cx="16" cy="8" r="6.5"/>
+      <path d="M16 15 V33"/>
+      <path d="M4 25 C11 21 22 21 29 26"/>
+      <path d="M16 33 L6 56"/>
+      <path d="M16 33 L27 55"/>
+    </g>
+    <g transform="translate(156,174)">
+      <circle cx="17" cy="8" r="6.5"/>
+      <path d="M17 15 V34"/>
+      <path d="M5 22 C12 28 23 27 31 24"/>
+      <path d="M17 34 L7 57"/>
+      <path d="M17 34 L28 56"/>
+    </g>
+    <g transform="translate(206,176)">
+      <circle cx="15" cy="8" r="6.5"/>
+      <path d="M15 15 V33"/>
+      <path d="M3 27 C11 22 20 23 28 28"/>
+      <path d="M15 33 L6 55"/>
+      <path d="M15 33 L26 57"/>
+    </g>
+  </g>
+  <text x="180" y="258" font-size="20" font-weight="700" fill="#000000" text-anchor="middle">Innovations-</text>
+  <text x="180" y="280" font-size="20" font-weight="700" fill="#000000" text-anchor="middle">management</text>
+  <text x="180" y="304" font-size="14" fill="#000000" text-anchor="middle">prüft und entscheidet</text>
+  <text x="180" y="326" font-size="13" fill="#000000" text-anchor="middle">rein: Excel-Export + Anhänge</text>
+  <text x="180" y="344" font-size="13" fill="#000000" text-anchor="middle">raus: xlsx + Steckbrief</text>
+  <text x="180" y="366" font-size="13" fill="#000000" text-anchor="middle">auch angereicherte xlsx</text>
+
+  <!-- Ideengeber, nicht am Tool -->
+  <path d="M292,376 V404" stroke="#4A4A4A" stroke-width="2.2" fill="none" marker-start="url(#p-grau)" marker-end="url(#p-grau)"/>
+  <text x="284" y="394" font-size="12" fill="#4A4A4A" text-anchor="end">Export hinauf · Fragen zurück</text>
+  <rect x="48" y="412" width="264" height="412" rx="14" fill="#FAFAFA" stroke="#4A4A4A" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <g fill="none" stroke="#4A4A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(64,428)">
+      <circle cx="15" cy="8" r="6.5"/>
+      <path d="M15 15 V33"/>
+      <path d="M4 24 C11 20 20 22 27 26"/>
+      <path d="M15 33 L6 55"/>
+      <path d="M15 33 L25 56"/>
+    </g>
+    <g transform="translate(102,430)">
+      <circle cx="16" cy="8" r="6.5"/>
+      <path d="M16 15 V34"/>
+      <path d="M5 28 C12 23 21 24 28 27"/>
+      <path d="M16 34 L7 56"/>
+      <path d="M16 34 L26 54"/>
+    </g>
+  </g>
+  <text x="150" y="458" font-size="16" font-weight="700" fill="#000000">Ideengeber:innen</text>
+  <text x="68" y="508" font-size="13" fill="#4A4A4A">nicht das Innovationsmanagement</text>
+  <text x="68" y="540" font-size="15" font-weight="700" fill="#00467A">1 · reichen die Idee ein</text>
+  <text x="68" y="562" font-size="14" fill="#000000">MS Forms → SharePoint-Liste</text>
+  <text x="68" y="582" font-size="14" fill="#000000">Titel, Problem, Lösung, Bereich</text>
+  <text x="68" y="602" font-size="14" fill="#4A4A4A">meist 4 von 24 Feldern</text>
+  <text x="68" y="646" font-size="15" font-weight="700" fill="#00467A">2 · nutzen den Enricher nicht</text>
+  <text x="68" y="668" font-size="14" fill="#000000">kein Upload, kein Review</text>
+  <text x="68" y="688" font-size="14" fill="#000000">die Liste geht nach oben</text>
+  <text x="68" y="732" font-size="15" font-weight="700" fill="#00467A">3 · offene Fragen zurück</text>
+  <text x="68" y="754" font-size="14" fill="#000000">an Ideengeber oder Fachbereich</text>
+  <text x="68" y="774" font-size="14" fill="#000000">nur wenn ein Beleg fehlt</text>
+  <path d="M80,614 V630" stroke="#4A4A4A" stroke-width="1.8" fill="none" marker-end="url(#p-grau)"/>
+  <path d="M80,700 V716" stroke="#4A4A4A" stroke-width="1.8" fill="none" marker-end="url(#p-grau)"/>
+
+  <!-- Laptop -->
+  <rect x="330" y="146" width="870" height="686" rx="20" fill="#FF8200" fill-opacity="0.05" stroke="#FF8200" stroke-width="2.5" stroke-dasharray="10 6"/>
+  <text x="354" y="177" font-size="16" font-weight="700" fill="#CC6800">Demo auf Kubernetes · Entwicklung per docker compose lokal</text>
+  <rect x="900" y="156" width="280" height="30" rx="8" fill="#E4E4E4"/>
+  <text x="1040" y="176" font-size="14" fill="#000000" text-anchor="middle">Offline-Backup: Aufzeichnung + PPTX</text>
+
+  <!-- Container web -->
+  <rect x="370" y="194" width="790" height="110" rx="14" fill="#006EB2" fill-opacity="0.08" stroke="#006EB2" stroke-width="2"/>
+  <text x="390" y="220" font-size="17" font-weight="700" fill="#006EB2">Container web · Next.js + AI SDK UI</text>
+  <rect x="390" y="232" width="172" height="60" rx="10" fill="#006EB2"/>
+  <text x="476" y="257" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">1 · Eingabe</text>
+  <text x="476" y="279" font-size="14" fill="#FFFFFF" text-anchor="middle">Upload, Ideen, Anhänge</text>
+  <rect x="582" y="232" width="172" height="60" rx="10" fill="#006EB2"/>
+  <text x="668" y="257" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">2 · Fortschritt</text>
+  <text x="668" y="279" font-size="14" fill="#FFFFFF" text-anchor="middle">live per SSE-Stream</text>
+  <rect x="774" y="232" width="172" height="60" rx="10" fill="#006EB2"/>
+  <text x="860" y="257" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">3 · Review</text>
+  <text x="860" y="279" font-size="14" fill="#FFFFFF" text-anchor="middle">prüfen, ändern, xlsx</text>
+  <rect x="966" y="232" width="174" height="60" rx="10" fill="#006EB2"/>
+  <text x="1053" y="257" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">4 · Steckbrief</text>
+  <text x="1053" y="279" font-size="14" fill="#FFFFFF" text-anchor="middle">live, PPTX-Download</text>
+
+  <!-- Container api -->
+  <rect x="370" y="344" width="790" height="474" rx="14" fill="#00467A" fill-opacity="0.07" stroke="#00467A" stroke-width="2"/>
+  <text x="390" y="372" font-size="17" font-weight="700" fill="#00467A">Container api · FastAPI + LangChain (Python)</text>
+
+  <rect x="390" y="388" width="330" height="106" rx="10" fill="#00467A"/>
+  <text x="555" y="418" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">Pipeline</text>
+  <text x="555" y="442" font-size="15" fill="#FFFFFF" text-anchor="middle">Einlesen: Excel, PDF, Word, PowerPoint</text>
+  <text x="555" y="462" font-size="15" fill="#FFFFFF" text-anchor="middle">Kategorie per Entscheidungsbaum F1–F5</text>
+  <text x="555" y="482" font-size="15" fill="#FFFFFF" text-anchor="middle">Abgleich mit SWL-Portfolio</text>
+
+  <rect x="760" y="388" width="380" height="106" rx="10" fill="#00467A"/>
+  <text x="950" y="418" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">Agent 1 · Anreichern</text>
+  <text x="950" y="442" font-size="15" fill="#FFFFFF" text-anchor="middle" font-family="Menlo, Consolas, monospace">lies_anhang · suche_in_anhaengen</text>
+  <text x="950" y="462" font-size="15" fill="#FFFFFF" text-anchor="middle">liest Belege mit Seite und Folie</text>
+  <text x="950" y="482" font-size="15" fill="#FFFFFF" text-anchor="middle">füllt 8 Felder strukturiert (JSON-Schema)</text>
+
+  <!-- CSV-Konfig als Zylinder -->
+  <path d="M390,546 v74 a165,16 0 0 0 330,0 v-74" fill="#A51BA7"/>
+  <ellipse cx="555" cy="546" rx="165" ry="16" fill="#C24FC4"/>
+  <text x="555" y="584" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">CSV-Konfig</text>
+  <text x="555" y="606" font-size="15" fill="#FFFFFF" text-anchor="middle">Felder, Werte, Ziele, Portfolio, Baum</text>
+  <text x="555" y="626" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">ohne Code änderbar</text>
+
+  <rect x="760" y="530" width="380" height="106" rx="10" fill="#F73E5E"/>
+  <text x="950" y="560" font-size="20" font-weight="700" fill="#000000" text-anchor="middle">Prüfen + Excel-Export</text>
+  <text x="950" y="584" font-size="15" fill="#000000" text-anchor="middle">nur erlaubte Auswahlwerte, Belegpflicht</text>
+  <text x="950" y="604" font-size="15" fill="#000000" text-anchor="middle">Lücken werden offene Fragen</text>
+  <text x="950" y="624" font-size="15" fill="#000000" text-anchor="middle">xlsx: KI-Zellen gelb mit Begründung</text>
+
+  <!-- Agent 2 -->
+  <rect x="390" y="668" width="330" height="136" rx="10" fill="#00467A"/>
+  <text x="555" y="698" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">Basis · 3 Einstiege</text>
+  <text x="555" y="728" font-size="15" fill="#FFFFFF" text-anchor="middle">1 · direkt nach dem Anreichern</text>
+  <text x="555" y="754" font-size="15" fill="#FFFFFF" text-anchor="middle">2 · aus dem Review (geprüfte Werte)</text>
+  <text x="555" y="780" font-size="15" fill="#FFFFFF" text-anchor="middle">3 · angereicherte xlsx hochladen</text>
+
+  <rect x="760" y="668" width="380" height="136" rx="10" fill="#00467A"/>
+  <text x="950" y="698" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">Agent 2 · Steckbrief</text>
+  <text x="950" y="722" font-size="14" fill="#FFFFFF" text-anchor="middle" font-family="Menlo, Consolas, monospace">suche_in_anhaengen · lies_anhang</text>
+  <text x="950" y="742" font-size="14" fill="#FFFFFF" text-anchor="middle" font-family="Menlo, Consolas, monospace">steckbrief_erstellen</text>
+  <text x="950" y="764" font-size="15" fill="#FFFFFF" text-anchor="middle">prüft Zitate wörtlich, wählt Foto aus Anhang</text>
+  <text x="950" y="786" font-size="15" fill="#FFFFFF" text-anchor="middle">baut 10 Folien im SWL-Layout (PPTX)</text>
+
+  <!-- myLab -->
+  <rect x="1250" y="360" width="300" height="384" rx="20" fill="#00BDDC" fill-opacity="0.08" stroke="#00BDDC" stroke-width="2.5" stroke-dasharray="10 6"/>
+  <text x="1272" y="392" font-size="18" font-weight="700" fill="#007F94">myLab · TH Lübeck</text>
+  <text x="1272" y="414" font-size="15" fill="#007F94">Daten bleiben am Campus</text>
+  <rect x="1275" y="430" width="250" height="76" rx="10" fill="#00BDDC" fill-opacity="0.55"/>
+  <text x="1400" y="462" font-size="20" font-weight="700" fill="#000000" text-anchor="middle">coder-medium</text>
+  <text x="1400" y="488" font-size="15" fill="#000000" text-anchor="middle">Mistral 128B · Fallback</text>
+  <rect x="1275" y="522" width="250" height="100" rx="10" fill="#00BDDC"/>
+  <text x="1400" y="556" font-size="20" font-weight="700" fill="#000000" text-anchor="middle">chat-fast</text>
+  <text x="1400" y="582" font-size="15" fill="#000000" text-anchor="middle">Gemma 4 31B · Standard</text>
+  <text x="1400" y="604" font-size="15" fill="#000000" text-anchor="middle">Tools, JSON-Schema, Bilder</text>
+  <rect x="1275" y="638" width="250" height="90" rx="10" fill="#00BDDC"/>
+  <text x="1400" y="670" font-size="20" font-weight="700" fill="#000000" text-anchor="middle">flux.3-klein</text>
+  <text x="1400" y="696" font-size="15" fill="#000000" text-anchor="middle">nur wenn kein Foto passt</text>
+  <text x="1400" y="716" font-size="15" fill="#000000" text-anchor="middle">Hochformat, ca. 16 s je Bild</text>
+
+  <!-- Pfeile Mensch und UI -->
+  <path d="M314,268 H386" stroke="#4A4A4A" stroke-width="2.5" fill="none" marker-start="url(#p-grau)" marker-end="url(#p-grau)"/>
+
+  <!-- UI und API -->
+  <path d="M510,306 V340" stroke="#006EB2" stroke-width="2.5" fill="none" marker-end="url(#p-blau)"/>
+  <text x="522" y="329" font-size="14" fill="#006EB2">Upload · Start · Export</text>
+  <path d="M800,342 V308" stroke="#006EB2" stroke-width="2.5" fill="none" stroke-dasharray="7 5" marker-end="url(#p-blau)"/>
+  <text x="812" y="329" font-size="14" fill="#006EB2">Schritte, Tool-Aufrufe, Ergebnis, PPTX</text>
+
+  <!-- intern -->
+  <path d="M722,441 H756" stroke="#4A4A4A" stroke-width="2.5" fill="none" marker-end="url(#p-grau)"/>
+  <path d="M950,496 V526" stroke="#4A4A4A" stroke-width="2.5" fill="none" marker-end="url(#p-grau)"/>
+  <path d="M555,528 V498" stroke="#A51BA7" stroke-width="2.5" fill="none" marker-end="url(#p-lila)"/>
+  <path d="M722,590 H756" stroke="#A51BA7" stroke-width="2.5" fill="none" marker-end="url(#p-lila)"/>
+  <path d="M700,536 C740,518 760,508 790,498" stroke="#A51BA7" stroke-width="2.5" fill="none" marker-end="url(#p-lila)"/>
+  <path d="M790,638 C778,656 748,656 716,664" stroke="#4A4A4A" stroke-width="2.5" fill="none" marker-end="url(#p-grau)"/>
+  <path d="M722,736 H756" stroke="#4A4A4A" stroke-width="2.5" fill="none" marker-end="url(#p-grau)"/>
+
+  <!-- Modelle -->
+  <path d="M1142,420 C1200,420 1215,468 1271,468" stroke="#007F94" stroke-width="2.5" fill="none" stroke-dasharray="7 5" marker-end="url(#p-cyan)"/>
+  <path d="M1142,470 C1205,470 1210,556 1271,556" stroke="#007F94" stroke-width="2.5" fill="none" marker-end="url(#p-cyan)"/>
+  <path d="M1142,700 C1205,700 1210,596 1271,596" stroke="#007F94" stroke-width="2.5" fill="none" marker-end="url(#p-cyan)"/>
+  <path d="M1142,760 C1205,760 1210,690 1271,690" stroke="#007F94" stroke-width="2.5" fill="none" stroke-dasharray="7 5" marker-end="url(#p-cyan)"/>
+
+  <!-- Schutz -->
+  <text x="1250" y="770" font-size="15" font-weight="700" fill="#00467A">Datenschutz im Prototyp</text>
+  <text x="1250" y="790" font-size="15" fill="#4A4A4A">Web-Suche nur auf Schalter, Standard aus</text>
+  <text x="1250" y="810" font-size="15" fill="#4A4A4A">Sitzungen beim Enricher, API nur intern</text>
+  <text x="1250" y="830" font-size="15" fill="#4A4A4A">Bilder lokal, Beschreibung auf myLab</text>
+
+  <!-- Legende -->
+  <g font-size="15" fill="#000000">
+    <rect x="60" y="852" width="20" height="20" rx="4" fill="#FF8200"/><text x="88" y="868">Mensch entscheidet</text>
+    <rect x="270" y="852" width="20" height="20" rx="4" fill="#006EB2"/><text x="298" y="868">Oberfläche</text>
+    <rect x="420" y="852" width="20" height="20" rx="4" fill="#00467A"/><text x="448" y="868">Backend und Agenten</text>
+    <rect x="630" y="852" width="20" height="20" rx="4" fill="#A51BA7"/><text x="658" y="868">Konfiguration (CSV)</text>
+    <rect x="840" y="852" width="20" height="20" rx="4" fill="#F73E5E"/><text x="868" y="868">Prüfung und Ergebnis</text>
+    <rect x="1060" y="852" width="20" height="20" rx="4" fill="#00BDDC"/><text x="1088" y="868">THL-Modelle</text>
+    <rect x="1220" y="852" width="20" height="20" rx="4" fill="#E4E4E4"/><text x="1248" y="868">Offline-Backup</text>
+  </g>
+  </g>
+
+  <line x1="184" y1="900" x2="1674" y2="900" stroke="#E4E4E4" stroke-width="1.5"/>
+  <text x="184" y="928" font-size="16" font-weight="700" fill="#00467A">Begriffe</text>
+  <g font-size="15">
+    <text x="184" y="958"><tspan font-weight="700" fill="#00467A">Container</tspan><tspan fill="#4A4A4A"> · Programm in eigener Hülle</tspan></text>
+    <text x="184" y="982"><tspan font-weight="700" fill="#00467A">docker compose</tspan><tspan fill="#4A4A4A"> · lokale Entwicklung, ein Befehl</tspan></text>
+    <text x="184" y="1006"><tspan font-weight="700" fill="#00467A">Kubernetes</tspan><tspan fill="#4A4A4A"> · Cluster, dort läuft die Demo</tspan></text>
+    <text x="184" y="1030"><tspan font-weight="700" fill="#00467A">127.0.0.1</tspan><tspan fill="#4A4A4A"> · nur dieser Rechner</tspan></text>
+
+    <text x="570" y="958"><tspan font-weight="700" fill="#00467A">Next.js</tspan><tspan fill="#4A4A4A"> · Gerüst der Oberfläche</tspan></text>
+    <text x="570" y="982"><tspan font-weight="700" fill="#00467A">AI SDK UI</tspan><tspan fill="#4A4A4A"> · zeigt Schritte live</tspan></text>
+    <text x="570" y="1006"><tspan font-weight="700" fill="#00467A">SSE-Stream</tspan><tspan fill="#4A4A4A"> · Server schickt Fortschritt</tspan></text>
+    <text x="570" y="1030"><tspan font-weight="700" fill="#00467A">FastAPI</tspan><tspan fill="#4A4A4A"> · Python-Schnittstelle</tspan></text>
+
+    <text x="940" y="958"><tspan font-weight="700" fill="#00467A">LangChain</tspan><tspan fill="#4A4A4A"> · Modell nutzt Werkzeuge</tspan></text>
+    <text x="940" y="982"><tspan font-weight="700" fill="#00467A">Agent</tspan><tspan fill="#4A4A4A"> · Modell mit Ziel und Tools</tspan></text>
+    <text x="940" y="1006"><tspan font-weight="700" fill="#00467A">Tool</tspan><tspan fill="#4A4A4A"> · Funktion, vom Agent gewählt</tspan></text>
+    <text x="940" y="1030"><tspan font-weight="700" fill="#00467A">JSON-Schema</tspan><tspan fill="#4A4A4A"> · festes Format der 8 Felder</tspan></text>
+
+    <text x="1320" y="958"><tspan font-weight="700" fill="#00467A">CSV-Konfig</tspan><tspan fill="#4A4A4A"> · Fachregeln ohne Code</tspan></text>
+    <text x="1320" y="982"><tspan font-weight="700" fill="#00467A">myLab</tspan><tspan fill="#4A4A4A"> · KI der TH Lübeck, Daten dort</tspan></text>
+    <text x="1320" y="1006"><tspan font-weight="700" fill="#00467A">Fallback</tspan><tspan fill="#4A4A4A"> · Ersatzmodell coder-medium</tspan></text>
+    <text x="1320" y="1030"><tspan font-weight="700" fill="#00467A">flux.3-klein</tspan><tspan fill="#4A4A4A"> · Bild nur ohne Foto</tspan></text>
+  </g>
+</svg>

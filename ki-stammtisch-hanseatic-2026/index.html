@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Hanseatic Hackathon Lübeck — KI Stammtisch</title>
-  <meta name="description" content="48h, echte Cases, myLab — Erfahrungsbericht Martin Mueller">
+  <meta name="description" content="48h, Stadtwerke-Ideen-Enricher, myLab — Erfahrungsbericht Martin Mueller">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -43,23 +43,35 @@
       border-radius: 0.5rem;
       border: 1px solid #334155;
     }
-    .todo-pill {
-      display: inline-block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.15rem 0.45rem;
-      border-radius: 9999px;
-      background: #451a03;
-      color: #fdba74;
-      border: 1px solid #9a3412;
-      vertical-align: middle;
+    .reveal .slides section.arch-slide {
+      padding: 0;
+    }
+    .reveal .slides section.arch-slide img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0;
+      object-fit: contain;
+      background: #fff;
+      border: 0;
+      box-shadow: none;
+    }
+    .reveal .slides section img.team-pic {
+      max-height: 56vh;
+      width: auto;
+      margin: 0;
+      border-radius: 0.75rem;
+      border: 1px solid #334155;
+      box-shadow: none;
+      object-fit: cover;
     }
     @media (max-width: 768px) {
       .reveal h1 { font-size: 1.45rem !important; }
       .reveal h3 { font-size: 1.1rem !important; }
       .reveal p, .reveal li { font-size: 0.88rem !important; }
       .reveal .slides section video.demo-loop { max-height: 30vh; }
+      .reveal .slides section img.team-pic { max-height: 28vh; }
     }
   </style>
 </head>
@@ -90,7 +102,7 @@
         <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-2xl">
           <li>Warum ich hingehe (Beratung vs. bauen)</li>
           <li>Format &amp; sechs Unternehmens-Cases</li>
-          <li>Unser Team &amp; Case <span class="todo-pill">Duve?</span></li>
+          <li>Team Hanse &amp; Case Stadtwerke Lübeck</li>
           <li>myLab: GitLab, Jupyter, lokale/GWDG-Modelle</li>
           <li>BYOD: Cursor + API on-prem</li>
           <li>Was wir gebaut haben (Demo)</li>
@@ -104,11 +116,11 @@
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Hook</p>
         <h3 class="text-xl md:text-3xl font-bold mb-4">Beratung ist gut. Bauen ist anders.</h3>
         <ul class="space-y-3 text-sm md:text-lg text-slate-300 max-w-3xl">
-          <li>Beim Kunden: zuverlässig liefern, manchmal <strong class="text-slate-100">Mund halten</strong>, damit andere bauen.</li>
+          <li>Beim Kunden: liefern, was vereinbart ist, und den Betrieb danach mitdenken.</li>
           <li>Beim Hackathon: <strong class="text-brand">selbst coden</strong>, Team findet sich vor Ort, Pitch am Samstag.</li>
-          <li>Morgensport am Sonntag war mindestens so viel Spaß wie guter Kundentag 🏃 <span class="text-slate-500 text-sm">(optional im Talk)</span></li>
+          <li>Rausgekommen: <strong class="text-slate-100">Ideen bewerten statt Spalten füllen</strong>. 4 von 24 Feldern, in 13&nbsp;s ein Vorschlag mit Quelle.</li>
         </ul>
-        <aside class="notes">LinkedIn-Post als emotionale Brücke. Kein HDI/Air-Canada-Deep-Dive hier.</aside>
+        <aside class="notes">Die 13 s sind der Eval von chat-fast (Gemma 4 31B) am 13.11., nicht die Live-Zeit. Danach entscheidet der Mensch. Kein Kunden-Deep-Dive.</aside>
       </section>
 
       <section id="format" data-id="format">
@@ -134,42 +146,44 @@
           <thead><tr><th>#</th><th>Case</th><th>Kern</th></tr></thead>
           <tbody>
             <tr><td>1</td><td>Better.LIVING</td><td>KI-Agent Gäste / Objekterkennung</td></tr>
-            <tr><td>2</td><td>Stadtwerke Lübeck</td><td>Ideenmanagement Validation Engine</td></tr>
-            <tr><td>3</td><td class="text-brand font-semibold">Duve GmbH</td><td>Customer-Service-Copilot, 3 Shops</td></tr>
+            <tr><td>2</td><td class="text-brand font-semibold">Stadtwerke Lübeck</td><td>Ideenmanagement Validation Engine</td></tr>
+            <tr><td>3</td><td>Duve GmbH</td><td>Customer-Service-Copilot, 3 Shops</td></tr>
             <tr><td>4</td><td>All We Shape</td><td>ReSource-Scan / Kreislauf</td></tr>
             <tr><td>5</td><td>Greif-Velox</td><td>RAG-Qualität verbessern</td></tr>
             <tr><td>6</td><td>SAB</td><td>LV-Matching ≥ 75 %</td></tr>
           </tbody>
         </table>
-        <p class="mt-3 text-sm text-slate-400">Meine Vorbereitung: Wunsch <strong>Duve</strong>, Backup Greif-Velox (Copilot-Demo vs. RAG-Tiefe).</p>
-        <aside class="notes">Ranking in Dropbox. Diskussion: welchen Case hättet ihr genommen?</aside>
+        <p class="mt-3 text-sm text-slate-400">Gebaut hat <strong class="text-slate-200">Team Hanse</strong> Case 2. In der Vorbereitung stand Duve vorn.</p>
+        <aside class="notes">Diskussion: welchen Case hättet ihr genommen? Duve wäre Copilot-Demo gewesen, SWL war ein echter Excel-Export plus Anhänge.</aside>
       </section>
 
-      <section id="case-duve" data-id="case-duve">
+      <section id="case-swl" data-id="case-swl">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Case</p>
-        <h3 class="text-xl md:text-3xl font-bold mb-4">Duve — Multi-Shop Service-Copilot</h3>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Stadtwerke — Ideen anreichern</h3>
         <ul class="space-y-2 text-sm md:text-lg text-slate-300 max-w-3xl">
-          <li>Eingehende Kundenmails über <strong>mehrere Shop-Postfächer</strong></li>
-          <li>Zuordnung: Shop, Kunde, Vorgang + Kontext aus Systemen</li>
-          <li>Ziel: <strong>Antwortentwurf</strong>, den Menschen prüft und sendet</li>
-          <li>Passend zu meinem Portfolio: Copilot, DSGVO, Betrieb in DE</li>
+          <li>Weg heute: <strong class="text-slate-100">MS Forms → SharePoint → Excel</strong></li>
+          <li>Meist nur Titel, Problem, Lösung, Bereich: <strong class="text-brand">4 von 24</strong> Spalten</li>
+          <li>Zur Bewertung fehlen Fokusfeld, Kategorie, Budget, Markt, Machbarkeit, Mehrwert</li>
+          <li>Anreichern und Steckbrief passieren <strong class="text-slate-100">von Hand</strong>, Idee für Idee</li>
+          <li>Für den Betrieb: möglichst <strong class="text-slate-100">ohne eigenen Code</strong>, in M365</li>
         </ul>
-        <p class="mt-4 text-sm text-amber-200/90"><span class="todo-pill">Ergänzen</span> Was hat der Case-Geber Freitag noch geliefert (Beispiel-Mails, APIs)?</p>
-        <aside class="notes">Sales-Story: nicht nur Klassifikation, sondern „Betrieb danach“ (Hosting, Kosten, Wartung).</aside>
+        <aside class="notes">Geliefert waren 9 Beispiel-Ideen plus Anhänge (PDF, Word, PPTX), kein API. „No-Go Code“ gilt fürs Go-Live, nicht für den Prototyp.</aside>
       </section>
 
       <section id="team" data-id="team">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Team</p>
-        <h3 class="text-xl md:text-3xl font-bold mb-4">Wer mitgebaut hat</h3>
-        <div class="rounded-2xl bg-surface-light border border-slate-700 p-4 md:p-6 max-w-3xl">
-          <p class="text-slate-200 font-semibold mb-2">Platzhalter — bitte ersetzen</p>
-          <ul class="text-sm md:text-base text-slate-300 space-y-1">
-            <li>Teamname: <em class="text-slate-400">z. B. „Team Hanse“ (GitLab)</em></li>
-            <li>Rollen: Backend · UX · Domain Duve · Pitch</li>
-            <li>Martin: <em class="text-slate-400">Copilot/Integration/…</em></li>
+        <h3 class="text-xl md:text-3xl font-bold mb-3">Team Hanse</h3>
+        <div class="grid md:grid-cols-[minmax(0,1fr)_auto] gap-4 items-center">
+          <ul class="space-y-2 text-sm md:text-lg text-slate-300">
+            <li><strong class="text-slate-100">Ideen-Enricher</strong>: FastAPI, LangChain, Next.js</li>
+            <li><strong class="text-slate-100">Steckbrief</strong>: Python, 11 Folien im SWL-Master, Zitate nur wörtlich</li>
+            <li>Fachlogik in <strong class="text-slate-100">CSV</strong>: Felder, erlaubte Werte, Entscheidungsbaum</li>
+            <li>Lokal per docker compose, Demo auf <strong class="text-slate-100">Kubernetes</strong> (myLab)</li>
+            <li>Martin: Pitch, Architektur, Ausrollen ins Cluster</li>
           </ul>
+          <img class="team-pic" src="assets/team-hanse.jpg" alt="Team Hanse vor der Wand des Hanseatic Hackathon">
         </div>
-        <aside class="notes">FILLIN.md: Namen nennen wenn OK für öffentlichen Talk. Danke-Slide optional.</aside>
+        <aside class="notes">Foto vom Wochenende, zehn Leute. Namen nur nennen, wenn das Team einverstanden ist. Im Repo u. a. Enes Mete am Steckbrief, Merle Pantwich an den Beispielen, Oskar Schießl am Prototyp.</aside>
       </section>
 
       <section id="zeitplan" data-id="zeitplan">
@@ -203,6 +217,7 @@
           <li><strong class="text-slate-100">OpenWebUI</strong> + <strong>OpenAI-kompatible API</strong></li>
           <li>Modelle THL + <strong>GWDG</strong> (Rate-Limits uniweit)</li>
           <li>Gastlogin mit Hackathon-Mail · 4 Wochen danach weiter nutzbar</li>
+          <li>Genutzt: <strong class="text-slate-100">chat-fast</strong> (Gemma 4 31B), <strong class="text-slate-100">coder-medium</strong> (Mistral 128B), <code class="text-xs">flux.3-klein</code> nur als Ersatzbild</li>
         </ul>
         <p class="mt-3 text-xs text-slate-500">Docs: wiki.mylab.th-luebeck.de</p>
         <aside class="notes">Tech-Mail kam kurz vor Start — Passwort-Link, Guest Access nicht normaler TH-Login.</aside>
@@ -226,8 +241,9 @@
             <ul class="text-sm text-slate-300 space-y-1">
               <li>Case-Daten nicht blind in externe SaaS</li>
               <li>Cursor-eigene Modelle → kein Custom-Key</li>
-              <li>Geteilte Rate-Limits → große Jobs planen</li>
-              <li>OpenClaw zu Hause für Orchestrierung, nicht für Case-Upload</li>
+              <li><code class="text-xs">json_schema</code> hing (guided decoding), <code class="text-xs">function_calling</code> lief</li>
+              <li>Tool-Calls kamen oft als Text zurück, der Client hat sie repariert</li>
+              <li>Web-Suche nur auf Schalter, Standard aus</li>
             </ul>
           </div>
         </div>
@@ -236,37 +252,50 @@
 
       <section id="loesung" data-id="loesung">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Lösung</p>
-        <h3 class="text-xl md:text-3xl font-bold mb-4">Was wir geliefert haben</h3>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">Zwei Agenten, der Mensch entscheidet</h3>
         <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-3xl">
-          <li><span class="todo-pill">Bullet 1</span> Mail reinkommt → Shop/Kunde erkannt</li>
-          <li><span class="todo-pill">Bullet 2</span> Kontext aus Mock/Anbindung</li>
-          <li><span class="todo-pill">Bullet 3</span> Antwortentwurf + UI für Mitarbeiter</li>
+          <li><strong class="text-slate-100">Rein:</strong> Excel-Export plus Anhänge (PDF, Word, PPTX)</li>
+          <li><strong class="text-slate-100">Agent 1, ~13&nbsp;s:</strong> 8 Felder + Kategorie, je mit Quelle, Konfidenz, Begründung. Lücken werden Fragen.</li>
+          <li><strong class="text-slate-100">Review:</strong> übernehmen, ändern, verwerfen. Export erst danach, KI-Zellen gelb.</li>
+          <li><strong class="text-slate-100">Agent 2, ~1&nbsp;min:</strong> Steckbrief. Nur Zitate, die wörtlich im Anhang stehen. Foto aus dem Anhang, sonst Ersatzbild.</li>
         </ol>
-        <p class="mt-4 text-sm text-slate-400">Samstag: Produkt <strong class="text-slate-200">fast fertig</strong> am Freitagabend → Samstag Pitch &amp; Polish</p>
-        <aside class="notes">Konkretisieren: Repo-Struktur, ob Streamlit/React, welche Evals.</aside>
+        <p class="mt-4 text-sm text-slate-400">Prämie, Personen, IDs und Termine füllt die KI nie. Kategorie läuft über den Entscheidungsbaum, der Pfad bleibt sichtbar.</p>
+        <aside class="notes">Demo-Idee im Pitch: Ladebordsteine. Kategorie wich ab (Verbesserung statt Innovation). Genau dafür ist das Review da. Stichwortsuche, keine semantische Suche, keine Duplikaterkennung.</aside>
+      </section>
+
+      <section id="architektur" data-id="architektur" class="arch-slide center-slide">
+        <img src="assets/architektur.svg" alt="Ideen-Enricher: Web und API in zwei Containern, Modelle nur auf myLab">
+        <aside class="notes">Demo auf Kubernetes, Entwicklung per docker compose. Ideengeber nutzen das Tool nicht, nur das Innovationsmanagement. Web-Suche aus. Diagramm sagt 10 Folien, der Generator hat inzwischen 11.</aside>
       </section>
 
       <section id="demo" data-id="demo" class="center-slide">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Demo</p>
-        <h3 class="text-lg md:text-2xl font-bold mb-3">UI-Mock (Aufnahme)</h3>
-        <video class="demo-loop" controls playsinline preload="metadata" poster="">
-          <source src="assets/duve-copilot-mockup.mp4" type="video/mp4">
+        <h3 class="text-lg md:text-2xl font-bold mb-3">Pitch, 48 Sekunden</h3>
+        <video class="demo-loop" controls playsinline preload="metadata">
+          <source src="assets/ideen-enricher-pitch.mp4" type="video/mp4">
         </video>
-        <p class="text-xs text-slate-500 mt-2">Optional live statt Video — oder Screenshots aus GitLab</p>
-        <aside class="notes">Video aus Dropbox mockups. Falls Case-Geber NDA: nur Mock zeigen.</aside>
+        <p class="text-xs text-slate-500 mt-2">Live wäre <code>pnpm dev:all</code>, Modell chat-fast, Ordner Beispieldokumente. Offline-Aufnahme liegt im Repo.</p>
+        <aside class="notes">Backup im Enricher: Modell „Aufzeichnung“. Nicht die echten Personenfelder vorlesen. Video zeigt den Ablauf, nicht jeden Eval-Wert.</aside>
       </section>
 
       <section id="learnings" data-id="learnings">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Learnings</p>
-        <h3 class="text-xl md:text-3xl font-bold mb-4">Was ich mitnehme</h3>
-        <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
-          <li><strong class="text-slate-100">Case-Wahl</strong> zählt mehr als „coolste“ Technik (Demo + Kunde)</li>
-          <li><strong class="text-slate-100">On-prem API</strong> reicht für ernsthaftes Cursor-Coding</li>
-          <li><strong class="text-slate-100">Team vor Ort</strong> schlägt vorab Slack-Gruppe</li>
-          <li><strong class="text-slate-100">Pitch</strong>: Betrieb, DSGVO, nächster Schritt — nicht nur Notebook</li>
-          <li><span class="todo-pill">optional</span> Jury-Platzierung / Feedback in einem Satz</li>
+        <h3 class="text-xl md:text-3xl font-bold mb-3">Eval vom 13.11., neun Ideen plus Osmose</h3>
+        <table class="compact text-slate-200 max-w-3xl mb-3">
+          <thead><tr><th></th><th>chat-fast · Gemma 4 31B</th><th>coder-medium · Mistral 128B</th></tr></thead>
+          <tbody>
+            <tr><td>Zeit je Idee</td><td>13 s</td><td>80 s</td></tr>
+            <tr><td>ohne Fehler</td><td>10 / 10</td><td>9 / 10, ein Timeout</td></tr>
+            <tr><td>ungültige Auswahlwerte</td><td>0</td><td>0</td></tr>
+            <tr><td>Felder mit Beleg aus Anhang</td><td>83 %</td><td>85 %</td></tr>
+          </tbody>
+        </table>
+        <ul class="space-y-1 text-sm md:text-base text-slate-300 max-w-3xl">
+          <li><strong class="text-slate-100">Schnelles Modell gewinnt</strong> die Live-Demo. Größer war nicht besser.</li>
+          <li>Ohne Anhang: knapp die Hälfte <strong class="text-slate-100">Modellwissen</strong>. Eine Zahl ohne Quelle senkt die Konfidenz.</li>
+          <li>Fachlogik in CSV, nicht im Prompt. Dieselbe Datei kann später nach M365.</li>
         </ul>
-        <aside class="notes">Was schiefging? Rate limits, Schlaf, Scope. Ehrlich = Stammtisch-Stil.</aside>
+        <aside class="notes">Ladebordsteine: Modell sagte Verbesserung, Soll war Innovation. Frage F2 lässt Spielraum. Grenzen: Stichwortsuche, keine Duplikate, „KI-ready“ lag doppelt vor. Jury-Platz noch offen.</aside>
       </section>
 
       <section id="transfer" data-id="transfer">
@@ -274,10 +303,10 @@
         <h3 class="text-xl md:text-3xl font-bold mb-4">Für Ludwigslust &amp; DeveLUP</h3>
         <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
           <li>Geplanter <strong>KI-Hackathon</strong> Landkreis — ähnliches Format möglich</li>
-          <li>Echte regionale Cases &gt; generische Kaggle-Aufgaben</li>
-          <li>Hosted Infra oder klare BYOD-Regeln von Tag 1</li>
+          <li>Echten Export plus Anhänge mitgeben, nicht nur eine Aufgabenbeschreibung</li>
+          <li>Vor der Demo eine Zahl festlegen: Zeit, ungültige Werte, Belegquote</li>
+          <li>Fachregeln als Datei, die die Orga ohne Repo pflegen kann</li>
           <li>Tech-Mail <strong>früher</strong> als 24 h vor Start 😅</li>
-          <li>Stammtisch-Story (#1 in Prio-Liste Alex Ertner)</li>
         </ul>
         <aside class="notes">qr-plakat / Meetup-Verlinkung optional. Kein Sales-Pitch DeveLUP.</aside>
       </section>
@@ -286,8 +315,7 @@
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Fazit</p>
         <h3 class="text-xl md:text-3xl font-bold mb-4">Lohnt sich?</h3>
         <p class="text-sm md:text-lg text-slate-300 max-w-3xl">
-          Für mich: <strong class="text-brand">ja</strong> — Netzwerk HI/Lübeck, echte Firmen, intensives Wochenende.
-          Wer mitmachen will: Skills mitbringen, Erwartungen an Schlaf/Team klären, Case-Geber früh nach Daten fragen.
+          Für mich: <strong class="text-brand">ja</strong>. Ein Wochenende reicht für einen prüfbaren Prototyp, wenn der Case echte Dateien mitbringt und die Modelle schon laufen.
         </p>
         <p class="mt-4 text-sm text-slate-400">
           Mehr Material: Dropbox <code class="text-xs">Conference/2026/Nov_13_14_Luebeck-Hackathon/</code>
