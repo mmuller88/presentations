@@ -57,8 +57,8 @@
       border: 0;
       box-shadow: none;
     }
-    .reveal .slides section img.team-pic {
-      max-height: 56vh;
+    .reveal .slides section img.team-pic,
+    .reveal .slides section img.end-pic {
       width: auto;
       margin: 0;
       border-radius: 0.75rem;
@@ -66,12 +66,27 @@
       box-shadow: none;
       object-fit: cover;
     }
+    .reveal .slides section img.team-pic { max-height: 56vh; }
+    .reveal .slides section img.end-pic { max-height: 42vh; margin-top: 0.75rem; }
+    .reveal .slides section img.ceremony-pic {
+      width: 100%;
+      max-height: 46vh;
+      height: auto;
+      margin: 0;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 0.75rem;
+      border: 1px solid #334155;
+      box-shadow: none;
+    }
     @media (max-width: 768px) {
       .reveal h1 { font-size: 1.45rem !important; }
       .reveal h3 { font-size: 1.1rem !important; }
       .reveal p, .reveal li { font-size: 0.88rem !important; }
       .reveal .slides section video.demo-loop { max-height: 30vh; }
       .reveal .slides section img.team-pic { max-height: 28vh; }
+      .reveal .slides section img.end-pic { max-height: 22vh; }
+      .reveal .slides section img.ceremony-pic { max-height: 22vh; }
     }
   </style>
 </head>
@@ -311,6 +326,22 @@
         <aside class="notes">qr-plakat / Meetup-Verlinkung optional. Kein Sales-Pitch DeveLUP.</aside>
       </section>
 
+      <section id="abschluss" data-id="abschluss">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Abschluss</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-3">Samstagabend</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <figure>
+            <img class="ceremony-pic" src="assets/abschluss-alle-teams.jpeg" alt="Alle Teams zum Abschluss des Hanseatic Hackathon">
+            <figcaption class="mt-2 text-center text-sm text-slate-400">Alle Teams</figcaption>
+          </figure>
+          <figure>
+            <img class="ceremony-pic" src="assets/abschluss-publikumspreis.jpeg" alt="Übergabe des Publikumspreises beim Hanseatic Hackathon">
+            <figcaption class="mt-2 text-center text-sm text-slate-400">Publikumspreis</figcaption>
+          </figure>
+        </div>
+        <aside class="notes">Zertifikate sagen Publikumspreis. Nicht als Jury-Sieg erzählen, solange unklar ist, welches Team das ist. Jury-Platz weiter offen.</aside>
+      </section>
+
       <section id="fazit" data-id="fazit">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Fazit</p>
         <h3 class="text-xl md:text-3xl font-bold mb-4">Lohnt sich?</h3>
@@ -325,9 +356,10 @@
 
       <section id="fragen" data-id="fragen" class="center-slide">
         <h3 class="text-2xl md:text-4xl font-bold">Fragen?</h3>
-        <p class="text-slate-400 mt-4 text-sm md:text-base">KI Stammtisch · #WdKI2026</p>
-        <p class="text-brand mt-2 text-sm">martinmueller.dev · LinkedIn /in/martinmueller88</p>
-        <aside class="notes">Swap: wer war auch in Lübeck? Wer plant eigenes Event?</aside>
+        <img class="end-pic" src="assets/team-hanse.jpg" alt="Team Hanse vor der Wand des Hanseatic Hackathon">
+        <p class="text-slate-400 mt-3 text-sm md:text-base">KI Stammtisch · #WdKI2026</p>
+        <p class="text-brand mt-1 text-sm">martinmueller.dev · LinkedIn /in/martinmueller88</p>
+        <aside class="notes">Swap: wer war auch in Lübeck? Wer plant eigenes Event? Foto ist nochmal Team Hanse.</aside>
       </section>
 
     </div>

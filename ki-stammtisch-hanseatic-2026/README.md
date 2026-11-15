@@ -44,6 +44,7 @@ python3 -m http.server 8080
 | Demo | `#/demo` |
 | Learnings | `#/learnings` |
 | DeveLUP / Lulu | `#/transfer` |
+| Abschluss | `#/abschluss` |
 | Fazit | `#/fazit` |
 | Fragen | `#/fragen` |
 
