@@ -122,19 +122,23 @@
       align-items: flex-start;
     }
     .reveal .slides section .event-thumb {
-      width: 4.25rem;
-      height: 4.25rem;
-      min-width: 4.25rem;
+      width: 6.75rem;
+      height: 6.75rem;
+      min-width: 6.75rem;
       object-fit: cover;
-      border-radius: 0.5rem;
+      border-radius: 0.6rem;
       border: 1px solid #475569;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+    }
+    .reveal .slides section .event-thumb-contain {
+      object-fit: contain;
+      background: #0f172a;
     }
     @media (max-height: 780px) {
       .reveal .slides section .event-thumb {
-        width: 3.25rem;
-        height: 3.25rem;
-        min-width: 3.25rem;
+        width: 5.25rem;
+        height: 5.25rem;
+        min-width: 5.25rem;
       }
     }
     @media (min-width: 900px) and (min-height: 700px) {
@@ -390,10 +394,20 @@
           <div class="card-grid">
             <div>
               <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">🔮 Nächste Termine</p>
-              <ul class="event-list space-y-2.5 text-slate-300">
+              <ul class="event-list space-y-3 text-slate-300">
+                <li class="event-row">
+                  <a href="https://gruendungswerft.com/veranstaltungen/real-talk-pizza/" class="shrink-0" target="_blank" rel="noopener">
+                    <img src="assets/events/real-talk-pizza.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
+                  </a>
+                  <div>
+                    <span class="text-slate-100 font-medium">Di 18.11. · 18:00</span> —
+                    <a href="https://gruendungswerft.com/veranstaltungen/real-talk-pizza/" class="text-brand underline" target="_blank" rel="noopener">Real Talk &amp; Pizza</a>
+                    · Gründungswerft MV — Pitch, Austausch, Pizza
+                  </div>
+                </li>
                 <li class="event-row">
                   <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/e-rechnung-2027.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                    <img src="assets/events/e-rechnung-2027.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
                   </a>
                   <div>
                     <span class="text-slate-100 font-medium">Do 19.11. · 13:00–14:00</span> —
@@ -403,7 +417,7 @@
                 </li>
                 <li class="event-row">
                   <a href="https://www.healthcarehackathon-mv.de/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/healthcare-hackathon-mv.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                    <img src="assets/events/healthcare-hackathon-mv.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
                   </a>
                   <div>
                     <span class="text-slate-100 font-medium">01.–02.03.2027</span> —
@@ -413,35 +427,30 @@
                 </li>
                 <li class="event-row">
                   <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/meetup-group.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                    <img src="assets/events/ki-stammtisch.jpg" alt="KI Stammtisch AI Builder" class="event-thumb event-thumb-contain" width="108" height="108" loading="lazy">
                   </a>
                   <div>
-                    <span class="text-slate-100 font-medium">Nächstes Meetup</span> — Datum &amp; Themen heute mitentscheiden (20:15)
-                  </div>
-                </li>
-                <li class="event-row">
-                  <a href="https://github.com/mmuller88/lulu-lupathon" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/lupathon.jpg" alt="LUPathon — Lupa" class="event-thumb" width="68" height="68" loading="lazy">
-                  </a>
-                  <div>
-                    <span class="text-slate-100 font-medium">KI-Hackathon MV</span> — <a href="https://lupathon.de" class="text-brand underline" target="_blank" rel="noopener">LUPathon</a> · lokales Format · Inputs aus heute (DeveLUP)
-                  </div>
-                </li>
-                <li class="event-row">
-                  <img src="assets/events/hands-on.jpg" alt="" class="event-thumb shrink-0" width="68" height="68" loading="lazy">
-                  <div>
-                    <span class="text-slate-100 font-medium">Hands-on-Session</span> — Thema/Wunsch? Heute sammeln
+                    <span class="text-slate-100 font-medium">Nächstes Meetup</span> — KI Stammtisch · Datum &amp; Themen heute mitentscheiden (20:15)
                   </div>
                 </li>
                 <li class="event-row">
                   <a href="https://deve-lup.de/veranstaltungen/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/deve-lup.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                    <img src="assets/events/deve-lup.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
                   </a>
                   <div>
-                    <span class="text-brand font-medium">DeveLUP</span> — <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline" target="_blank" rel="noopener">deve-lup.de/veranstaltungen</a>
+                    <span class="text-brand font-medium">DeveLUP</span> — <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline" target="_blank" rel="noopener">Kalender</a>
+                    · Termine vor Ort im Zentrum Ludwigslust
                   </div>
                 </li>
               </ul>
+              <p class="text-slate-500 text-sm mt-3 leading-snug">
+                Weitere Kalender:
+                <a href="https://gruendungswerft.com/veranstaltungen/" class="text-brand underline" target="_blank" rel="noopener">Gründungswerft</a>
+                ·
+                <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline" target="_blank" rel="noopener">DeveLUP</a>
+                ·
+                <a href="https://www.digitalesmv.de/veranstaltungen" class="text-brand underline" target="_blank" rel="noopener">digitales MV</a>
+              </p>
             </div>
             <div>
               <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">💬 Community</p>
@@ -464,7 +473,7 @@
           </div>
         </div>
         <aside class="notes">
-          E-Rechnung-Webinar Do 19.11. Eventbrite. Healthcare Hackathon MV März 2027. Meetup-Datum 20:15.
+          Real Talk Pizza Di 18.11 Gründungswerft. E-Rechnung Do 19.11. Healthcare 03/2027. Meetup 20:15. Kalender-Links unten.
         </aside>
       </section>
 
