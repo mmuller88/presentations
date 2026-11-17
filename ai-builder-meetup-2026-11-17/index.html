@@ -118,27 +118,43 @@
     }
     .reveal .slides section .event-row {
       display: flex;
-      gap: 0.65rem;
-      align-items: flex-start;
+      gap: 0.75rem;
+      align-items: center;
     }
-    .reveal .slides section .event-thumb {
-      width: 6.75rem;
-      height: 6.75rem;
-      min-width: 6.75rem;
-      object-fit: cover;
-      border-radius: 0.6rem;
+    .reveal .slides section .event-poster-link {
+      display: block;
+      flex: 0 0 auto;
+      width: min(38vw, 12.5rem);
+      max-width: 12.5rem;
+    }
+    .reveal .slides section .event-poster {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(17vh, 8.5rem);
+      object-fit: contain;
+      object-position: left center;
+      border-radius: 0.55rem;
       border: 1px solid #475569;
       box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
-    }
-    .reveal .slides section .event-thumb-contain {
-      object-fit: contain;
       background: #0f172a;
     }
+    .reveal .slides section .event-copy {
+      flex: 1;
+      min-width: 0;
+      font-size: 0.95rem !important;
+      line-height: 1.35 !important;
+    }
     @media (max-height: 780px) {
-      .reveal .slides section .event-thumb {
-        width: 5.25rem;
-        height: 5.25rem;
-        min-width: 5.25rem;
+      .reveal .slides section .event-poster-link {
+        width: min(34vw, 9.5rem);
+        max-width: 9.5rem;
+      }
+      .reveal .slides section .event-poster {
+        max-height: min(13vh, 6.25rem);
+      }
+      .reveal .slides section .event-copy {
+        font-size: 0.82rem !important;
       }
     }
     @media (min-width: 900px) and (min-height: 700px) {
@@ -394,50 +410,50 @@
           <div class="card-grid">
             <div>
               <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">🔮 Nächste Termine</p>
-              <ul class="event-list space-y-3 text-slate-300">
+              <ul class="event-list space-y-2.5 text-slate-300">
                 <li class="event-row">
-                  <a href="https://gruendungswerft.com/veranstaltungen/real-talk-pizza/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/real-talk-pizza.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
+                  <a href="https://gruendungswerft.com/veranstaltungen/real-talk-pizza/" class="event-poster-link" target="_blank" rel="noopener">
+                    <img src="assets/events/real-talk-pizza.jpg" alt="Real Talk &amp; Pizza" class="event-poster" loading="lazy">
                   </a>
-                  <div>
+                  <div class="event-copy">
                     <span class="text-slate-100 font-medium">Di 18.11. · 18:00</span> —
                     <a href="https://gruendungswerft.com/veranstaltungen/real-talk-pizza/" class="text-brand underline" target="_blank" rel="noopener">Real Talk &amp; Pizza</a>
                     · Rostock (pxtra) · Gründungswerft — Pitch, Austausch, Pizza
                   </div>
                 </li>
                 <li class="event-row">
-                  <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/e-rechnung-2027.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
+                  <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="event-poster-link" target="_blank" rel="noopener">
+                    <img src="assets/events/e-rechnung-2027.jpg" alt="E-Rechnung 2027" class="event-poster" loading="lazy">
                   </a>
-                  <div>
+                  <div class="event-copy">
                     <span class="text-slate-100 font-medium">Do 19.11. · 13:00–14:00</span> —
                     <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="text-brand underline" target="_blank" rel="noopener">E-Rechnung 2027</a>
                     · Online (Unisphere) — ab 01.01.2027 kein PDF mehr als Rechnung
                   </div>
                 </li>
                 <li class="event-row">
-                  <a href="https://www.healthcarehackathon-mv.de/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/healthcare-hackathon-mv.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
+                  <a href="https://www.healthcarehackathon-mv.de/" class="event-poster-link" target="_blank" rel="noopener">
+                    <img src="assets/events/healthcare-hackathon-mv.jpg" alt="Healthcare Hackathon MV" class="event-poster" loading="lazy">
                   </a>
-                  <div>
+                  <div class="event-copy">
                     <span class="text-slate-100 font-medium">01.–02.03.2027</span> —
                     <a href="https://www.healthcarehackathon-mv.de/" class="text-brand underline" target="_blank" rel="noopener">Healthcare Hackathon MV</a>
                     · Rostock · KI &amp; Daten (Versorgung · Forschung · Prävention)
                   </div>
                 </li>
                 <li class="event-row">
-                  <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/ki-stammtisch.jpg" alt="KI Stammtisch AI Builder" class="event-thumb event-thumb-contain" width="108" height="108" loading="lazy">
+                  <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="event-poster-link" target="_blank" rel="noopener">
+                    <img src="assets/events/ki-stammtisch.jpg" alt="KI Stammtisch AI Builder" class="event-poster" loading="lazy">
                   </a>
-                  <div>
+                  <div class="event-copy">
                     <span class="text-slate-100 font-medium">Nächstes Meetup</span> — KI Stammtisch · Datum &amp; Themen heute mitentscheiden (20:15)
                   </div>
                 </li>
                 <li class="event-row">
-                  <a href="https://deve-lup.de/veranstaltungen/" class="shrink-0" target="_blank" rel="noopener">
-                    <img src="assets/events/deve-lup.jpg" alt="" class="event-thumb" width="108" height="108" loading="lazy">
+                  <a href="https://deve-lup.de/veranstaltungen/" class="event-poster-link" target="_blank" rel="noopener">
+                    <img src="assets/events/deve-lup.jpg" alt="DeveLUP Zentrum Ludwigslust" class="event-poster" loading="lazy">
                   </a>
-                  <div>
+                  <div class="event-copy">
                     <span class="text-brand font-medium">DeveLUP</span> — <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline" target="_blank" rel="noopener">Kalender</a>
                     · Termine vor Ort im Zentrum Ludwigslust
                   </div>
