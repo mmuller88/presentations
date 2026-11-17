@@ -33,7 +33,9 @@ python3 -m http.server 8080
 | Agenda | `#/agenda` |
 | Hook | `#/hook` |
 | Was ist Hanseatic? | `#/format` |
-| Cases | `#/cases` |
+| Ort / Karte Lübeck | `#/lageplan` |
+| Cases (1/2) | `#/cases` |
+| Cases (2/2) | `#/cases-b` |
 | Unser Case | `#/case-swl` |
 | Team | `#/team` |
 | Zeitplan 48h | `#/zeitplan` |
@@ -47,6 +49,12 @@ python3 -m http.server 8080
 | Abschluss | `#/abschluss` |
 | Fazit | `#/fazit` |
 | Fragen | `#/fragen` |
+
+## Karte (Google / Deck)
+
+- **Slide:** `#/lageplan` — 4 Pins (Bauforum, P8, myLab, HIC), Popup → Google Maps
+- **KML:** `assets/hackathon-luebeck-2026.kml` → [Google My Maps](https://www.google.com/maps/d/) → *Erstellen* → *Importieren* → öffentlich teilen
+- **Route:** [Bauforum ↔ HIC in Google Maps](https://www.google.com/maps/dir/Stephensonstraße+2,+23562+Lübeck/Ratzeburger+Allee+160,+23562+Lübeck)
 
 ## Noch von Martin ergänzen
 

@@ -7,6 +7,7 @@
   <meta name="description" content="48h, Stadtwerke-Ideen-Enricher, myLab — Erfahrungsbericht Martin Mueller">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -79,6 +80,17 @@
       border: 1px solid #334155;
       box-shadow: none;
     }
+    .reveal #hackathon-map-root {
+      height: min(52vh, 420px);
+      width: 100%;
+      max-width: 56rem;
+      border-radius: 0.75rem;
+      border: 1px solid #334155;
+      z-index: 1;
+    }
+    .reveal #hackathon-map-root.leaflet-container {
+      font-family: inherit;
+    }
     @media (max-width: 768px) {
       .reveal h1 { font-size: 1.45rem !important; }
       .reveal h3 { font-size: 1.1rem !important; }
@@ -87,6 +99,7 @@
       .reveal .slides section img.team-pic { max-height: 28vh; }
       .reveal .slides section img.end-pic { max-height: 22vh; }
       .reveal .slides section img.ceremony-pic { max-height: 22vh; }
+      .reveal #hackathon-map-root { height: 38vh; }
     }
   </style>
 </head>
@@ -116,7 +129,7 @@
         <h3 class="text-xl md:text-3xl font-bold mb-4">~15–20 Min + Diskussion</h3>
         <ol class="space-y-2 text-sm md:text-lg text-slate-300 list-decimal list-inside max-w-2xl">
           <li>Warum ich hingehe (Beratung vs. bauen)</li>
-          <li>Format &amp; sechs Unternehmens-Cases</li>
+          <li>Format, Ort &amp; Cases (6 Briefings)</li>
           <li>Team Hanse &amp; Case Stadtwerke Lübeck</li>
           <li>myLab: GitLab, Jupyter, lokale/GWDG-Modelle</li>
           <li>BYOD: Cursor + API on-prem</li>
@@ -154,22 +167,67 @@
         <aside class="notes">Orga Kerstin Rönick / myLab TH Lübeck. Bauforum E2, Parken P8.</aside>
       </section>
 
+      <section id="lageplan" data-id="lageplan">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Ort</p>
+        <h3 class="text-xl md:text-3xl font-bold mb-2">Lübeck — Campus TH · HIC</h3>
+        <p class="text-sm text-slate-400 mb-3 max-w-3xl">13./14.11.2026 · Bauforum E2 (Hauptort) · Parken P8 · myLab · Orga HIC</p>
+        <div id="hackathon-map-root" data-testid="hackathon-luebeck-map" role="img" aria-label="Karte der Hackathon-Orte in Lübeck"></div>
+        <ul class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-1 text-xs md:text-sm text-slate-400 max-w-3xl">
+          <li><span class="text-red-400">★</span> Bauforum E2 · Stephensonstr. 2</li>
+          <li><span class="text-blue-400">●</span> Parkplatz P8</li>
+          <li><span class="text-brand">★</span> myLab · Mönkhofer Weg</li>
+          <li><span class="text-emerald-400">◆</span> HIC · Ratzeburger Allee 160</li>
+        </ul>
+        <p class="mt-3 text-xs text-slate-500 max-w-3xl">
+          <a class="text-brand underline" href="https://www.google.com/maps/dir/Stephensonstra%C3%9Fe+2,+23562+L%C3%BCbeck/Ratzeburger+Allee+160,+23562+L%C3%BCbeck/@53.8368,10.701,16z/data=!3m1!4b1" target="_blank" rel="noopener">
+            Google Maps — Campus-Übersicht
+          </a>
+          · KML für eigene My Map:
+          <a class="text-brand underline" href="assets/hackathon-luebeck-2026.kml">hackathon-luebeck-2026.kml</a>
+        </p>
+        <aside class="notes">Zoom auf TH-Campus. Wer war vor Ort: Weg vom Parkplatz zum Bauforum zeigen.</aside>
+      </section>
+
       <section id="cases" data-id="cases">
-        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Cases 2026</p>
-        <h3 class="text-lg md:text-2xl font-bold mb-3">Sechs Briefings — ein Wochenende</h3>
-        <table class="compact text-slate-200">
-          <thead><tr><th>#</th><th>Case</th><th>Kern</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Better.LIVING</td><td>KI-Agent Gäste / Objekterkennung</td></tr>
-            <tr><td>2</td><td class="text-brand font-semibold">Stadtwerke Lübeck</td><td>Ideenmanagement Validation Engine</td></tr>
-            <tr><td>3</td><td>Duve GmbH</td><td>Customer-Service-Copilot, 3 Shops</td></tr>
-            <tr><td>4</td><td>All We Shape</td><td>ReSource-Scan / Kreislauf</td></tr>
-            <tr><td>5</td><td>Greif-Velox</td><td>RAG-Qualität verbessern</td></tr>
-            <tr><td>6</td><td>SAB</td><td>LV-Matching ≥ 75 %</td></tr>
-          </tbody>
-        </table>
-        <p class="mt-3 text-sm text-slate-400">Gebaut hat <strong class="text-slate-200">Team Hanse</strong> Case 2. In der Vorbereitung stand Duve vorn.</p>
-        <aside class="notes">Diskussion: welchen Case hättet ihr genommen? Duve wäre Copilot-Demo gewesen, SWL war ein echter Excel-Export plus Anhänge.</aside>
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Cases 2026 (1/2)</p>
+        <h3 class="text-lg md:text-2xl font-bold mb-3">Echte Mittelstands-Briefings</h3>
+        <ul class="space-y-3 text-xs md:text-sm text-slate-300 max-w-4xl">
+          <li>
+            <strong class="text-slate-100">Better.LIVING · THE BETTERHEIM</strong>
+            <span class="block text-slate-400 mt-0.5">Ferienwohnung: Gäste per Smartphone Objekte im Raum erkennen → KI-Agent liefert Infos zu Material, Longevity, Pflege &amp; Produkten.</span>
+          </li>
+          <li>
+            <strong class="text-brand">Stadtwerke Lübeck</strong>
+            <span class="block text-slate-400 mt-0.5">Internes Ideenmanagement: <strong class="text-slate-300">Validation Engine</strong> ergänzt Vorschläge per Fragenkatalog, bewertet Markt, Machbarkeit, Nutzen → Steckbrief für Fachbereiche. <em class="text-brand/90">→ unser Team-Case</em></span>
+          </li>
+          <li>
+            <strong class="text-slate-100">Duve GmbH</strong>
+            <span class="block text-slate-400 mt-0.5">3 Küchen-/Bäckerei-Onlineshops, je eigenes Service-Postfach → Copilot klassifiziert Mails, ordnet Shop/Kunde/Vorgang zu, bündelt Kontext aus Systemen, Entwurf zur Freigabe.</span>
+          </li>
+        </ul>
+        <p class="mt-3 text-xs text-slate-500">Quelle: <a class="text-brand underline" href="https://hanse-innovation-campus.de/de/hanseatic-hackathon-2026-programm">HIC Programm 2026</a></p>
+        <aside class="notes">Vorbereitung: Duve #1 im Ranking. Live: Team Hanse → Stadtwerke (Excel-Export + Anhänge).</aside>
+      </section>
+
+      <section id="cases-b" data-id="cases-b">
+        <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Cases 2026 (2/2)</p>
+        <h3 class="text-lg md:text-2xl font-bold mb-3">Weitere Herausforderungen</h3>
+        <ul class="space-y-3 text-xs md:text-sm text-slate-300 max-w-4xl">
+          <li>
+            <strong class="text-slate-100">All We Shape gGmbH</strong>
+            <span class="block text-slate-400 mt-0.5">Kreislauflabor Lübeck: Materialien erfassen → <strong class="text-slate-300">ReSource-Scan</strong> schlägt Wiederverwendung / Weiterverarbeitung vor (Bildung + Gestaltung).</span>
+          </li>
+          <li>
+            <strong class="text-slate-100">Greif-Velox</strong>
+            <span class="block text-slate-400 mt-0.5">Maschinenbau, bestehendes RAG über Projekt-PDFs/Excel/Mails — Ziel: weniger Halluzinationen, Quellenbelege, Tabellen zuverlässig lesen.</span>
+          </li>
+          <li>
+            <strong class="text-slate-100">SAB Standard Aggregatebau</strong>
+            <span class="block text-slate-400 mt-0.5">Energieanlagen: neue Leistungsverzeichnisse mit Historie matchen — Engine findet Altprojekte mit <strong class="text-slate-300">≥ 75 %</strong> Übereinstimmung (heute viel Handarbeit).</span>
+          </li>
+        </ul>
+        <p class="mt-3 text-sm text-slate-400">Gebaut: <strong class="text-slate-200">Team Hanse</strong> an Case 2. Vorbereitung: Wunsch <strong>Duve</strong>, Backup Greif-Velox.</p>
+        <aside class="notes">Diskussion: welchen Case hättet ihr gewählt? Demo-Tauglichkeit ≠ Jury-fair → #/transfer.</aside>
       </section>
 
       <section id="case-swl" data-id="case-swl">
@@ -315,15 +373,24 @@
 
       <section id="transfer" data-id="transfer">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Transfer</p>
-        <h3 class="text-xl md:text-3xl font-bold mb-4">Für Ludwigslust &amp; DeveLUP</h3>
+        <h3 class="text-xl md:text-3xl font-bold mb-4">DeveLUP &amp; nächstes Format</h3>
         <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
-          <li>Geplanter <strong>KI-Hackathon</strong> Landkreis — ähnliches Format möglich</li>
+          <li>Geplanter <strong>KI-Hackathon</strong> Landkreis — echte MV-Cases, hosted Infra oder klare BYOD-Regeln</li>
           <li>Echten Export plus Anhänge mitgeben, nicht nur eine Aufgabenbeschreibung</li>
           <li>Vor der Demo eine Zahl festlegen: Zeit, ungültige Werte, Belegquote</li>
           <li>Fachregeln als Datei, die die Orga ohne Repo pflegen kann</li>
-          <li>Tech-Mail <strong>früher</strong> als 24 h vor Start 😅</li>
+          <li>Tech-Onboarding <strong>früher</strong> als 24 h vor Start (GitLab, API, Passwörter)</li>
         </ul>
-        <aside class="notes">qr-plakat / Meetup-Verlinkung optional. Kein Sales-Pitch DeveLUP.</aside>
+        <div class="mt-4 rounded-xl border border-amber-900/60 bg-amber-950/30 p-4 max-w-3xl">
+          <p class="text-amber-200/90 text-xs uppercase tracking-widest mb-2">Verbesserung · Jury &amp; Fairness</p>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-300">
+            <li><strong class="text-slate-100">Beobachtung Lübeck:</strong> 6 Teams, 6 verschiedene Cases → Preis oft beim „impactreichsten“ Case/Demo, nicht nur bei der besten Teamleistung gleicher Aufgabe.</li>
+            <li><strong class="text-brand">Vorschlag:</strong> <strong>1–2 Cases</strong>, <strong>mehrere Teams pro Case</strong> → Pitches vergleichbar, Jury bewertet Umsetzung &amp; Story.</li>
+            <li>Optional: Kategorien (z. B. technische Tiefe · Business-Impact · Case-Owner-Favorite) statt ein Gesamtsieger.</li>
+            <li>Für HIC/DeveLUP: Case-Geber früh Daten liefern; gleiche Datengrundlage für alle Teams am selben Case.</li>
+          </ul>
+        </div>
+        <aside class="notes">Stammtisch-Diskussion: War euer Gefühl ähnlich? Wie würdet ihr MV-Hackathon jury-fair machen?</aside>
       </section>
 
       <section id="abschluss" data-id="abschluss">
@@ -367,7 +434,47 @@
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
+    const HACKATHON_PINS = [
+      { id: 'bauforum', label: 'Bauforum E2', sub: 'Hackathon · Einlass', lat: 53.8365591, lon: 10.6984564, color: '#f87171' },
+      { id: 'p8', label: 'Parkplatz P8', sub: 'Parken', lat: 53.8375550, lon: 10.6990051, color: '#60a5fa' },
+      { id: 'mylab', label: 'myLab TH', sub: 'GitLab / Jupyter', lat: 53.8368368, lon: 10.7006441, color: '#a78bfa' },
+      { id: 'hic', label: 'HIC', sub: 'Orga · Ratzeburger Allee', lat: 53.8353436, lon: 10.7096525, color: '#34d399' },
+    ];
+
+  const googleLink = 'https://www.google.com/maps/dir/' + encodeURIComponent('Stephensonstraße 2, 23562 Lübeck') + '/' + encodeURIComponent('Ratzeburger Allee 160, 23562 Lübeck');
+
+    function pinIcon(color) {
+      const svg = encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="40" viewBox="0 0 28 40"><path fill="${color}" stroke="#0f172a" stroke-width="1.5" d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.3 21.7 0 14 0z"/><circle fill="#0f172a" cx="14" cy="14" r="5"/></svg>`
+      );
+      return L.icon({
+        iconUrl: `data:image/svg+xml,${svg}`,
+        iconSize: [28, 40],
+        iconAnchor: [14, 40],
+        popupAnchor: [0, -36],
+      });
+    }
+
+    let hackathonMap;
+    function initHackathonMap() {
+      const root = document.getElementById('hackathon-map-root');
+      if (!root || hackathonMap) return;
+      hackathonMap = L.map(root, { scrollWheelZoom: false, attributionControl: true }).setView([53.8366, 10.7010], 16);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap · <a href="' + googleLink + '" target="_blank" rel="noopener">Route in Google Maps</a>',
+      }).addTo(hackathonMap);
+      HACKATHON_PINS.forEach((p) => {
+        L.marker([p.lat, p.lon], { icon: pinIcon(p.color) })
+          .addTo(hackathonMap)
+          .bindPopup(`<strong>${p.label}</strong><br>${p.sub}<br><a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}" target="_blank" rel="noopener">Google Maps</a>`);
+      });
+      const bounds = L.latLngBounds(HACKATHON_PINS.map((p) => [p.lat, p.lon]));
+      hackathonMap.fitBounds(bounds.pad(0.15));
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
@@ -376,6 +483,16 @@
       margin: window.innerWidth < 768 ? 0.02 : 0.08,
       transition: 'slide',
       plugins: [ RevealNotes ]
+    });
+
+    Reveal.on('ready', (ev) => {
+      if (ev.currentSlide?.id === 'lageplan') initHackathonMap();
+    });
+    Reveal.on('slidechanged', (ev) => {
+      if (ev.currentSlide?.id === 'lageplan') {
+        initHackathonMap();
+        requestAnimationFrame(() => hackathonMap?.invalidateSize());
+      }
     });
   </script>
 </body>

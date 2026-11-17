@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Hanseatic Hackathon 2026 — Lübeck</name>
+    <description>13./14.11.2026 · TH Lübeck / Hanse Innovation Campus</description>
+    <Style id="venue">
+      <IconStyle>
+        <color>ff9b59b6</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="parking">
+      <IconStyle>
+        <scale>1.0</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="org">
+      <IconStyle>
+        <scale>1.0</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/grn-diamond.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Placemark>
+      <name>Bauforum E2 — Hackathon (Einlass 09:45)</name>
+      <description>TH Lübeck · Stephensonstraße 2 · Pitches, Worklabs</description>
+      <styleUrl>#venue</styleUrl>
+      <Point>
+        <coordinates>10.6984564,53.8365591,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parkplatz P8</name>
+      <description>Parken laut Orga (TH Campus)</description>
+      <styleUrl>#parking</styleUrl>
+      <Point>
+        <coordinates>10.6990051,53.8375550,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>myLab TH Lübeck</name>
+      <description>GitLab, Jupyter, Gastlogin</description>
+      <styleUrl>#venue</styleUrl>
+      <Point>
+        <coordinates>10.7006441,53.8368368,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Hanse Innovation Campus (Orga)</name>
+      <description>Ratzeburger Allee 160 · HIC GmbH</description>
+      <styleUrl>#org</styleUrl>
+      <Point>
+        <coordinates>10.7096525,53.8353436,0</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
