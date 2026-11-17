@@ -42,8 +42,8 @@ python3 -m http.server 8080
 | myLab Infra | `#/mylab` |
 | Tooling (BYOD) | `#/tooling` |
 | Lösung | `#/loesung` |
+| Demo (Pitch-Video) | `#/demo` |
 | Architektur | `#/architektur` |
-| Demo | `#/demo` |
 | Learnings | `#/learnings` |
 | DeveLUP / Lulu | `#/transfer` |
 | Abschluss | `#/abschluss` |
