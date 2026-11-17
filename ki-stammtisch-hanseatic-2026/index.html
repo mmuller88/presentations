@@ -69,6 +69,12 @@
     }
     .reveal .slides section img.team-pic { max-height: 56vh; }
     .reveal .slides section img.end-pic { max-height: 42vh; margin-top: 0.75rem; }
+    .reveal .slides section img.lupathon-logo {
+      max-height: min(32vh, 220px);
+      width: auto;
+      max-width: min(42vw, 260px);
+      object-fit: contain;
+    }
     .reveal .slides section img.ceremony-pic {
       width: 100%;
       max-height: 46vh;
@@ -373,9 +379,27 @@
 
       <section id="transfer" data-id="transfer">
         <p class="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Transfer</p>
-        <h3 class="text-xl md:text-3xl font-bold mb-4">DeveLUP &amp; nächstes Format</h3>
+        <h3 class="text-xl md:text-3xl font-bold mb-3">DeveLUP &amp; nächstes Format</h3>
+        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start mb-4 max-w-4xl">
+          <a href="https://github.com/mmuller88/lulu-lupathon" target="_blank" rel="noopener" class="shrink-0">
+            <img
+              src="assets/lupathon-lupa-woelfin.jpeg"
+              alt="Lupa die Wölfin — LUPathon Branding"
+              class="lupathon-logo rounded-xl border border-slate-600 shadow-lg"
+              loading="lazy"
+            >
+          </a>
+          <div class="text-sm md:text-base text-slate-300">
+            <p class="text-brand font-semibold text-lg">LUPathon</p>
+            <p class="text-slate-400 mt-1">KI-Hackathon Landkreis Ludwigslust-Parchim · DeveLUP · Learnings aus Lübeck einbauen</p>
+            <p class="mt-2">
+              <a href="https://github.com/mmuller88/lulu-lupathon" class="text-brand underline break-all" target="_blank" rel="noopener">github.com/mmuller88/lulu-lupathon</a>
+              · <a href="https://lupathon.de" class="text-brand underline" target="_blank" rel="noopener">lupathon.de</a>
+            </p>
+          </div>
+        </div>
         <ul class="space-y-2 text-sm md:text-base text-slate-300 max-w-3xl">
-          <li>Geplanter <strong>KI-Hackathon</strong> Landkreis — echte MV-Cases, hosted Infra oder klare BYOD-Regeln</li>
+          <li><strong>LUPathon:</strong> echte MV-Cases, hosted Infra oder klare BYOD-Regeln</li>
           <li>Echten Export plus Anhänge mitgeben, nicht nur eine Aufgabenbeschreibung</li>
           <li>Vor der Demo eine Zahl festlegen: Zeit, ungültige Werte, Belegquote</li>
           <li>Fachregeln als Datei, die die Orga ohne Repo pflegen kann</li>
@@ -390,7 +414,7 @@
             <li>Für HIC/DeveLUP: Case-Geber früh Daten liefern; gleiche Datengrundlage für alle Teams am selben Case.</li>
           </ul>
         </div>
-        <aside class="notes">Stammtisch-Diskussion: War euer Gefühl ähnlich? Wie würdet ihr MV-Hackathon jury-fair machen?</aside>
+        <aside class="notes">Lupa-Logo = LUPathon-Projekt. Stammtisch: Jury-fair? Wer will Case-Geber für MV?</aside>
       </section>
 
       <section id="abschluss" data-id="abschluss">
