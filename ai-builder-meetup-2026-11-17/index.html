@@ -111,6 +111,32 @@
       gap: 1rem;
       width: 100%;
     }
+    .reveal .slides section ul.event-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .reveal .slides section .event-row {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+    }
+    .reveal .slides section .event-thumb {
+      width: 4.25rem;
+      height: 4.25rem;
+      min-width: 4.25rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid #475569;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    }
+    @media (max-height: 780px) {
+      .reveal .slides section .event-thumb {
+        width: 3.25rem;
+        height: 3.25rem;
+        min-width: 3.25rem;
+      }
+    }
     @media (min-width: 900px) and (min-height: 700px) {
       .reveal .slides section {
         padding: 1rem 2rem;
@@ -364,21 +390,57 @@
           <div class="card-grid">
             <div>
               <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">🔮 Nächste Termine</p>
-              <ul class="space-y-2 text-slate-300">
-                <li>
-                  <span class="text-slate-100 font-medium">Do 19.11. · 13:00–14:00</span> —
-                  <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="text-brand underline">E-Rechnung 2027</a>
-                  · Online (Unisphere) — ab 01.01.2027 kein PDF mehr als Rechnung
+              <ul class="event-list space-y-2.5 text-slate-300">
+                <li class="event-row">
+                  <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="shrink-0" target="_blank" rel="noopener">
+                    <img src="assets/events/e-rechnung-2027.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                  </a>
+                  <div>
+                    <span class="text-slate-100 font-medium">Do 19.11. · 13:00–14:00</span> —
+                    <a href="https://www.eventbrite.de/e/e-rechnung-2027-in-6-wochen-zahlt-dein-pdf-nicht-mehr-als-rechnung-tickets-2004638756484" class="text-brand underline" target="_blank" rel="noopener">E-Rechnung 2027</a>
+                    · Online (Unisphere) — ab 01.01.2027 kein PDF mehr als Rechnung
+                  </div>
                 </li>
-                <li>
-                  <span class="text-slate-100 font-medium">01.–02.03.2027</span> —
-                  <a href="https://www.healthcarehackathon-mv.de/" class="text-brand underline">Healthcare Hackathon MV</a>
-                  · Rostock · KI &amp; Daten (Versorgung · Forschung · Prävention)
+                <li class="event-row">
+                  <a href="https://www.healthcarehackathon-mv.de/" class="shrink-0" target="_blank" rel="noopener">
+                    <img src="assets/events/healthcare-hackathon-mv.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                  </a>
+                  <div>
+                    <span class="text-slate-100 font-medium">01.–02.03.2027</span> —
+                    <a href="https://www.healthcarehackathon-mv.de/" class="text-brand underline" target="_blank" rel="noopener">Healthcare Hackathon MV</a>
+                    · Rostock · KI &amp; Daten (Versorgung · Forschung · Prävention)
+                  </div>
                 </li>
-                <li><span class="text-slate-100 font-medium">Nächstes Meetup</span> — Datum &amp; Themen heute mitentscheiden (20:15)</li>
-                <li><span class="text-slate-100 font-medium">KI-Hackathon MV</span> — lokales Format · Inputs aus heute (DeveLUP)</li>
-                <li><span class="text-slate-100 font-medium">Hands-on-Session</span> — Thema/Wunsch? Heute sammeln</li>
-                <li><span class="text-brand">DeveLUP</span> — <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline">deve-lup.de/veranstaltungen</a></li>
+                <li class="event-row">
+                  <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="shrink-0" target="_blank" rel="noopener">
+                    <img src="assets/events/meetup-group.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                  </a>
+                  <div>
+                    <span class="text-slate-100 font-medium">Nächstes Meetup</span> — Datum &amp; Themen heute mitentscheiden (20:15)
+                  </div>
+                </li>
+                <li class="event-row">
+                  <a href="https://github.com/mmuller88/lulu-lupathon" class="shrink-0" target="_blank" rel="noopener">
+                    <img src="assets/events/lupathon.jpg" alt="LUPathon — Lupa" class="event-thumb" width="68" height="68" loading="lazy">
+                  </a>
+                  <div>
+                    <span class="text-slate-100 font-medium">KI-Hackathon MV</span> — <a href="https://lupathon.de" class="text-brand underline" target="_blank" rel="noopener">LUPathon</a> · lokales Format · Inputs aus heute (DeveLUP)
+                  </div>
+                </li>
+                <li class="event-row">
+                  <img src="assets/events/hands-on.jpg" alt="" class="event-thumb shrink-0" width="68" height="68" loading="lazy">
+                  <div>
+                    <span class="text-slate-100 font-medium">Hands-on-Session</span> — Thema/Wunsch? Heute sammeln
+                  </div>
+                </li>
+                <li class="event-row">
+                  <a href="https://deve-lup.de/veranstaltungen/" class="shrink-0" target="_blank" rel="noopener">
+                    <img src="assets/events/deve-lup.jpg" alt="" class="event-thumb" width="68" height="68" loading="lazy">
+                  </a>
+                  <div>
+                    <span class="text-brand font-medium">DeveLUP</span> — <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline" target="_blank" rel="noopener">deve-lup.de/veranstaltungen</a>
+                  </div>
+                </li>
               </ul>
             </div>
             <div>
