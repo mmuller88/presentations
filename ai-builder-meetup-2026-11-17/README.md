@@ -10,7 +10,7 @@ Intro-Deck (wie `ai-builder-intro`): Agenda, Hosts, Community, Speaker, WhatsApp
 
 ## Ablauf
 
-1. **Dieses Deck** — ~18:10 Einführung
+1. **Dieses Deck** — ~19:10 Einführung (Start 19:00)
 2. **ki-stammtisch-hanseatic-2026** — Talk 1 Hanseatic Hackathon
 
 ## Local preview
