@@ -10,6 +10,7 @@ Standalone HTML slide decks for conference talks.
 | AWS Community Day DACH 2026 (Berlin waitlist) | [`aws-community-day-dach-2026/`](aws-community-day-dach-2026/) | https://mmuller88.github.io/presentations/aws-community-day-dach-2026/ |
 | ServerlessDays Milan 2026 | [`milan-2026-ai-factory/`](milan-2026-ai-factory/) | https://mmuller88.github.io/presentations/milan-2026-ai-factory/ |
 | AI Builder Community Intro | [`ai-builder-intro/`](ai-builder-intro/) | https://mmuller88.github.io/presentations/ai-builder-intro/ |
+| KI Stammtisch Intro (17 Nov 2026) | [`ai-builder-meetup-2026-11-17/`](ai-builder-meetup-2026-11-17/) | https://mmuller88.github.io/presentations/ai-builder-meetup-2026-11-17/ |
 | KI Stammtisch (Talk) | [`ki-stammtisch/`](ki-stammtisch/) | https://mmuller88.github.io/presentations/ki-stammtisch/ |
 | AI Builder Meetup #3 — ChatGPT Ads (7 Oct 2026) | [`ai-builder-meetup-3-chatgpt-ads/`](ai-builder-meetup-3-chatgpt-ads/) | https://mmuller88.github.io/presentations/ai-builder-meetup-3-chatgpt-ads/ |
 | KI Stammtisch — Hanseatic Hackathon 2026 | [`ki-stammtisch-hanseatic-2026/`](ki-stammtisch-hanseatic-2026/) | https://mmuller88.github.io/presentations/ki-stammtisch-hanseatic-2026/ |

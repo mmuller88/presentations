@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KI Stammtisch 17.11.2026 — Community Intro</title>
+  <meta name="description" content="AI Builder Ludwigslust — Intro 17. Nov 2026 · DeveLUP hybrid · Agenda, Hosts, Talks">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#a78bfa', dark: '#8b5cf6' },
+            surface: { DEFAULT: '#0f172a', light: '#1e293b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      top: 0 !important;
+      text-align: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 100%;
+    }
+    .reveal .slides section .slide-inner {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      max-height: 100%;
+    }
+    .reveal .slides section .host-card {
+      padding: 0.75rem 1rem;
+    }
+    @media (max-height: 780px) {
+      .reveal .slides section .host-card {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .reveal .slides section .host-card .qr-code-host {
+        display: none;
+      }
+    }
+    .reveal h2 {
+      font-size: 0.95rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .reveal h3 {
+      font-size: 1.75rem !important;
+      line-height: 1.2 !important;
+      margin-bottom: 1rem !important;
+    }
+    .reveal p, .reveal li {
+      font-size: 1.1rem !important;
+      line-height: 1.45 !important;
+    }
+    .reveal .slides section .title-hero {
+      max-height: min(42vh, 320px);
+      max-width: min(88vw, 720px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .reveal .slides section .host-avatar {
+      width: 6.5rem;
+      height: 6.5rem;
+      object-fit: cover;
+    }
+    .reveal .slides section .qr-code {
+      width: 10rem;
+      height: 10rem;
+      min-width: 120px;
+      min-height: 120px;
+      background: #fff;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 2px solid #a78bfa;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+      display: block;
+    }
+    .reveal .slides section .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .reveal .slides section .qr-code-host {
+      width: 5.5rem;
+      height: 5.5rem;
+      min-width: 88px;
+      min-height: 88px;
+      background: #fff;
+      padding: 0.35rem;
+      border-radius: 0.5rem;
+      border: 2px solid #a78bfa;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+      display: block;
+    }
+    .reveal .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      width: 100%;
+    }
+    @media (min-width: 900px) and (min-height: 700px) {
+      .reveal .slides section {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+      }
+      .reveal h2 { font-size: 0.95rem !important; }
+      .reveal h3 { font-size: 1.65rem !important; }
+      .reveal p, .reveal li { font-size: 1.05rem !important; }
+      .reveal .card-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .reveal .slides section .host-avatar {
+        width: 5.5rem;
+        height: 5.5rem;
+      }
+      .reveal .slides section .qr-code {
+        width: 9rem;
+        height: 9rem;
+        min-width: 120px;
+        min-height: 120px;
+      }
+      .reveal .slides section .qr-code-host {
+        width: 4.5rem;
+        height: 4.5rem;
+        min-width: 72px;
+        min-height: 72px;
+      }
+    }
+    @media (max-height: 780px) {
+      .reveal h3 { font-size: 1.35rem !important; margin-bottom: 0.5rem !important; }
+      .reveal p, .reveal li { font-size: 0.9rem !important; }
+      .reveal .card-grid { grid-template-columns: 1fr !important; gap: 0.75rem; }
+      .reveal .slides section .title-hero {
+        max-height: min(32vh, 220px);
+      }
+      .reveal .slides section .qr-code {
+        width: 7rem;
+        height: 7rem;
+        min-width: 96px;
+        min-height: 96px;
+      }
+    }
+    @media (max-width: 768px) {
+      .reveal .slides section {
+        padding: 0.75rem 1rem 1.25rem;
+        font-size: 1rem;
+        text-align: left;
+      }
+      .reveal .slides section .text-center {
+        text-align: center;
+      }
+      .reveal h3 { font-size: 1.35rem !important; }
+      .reveal p, .reveal li { font-size: 0.95rem !important; }
+      .reveal .slides section .title-hero {
+        max-height: 48vh;
+        max-width: 100%;
+      }
+      .reveal .slides section .qr-code {
+        width: 7.5rem;
+        height: 7.5rem;
+        min-width: 100px;
+        min-height: 100px;
+      }
+      .reveal .slides section .host-avatar {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-surface text-slate-100 antialiased">
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="1-titel" data-id="1-titel">
+        <div class="slide-inner flex flex-col items-center justify-center gap-4 text-center">
+          <img
+            src="assets/title.jpg"
+            alt="AI Builder in Ludwigslust — KI-Stammtisch"
+            class="title-hero rounded-xl border border-slate-700 shadow-2xl"
+            loading="eager"
+          >
+          <p class="text-slate-400">KI Stammtisch · Di 17. Nov 2026 · DeveLUP · hybrid · #WdKI2026</p>
+          <p class="text-slate-500 text-sm md:text-base">
+            <a href="https://mmuller88.github.io/presentations/ai-builder-meetup-2026-11-17/" class="text-brand underline">Folien</a>
+            ·
+            <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/events/316958066/" class="text-brand underline">Meetup-Event</a>
+          </p>
+          <div class="qr-wrap mt-2">
+            <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="block">
+              <img src="assets/qr-meetup.png?v=2" alt="QR-Code: Meetup-Gruppe beitreten" class="qr-code" width="370" height="370">
+            </a>
+            <p class="text-slate-300 text-lg">📱 Scan → <span class="text-brand font-semibold">Meetup-Gruppe</span> beitreten</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Titelgrafik Community. Kurz Intro — danach Talk-Deck Hanseatic Hackathon.
+        </aside>
+      </section>
+
+      <section id="1a-agenda" data-id="1a-agenda">
+        <div class="slide-inner">
+          <h2 class="text-brand font-semibold uppercase tracking-widest">Heute Abend</h2>
+          <h3 class="font-bold">Agenda · heute · 17.11.2026</h3>
+          <ul class="space-y-2.5 text-slate-300 max-w-3xl mt-4">
+            <li><span class="text-slate-100 font-medium">18:00</span> — Meet &amp; Greet (vor Ort &amp; Zoom)</li>
+            <li><span class="text-slate-100 font-medium">18:10</span> — Einführung · Community &amp; Hosts <span class="text-brand">(dieses Deck)</span></li>
+            <li><span class="text-slate-100 font-medium">18:15</span> — Talks</li>
+            <li><span class="text-slate-100 font-medium">19:15</span> — Ausblick: Wie geht&apos;s weiter mit dem Meetup?</li>
+            <li><span class="text-slate-100 font-medium">19:30</span> — Networking, Pizza 🍕 &amp; Drinks 🍻</li>
+          </ul>
+          <p class="text-slate-400 mt-6 text-sm">
+            Hybrid: Zoom-Link auf
+            <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="text-brand underline">Meetup-Eventseite</a>
+            kurz vor Start.
+          </p>
+        </div>
+        <aside class="notes">
+          Agenda von Meetup-Eventseite. Zoom kurz vor Start auf Meetup — nicht vorlesen.
+        </aside>
+      </section>
+
+      <section id="1b-hosts" data-id="1b-hosts">
+        <div class="slide-inner">
+          <h2 class="text-brand font-semibold uppercase tracking-widest">Hosts</h2>
+          <h3 class="font-bold">Eure Ansprechpartner heute</h3>
+          <div class="card-grid">
+            <div class="host-card rounded-xl bg-surface-light border border-slate-700 flex gap-4 items-center">
+              <img src="assets/alexander-ertner.jpg" alt="Alexander Ertner" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
+              <div class="flex-1 min-w-0">
+                <p class="text-slate-100 font-semibold text-xl">Alexander Ertner</p>
+                <p class="text-brand text-sm uppercase tracking-wide mt-1 mb-2">Landkreis Ludwigslust-Parchim</p>
+                <ul class="space-y-1.5 text-slate-300">
+                  <li>Digitalisierungslotse · KI &amp; Digitalisierung praxisnah</li>
+                  <li>Für Unternehmen, Vereine &amp; Verwaltung</li>
+                  <li>Ko-Host · Ansprechpartner Meetup &amp; Community</li>
+                </ul>
+                <p class="mt-2">
+                  <a href="https://www.linkedin.com/in/alexander-ertner-37a29559" class="text-brand underline text-base">linkedin.com/in/alexander-ertner-37a29559</a>
+                </p>
+              </div>
+              <a href="https://www.linkedin.com/in/alexander-ertner-37a29559" class="shrink-0 text-center">
+                <img src="assets/qr-linkedin-alexander.png?v=1" alt="QR-Code: Alexander Ertner auf LinkedIn" class="qr-code-host" width="370" height="370">
+                <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
+              </a>
+            </div>
+            <div class="host-card rounded-xl bg-surface-light border border-slate-700 flex gap-4 items-center">
+              <img src="assets/martin-mueller.jpg" alt="Martin Müller" class="host-avatar rounded-full border-2 border-brand shrink-0" loading="lazy">
+              <div class="flex-1 min-w-0">
+                <p class="text-slate-100 font-semibold text-xl">Martin Müller</p>
+                <p class="text-brand text-sm uppercase tracking-wide mt-1 mb-2">Freelancer · KI &amp; Cloud</p>
+                <ul class="space-y-1.5 text-slate-300">
+                  <li>Softwareentwickler &amp; KI-Agent-Builder</li>
+                  <li>AWS Community Builder · martinmueller.dev</li>
+                  <li>Host · Talk 1: Hanseatic Hackathon Lübeck (Erfahrungsbericht)</li>
+                </ul>
+                <p class="mt-2">
+                  <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline text-base">linkedin.com/in/martinmueller88</a>
+                </p>
+              </div>
+              <a href="https://www.linkedin.com/in/martinmueller88" class="shrink-0 text-center">
+                <img src="assets/qr-linkedin-martin.png?v=1" alt="QR-Code: Martin Müller auf LinkedIn" class="qr-code-host" width="370" height="370">
+                <span class="text-slate-400 text-xs mt-1 block">LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          <div class="mt-5 rounded-xl bg-surface-light/80 border border-slate-600 p-4 text-center text-slate-300">
+            <p class="text-brand font-semibold text-lg mb-1">Danke an DeveLUP Zukunftszentrum</p>
+            <p>Für die Location heute — EU-gefördert, kostenfreie Räumlichkeiten · Garnisonsstraße 7</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Kurz vorstellen: Alex Digitalisierungslotse Landkreis, dann Martin Freelancer/Builder. DeveLUP Dank aussprechen.
+        </aside>
+      </section>
+
+      <section id="1c-stammtisch" data-id="1c-stammtisch">
+        <div class="slide-inner">
+          <h2 class="text-brand font-semibold uppercase tracking-widest">Community</h2>
+          <h3 class="font-bold">AI Builder in Lulu — unser KI-Stammtisch</h3>
+          <p class="text-slate-400 mb-5">Über <span class="text-brand font-medium">60 Mitglieder</span> · Builder, Einsteiger &amp; Neugierige · Ludwigslust &amp; Umgebung</p>
+          <div class="card-grid">
+            <div class="rounded-xl bg-surface-light p-5 border border-slate-700">
+              <p class="text-brand font-semibold text-lg mb-3">Was wir machen</p>
+              <ul class="space-y-2 text-slate-300">
+                <li>Regelmäßige <span class="text-brand">AI Builder Meetups</span> &amp; KI-Stammtisch</li>
+                <li>Talks, Diskussion, Networking — hybrid</li>
+                <li>KI, Automatisierung, Agents im Alltag</li>
+                <li>Location: <span class="text-brand">DeveLUP</span> — Danke für die Unterstützung!</li>
+              </ul>
+            </div>
+            <div class="rounded-xl bg-surface-light p-5 border border-slate-700">
+              <p class="text-brand font-semibold text-lg mb-3">Heute Abend</p>
+              <ul class="space-y-2 text-slate-300">
+                <li>📍 Garnisonsstraße 7 · ab 18:00 · hybrid</li>
+                <li>19:30 Pizza 🍕 &amp; Drinks 🍻</li>
+                <li><a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/events/316958066/" class="text-brand underline">Meetup 17.11.</a></li>
+                <li>Talk-Deck Martin:
+                  <a href="https://mmuller88.github.io/presentations/ki-stammtisch-hanseatic-2026/" class="text-brand underline">Hanseatic Hackathon</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Kurz: Community-Format. Hybrid heute — Meetup-Gruppe wächst weiter.
+        </aside>
+      </section>
+
+      <section id="1d-speakers" data-id="1d-speakers">
+        <div class="slide-inner">
+          <h2 class="text-brand font-semibold uppercase tracking-widest">Speaker heute</h2>
+          <h3 class="font-bold">Ab 18:15 · ~30 Min pro Talk</h3>
+          <div class="card-grid">
+            <div class="rounded-xl bg-surface-light p-5 border border-brand/40 border-2">
+              <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-2">Talk 1</p>
+              <p class="text-slate-100 font-semibold text-xl mb-1">Martin Müller</p>
+              <p class="text-brand text-sm uppercase tracking-wide mb-3">Freelancer · KI &amp; Cloud</p>
+              <p class="text-slate-100 font-medium mb-2">Hanseatic Hackathon Lübeck — Erfahrungsbericht</p>
+              <p class="text-slate-400 text-sm mb-3">48h, echte KMU-Cases, Team Hanse · TH myLab · ~15–20 Min</p>
+              <ul class="space-y-1.5 text-slate-300">
+                <li>13./14.11. Bauforum TH Lübeck · Validation Engine (Stadtwerke)</li>
+                <li>Learnings fürs MV-Hackathon-Format · Jury-Fairness-Diskussion</li>
+              </ul>
+              <p class="mt-2 text-sm">
+                <a href="https://mmuller88.github.io/presentations/ki-stammtisch-hanseatic-2026/" class="text-brand underline">Folien Hackathon-Talk</a>
+              </p>
+              <p class="mt-3">
+                <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline text-base">linkedin.com/in/martinmueller88</a>
+              </p>
+            </div>
+            <div class="rounded-xl bg-surface-light p-5 border border-slate-700">
+              <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-2">Talk 2 · TBD</p>
+              <p class="text-slate-100 font-semibold text-xl mb-1">Noch offen</p>
+              <p class="text-slate-400 text-sm mb-3">Slot frei — oder wir nutzen die Zeit für Diskussion &amp; Ausblick.</p>
+              <ul class="space-y-1.5 text-slate-300">
+                <li>Du willst nächstes Mal vorne stehen?</li>
+                <li>Melde dich bei Martin oder Alexander</li>
+                <li>Themen-Wünsche heute Abend einsammeln (19:15)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Martin Talk 1 Hanseatic. Talk 2 TBD. Nach Intro: ki-stammtisch-hanseatic-2026 Deck öffnen.
+        </aside>
+      </section>
+
+      <section id="1e-community" data-id="1e-community">
+        <div class="slide-inner">
+          <h2 class="text-brand font-semibold uppercase tracking-widest">Mitmachen</h2>
+          <h3 class="font-bold">WhatsApp · nächste Termine · Sponsoring</h3>
+          <div class="card-grid">
+            <div>
+              <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">🔮 Nächste Termine</p>
+              <ul class="space-y-2 text-slate-300">
+                <li>
+                  <span class="text-slate-100 font-medium">13.–14.11.2026</span> —
+                  <a href="https://hanse-innovation-campus.de/de/hanseatic-hackathon-2026-programm" class="text-brand underline">Hanseatic Hackathon</a> · war diese Woche in Lübeck ✅
+                </li>
+                <li><span class="text-slate-100 font-medium">Nächstes Meetup</span> — Datum &amp; Themen heute mitentscheiden (19:15)</li>
+                <li><span class="text-slate-100 font-medium">KI-Hackathon MV</span> — Ideen &amp; Cases aus dem Stammtisch (DeveLUP)</li>
+                <li><span class="text-brand">DeveLUP</span> — <a href="https://deve-lup.de/veranstaltungen/" class="text-brand underline">deve-lup.de/veranstaltungen</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-brand text-sm uppercase tracking-wide font-semibold mb-3">💬 Community</p>
+              <div class="flex gap-5 items-center mb-4 flex-wrap">
+                <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="shrink-0">
+                  <img src="assets/qr-whatsapp.png?v=2" alt="QR-Code: WhatsApp KI-Stammtisch" class="qr-code" width="370" height="370">
+                </a>
+                <div class="text-slate-300">
+                  <p class="text-brand font-semibold text-xl mb-1">WhatsApp KI-Stammtisch</p>
+                  <p class="text-slate-400 text-lg">📱 Scan zum Beitreten</p>
+                </div>
+              </div>
+              <ul class="space-y-2 text-slate-300">
+                <li><span class="text-brand">WhatsApp</span> — <a href="https://chat.whatsapp.com/FOPy1rMcfLrEYfQ2fAWjlI" class="text-brand underline">Link</a></li>
+                <li><span class="text-brand">Meetup</span> — <a href="https://www.meetup.com/ai-builder-in-lulu-und-umgebung/" class="text-brand underline">ai-builder-in-lulu-und-umgebung</a></li>
+                <li><span class="text-brand">Speaker?</span> — <a href="https://www.linkedin.com/in/martinmueller88" class="text-brand underline">Martin auf LinkedIn</a></li>
+                <li><span class="text-brand">Sponsoring?</span> — Pizza, Drinks, Tech-Partner · Martin oder Alexander Ertner</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          WhatsApp QR. Nächsten Termin sammeln (19:15). DeveLUP-Kalender erwähnen.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    function revealConfig() {
+      const mobile = window.innerWidth < 768;
+      return {
+        hash: true,
+        slideNumber: 'c/t',
+        width: mobile ? 390 : 1280,
+        height: mobile ? 700 : 720,
+        margin: mobile ? 0.02 : 0.06,
+        minScale: 0.15,
+        maxScale: mobile ? 1.15 : 1,
+        center: !mobile,
+        transition: 'none',
+        touch: true,
+        plugins: [ RevealNotes ]
+      };
+    }
+
+    Reveal.initialize(revealConfig()).then(() => {
+      Reveal.layout();
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const mobile = window.innerWidth < 768;
+        const wasMobile = Reveal.getConfig().width < 500;
+        if (mobile !== wasMobile) {
+          location.reload();
+          return;
+        }
+        Reveal.layout();
+      }, 200);
+    });
+  </script>
+</body>
+</html>
